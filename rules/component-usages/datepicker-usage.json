@@ -1,0 +1,182 @@
+{
+  "component_name": "DatePicker",
+  "component_description": "A DatePicker shows a monthly calendar and allows the user to choose a single date.",
+  "props": {
+    "autoComplete": {
+      "name": "autoComplete",
+      "type": "string",
+      "required": false,
+      "description": "Specify the [automated assistance](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) in filling out form field values by the browser."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "disabled": {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the picker is disabled."
+    },
+    "format": {
+      "name": "format",
+      "type": "string",
+      "required": false,
+      "description": "Date format. Following date-fns's format (https://date-fns.org/v2.16.1/docs/format). Default value will change based on current locale, if no locale is set, use en-AU locale's date format 'dd/MM/yyyy'."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "invalid": {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is invalid."
+    },
+    "maxDate": {
+      "name": "maxDate",
+      "type": "Date",
+      "required": false,
+      "description": "The latest date user can select."
+    },
+    "minDate": {
+      "name": "minDate",
+      "type": "Date",
+      "required": false,
+      "description": "The earliest date user can select."
+    },
+    "name": {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Name of <input> element, is used to refer to the form data for submission."
+    },
+    "onBlur": {
+      "name": "onBlur",
+      "type": "(e: FocusEvent) => void",
+      "required": false,
+      "description": "Blur event handler."
+    },
+    "onChange": {
+      "name": "onChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "onChange event handler."
+    },
+    "placeholder": {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "description": "Placeholder text in the absence of any value."
+    },
+    "prefix": {
+      "name": "prefix",
+      "type": "\"number\" | \"warning\" | \"bold\" | \"cancel\" | \"remove\" | \"menu\" | \"table\" | \"image\" | \"switch\" | \"target\" | \"restart\" | \"list\" | \"loading\" | \"file\" | \"directory\" | \"document\" | \"feed\" | \"location\" | \"move\" | \"activate\" | \"add-emoji\" | \"add-person\" | \"adjustment\" | \"alignment\" | \"archive\" | \"backward-arrow\" | \"bank\" | \"bell\" | \"billing\" | \"bookmark\" | \"box-check\" | \"box\" | \"buildings\" | \"cake\" | \"calendar-clock\" | \"calendar\" | \"candy-box-menu\" | \"carat-down-small\" | \"carat-down\" | \"carat-left\" | \"carat-right\" | \"carat-up-small\" | \"carat-up\" | \"circle-add\" | \"circle-cancel\" | \"circle-check\" | \"circle-down\" | \"circle-info\" | \"circle-left\" | \"circle-ok\" | \"circle-pencil\" | \"circle-question\" | \"circle-remove\" | \"circle-right\" | \"circle-up\" | \"circle-warning\" | \"clock-3\" | \"clock\" | \"cloud-download\" | \"cloud-upload\" | \"cog\" | \"coin\" | \"contacts\" | \"corner-resize\" | \"credit-card\" | \"diamond\" | \"direction-arrows\" | \"dollar-coin-shine\" | \"dot-filled\" | \"double-buildings\" | \"edit-template\" | \"envelope\" | \"expense\" | \"eye-circle\" | \"eye-invisible\" | \"eye\" | \"face-meh\" | \"face-sad\" | \"face-smiley\" | \"feedbacks\" | \"file-certified\" | \"file-clone\" | \"file-copy\" | \"file-csv\" | \"file-dispose\" | \"file-doc\" | \"file-excel\" | \"file-export\" | \"file-lock\" | \"file-pdf\" | \"file-powerpoint\" | \"file-search\" | \"file-secured\" | \"file-sheets\" | \"file-slide\" | \"file-verified\" | \"file-word\" | \"flask\" | \"folder-user\" | \"folder\" | \"format-bold\" | \"format-heading1\" | \"format-heading2\" | \"format-italic\" | \"format-list-bulleted\" | \"format-list-numbered\" | \"format-underlined\" | \"forward-arrow\" | \"funnel-filter\" | \"gauge\" | \"global-dollar\" | \"globe\" | \"graduation-cap\" | \"graph\" | \"happy-sun\" | \"health-bag\" | \"heart\" | \"home\" | \"import\" | \"incident-siren\" | \"instapay\" | \"loading-2\" | \"lock\" | \"looks-one\" | \"looks-two\" | \"mandatory\" | \"media-content\" | \"moneybag\" | \"moon\" | \"multiple-stars\" | \"multiple-users\" | \"node\" | \"open-folder\" | \"paperclip\" | \"payment-summary\" | \"pencil\" | \"phone\" | \"piggy-bank\" | \"pin\" | \"plane\" | \"play-circle\" | \"print\" | \"raising-hands\" | \"rectangle-mandatory\" | \"reply-arrow\" | \"reply\" | \"reschedule\" | \"rostering\" | \"save\" | \"schedule-send\" | \"schedule\" | \"search-person\" | \"send\" | \"speaker\" | \"star-award\" | \"star-badge\" | \"star-medal\" | \"star\" | \"steps-circle\" | \"stopwatch\" | \"suitcase\" | \"survey\" | \"swag\" | \"tag\" | \"teams\" | \"thumb-down\" | \"thumb-up\" | \"timesheet\" | \"touch-id\" | \"trash-bin\" | \"unlock\" | \"user\" | \"video-1\" | \"video-2\" | \"wrench\" | \"academic-hat-outlined\" | \"activate-outlined\" | \"add-person-outlined\" | \"add-section-outlined\" | \"add-time-outlined\" | \"add\" | \"adjustment-outlined\" | \"afternoon-outlined\" | \"alignment-2-outlined\" | \"alignment-outlined\" | \"all-caps\" | \"arrow-down\" | \"arrow-left\" | \"arrow-right\" | \"arrow-up\" | \"at-sign\" | \"bell-outlined\" | \"billing-outlined\" | \"billing-pound-outlined\" | \"body-outlined\" | \"bookmark-outlined\" | \"box-check-outlined\" | \"box-outlined\" | \"briefcase-clock-outlined\" | \"briefcase-search-outlined\" | \"bullet-points\" | \"cake-outlined\" | \"calendar-dates-outlined\" | \"calendar-star-outlined\" | \"camera-outlined\" | \"chat-outlined\" | \"checkmark\" | \"circle-add-outlined\" | \"circle-cancel-outlined\" | \"circle-down-outlined\" | \"circle-info-outlined\" | \"circle-left-outlined\" | \"circle-ok-outlined\" | \"circle-question-outlined\" | \"circle-remove-outlined\" | \"circle-right-outlined\" | \"circle-up-outlined\" | \"circle-warning-outlined\" | \"clipboard-check-outlined\" | \"clipboard-text-outlined\" | \"clock-2-outlined\" | \"clock-outlined\" | \"cog-outlined\" | \"coin-outlined\" | \"coin-pound-outlined\" | \"coin-stack-outlined\" | \"collapse-outlined\" | \"comment-outlined\" | \"contacts-outlined\" | \"content-copy-outlined\" | \"copy-outlined\" | \"credit-card-outlined\" | \"cup-outlined\" | \"cut-outlined\" | \"desktop-computer-outlined\" | \"diagram-outlined\" | \"diamond-outlined\" | \"direction-arrows-outlined\" | \"directory-outlined\" | \"document-outlined\" | \"dollar-coin-shine-outlined\" | \"dollar-sign\" | \"donut-chart-outlined\" | \"double-buildings-outlined\" | \"double-left-arrows\" | \"double-right-arrows\" | \"download-outlined\" | \"edit-template-outlined\" | \"edit-user-outlined\" | \"email-outlined\" | \"enter-arrow\" | \"envelope-outlined\" | \"evening-outlined\" | \"expand-outlined\" | \"expense-outlined\" | \"external-link\" | \"eye-invisible-outlined\" | \"eye-outlined\" | \"face-id\" | \"face-meh-outlined\" | \"face-open-smiley-outlined\" | \"face-sad-outlined\" | \"face-smiley-outlined\" | \"feed-outlined\" | \"feedbacks-outlined\" | \"file-certified-outlined\" | \"file-clone-outlined\" | \"file-copy-outlined\" | \"file-dispose-outlined\" | \"file-download-outlined\" | \"file-export-outlined\" | \"file-lock-outlined\" | \"file-outlined\" | \"file-search-outlined\" | \"file-secured-outlined\" | \"file-text-outlined\" | \"file-verified-outlined\" | \"filter-outlined\" | \"fire-outlined\" | \"flag-outlined\" | \"folder-outlined\" | \"folder-user-outlined\" | \"funnel-filter-outline\" | \"gauge-outlined\" | \"gift-outlined\" | \"graph-outlined\" | \"happy-sun-outlined\" | \"health-bag-outlined\" | \"heart-outlined\" | \"home-outlined\" | \"image-outlined\" | \"import-outlined\" | \"instapay-outlined\" | \"italic\" | \"link-1\" | \"link-2\" | \"list-outlined\" | \"location-outlined\" | \"lock-outlined\" | \"locked-file-outlined\" | \"log-out\" | \"magic-outlined\" | \"media-content-outlined\" | \"menu-close\" | \"menu-expand\" | \"menu-fold-outlined\" | \"menu-unfold-outlined\" | \"mobile-phone-1-outlined\" | \"moneybag-outlined\" | \"moneybag-pound-outlined\" | \"moon-outlined\" | \"more-horizontal\" | \"more-vertical\" | \"morning-outlined\" | \"multiple-folders-outlined\" | \"multiple-users-outlined\" | \"node-outlined\" | \"number-points\" | \"passport-outlined\" | \"payment-summary-outlined\" | \"payslip-outlined\" | \"pencil-outlined\" | \"percentage\" | \"phone-outlined\" | \"piggy-bank-outlined\" | \"pin-outlined\" | \"plane-outlined\" | \"play-circle-outlined\" | \"pound-sign\" | \"print-outlined\" | \"qr-code-outlined\" | \"re-assign\" | \"redeem\" | \"refresh\" | \"reply-outlined\" | \"return-arrow\" | \"ringgit-sign\" | \"rocket-outlined\" | \"rostering-outlined\" | \"save-outlined\" | \"schedule-outlined\" | \"search-outlined\" | \"send-outlined\" | \"share-1\" | \"share-2\" | \"shield-check-outlined\" | \"single-down-arrow\" | \"single-left-arrow\" | \"single-right-arrow\" | \"single-up-arrow\" | \"sparkle-2-outlined\" | \"sparkle-outlined\" | \"speaker-outlined\" | \"speed-outlined\" | \"star-outlined\" | \"stopwatch-outlined\" | \"strikethrough\" | \"suitcase-outlined\" | \"survey-outlined\" | \"switch-outlined\" | \"sync\" | \"tablet-outlined\" | \"target-outlined\" | \"thumb-up-outlined\" | \"timesheet-outlined\" | \"transfer\" | \"trash-bin-outlined\" | \"trash-outlined\" | \"unavailable\" | \"underline\" | \"unlinked\" | \"unlock-outlined\" | \"upload-outlined\" | \"user-add-outlined\" | \"user-circle-outlined\" | \"user-move-outlined\" | \"user-out-outlined\" | \"user-outlined\" | \"user-rectangle-outlined\" | \"user-remove-outlined\" | \"user-warning-outlined\" | \"video-1-outlined\" | \"video-2-outlined\" | \"wallet-outlined\" | \"wrench-outlined\" | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Name of Icon or an Icon element to render on the left side of the input, before the user's cursor."
+    },
+    "readonly": {
+      "name": "readonly",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether or not Input's value is read only."
+    },
+    "size": {
+      "name": "size",
+      "type": "\"small\" | \"medium\" | \"large\"",
+      "required": false,
+      "description": "The size of the input box."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "suffix": {
+      "name": "suffix",
+      "type": "\"number\" | \"warning\" | \"bold\" | \"cancel\" | \"remove\" | \"menu\" | \"table\" | \"image\" | \"switch\" | \"target\" | \"restart\" | \"list\" | \"loading\" | \"file\" | \"directory\" | \"document\" | \"feed\" | \"location\" | \"move\" | \"activate\" | \"add-emoji\" | \"add-person\" | \"adjustment\" | \"alignment\" | \"archive\" | \"backward-arrow\" | \"bank\" | \"bell\" | \"billing\" | \"bookmark\" | \"box-check\" | \"box\" | \"buildings\" | \"cake\" | \"calendar-clock\" | \"calendar\" | \"candy-box-menu\" | \"carat-down-small\" | \"carat-down\" | \"carat-left\" | \"carat-right\" | \"carat-up-small\" | \"carat-up\" | \"circle-add\" | \"circle-cancel\" | \"circle-check\" | \"circle-down\" | \"circle-info\" | \"circle-left\" | \"circle-ok\" | \"circle-pencil\" | \"circle-question\" | \"circle-remove\" | \"circle-right\" | \"circle-up\" | \"circle-warning\" | \"clock-3\" | \"clock\" | \"cloud-download\" | \"cloud-upload\" | \"cog\" | \"coin\" | \"contacts\" | \"corner-resize\" | \"credit-card\" | \"diamond\" | \"direction-arrows\" | \"dollar-coin-shine\" | \"dot-filled\" | \"double-buildings\" | \"edit-template\" | \"envelope\" | \"expense\" | \"eye-circle\" | \"eye-invisible\" | \"eye\" | \"face-meh\" | \"face-sad\" | \"face-smiley\" | \"feedbacks\" | \"file-certified\" | \"file-clone\" | \"file-copy\" | \"file-csv\" | \"file-dispose\" | \"file-doc\" | \"file-excel\" | \"file-export\" | \"file-lock\" | \"file-pdf\" | \"file-powerpoint\" | \"file-search\" | \"file-secured\" | \"file-sheets\" | \"file-slide\" | \"file-verified\" | \"file-word\" | \"flask\" | \"folder-user\" | \"folder\" | \"format-bold\" | \"format-heading1\" | \"format-heading2\" | \"format-italic\" | \"format-list-bulleted\" | \"format-list-numbered\" | \"format-underlined\" | \"forward-arrow\" | \"funnel-filter\" | \"gauge\" | \"global-dollar\" | \"globe\" | \"graduation-cap\" | \"graph\" | \"happy-sun\" | \"health-bag\" | \"heart\" | \"home\" | \"import\" | \"incident-siren\" | \"instapay\" | \"loading-2\" | \"lock\" | \"looks-one\" | \"looks-two\" | \"mandatory\" | \"media-content\" | \"moneybag\" | \"moon\" | \"multiple-stars\" | \"multiple-users\" | \"node\" | \"open-folder\" | \"paperclip\" | \"payment-summary\" | \"pencil\" | \"phone\" | \"piggy-bank\" | \"pin\" | \"plane\" | \"play-circle\" | \"print\" | \"raising-hands\" | \"rectangle-mandatory\" | \"reply-arrow\" | \"reply\" | \"reschedule\" | \"rostering\" | \"save\" | \"schedule-send\" | \"schedule\" | \"search-person\" | \"send\" | \"speaker\" | \"star-award\" | \"star-badge\" | \"star-medal\" | \"star\" | \"steps-circle\" | \"stopwatch\" | \"suitcase\" | \"survey\" | \"swag\" | \"tag\" | \"teams\" | \"thumb-down\" | \"thumb-up\" | \"timesheet\" | \"touch-id\" | \"trash-bin\" | \"unlock\" | \"user\" | \"video-1\" | \"video-2\" | \"wrench\" | \"academic-hat-outlined\" | \"activate-outlined\" | \"add-person-outlined\" | \"add-section-outlined\" | \"add-time-outlined\" | \"add\" | \"adjustment-outlined\" | \"afternoon-outlined\" | \"alignment-2-outlined\" | \"alignment-outlined\" | \"all-caps\" | \"arrow-down\" | \"arrow-left\" | \"arrow-right\" | \"arrow-up\" | \"at-sign\" | \"bell-outlined\" | \"billing-outlined\" | \"billing-pound-outlined\" | \"body-outlined\" | \"bookmark-outlined\" | \"box-check-outlined\" | \"box-outlined\" | \"briefcase-clock-outlined\" | \"briefcase-search-outlined\" | \"bullet-points\" | \"cake-outlined\" | \"calendar-dates-outlined\" | \"calendar-star-outlined\" | \"camera-outlined\" | \"chat-outlined\" | \"checkmark\" | \"circle-add-outlined\" | \"circle-cancel-outlined\" | \"circle-down-outlined\" | \"circle-info-outlined\" | \"circle-left-outlined\" | \"circle-ok-outlined\" | \"circle-question-outlined\" | \"circle-remove-outlined\" | \"circle-right-outlined\" | \"circle-up-outlined\" | \"circle-warning-outlined\" | \"clipboard-check-outlined\" | \"clipboard-text-outlined\" | \"clock-2-outlined\" | \"clock-outlined\" | \"cog-outlined\" | \"coin-outlined\" | \"coin-pound-outlined\" | \"coin-stack-outlined\" | \"collapse-outlined\" | \"comment-outlined\" | \"contacts-outlined\" | \"content-copy-outlined\" | \"copy-outlined\" | \"credit-card-outlined\" | \"cup-outlined\" | \"cut-outlined\" | \"desktop-computer-outlined\" | \"diagram-outlined\" | \"diamond-outlined\" | \"direction-arrows-outlined\" | \"directory-outlined\" | \"document-outlined\" | \"dollar-coin-shine-outlined\" | \"dollar-sign\" | \"donut-chart-outlined\" | \"double-buildings-outlined\" | \"double-left-arrows\" | \"double-right-arrows\" | \"download-outlined\" | \"edit-template-outlined\" | \"edit-user-outlined\" | \"email-outlined\" | \"enter-arrow\" | \"envelope-outlined\" | \"evening-outlined\" | \"expand-outlined\" | \"expense-outlined\" | \"external-link\" | \"eye-invisible-outlined\" | \"eye-outlined\" | \"face-id\" | \"face-meh-outlined\" | \"face-open-smiley-outlined\" | \"face-sad-outlined\" | \"face-smiley-outlined\" | \"feed-outlined\" | \"feedbacks-outlined\" | \"file-certified-outlined\" | \"file-clone-outlined\" | \"file-copy-outlined\" | \"file-dispose-outlined\" | \"file-download-outlined\" | \"file-export-outlined\" | \"file-lock-outlined\" | \"file-outlined\" | \"file-search-outlined\" | \"file-secured-outlined\" | \"file-text-outlined\" | \"file-verified-outlined\" | \"filter-outlined\" | \"fire-outlined\" | \"flag-outlined\" | \"folder-outlined\" | \"folder-user-outlined\" | \"funnel-filter-outline\" | \"gauge-outlined\" | \"gift-outlined\" | \"graph-outlined\" | \"happy-sun-outlined\" | \"health-bag-outlined\" | \"heart-outlined\" | \"home-outlined\" | \"image-outlined\" | \"import-outlined\" | \"instapay-outlined\" | \"italic\" | \"link-1\" | \"link-2\" | \"list-outlined\" | \"location-outlined\" | \"lock-outlined\" | \"locked-file-outlined\" | \"log-out\" | \"magic-outlined\" | \"media-content-outlined\" | \"menu-close\" | \"menu-expand\" | \"menu-fold-outlined\" | \"menu-unfold-outlined\" | \"mobile-phone-1-outlined\" | \"moneybag-outlined\" | \"moneybag-pound-outlined\" | \"moon-outlined\" | \"more-horizontal\" | \"more-vertical\" | \"morning-outlined\" | \"multiple-folders-outlined\" | \"multiple-users-outlined\" | \"node-outlined\" | \"number-points\" | \"passport-outlined\" | \"payment-summary-outlined\" | \"payslip-outlined\" | \"pencil-outlined\" | \"percentage\" | \"phone-outlined\" | \"piggy-bank-outlined\" | \"pin-outlined\" | \"plane-outlined\" | \"play-circle-outlined\" | \"pound-sign\" | \"print-outlined\" | \"qr-code-outlined\" | \"re-assign\" | \"redeem\" | \"refresh\" | \"reply-outlined\" | \"return-arrow\" | \"ringgit-sign\" | \"rocket-outlined\" | \"rostering-outlined\" | \"save-outlined\" | \"schedule-outlined\" | \"search-outlined\" | \"send-outlined\" | \"share-1\" | \"share-2\" | \"shield-check-outlined\" | \"single-down-arrow\" | \"single-left-arrow\" | \"single-right-arrow\" | \"single-up-arrow\" | \"sparkle-2-outlined\" | \"sparkle-outlined\" | \"speaker-outlined\" | \"speed-outlined\" | \"star-outlined\" | \"stopwatch-outlined\" | \"strikethrough\" | \"suitcase-outlined\" | \"survey-outlined\" | \"switch-outlined\" | \"sync\" | \"tablet-outlined\" | \"target-outlined\" | \"thumb-up-outlined\" | \"timesheet-outlined\" | \"transfer\" | \"trash-bin-outlined\" | \"trash-outlined\" | \"unavailable\" | \"underline\" | \"unlinked\" | \"unlock-outlined\" | \"upload-outlined\" | \"user-add-outlined\" | \"user-circle-outlined\" | \"user-move-outlined\" | \"user-out-outlined\" | \"user-outlined\" | \"user-rectangle-outlined\" | \"user-remove-outlined\" | \"user-warning-outlined\" | \"video-1-outlined\" | \"video-2-outlined\" | \"wallet-outlined\" | \"wrench-outlined\" | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Name of Icon or an Icon element to render on the right side of the input. Default is 'calendar'."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "value": {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Current selected date which must be in correct format. If value is invalid, it will be skipped."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Simple usage of DatePicker.\n```jsx live\nfunction BasicDatePicker() {\n  const [value, setValue] = React.useState('19/02/2021');\n  return (\n    <DatePicker\n      value={value}\n      onChange={(newValue) => setValue(newValue)}\n      id=\"basic-date-picker\"\n    />\n  );\n}\n```",
+      "code": "function BasicDatePicker() {\n  const [value, setValue] = React.useState('19/02/2021');\n  return (\n    <DatePicker\n      value={value}\n      onChange={(newValue) => setValue(newValue)}\n      id=\"basic-date-picker\"\n    />\n  );\n}",
+      "purpose_description": "This example demonstrates a basic implementation of a DatePicker component in a React application. It showcases how to use the DatePicker to allow users to select a date, with the selected date being managed via React state.",
+      "technical_description": "The component utilizes React's useState hook to manage the state of the selected date. Initially, the date is set to '19/02/2021'. The DatePicker component is rendered with three props: 'value', 'onChange', and 'id'. The 'value' prop is bound to the component's state, ensuring that the DatePicker displays the current selected date. The 'onChange' prop is a callback function that updates the state with the new date whenever the user selects a different date. The 'id' prop is used to uniquely identify the DatePicker component in the DOM.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the component's state is managed externally via React's useState hook. It also shows the use of callback functions to handle state updates, a common pattern in React for managing form inputs and other interactive components.",
+      "use_cases_description": "This basic DatePicker implementation is suitable for scenarios where a simple date selection interface is needed, such as in forms for booking systems, event scheduling, or any application requiring date input from users. It provides a straightforward way to integrate date selection functionality with minimal configuration."
+    },
+    {
+      "example_name": "DatePicker.Range",
+      "example_description": "Be used to select a date range instead of a single date.\n```jsx live\nfunction DatePickerRange() {\n  const [value, setValue] = React.useState({\n    startDate: '03/02/2021',\n    endDate: '03/03/2021',\n  });\n  const ids = {\n    startDate: 'date-range-start',\n    endDate: 'date-range-end',\n  };\n  return (\n    <DatePicker.Range\n      value={value}\n      onChange={({ startDate, endDate }) => setValue({ startDate, endDate })}\n      id={ids}\n    />\n  );\n}\n```",
+      "code": "function DatePickerRange() {\n  const [value, setValue] = React.useState({\n    startDate: '03/02/2021',\n    endDate: '03/03/2021',\n  });\n  const ids = {\n    startDate: 'date-range-start',\n    endDate: 'date-range-end',\n  };\n  return (\n    <DatePicker.Range\n      value={value}\n      onChange={({ startDate, endDate }) => setValue({ startDate, endDate })}\n      id={ids}\n    />\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to implement a date range picker using the DatePicker.Range component. This component allows users to select a start date and an end date, which is useful in scenarios where a range of dates is needed, such as booking systems, event planning, or reporting tools.",
+      "technical_description": "The example defines a functional React component named DatePickerRange. It utilizes the useState hook to manage the state of the selected date range, initializing it with a default start and end date. The state is an object with two properties: startDate and endDate. The component renders a DatePicker.Range component, passing the current value of the date range and an onChange handler. The onChange handler updates the state with the new start and end dates when the user selects a different range. Additionally, unique IDs are assigned to the start and end date inputs for accessibility purposes.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the component's state is managed via React's useState hook. The pattern of passing an onChange handler to update the state based on user input is a common React pattern for handling form elements. Additionally, the use of unique IDs for form elements is a best practice for accessibility, ensuring that each input can be uniquely identified and manipulated if necessary.",
+      "use_cases_description": "This DatePicker.Range example is particularly useful in applications where users need to specify a range of dates, such as travel booking platforms, project management tools, or any application that requires date range selection for filtering or reporting purposes. It provides a user-friendly interface for selecting a start and end date, making it easier for users to input date ranges accurately and efficiently."
+    },
+    {
+      "example_name": "DatePicker.MonthRange",
+      "example_description": "```jsx live\nfunction MonthRange() {\n  const [value, setValue] = React.useState({\n    startDate: '02/2021',\n    endDate: '06/2022',\n  });\n  const ids = {\n    startDate: 'month-range-start',\n    endDate: 'month-range-end',\n  };\n  return (\n    <DatePicker.MonthRange\n      value={value}\n      onChange={({ startDate, endDate }) => setValue({ startDate, endDate })}\n      id={ids}\n    />\n  );\n}\n```",
+      "code": "function MonthRange() {\n  const [value, setValue] = React.useState({\n    startDate: '02/2021',\n    endDate: '06/2022',\n  });\n  const ids = {\n    startDate: 'month-range-start',\n    endDate: 'month-range-end',\n  };\n  return (\n    <DatePicker.MonthRange\n      value={value}\n      onChange={({ startDate, endDate }) => setValue({ startDate, endDate })}\n      id={ids}\n    />\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to use the DatePicker.MonthRange component to select a range of months. It initializes with a predefined range and allows users to update the range, reflecting changes in the component's state.",
+      "technical_description": "This example defines a functional component called MonthRange. It uses the useState hook to manage the state of the selected month range, which includes a startDate and an endDate. The initial state is set to a range from February 2021 to June 2022. The component renders a DatePicker.MonthRange component, passing the current state as the value prop and a callback function to update the state on changes via the onChange prop. The id prop is used to assign unique identifiers to the start and end date inputs, facilitating accessibility and testing.",
+      "patterns_description": "This example demonstrates the use of the useState hook for managing component state in a functional component, a common pattern in modern React development. It also shows how to handle controlled components by passing state and a state-updating function to the component. The use of unique IDs for form elements is a best practice for accessibility and testing purposes.",
+      "use_cases_description": "This example is particularly useful in scenarios where a user needs to select a range of months, such as in financial applications for selecting fiscal periods, in booking systems for specifying reservation periods, or in any application where date range selection is required. The ability to handle changes dynamically makes it suitable for interactive applications that require real-time updates to the UI based on user input."
+    },
+    {
+      "example_name": "DatePicker.Fortnightly",
+      "example_description": "Be used to select a fortnightly instead of a single date.",
+      "code": "",
+      "purpose_description": "The DatePicker.Fortnightly component is designed to allow users to select a range of dates that spans two weeks, or a fortnight, rather than selecting a single date. This is particularly useful in scenarios where users need to plan or schedule events that occur over a two-week period.",
+      "technical_description": "The DatePicker.Fortnightly component likely extends or utilizes a base DatePicker component, adding functionality to handle the selection of a date range specifically spanning two weeks. It may involve custom logic to calculate the end date based on the selected start date, ensuring the range always covers exactly 14 days. The component might use state to manage the selected start and end dates, and could employ event handlers to update these dates as the user interacts with the UI. Additionally, it might render a calendar UI that highlights the selected fortnight range.",
+      "patterns_description": "The component likely demonstrates the use of controlled components in React, where the selected date range is managed via state and updated through props and event handlers. It may also showcase the use of higher-order components or composition if it extends a base DatePicker component. Additionally, it might use React's context API or hooks like useState and useEffect to manage state and side effects efficiently.",
+      "use_cases_description": "This component would be particularly useful in applications where scheduling or planning over a two-week period is common, such as booking vacation rentals, planning work sprints, or scheduling recurring events. It simplifies the user experience by automatically handling the date range selection, reducing the need for manual input and minimizing errors."
+    },
+    {
+      "example_name": "DatePicker.SingleMonth",
+      "example_description": "`DatePicker.SingleMonth` is simple select to choose the month in a year.\n```jsx live\nfunction SingleMonthExample() {\n  const [value, setValue] = React.useState();\n  return (\n    <DatePicker.SingleMonth\n      value={value}\n      onChange={setValue}\n      id=\"single-month-picker\"\n      placeholder=\"Single Month\"\n      minMonth={3}\n      maxMonth={9}\n    />\n  );\n}\n```",
+      "code": "function SingleMonthExample() {\n  const [value, setValue] = React.useState();\n  return (\n    <DatePicker.SingleMonth\n      value={value}\n      onChange={setValue}\n      id=\"single-month-picker\"\n      placeholder=\"Single Month\"\n      minMonth={3}\n      maxMonth={9}\n    />\n  );\n}",
+      "purpose_description": "The `DatePicker.SingleMonth` component is designed to allow users to select a single month within a specified range of months in a year. This component is particularly useful in scenarios where a user needs to choose a month for scheduling, filtering data, or setting up reminders.",
+      "technical_description": "The `SingleMonthExample` component utilizes React's `useState` hook to manage the state of the selected month. The `DatePicker.SingleMonth` component is rendered with several props: `value`, `onChange`, `id`, `placeholder`, `minMonth`, and `maxMonth`. The `value` prop is bound to the component's state, and the `onChange` prop is a callback function that updates the state when a new month is selected. The `minMonth` and `maxMonth` props restrict the selectable months to a range between March (3) and September (9). The `id` and `placeholder` props are used for accessibility and user interface purposes, respectively.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the component's state is managed by React's `useState` hook. The pattern of passing state and state-updating functions as props (`value` and `onChange`) is a common practice in React to create interactive and dynamic components. Additionally, the use of props to define constraints (`minMonth` and `maxMonth`) is a best practice for ensuring the component behaves as expected within specified limits.",
+      "use_cases_description": "This component is particularly useful in applications where users need to select a specific month within a defined range. Examples include booking systems where users select a month for reservations, financial applications where users filter reports by month, or any application requiring month-based input within a specific timeframe. The ability to limit the selectable months makes it ideal for scenarios where only certain months are relevant or valid for the user's task."
+    },
+    {
+      "example_name": "DatePicker.FixedRange",
+      "example_description": "`DatePicker.FixedRange` is used to custom select start day and auto select end day with range option.\n```jsx live\nfunction FixedRangeExample() {\n  const [value, setValue] = React.useState('04/02/2021');\n  return (\n    <DatePicker.FixedRange\n      value={value}\n      onChange={setValue}\n      range=\"3w\"\n      id=\"fixed-range-picker\"\n    />\n  );\n}\n```",
+      "code": "function FixedRangeExample() {\n  const [value, setValue] = React.useState('04/02/2021');\n  return (\n    <DatePicker.FixedRange\n      value={value}\n      onChange={setValue}\n      range=\"3w\"\n      id=\"fixed-range-picker\"\n    />\n  );\n}",
+      "purpose_description": "The `DatePicker.FixedRange` component is designed to allow users to select a start date, after which an end date is automatically calculated based on a predefined range. This example demonstrates how to use the component to select a date range of three weeks starting from a given date.",
+      "technical_description": "The `FixedRangeExample` component utilizes React's state management to handle the selected date value. It initializes the state with a default date of '04/02/2021'. The `DatePicker.FixedRange` component is then rendered with several props: `value`, `onChange`, `range`, and `id`. The `value` prop is bound to the component's state, ensuring that the displayed date reflects the current state. The `onChange` prop is a callback function that updates the state whenever the user selects a new start date. The `range` prop specifies the duration of the date range, in this case, '3w' for three weeks. The `id` prop provides a unique identifier for the component instance.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the component's state is managed by React's state management system. The `useState` hook is used to initialize and update the state. The component also showcases the use of prop-driven configuration, where the behavior of the component is controlled by props like `value`, `onChange`, and `range`. This pattern allows for flexible and reusable components.",
+      "use_cases_description": "This example is particularly useful in scenarios where a fixed date range selection is required, such as booking systems, project timelines, or any application where a start date and a fixed duration are needed. It simplifies the user experience by automatically calculating the end date, reducing the potential for user error in date selection."
+    }
+  ]
+}

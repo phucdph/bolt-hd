@@ -1,0 +1,104 @@
+{
+  "component_name": "Slider",
+  "component_description": "Slider is used for inputting a value in a range.",
+  "props": {
+    "alwaysShowTooltip": {
+      "name": "alwaysShowTooltip",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the slider's tooltip is always shown."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "customTooltipText": {
+      "name": "customTooltipText",
+      "type": "string",
+      "required": false,
+      "description": "Custom text for tooltip. If defined, it will replace the auto generated tooltip."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "disabled": {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the slider is disabled."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "max": {
+      "name": "max",
+      "type": "number",
+      "required": false,
+      "description": "Slider max value."
+    },
+    "min": {
+      "name": "min",
+      "type": "number",
+      "required": false,
+      "description": "Slider min value."
+    },
+    "onChange": {
+      "name": "onChange",
+      "type": "(value: number) => void",
+      "required": false,
+      "description": "onChange event handler."
+    },
+    "step": {
+      "name": "step",
+      "type": "number",
+      "required": false,
+      "description": "Slider step."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "value": {
+      "name": "value",
+      "type": "number",
+      "required": true,
+      "description": "Current slider's value."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Input a value from `40` to `140` with `4` interval.\n```jsx live\nfunction BasicSlider() {\n  const [value, onChange] = useState(52);\n  return (\n    <div style={{ padding: theme.space.large, margin: 0 }}>\n      <Slider min={40} max={140} step={4} value={value} onChange={onChange} />\n    </div>\n  );\n}\n```",
+      "code": "function BasicSlider() {\n  const [value, onChange] = useState(52);\n  return (\n    <div style={{ padding: theme.space.large, margin: 0 }}>\n      <Slider min={40} max={140} step={4} value={value} onChange={onChange} />\n    </div>\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate a basic implementation of a slider component in React that allows users to select a numerical value within a specified range. The slider is configured to allow selection of values between 40 and 140, with increments of 4, providing a simple and interactive way for users to input a value within these constraints.",
+      "technical_description": "The `BasicSlider` component utilizes React's `useState` hook to manage the state of the slider's value. Initially, the slider's value is set to 52. The component renders a `Slider` element, which is configured with `min`, `max`, and `step` props to define the range and interval of selectable values. The `value` prop is bound to the component's state, and the `onChange` prop is used to update the state whenever the slider's value changes. The component is wrapped in a `div` with inline styles for padding and margin, which are likely derived from a theme object.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the slider's value is controlled by the component's state. The use of the `useState` hook is a common pattern for managing state in functional components. Additionally, the component uses inline styles for layout, which is a straightforward approach for styling components in React.",
+      "use_cases_description": "This example is particularly useful in scenarios where a user needs to select a numerical value within a specific range, such as setting a threshold, adjusting a parameter, or selecting a quantity. The interval step allows for precise control over the selection, making it suitable for applications like form inputs, settings panels, or any interface requiring user input of numerical values within defined limits."
+    },
+    {
+      "example_name": "Custom tooltip",
+      "example_description": "The tooltip can be customised with a `string` by using prop `customTooltipText`.\n```jsx live\nfunction CustomTooltip() {\n  const [value, onChange] = useState(50);\n  return (\n    <div style={{ padding: theme.space.large, margin: 0 }}>\n      <Slider\n        min={0}\n        max={100}\n        step={2}\n        value={value}\n        onChange={onChange}\n        customTooltipText={\n          value < 50\n            ? 'Value is less than 50'\n            : 'Value is equal or greater than 50'\n        }\n        alwaysShowTooltip\n      />\n    </div>\n  );\n}\n```",
+      "code": "function CustomTooltip() {\n  const [value, onChange] = useState(50);\n  return (\n    <div style={{ padding: theme.space.large, margin: 0 }}>\n      <Slider\n        min={0}\n        max={100}\n        step={2}\n        value={value}\n        onChange={onChange}\n        customTooltipText={\n          value < 50\n            ? 'Value is less than 50'\n            : 'Value is equal or greater than 50'\n        }\n        alwaysShowTooltip\n      />\n    </div>\n  );\n}",
+      "purpose_description": "This example demonstrates how to customize the tooltip of a Slider component using a prop called `customTooltipText`. The tooltip displays a dynamic message based on the current value of the slider, providing immediate feedback to the user.",
+      "technical_description": "The component `CustomTooltip` is a functional React component utilizing the `useState` hook to manage the slider's value state. The slider is initialized with a value of 50. The `Slider` component is configured with a range from 0 to 100 and increments in steps of 2. The `customTooltipText` prop is used to dynamically set the tooltip text based on the slider's current value. If the value is less than 50, the tooltip displays 'Value is less than 50'; otherwise, it displays 'Value is equal or greater than 50'. The `alwaysShowTooltip` prop ensures that the tooltip is always visible, enhancing user interaction.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the component's state is used to manage the value of the slider. The use of `useState` for state management is a common pattern in functional components. Additionally, the example showcases conditional rendering within props to provide dynamic feedback to the user, a best practice for enhancing user experience.",
+      "use_cases_description": "This example is particularly useful in scenarios where immediate feedback is necessary based on user input, such as in settings panels, data visualization tools, or any interactive UI where understanding the current state is crucial. It can be applied in applications requiring precise control and feedback, like financial calculators, gaming settings, or educational tools."
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "component_name": "Input",
+  "component_description": "The `Input` component is used to get user input in a text field.",
+  "props": {
+    "autoComplete": {
+      "name": "autoComplete",
+      "type": "string",
+      "required": false,
+      "description": "Specify the [automated assistance](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) in filling out form field values by the browser."
+    },
+    "autoFocus": {
+      "name": "autoFocus",
+      "type": "boolean",
+      "required": false,
+      "description": "Specify the input element should automatically get focus when it is mounted."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "disabled": {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is disabled."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of <input> element."
+    },
+    "invalid": {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is invalid"
+    },
+    "name": {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Name of <input> element, is used to refer to the form data for submission."
+    },
+    "onBlur": {
+      "name": "onBlur",
+      "type": "(e: FocusEvent<HTMLInputElement>) => void",
+      "required": false,
+      "description": "Blur event handler."
+    },
+    "onChange": {
+      "name": "onChange",
+      "type": "(e: ChangeEvent<HTMLInputElement>) => void",
+      "required": false,
+      "description": "Change event handler. Use  `event.target.value`  for new value."
+    },
+    "onClick": {
+      "name": "onClick",
+      "type": "(e: MouseEvent<HTMLInputElement>) => void",
+      "required": false,
+      "description": "Click event handler."
+    },
+    "onFocus": {
+      "name": "onFocus",
+      "type": "(e: FocusEvent<HTMLInputElement>) => void",
+      "required": false,
+      "description": "Focus event handler."
+    },
+    "placeholder": {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "description": "Placeholder text in the absence of any value."
+    },
+    "prefix": {
+      "name": "prefix",
+      "type": "\"number\" | \"warning\" | \"bold\" | \"cancel\" | \"remove\" | \"menu\" | \"table\" | \"image\" | \"switch\" | \"target\" | \"restart\" | \"list\" | \"loading\" | \"file\" | \"directory\" | \"document\" | \"feed\" | \"location\" | \"move\" | \"activate\" | \"add-emoji\" | \"add-person\" | \"adjustment\" | \"alignment\" | \"archive\" | \"backward-arrow\" | \"bank\" | \"bell\" | \"billing\" | \"bookmark\" | \"box-check\" | \"box\" | \"buildings\" | \"cake\" | \"calendar-clock\" | \"calendar\" | \"candy-box-menu\" | \"carat-down-small\" | \"carat-down\" | \"carat-left\" | \"carat-right\" | \"carat-up-small\" | \"carat-up\" | \"circle-add\" | \"circle-cancel\" | \"circle-check\" | \"circle-down\" | \"circle-info\" | \"circle-left\" | \"circle-ok\" | \"circle-pencil\" | \"circle-question\" | \"circle-remove\" | \"circle-right\" | \"circle-up\" | \"circle-warning\" | \"clock-3\" | \"clock\" | \"cloud-download\" | \"cloud-upload\" | \"cog\" | \"coin\" | \"contacts\" | \"corner-resize\" | \"credit-card\" | \"diamond\" | \"direction-arrows\" | \"dollar-coin-shine\" | \"dot-filled\" | \"double-buildings\" | \"edit-template\" | \"envelope\" | \"expense\" | \"eye-circle\" | \"eye-invisible\" | \"eye\" | \"face-meh\" | \"face-sad\" | \"face-smiley\" | \"feedbacks\" | \"file-certified\" | \"file-clone\" | \"file-copy\" | \"file-csv\" | \"file-dispose\" | \"file-doc\" | \"file-excel\" | \"file-export\" | \"file-lock\" | \"file-pdf\" | \"file-powerpoint\" | \"file-search\" | \"file-secured\" | \"file-sheets\" | \"file-slide\" | \"file-verified\" | \"file-word\" | \"flask\" | \"folder-user\" | \"folder\" | \"format-bold\" | \"format-heading1\" | \"format-heading2\" | \"format-italic\" | \"format-list-bulleted\" | \"format-list-numbered\" | \"format-underlined\" | \"forward-arrow\" | \"funnel-filter\" | \"gauge\" | \"global-dollar\" | \"globe\" | \"graduation-cap\" | \"graph\" | \"happy-sun\" | \"health-bag\" | \"heart\" | \"home\" | \"import\" | \"incident-siren\" | \"instapay\" | \"loading-2\" | \"lock\" | \"looks-one\" | \"looks-two\" | \"mandatory\" | \"media-content\" | \"moneybag\" | \"moon\" | \"multiple-stars\" | \"multiple-users\" | \"node\" | \"open-folder\" | \"paperclip\" | \"payment-summary\" | \"pencil\" | \"phone\" | \"piggy-bank\" | \"pin\" | \"plane\" | \"play-circle\" | \"print\" | \"raising-hands\" | \"rectangle-mandatory\" | \"reply-arrow\" | \"reply\" | \"reschedule\" | \"rostering\" | \"save\" | \"schedule-send\" | \"schedule\" | \"search-person\" | \"send\" | \"speaker\" | \"star-award\" | \"star-badge\" | \"star-medal\" | \"star\" | \"steps-circle\" | \"stopwatch\" | \"suitcase\" | \"survey\" | \"swag\" | \"tag\" | \"teams\" | \"thumb-down\" | \"thumb-up\" | \"timesheet\" | \"touch-id\" | \"trash-bin\" | \"unlock\" | \"user\" | \"video-1\" | \"video-2\" | \"wrench\" | \"academic-hat-outlined\" | \"activate-outlined\" | \"add-person-outlined\" | \"add-section-outlined\" | \"add-time-outlined\" | \"add\" | \"adjustment-outlined\" | \"afternoon-outlined\" | \"alignment-2-outlined\" | \"alignment-outlined\" | \"all-caps\" | \"arrow-down\" | \"arrow-left\" | \"arrow-right\" | \"arrow-up\" | \"at-sign\" | \"bell-outlined\" | \"billing-outlined\" | \"billing-pound-outlined\" | \"body-outlined\" | \"bookmark-outlined\" | \"box-check-outlined\" | \"box-outlined\" | \"briefcase-clock-outlined\" | \"briefcase-search-outlined\" | \"bullet-points\" | \"cake-outlined\" | \"calendar-dates-outlined\" | \"calendar-star-outlined\" | \"camera-outlined\" | \"chat-outlined\" | \"checkmark\" | \"circle-add-outlined\" | \"circle-cancel-outlined\" | \"circle-down-outlined\" | \"circle-info-outlined\" | \"circle-left-outlined\" | \"circle-ok-outlined\" | \"circle-question-outlined\" | \"circle-remove-outlined\" | \"circle-right-outlined\" | \"circle-up-outlined\" | \"circle-warning-outlined\" | \"clipboard-check-outlined\" | \"clipboard-text-outlined\" | \"clock-2-outlined\" | \"clock-outlined\" | \"cog-outlined\" | \"coin-outlined\" | \"coin-pound-outlined\" | \"coin-stack-outlined\" | \"collapse-outlined\" | \"comment-outlined\" | \"contacts-outlined\" | \"content-copy-outlined\" | \"copy-outlined\" | \"credit-card-outlined\" | \"cup-outlined\" | \"cut-outlined\" | \"desktop-computer-outlined\" | \"diagram-outlined\" | \"diamond-outlined\" | \"direction-arrows-outlined\" | \"directory-outlined\" | \"document-outlined\" | \"dollar-coin-shine-outlined\" | \"dollar-sign\" | \"donut-chart-outlined\" | \"double-buildings-outlined\" | \"double-left-arrows\" | \"double-right-arrows\" | \"download-outlined\" | \"edit-template-outlined\" | \"edit-user-outlined\" | \"email-outlined\" | \"enter-arrow\" | \"envelope-outlined\" | \"evening-outlined\" | \"expand-outlined\" | \"expense-outlined\" | \"external-link\" | \"eye-invisible-outlined\" | \"eye-outlined\" | \"face-id\" | \"face-meh-outlined\" | \"face-open-smiley-outlined\" | \"face-sad-outlined\" | \"face-smiley-outlined\" | \"feed-outlined\" | \"feedbacks-outlined\" | \"file-certified-outlined\" | \"file-clone-outlined\" | \"file-copy-outlined\" | \"file-dispose-outlined\" | \"file-download-outlined\" | \"file-export-outlined\" | \"file-lock-outlined\" | \"file-outlined\" | \"file-search-outlined\" | \"file-secured-outlined\" | \"file-text-outlined\" | \"file-verified-outlined\" | \"filter-outlined\" | \"fire-outlined\" | \"flag-outlined\" | \"folder-outlined\" | \"folder-user-outlined\" | \"funnel-filter-outline\" | \"gauge-outlined\" | \"gift-outlined\" | \"graph-outlined\" | \"happy-sun-outlined\" | \"health-bag-outlined\" | \"heart-outlined\" | \"home-outlined\" | \"image-outlined\" | \"import-outlined\" | \"instapay-outlined\" | \"italic\" | \"link-1\" | \"link-2\" | \"list-outlined\" | \"location-outlined\" | \"lock-outlined\" | \"locked-file-outlined\" | \"log-out\" | \"magic-outlined\" | \"media-content-outlined\" | \"menu-close\" | \"menu-expand\" | \"menu-fold-outlined\" | \"menu-unfold-outlined\" | \"mobile-phone-1-outlined\" | \"moneybag-outlined\" | \"moneybag-pound-outlined\" | \"moon-outlined\" | \"more-horizontal\" | \"more-vertical\" | \"morning-outlined\" | \"multiple-folders-outlined\" | \"multiple-users-outlined\" | \"node-outlined\" | \"number-points\" | \"passport-outlined\" | \"payment-summary-outlined\" | \"payslip-outlined\" | \"pencil-outlined\" | \"percentage\" | \"phone-outlined\" | \"piggy-bank-outlined\" | \"pin-outlined\" | \"plane-outlined\" | \"play-circle-outlined\" | \"pound-sign\" | \"print-outlined\" | \"qr-code-outlined\" | \"re-assign\" | \"redeem\" | \"refresh\" | \"reply-outlined\" | \"return-arrow\" | \"ringgit-sign\" | \"rocket-outlined\" | \"rostering-outlined\" | \"save-outlined\" | \"schedule-outlined\" | \"search-outlined\" | \"send-outlined\" | \"share-1\" | \"share-2\" | \"shield-check-outlined\" | \"single-down-arrow\" | \"single-left-arrow\" | \"single-right-arrow\" | \"single-up-arrow\" | \"sparkle-2-outlined\" | \"sparkle-outlined\" | \"speaker-outlined\" | \"speed-outlined\" | \"star-outlined\" | \"stopwatch-outlined\" | \"strikethrough\" | \"suitcase-outlined\" | \"survey-outlined\" | \"switch-outlined\" | \"sync\" | \"tablet-outlined\" | \"target-outlined\" | \"thumb-up-outlined\" | \"timesheet-outlined\" | \"transfer\" | \"trash-bin-outlined\" | \"trash-outlined\" | \"unavailable\" | \"underline\" | \"unlinked\" | \"unlock-outlined\" | \"upload-outlined\" | \"user-add-outlined\" | \"user-circle-outlined\" | \"user-move-outlined\" | \"user-out-outlined\" | \"user-outlined\" | \"user-rectangle-outlined\" | \"user-remove-outlined\" | \"user-warning-outlined\" | \"video-1-outlined\" | \"video-2-outlined\" | \"wallet-outlined\" | \"wrench-outlined\" | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Name of Icon or an Icon element to render on the left side of the input, before the user's cursor."
+    },
+    "readonly": {
+      "name": "readonly",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether or not Input's value is read only."
+    },
+    "ref": {
+      "name": "ref",
+      "type": "Ref<HTMLInputElement>",
+      "required": false,
+      "description": "Input ref passing to input element"
+    },
+    "size": {
+      "name": "size",
+      "type": "\"small\" | \"medium\" | \"large\"",
+      "required": false,
+      "description": "The size of the input box."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "suffix": {
+      "name": "suffix",
+      "type": "\"number\" | \"warning\" | \"bold\" | \"cancel\" | \"remove\" | \"menu\" | \"table\" | \"image\" | \"switch\" | \"target\" | \"restart\" | \"list\" | \"loading\" | \"file\" | \"directory\" | \"document\" | \"feed\" | \"location\" | \"move\" | \"activate\" | \"add-emoji\" | \"add-person\" | \"adjustment\" | \"alignment\" | \"archive\" | \"backward-arrow\" | \"bank\" | \"bell\" | \"billing\" | \"bookmark\" | \"box-check\" | \"box\" | \"buildings\" | \"cake\" | \"calendar-clock\" | \"calendar\" | \"candy-box-menu\" | \"carat-down-small\" | \"carat-down\" | \"carat-left\" | \"carat-right\" | \"carat-up-small\" | \"carat-up\" | \"circle-add\" | \"circle-cancel\" | \"circle-check\" | \"circle-down\" | \"circle-info\" | \"circle-left\" | \"circle-ok\" | \"circle-pencil\" | \"circle-question\" | \"circle-remove\" | \"circle-right\" | \"circle-up\" | \"circle-warning\" | \"clock-3\" | \"clock\" | \"cloud-download\" | \"cloud-upload\" | \"cog\" | \"coin\" | \"contacts\" | \"corner-resize\" | \"credit-card\" | \"diamond\" | \"direction-arrows\" | \"dollar-coin-shine\" | \"dot-filled\" | \"double-buildings\" | \"edit-template\" | \"envelope\" | \"expense\" | \"eye-circle\" | \"eye-invisible\" | \"eye\" | \"face-meh\" | \"face-sad\" | \"face-smiley\" | \"feedbacks\" | \"file-certified\" | \"file-clone\" | \"file-copy\" | \"file-csv\" | \"file-dispose\" | \"file-doc\" | \"file-excel\" | \"file-export\" | \"file-lock\" | \"file-pdf\" | \"file-powerpoint\" | \"file-search\" | \"file-secured\" | \"file-sheets\" | \"file-slide\" | \"file-verified\" | \"file-word\" | \"flask\" | \"folder-user\" | \"folder\" | \"format-bold\" | \"format-heading1\" | \"format-heading2\" | \"format-italic\" | \"format-list-bulleted\" | \"format-list-numbered\" | \"format-underlined\" | \"forward-arrow\" | \"funnel-filter\" | \"gauge\" | \"global-dollar\" | \"globe\" | \"graduation-cap\" | \"graph\" | \"happy-sun\" | \"health-bag\" | \"heart\" | \"home\" | \"import\" | \"incident-siren\" | \"instapay\" | \"loading-2\" | \"lock\" | \"looks-one\" | \"looks-two\" | \"mandatory\" | \"media-content\" | \"moneybag\" | \"moon\" | \"multiple-stars\" | \"multiple-users\" | \"node\" | \"open-folder\" | \"paperclip\" | \"payment-summary\" | \"pencil\" | \"phone\" | \"piggy-bank\" | \"pin\" | \"plane\" | \"play-circle\" | \"print\" | \"raising-hands\" | \"rectangle-mandatory\" | \"reply-arrow\" | \"reply\" | \"reschedule\" | \"rostering\" | \"save\" | \"schedule-send\" | \"schedule\" | \"search-person\" | \"send\" | \"speaker\" | \"star-award\" | \"star-badge\" | \"star-medal\" | \"star\" | \"steps-circle\" | \"stopwatch\" | \"suitcase\" | \"survey\" | \"swag\" | \"tag\" | \"teams\" | \"thumb-down\" | \"thumb-up\" | \"timesheet\" | \"touch-id\" | \"trash-bin\" | \"unlock\" | \"user\" | \"video-1\" | \"video-2\" | \"wrench\" | \"academic-hat-outlined\" | \"activate-outlined\" | \"add-person-outlined\" | \"add-section-outlined\" | \"add-time-outlined\" | \"add\" | \"adjustment-outlined\" | \"afternoon-outlined\" | \"alignment-2-outlined\" | \"alignment-outlined\" | \"all-caps\" | \"arrow-down\" | \"arrow-left\" | \"arrow-right\" | \"arrow-up\" | \"at-sign\" | \"bell-outlined\" | \"billing-outlined\" | \"billing-pound-outlined\" | \"body-outlined\" | \"bookmark-outlined\" | \"box-check-outlined\" | \"box-outlined\" | \"briefcase-clock-outlined\" | \"briefcase-search-outlined\" | \"bullet-points\" | \"cake-outlined\" | \"calendar-dates-outlined\" | \"calendar-star-outlined\" | \"camera-outlined\" | \"chat-outlined\" | \"checkmark\" | \"circle-add-outlined\" | \"circle-cancel-outlined\" | \"circle-down-outlined\" | \"circle-info-outlined\" | \"circle-left-outlined\" | \"circle-ok-outlined\" | \"circle-question-outlined\" | \"circle-remove-outlined\" | \"circle-right-outlined\" | \"circle-up-outlined\" | \"circle-warning-outlined\" | \"clipboard-check-outlined\" | \"clipboard-text-outlined\" | \"clock-2-outlined\" | \"clock-outlined\" | \"cog-outlined\" | \"coin-outlined\" | \"coin-pound-outlined\" | \"coin-stack-outlined\" | \"collapse-outlined\" | \"comment-outlined\" | \"contacts-outlined\" | \"content-copy-outlined\" | \"copy-outlined\" | \"credit-card-outlined\" | \"cup-outlined\" | \"cut-outlined\" | \"desktop-computer-outlined\" | \"diagram-outlined\" | \"diamond-outlined\" | \"direction-arrows-outlined\" | \"directory-outlined\" | \"document-outlined\" | \"dollar-coin-shine-outlined\" | \"dollar-sign\" | \"donut-chart-outlined\" | \"double-buildings-outlined\" | \"double-left-arrows\" | \"double-right-arrows\" | \"download-outlined\" | \"edit-template-outlined\" | \"edit-user-outlined\" | \"email-outlined\" | \"enter-arrow\" | \"envelope-outlined\" | \"evening-outlined\" | \"expand-outlined\" | \"expense-outlined\" | \"external-link\" | \"eye-invisible-outlined\" | \"eye-outlined\" | \"face-id\" | \"face-meh-outlined\" | \"face-open-smiley-outlined\" | \"face-sad-outlined\" | \"face-smiley-outlined\" | \"feed-outlined\" | \"feedbacks-outlined\" | \"file-certified-outlined\" | \"file-clone-outlined\" | \"file-copy-outlined\" | \"file-dispose-outlined\" | \"file-download-outlined\" | \"file-export-outlined\" | \"file-lock-outlined\" | \"file-outlined\" | \"file-search-outlined\" | \"file-secured-outlined\" | \"file-text-outlined\" | \"file-verified-outlined\" | \"filter-outlined\" | \"fire-outlined\" | \"flag-outlined\" | \"folder-outlined\" | \"folder-user-outlined\" | \"funnel-filter-outline\" | \"gauge-outlined\" | \"gift-outlined\" | \"graph-outlined\" | \"happy-sun-outlined\" | \"health-bag-outlined\" | \"heart-outlined\" | \"home-outlined\" | \"image-outlined\" | \"import-outlined\" | \"instapay-outlined\" | \"italic\" | \"link-1\" | \"link-2\" | \"list-outlined\" | \"location-outlined\" | \"lock-outlined\" | \"locked-file-outlined\" | \"log-out\" | \"magic-outlined\" | \"media-content-outlined\" | \"menu-close\" | \"menu-expand\" | \"menu-fold-outlined\" | \"menu-unfold-outlined\" | \"mobile-phone-1-outlined\" | \"moneybag-outlined\" | \"moneybag-pound-outlined\" | \"moon-outlined\" | \"more-horizontal\" | \"more-vertical\" | \"morning-outlined\" | \"multiple-folders-outlined\" | \"multiple-users-outlined\" | \"node-outlined\" | \"number-points\" | \"passport-outlined\" | \"payment-summary-outlined\" | \"payslip-outlined\" | \"pencil-outlined\" | \"percentage\" | \"phone-outlined\" | \"piggy-bank-outlined\" | \"pin-outlined\" | \"plane-outlined\" | \"play-circle-outlined\" | \"pound-sign\" | \"print-outlined\" | \"qr-code-outlined\" | \"re-assign\" | \"redeem\" | \"refresh\" | \"reply-outlined\" | \"return-arrow\" | \"ringgit-sign\" | \"rocket-outlined\" | \"rostering-outlined\" | \"save-outlined\" | \"schedule-outlined\" | \"search-outlined\" | \"send-outlined\" | \"share-1\" | \"share-2\" | \"shield-check-outlined\" | \"single-down-arrow\" | \"single-left-arrow\" | \"single-right-arrow\" | \"single-up-arrow\" | \"sparkle-2-outlined\" | \"sparkle-outlined\" | \"speaker-outlined\" | \"speed-outlined\" | \"star-outlined\" | \"stopwatch-outlined\" | \"strikethrough\" | \"suitcase-outlined\" | \"survey-outlined\" | \"switch-outlined\" | \"sync\" | \"tablet-outlined\" | \"target-outlined\" | \"thumb-up-outlined\" | \"timesheet-outlined\" | \"transfer\" | \"trash-bin-outlined\" | \"trash-outlined\" | \"unavailable\" | \"underline\" | \"unlinked\" | \"unlock-outlined\" | \"upload-outlined\" | \"user-add-outlined\" | \"user-circle-outlined\" | \"user-move-outlined\" | \"user-out-outlined\" | \"user-outlined\" | \"user-rectangle-outlined\" | \"user-remove-outlined\" | \"user-warning-outlined\" | \"video-1-outlined\" | \"video-2-outlined\" | \"wallet-outlined\" | \"wrench-outlined\" | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Name of Icon or an Icon element to render on the right side of the input."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "type": {
+      "name": "type",
+      "type": "string",
+      "required": false,
+      "description": "[Type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types) of input."
+    },
+    "value": {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "The input's content value."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Basic usage example.\n```jsx live\n<>\n  <Input\n    placeholder=\"Basic Usage\"\n    style={{ marginBottom: theme.space.medium }}\n  />\n  <Input placeholder=\"Disabled\" disabled />\n</>\n```",
+      "code": "<>\n  <Input\n    placeholder=\"Basic Usage\"\n    style={{ marginBottom: theme.space.medium }}\n  />\n  <Input placeholder=\"Disabled\" disabled />\n</>",
+      "purpose_description": "This example demonstrates the basic usage of an Input component in a React application. It shows how to render input fields with different configurations, such as a placeholder and a disabled state.",
+      "technical_description": "The example uses a React fragment to render two Input components. The first Input component includes a placeholder text 'Basic Usage' and applies a style with a margin-bottom using a theme variable. The second Input component is rendered with a placeholder 'Disabled' and has the 'disabled' attribute set, making it non-interactive.",
+      "patterns_description": "This example demonstrates the use of React fragments to group multiple components without adding extra nodes to the DOM. It also shows the application of inline styles using the 'style' prop and the use of theme variables for consistent styling. Additionally, it highlights the use of the 'disabled' attribute to control component interactivity.",
+      "use_cases_description": "This example is useful in scenarios where basic input fields are needed, such as forms or data entry interfaces. The ability to disable inputs is particularly useful in situations where certain fields should be non-editable based on application logic, such as when a form is in a read-only state or when certain conditions are not met."
+    },
+    {
+      "example_name": "Affixes",
+      "example_description": "Prefix and/or suffix can be displayed inside the input when they are specified as [icon](/web/components/icon) strings.\n```jsx live\n<Input\n  placeholder=\"Input with prefix and suffix\"\n  prefix=\"user\"\n  suffix=\"circle-question-outlined\"\n/>\n```",
+      "code": "<Input\n  placeholder=\"Input with prefix and suffix\"\n  prefix=\"user\"\n  suffix=\"circle-question-outlined\"\n/>",
+      "purpose_description": "This example demonstrates how to use the Input component with prefix and suffix properties to enhance the user interface by adding icons inside the input field. The primary use case is to provide visual context or additional information related to the input's purpose, improving user experience and input clarity.",
+      "technical_description": "The Input component is configured with two additional props: 'prefix' and 'suffix'. These props accept strings that correspond to icon names, which are then rendered inside the input field. The component likely utilizes an icon library to convert these strings into actual icon elements. The 'placeholder' prop is used to display a hint to the user about what to enter in the input field. The component renders an input element with the specified placeholder text, and the icons are positioned inside the input field, one at the beginning (prefix) and one at the end (suffix). This is typically achieved using CSS for positioning and styling, ensuring that the icons do not interfere with the user's ability to enter text.",
+      "patterns_description": "This example demonstrates the use of controlled component patterns where additional UI elements (icons) are integrated into standard form controls to enhance usability. It showcases the use of props to customize component behavior and appearance, a common pattern in React for creating reusable and flexible components. The use of icon strings suggests a pattern of abstraction, where the component handles the conversion of these strings into visual elements, promoting separation of concerns and reusability.",
+      "use_cases_description": "This example is particularly useful in scenarios where inputs need to be contextualized with visual cues, such as login forms, search bars, or any form where the input's purpose can be clarified with an icon. It is beneficial in applications that require a polished and intuitive user interface, where visual elements can guide user interaction and reduce input errors by providing immediate context."
+    },
+    {
+      "example_name": "TextArea",
+      "example_description": "TextArea is for multi-line input. By default, `autoResize` is enabled to automatically adjust the input's height to fit its content value.\n```jsx live\nfunction TextArea() {\n  const [value, setValue] = useState();\n  return (\n    <Input.TextArea\n      value={value}\n      onChange={(e) => setValue(e.target.value)}\n      placeholder=\"Multiple line input\"\n    />\n  );\n}\n```",
+      "code": "function TextArea() {\n  const [value, setValue] = useState();\n  return (\n    <Input.TextArea\n      value={value}\n      onChange={(e) => setValue(e.target.value)}\n      placeholder=\"Multiple line input\"\n    />\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to implement a multi-line text input using a TextArea component in React. This component is designed to allow users to input and edit multiple lines of text, with the added feature of automatically resizing the text area to fit the content as it grows.",
+      "technical_description": "This example defines a functional React component named TextArea. It utilizes the useState hook to manage the state of the text input. The state variable 'value' holds the current text entered by the user, and 'setValue' is the function used to update this state. The component returns an Input.TextArea element, which is a specialized input field for multi-line text. The 'value' prop of Input.TextArea is bound to the state variable 'value', ensuring that the displayed text is always in sync with the state. The 'onChange' prop is used to update the state whenever the user types into the text area. The placeholder prop provides a hint to the user about the expected input.",
+      "patterns_description": "This example demonstrates several React best practices, including:\n- Using the useState hook for managing component state, which is a common pattern in functional components.\n- Binding component state to input fields to ensure that the UI reflects the current state, a pattern known as controlled components.\n- Handling events with inline functions, which is a concise way to update state based on user interactions.",
+      "use_cases_description": "This TextArea component is particularly useful in scenarios where users need to input or edit large amounts of text, such as comments, descriptions, or messages. It is suitable for forms, content management systems, or any application requiring user-generated content. The auto-resizing feature enhances user experience by dynamically adjusting the input field size, making it easier to view and edit content without manual resizing."
+    }
+  ]
+}

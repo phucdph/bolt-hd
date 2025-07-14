@@ -1,0 +1,80 @@
+{
+  "component_name": "Steps",
+  "component_description": "An indicator to display a sequence of subtasks or steps to complete a workflow.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "current": {
+      "name": "current",
+      "type": "number",
+      "required": true,
+      "description": "Current step. This is 1-based indexing."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "onClick": {
+      "name": "onClick",
+      "type": "(step: { id: string | number; status: \"complete\" | \"incomplete\"; text: string }) => void",
+      "required": false,
+      "description": "Set the handler to handle  `click`  event."
+    },
+    "steps": {
+      "name": "steps",
+      "type": "Array<{ clickable?: boolean; id: string | number; status: \"complete\" | \"incomplete\"; text: string }>",
+      "required": true,
+      "description": "An array of steps to be rendered."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "variant": {
+      "name": "variant",
+      "type": "\"compact\" | \"basic\"",
+      "required": false,
+      "description": "Steps variant"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "To render `Steps`, we provide `steps` and `current` props.\n```jsx live\nfunction BasicStep() {\n  const steps = [\n    {\n      id: 1,\n      status: 'complete',\n      text: 'Request a demo',\n    },\n    {\n      id: 2,\n      status: 'complete',\n      text: 'Choose a plan',\n    },\n    {\n      id: 3,\n      status: 'complete',\n      text: 'Sign up',\n    },\n    {\n      id: 4,\n      status: 'incomplete',\n      text: 'Implement',\n    },\n  ];\n  return (\n    <>\n      <Steps steps={steps} current={1} />\n      <Steps steps={steps} current={2} />\n      <Steps steps={steps} current={3} />\n      <Steps steps={steps} current={4} />\n    </>\n  );\n}\n```",
+      "code": "function BasicStep() {\n  const steps = [\n    {\n      id: 1,\n      status: 'complete',\n      text: 'Request a demo',\n    },\n    {\n      id: 2,\n      status: 'complete',\n      text: 'Choose a plan',\n    },\n    {\n      id: 3,\n      status: 'complete',\n      text: 'Sign up',\n    },\n    {\n      id: 4,\n      status: 'incomplete',\n      text: 'Implement',\n    },\n  ];\n  return (\n    <>\n      <Steps steps={steps} current={1} />\n      <Steps steps={steps} current={2} />\n      <Steps steps={steps} current={3} />\n      <Steps steps={steps} current={4} />\n    </>\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate a basic implementation of a 'Steps' component in React, which visually represents a sequence of steps or stages in a process. The component is designed to show the current step in the sequence, as well as the status of each step (e.g., complete or incomplete).",
+      "technical_description": "The 'BasicStep' function component defines an array of step objects, each with an 'id', 'status', and 'text' property. This array is passed as the 'steps' prop to the 'Steps' component. The 'current' prop is used to indicate the current active step in the sequence. The component renders multiple instances of the 'Steps' component, each with a different 'current' value, to demonstrate how the component behaves when different steps are active. The 'Steps' component likely uses these props to render a visual representation of the steps, highlighting the current step and indicating the completion status of each step.",
+      "patterns_description": "This example demonstrates the use of props to pass data into a component, a fundamental pattern in React for making components reusable and configurable. It also shows how to manage and represent state in a UI component, specifically using props to indicate the current state of a multi-step process. The use of an array of objects to represent a list of steps is a common pattern for managing collections of data in React.",
+      "use_cases_description": "This example would be particularly useful in scenarios where a process needs to be broken down into discrete steps for the user, such as in onboarding flows, checkout processes, or multi-step forms. It provides a clear visual representation of progress and can help guide users through a series of tasks or decisions. The component can be adapted for various applications that require step-by-step navigation or progress tracking."
+    },
+    {
+      "example_name": "Compact style",
+      "example_description": "Steps can be rendered in a compact style in mobile screen size or explicitly defining `compact` variant.\n```jsx live\nfunction CompactSteps() {\n  const steps = [\n    {\n      id: 1,\n      status: 'complete',\n      text: 'Request a demo',\n    },\n    {\n      id: 2,\n      status: 'complete',\n      text: 'Choose a plan',\n    },\n    {\n      id: 3,\n      status: 'complete',\n      text: 'Sign up',\n    },\n    {\n      id: 4,\n      status: 'incomplete',\n      text: 'Implement',\n    },\n  ];\n  return <Steps steps={steps} current={3} variant=\"compact\" />;\n}\n```",
+      "code": "function CompactSteps() {\n  const steps = [\n    {\n      id: 1,\n      status: 'complete',\n      text: 'Request a demo',\n    },\n    {\n      id: 2,\n      status: 'complete',\n      text: 'Choose a plan',\n    },\n    {\n      id: 3,\n      status: 'complete',\n      text: 'Sign up',\n    },\n    {\n      id: 4,\n      status: 'incomplete',\n      text: 'Implement',\n    },\n  ];\n  return <Steps steps={steps} current={3} variant=\"compact\" />;\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to render a series of steps in a compact style, which is particularly useful for mobile screens or when a compact layout is explicitly required. The component displays a sequence of steps with their respective statuses, indicating progress through a process.",
+      "technical_description": "The `CompactSteps` component defines an array of step objects, each with an `id`, `status`, and `text`. The `Steps` component is then rendered with this array passed as the `steps` prop. The `current` prop is set to 3, indicating that the third step is the current active step. The `variant` prop is set to 'compact', which instructs the `Steps` component to render in a compact style, likely affecting its layout and styling to be more suitable for smaller screens or to save space.",
+      "patterns_description": "This example demonstrates the use of a declarative approach to UI rendering in React, where the component's appearance and behavior are determined by its props. The use of a `variant` prop to switch between different styles is a common pattern in component libraries, allowing for flexible and reusable components. Additionally, the use of an array to manage a list of steps is a straightforward and effective way to handle ordered data in React.",
+      "use_cases_description": "This example is particularly useful in scenarios where space is limited, such as on mobile devices or in sidebars. It can be used in applications that require a step-by-step process, such as onboarding flows, checkout processes, or multi-step forms, where a compact representation of progress is beneficial for user experience."
+    }
+  ]
+}

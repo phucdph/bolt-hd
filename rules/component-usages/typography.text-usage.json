@@ -1,0 +1,107 @@
+{
+  "component_name": "Typography.Text",
+  "component_description": "Typography.Text is for rendering text content with flexible styling options. It supports various font sizes, weights, colors, and can render as different HTML elements while maintaining consistent design system styling.",
+  "props": {
+    "children": {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Text content."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "dangerouslySetInnerHTML": {
+      "name": "dangerouslySetInnerHTML",
+      "type": "{ __html: string | TrustedHTML }",
+      "required": false,
+      "description": "Dangerously set innerHTML."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "fontSize": {
+      "name": "fontSize",
+      "type": "10 | 12 | 14 | 16 | 18",
+      "required": false,
+      "description": "Text's font-size."
+    },
+    "fontWeight": {
+      "name": "fontWeight",
+      "type": "\"bold\" | \"light\" | \"regular\" | \"semi-bold\"",
+      "required": false,
+      "description": "Text's font-weight."
+    },
+    "htmlFor": {
+      "name": "htmlFor",
+      "type": "string",
+      "required": false,
+      "description": "Which form element the text is bound to. This only gets effect when tagName is label."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "intent": {
+      "name": "intent",
+      "type": "\"primary\" | \"danger\" | \"success\" | \"warning\" | \"error\" | \"white\" | \"body\" | \"main\" | \"disabled\" | \"subdued\"",
+      "required": false,
+      "description": "Visual intent color to apply to text."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "tagName": {
+      "name": "tagName",
+      "type": "\"p\" | \"div\" | \"label\" | \"span\"",
+      "required": false,
+      "description": "HTML tag name to use for rendered element."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Typography.Text - Different sizes, weights and colors",
+      "example_description": "Display text in different sizes, weights and colors.\n\n```jsx live\n<>\n  <Typography.Text fontSize={18} fontWeight=\"regular\" intent=\"main\">\n    Our Story.\n  </Typography.Text>\n  <Typography.Text fontSize={14} fontWeight=\"regular\" intent=\"body\">\n    We'll guide you through a series of live interactive workshops which\n    will guide you through setting up your Employment Hero account. Each workshop\n    has a specific milestone you will need to achieve and is designed so you can\n    follow along in your own account.\n  </Typography.Text>\n  <Typography.Text fontSize={14} fontWeight=\"light\" intent=\"subdued\">\n    We're a team of the best in the business.\n  </Typography.Text>\n  <Typography.Text fontSize={12} fontWeight=\"semi-bold\" intent=\"primary\">\n    Employment Hero is the easiest way for small to medium businesses to manage\n    HR, payroll and employee engagement and benefits in Australia.\n  </Typography.Text>\n  <br />\n  <Typography.Text fontSize={16} fontWeight=\"bold\" intent=\"success\">\n    Our Mission.\n  </Typography.Text>\n  <Typography.Text fontSize={14} fontWeight=\"regular\" intent=\"danger\">\n    We have a powerful purpose.\n  </Typography.Text>\n  <Typography.Text fontSize={12} fontWeight=\"light\" intent=\"warning\">\n    We're on mission to make employment easier and more rewarding.\n  </Typography.Text>\n  <Typography.Text fontSize={10} fontWeight=\"light\" intent=\"warning\">\n    This mission permeates every aspect of our culture, day-to-day work and work\n    in the community. Learn more about what drives us.\n  </Typography.Text>\n  <br />\n  <Typography.Text fontSize={16} fontWeight=\"semi-bold\" intent=\"error\">\n    Work With Us.\n  </Typography.Text>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Text fontSize={14} fontWeight=\"bold\" intent=\"white\">\n      Join the team.\n    </Typography.Text>\n  </Box>\n  <Typography.Text fontSize={12} fontWeight=\"regular\" intent=\"main\">\n    We're a diverse mix of personalities, talents, skills and experience.\n  </Typography.Text>\n  <Typography.Text fontSize={10} fontWeight=\"regular\" intent=\"main\">\n    Together we're an unbreakable team of players, all working towards the same\n    goals. Plus, we know how to have fun and have a laugh. Care to join us?\n  </Typography.Text>\n</>\n```",
+      "code": "<>\n  <Typography.Text fontSize={18} fontWeight=\"regular\" intent=\"main\">\n    Our Story.\n  </Typography.Text>\n  <Typography.Text fontSize={14} fontWeight=\"regular\" intent=\"body\">\n    We'll guide you through a series of live interactive workshops which\n    will guide you through setting up your Employment Hero account. Each workshop\n    has a specific milestone you will need to achieve and is designed so you can\n    follow along in your own account.\n  </Typography.Text>\n  <Typography.Text fontSize={14} fontWeight=\"light\" intent=\"subdued\">\n    We're a team of the best in the business.\n  </Typography.Text>\n  <Typography.Text fontSize={12} fontWeight=\"semi-bold\" intent=\"primary\">\n    Employment Hero is the easiest way for small to medium businesses to manage\n    HR, payroll and employee engagement and benefits in Australia.\n  </Typography.Text>\n  <br />\n  <Typography.Text fontSize={16} fontWeight=\"bold\" intent=\"success\">\n    Our Mission.\n  </Typography.Text>\n  <Typography.Text fontSize={14} fontWeight=\"regular\" intent=\"danger\">\n    We have a powerful purpose.\n  </Typography.Text>\n  <Typography.Text fontSize={12} fontWeight=\"light\" intent=\"warning\">\n    We're on mission to make employment easier and more rewarding.\n  </Typography.Text>\n  <Typography.Text fontSize={10} fontWeight=\"light\" intent=\"warning\">\n    This mission permeates every aspect of our culture, day-to-day work and work\n    in the community. Learn more about what drives us.\n  </Typography.Text>\n  <br />\n  <Typography.Text fontSize={16} fontWeight=\"semi-bold\" intent=\"error\">\n    Work With Us.\n  </Typography.Text>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Text fontSize={14} fontWeight=\"bold\" intent=\"white\">\n      Join the team.\n    </Typography.Text>\n  </Box>\n  <Typography.Text fontSize={12} fontWeight=\"regular\" intent=\"main\">\n    We're a diverse mix of personalities, talents, skills and experience.\n  </Typography.Text>\n  <Typography.Text fontSize={10} fontWeight=\"regular\" intent=\"main\">\n    Together we're an unbreakable team of players, all working towards the same\n    goals. Plus, we know how to have fun and have a laugh. Care to join us?\n  </Typography.Text>\n</>",
+      "purpose_description": "This example demonstrates the flexibility of the Typography.Text component in displaying text with various visual treatments. It shows how to customize text appearance using different font sizes, weights, and intent colors to create visual hierarchy and emphasis within content, which is essential for creating engaging and readable user interfaces.",
+      "technical_description": "The example uses the Typography.Text component with various prop combinations to achieve different visual effects. The 'fontSize' prop controls the text size (ranging from 10 to 18), 'fontWeight' prop controls the text weight (light, regular, semi-bold, bold), and 'intent' prop controls the text color based on semantic meanings (main, body, subdued, primary, success, danger, warning, error, white). The component renders as a span element by default, providing inline text styling. The Box component is used to demonstrate how white text appears on dark backgrounds.",
+      "patterns_description": "This example demonstrates the use of semantic styling through the 'intent' prop, which is a common pattern in design systems for maintaining consistent color usage across an application. The combination of fontSize, fontWeight, and intent props provides a flexible API for text styling without requiring custom CSS. The use of React fragments for grouping multiple text elements is a best practice for clean DOM structure.",
+      "use_cases_description": "This example is particularly useful for creating content-rich pages such as marketing websites, blog posts, documentation, or any application that requires varied text styling for different types of content. It's suitable for scenarios where you need to convey different levels of importance, status, or context through text styling, such as success messages, error states, or informational content. The flexibility makes it ideal for building consistent text hierarchies in dashboards, forms, or content management systems."
+    },
+    {
+      "example_name": "Typography.Text - Different HTML tags",
+      "example_description": "Display text as your desired html tag\n\n```jsx live\n<>\n  <Typography.Text tagName=\"label\" fontWeight=\"bold\">\n    Products.\n  </Typography.Text>\n  <Typography.Text tagName=\"div\">\n    Manage HR, payroll, performance, learning, recognition and benefits easily\n    with our integrated platform.\n  </Typography.Text>\n</>\n```",
+      "code": "<>\n  <Typography.Text tagName=\"label\" fontWeight=\"bold\">\n    Products.\n  </Typography.Text>\n  <Typography.Text tagName=\"div\">\n    Manage HR, payroll, performance, learning, recognition and benefits easily\n    with our integrated platform.\n  </Typography.Text>\n</>",
+      "purpose_description": "This example demonstrates the semantic flexibility of the Typography.Text component by showing how it can render as different HTML elements while maintaining consistent styling. This is crucial for creating accessible and semantically correct HTML structures that are appropriate for different content contexts and user interactions.",
+      "technical_description": "The example uses the 'tagName' prop to specify which HTML element should be rendered. The first Typography.Text component uses tagName=\"label\" to render as a label element, which is semantically appropriate for form labels. The second component uses tagName=\"div\" to render as a block-level division element, suitable for longer text content. The component maintains its styling capabilities regardless of the underlying HTML element used.",
+      "patterns_description": "This example demonstrates the separation of presentation and semantics in React components, where the visual styling is maintained while the underlying HTML structure can be adapted for different use cases. This pattern is particularly important for accessibility and semantic HTML, allowing developers to choose the most appropriate HTML element for their content while maintaining design consistency.",
+      "use_cases_description": "This example is particularly useful in form design where label elements are needed for accessibility, or in layout scenarios where block-level elements are required for proper content flow. It's suitable for applications that need to maintain semantic HTML structure while using a consistent typography system, such as forms, content management systems, or any application where accessibility and SEO are important considerations."
+    },
+    {
+      "example_name": "Nested typography",
+      "example_description": "Typography.Text supports nested HTML elements with automatic styling for common tags. Different tagName values support different nested elements:\n\n**Nested paragraph (p):**\n- `strong`, `b`, `label`: Rendered in semi-bold fontWeight\n- `a`: Rendered as primary Button.Link\n- `em`, `i`, `span`, `br`: Default browser support\n\n**Nested division block (div):**\n- `p`: Rendered as Typography.Text paragraph\n- `ul`: Custom hero design padding-inline-start\n- `strong`, `b`, `label`: Semi-bold fontWeight\n- `a`: Primary Button.Link\n- `em`, `i`, `span`, `br`: Default browser support\n\n**Nested span:**\n- `strong`, `b`, `label`: Semi-bold fontWeight\n- `a`: Primary Button.Link\n- `em`, `i`, `span`: Default browser support\n\n**Nested label:**\n- `strong`, `b`: Semi-bold fontWeight\n- `a`: Primary Button.Link\n- `em`, `i`, `span`: Default browser support\n\n**Important note:** Only first-level direct descendants get styled, except for Typography.Text(div) > p > inline tags.",
+      "code": "// Example of nested typography usage\n<Typography.Text tagName=\"p\">\n  This is a paragraph with <strong>bold text</strong> and <a href=\"#\">a link</a>.\n</Typography.Text>\n\n<Typography.Text tagName=\"div\">\n  <p>This paragraph is inside a div with <em>emphasized text</em>.</p>\n  <ul>\n    <li>List item with <b>bold text</b></li>\n    <li>Another item with <a href=\"#\">a link</a></li>\n  </ul>\n</Typography.Text>\n\n<Typography.Text tagName=\"span\">\n  Inline text with <strong>bold</strong> and <i>italic</i> formatting.\n</Typography.Text>\n\n<Typography.Text tagName=\"label\">\n  Form label with <b>bold text</b> and <a href=\"#\">help link</a>.\n</Typography.Text>",
+      "purpose_description": "This example demonstrates the advanced nested content capabilities of the Typography.Text component, showing how it automatically applies consistent styling to nested HTML elements. This feature is essential for creating rich text content that maintains design system consistency while allowing for semantic HTML structure and accessibility features.",
+      "technical_description": "The Typography.Text component includes built-in CSS selectors that automatically style nested elements based on the parent tagName. When rendered as different HTML elements (p, div, span, label), the component applies specific styling rules to direct child elements. For example, nested strong, b, and label elements receive semi-bold font weight, while nested anchor elements are styled as primary Button.Link components. The component uses CSS specificity and child selectors to ensure only direct descendants receive the styling, with one exception for div > p > inline tag combinations.",
+      "patterns_description": "This example demonstrates the concept of compound components and automatic styling inheritance, which is a sophisticated pattern for maintaining design consistency across complex content structures. The component uses CSS-in-JS or CSS modules to apply contextual styling based on the parent element type, reducing the need for manual styling of nested elements. This pattern promotes consistency and reduces the likelihood of styling errors in rich content scenarios.",
+      "use_cases_description": "This example is particularly useful for content management systems, rich text editors, blog platforms, or any application that needs to display user-generated content with consistent styling. It's ideal for scenarios where HTML content comes from markdown parsers, WYSIWYG editors, or API responses that include nested HTML structures. The automatic styling of nested elements makes it suitable for documentation sites, help systems, or any application that displays formatted text content while maintaining design system consistency."
+    }
+  ]
+} 

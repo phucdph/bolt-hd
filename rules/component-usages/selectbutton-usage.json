@@ -1,0 +1,98 @@
+{
+  "component_name": "SelectButton",
+  "component_description": "The select button is treated as a single radio button. It can be used when there is a limited number of options and it is beneficial to let users have a look at all of them.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "disabled": {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Specify whether the option is disabled."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of <input> element."
+    },
+    "name": {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Name of <input> element, is used to refer to the form data for submission."
+    },
+    "onChange": {
+      "name": "onChange",
+      "type": "(e: ChangeEvent<HTMLInputElement>) => void",
+      "required": false,
+      "description": "Change event handler. Use  `event.target.checked`  to see whether the button will be changed to checked."
+    },
+    "selected": {
+      "name": "selected",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the button is being chosen."
+    },
+    "size": {
+      "name": "size",
+      "type": "\"small\" | \"medium\" | \"large\"",
+      "required": false,
+      "description": "The size of the select button."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "text": {
+      "name": "text",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "description": "Label of the select button."
+    },
+    "value": {
+      "name": "value",
+      "type": "string | number",
+      "required": true,
+      "description": "Value of the select button option."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Basic usage of SelectButton.\n```jsx live\n<>\n  <SelectButton\n    value=\"hr_document\"\n    text=\"HR Document\"\n    name=\"basic_usage\"\n    style={{ marginRight: theme.space.small }}\n  />\n  <SelectButton value=\"hr_guide\" text=\"HR Guide\" name=\"basic_usage\" />\n</>\n```",
+      "code": "<>\n  <SelectButton\n    value=\"hr_document\"\n    text=\"HR Document\"\n    name=\"basic_usage\"\n    style={{ marginRight: theme.space.small }}\n  />\n  <SelectButton value=\"hr_guide\" text=\"HR Guide\" name=\"basic_usage\" />\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate the basic usage of the SelectButton component, showcasing how to render multiple SelectButton components with different values and text labels. It illustrates the component's ability to handle different props for customization and styling.",
+      "technical_description": "The example renders two SelectButton components within a React Fragment. Each SelectButton is provided with a set of props: 'value', 'text', 'name', and optionally 'style'. The 'value' prop is used to identify the button's value, while the 'text' prop specifies the label displayed on the button. The 'name' prop is used to group the buttons, which is useful for form handling or when managing state. The 'style' prop is applied to the first button to add a margin on the right, demonstrating inline styling using a theme object for consistent spacing.",
+      "patterns_description": "This example demonstrates the use of React Fragments to group multiple components without adding extra nodes to the DOM. It also shows the use of inline styles for quick styling adjustments, leveraging a theme object for consistent design. The use of the 'name' prop to group buttons is a common pattern in form handling, allowing for easier management of button states and values.",
+      "use_cases_description": "This example is particularly useful in scenarios where a user interface requires multiple selectable options, such as in forms or settings pages. It can be used in applications where users need to choose between different categories or types of documents, like HR documents or guides, as shown in the example. The ability to style and group buttons makes it versatile for various UI designs."
+    },
+    {
+      "example_name": "Sizes",
+      "example_description": "SelectButton has 3 sizes: `small`, `medium` (default) and `large`.\n```jsx live\n<>\n  <SelectButton\n    value=\"small\"\n    text=\"Small\"\n    name=\"small\"\n    size=\"small\"\n    style={{ marginRight: theme.space.small }}\n  />\n  <SelectButton\n    value=\"medium\"\n    text=\"Medium\"\n    name=\"medium\"\n    size=\"medium\"\n    style={{ marginRight: theme.space.small }}\n  />\n  <SelectButton value=\"large\" text=\"Large\" name=\"large\" size=\"large\" />\n</>\n```",
+      "code": "<>\n  <SelectButton\n    value=\"small\"\n    text=\"Small\"\n    name=\"small\"\n    size=\"small\"\n    style={{ marginRight: theme.space.small }}\n  />\n  <SelectButton\n    value=\"medium\"\n    text=\"Medium\"\n    name=\"medium\"\n    size=\"medium\"\n    style={{ marginRight: theme.space.small }}\n  />\n  <SelectButton value=\"large\" text=\"Large\" name=\"large\" size=\"large\" />\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate how the SelectButton component can be used with different size options. It showcases the component's flexibility in terms of size customization, allowing developers to choose between 'small', 'medium', and 'large' sizes to fit various UI requirements.",
+      "technical_description": "The example renders three SelectButton components, each with a different size prop ('small', 'medium', 'large'). The size prop likely controls the visual dimensions of the button, such as height, width, and possibly font size. The components are rendered within a React Fragment (<>...</>), which allows for grouping multiple elements without adding extra nodes to the DOM. Each button is given a unique value, text, and name prop, which are likely used for identification and display purposes. The style prop is used to apply inline styles, specifically adding a margin to the right of the first two buttons to space them out evenly.",
+      "patterns_description": "This example demonstrates the use of React Fragments to group multiple components without adding extra DOM nodes, which is a common pattern for rendering lists of elements. It also shows how to use inline styles for quick styling adjustments, which can be useful for small, component-specific tweaks. The use of descriptive props like `value`, `text`, and `name` follows best practices for making components self-explanatory and easier to manage.",
+      "use_cases_description": "This example is particularly useful in scenarios where a UI requires buttons of different sizes to fit into various layouts or design systems. It can be used in forms, toolbars, or any interactive component where size differentiation is necessary to improve user experience or meet design specifications. The ability to quickly switch sizes makes it adaptable for responsive designs where UI elements need to adjust to different screen sizes."
+    }
+  ]
+}

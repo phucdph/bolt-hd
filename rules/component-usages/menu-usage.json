@@ -1,0 +1,62 @@
+{
+  "component_name": "Menu",
+  "component_description": "Menu can be used to display a list of interactive items either in a dropdown or a sidebar menu.",
+  "props": {
+    "children": {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "List of items in menu."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Use `Menu` as a container for menu items.\n```jsx live\n<Menu>\n  <Menu.Item text=\"Item 1\" />\n  <Menu.Item text=\"Item 2\" />\n  <Menu.Item text=\"Active item\" active />\n  <Menu.Item text=\"Disabled item\" disabled />\n</Menu>\n```",
+      "code": "<Menu>\n  <Menu.Item text=\"Item 1\" />\n  <Menu.Item text=\"Item 2\" />\n  <Menu.Item text=\"Active item\" active />\n  <Menu.Item text=\"Disabled item\" disabled />\n</Menu>",
+      "purpose_description": "The purpose of this example is to demonstrate the basic usage of a `Menu` component in React, which serves as a container for a list of menu items. This example illustrates how to create a simple menu with different states for each item, such as active and disabled.",
+      "technical_description": "The example uses a `Menu` component that acts as a wrapper for multiple `Menu.Item` components. Each `Menu.Item` represents an individual menu entry. The `text` prop is used to specify the display text for each item. Additionally, the `active` and `disabled` props are used to alter the state of specific menu items, indicating which item is currently active and which is disabled, respectively. The `Menu` component likely uses context or props to manage the state and behavior of its child items.",
+      "patterns_description": "This example demonstrates the use of composition in React, where a parent component (`Menu`) contains child components (`Menu.Item`). It also shows the use of props to manage the state and behavior of components, such as using boolean props (`active`, `disabled`) to control the appearance and interactivity of menu items. This pattern is common in React for creating reusable and flexible UI components.",
+      "use_cases_description": "This example is particularly useful in scenarios where a simple navigation menu is needed, such as in a sidebar or a dropdown menu. It can be used in web applications that require a list of navigable items, with the ability to highlight the current selection and disable certain options based on user permissions or application state."
+    },
+    {
+      "example_name": "MenuItem with icon",
+      "example_description": "Use `icon` prop to display a icon before the menu text.\n```jsx live\n<Menu>\n  <Menu.Item text=\"Item 1\" icon=\"checkmark\" />\n  <Menu.Item text=\"Item 2\" icon={<Icon icon=\"checkmark\" />} />\n  <Menu.Item\n    text=\"Active item\"\n    active\n    textElement={<Icon icon=\"checkmark\" intent=\"primary\" />}\n  />\n  <Menu.Item text=\"Disabled item\" disabled />\n</Menu>\n```",
+      "code": "<Menu>\n  <Menu.Item text=\"Item 1\" icon=\"checkmark\" />\n  <Menu.Item text=\"Item 2\" icon={<Icon icon=\"checkmark\" />} />\n  <Menu.Item\n    text=\"Active item\"\n    active\n    textElement={<Icon icon=\"checkmark\" intent=\"primary\" />}\n  />\n  <Menu.Item text=\"Disabled item\" disabled />\n</Menu>",
+      "purpose_description": "This example demonstrates how to use the `Menu` component with `Menu.Item` subcomponents to create a menu with items that can include icons. The primary purpose is to illustrate how icons can be integrated into menu items using the `icon` prop, enhancing the visual representation and usability of the menu.",
+      "technical_description": "The example uses a `Menu` component which acts as a container for multiple `Menu.Item` components. Each `Menu.Item` can accept various props to customize its appearance and behavior. The `icon` prop is used to prepend an icon to the menu item's text. This prop can accept either a string, which is likely mapped to a predefined icon, or a React element, such as an `<Icon />` component, allowing for more complex icon configurations. The `active` prop is used to highlight a menu item as active, and the `disabled` prop is used to render a menu item as non-interactive. The `textElement` prop allows for more complex text rendering, such as including an icon with specific styling.",
+      "patterns_description": "This example demonstrates several React patterns and best practices, such as:\n- **Component Composition**: Using `Menu` as a parent component to encapsulate `Menu.Item` components, showcasing a common pattern in React for building complex UIs from smaller, reusable components.\n- **Prop Usage**: Utilizing props to customize component behavior and appearance, such as `icon`, `active`, and `disabled`.\n- **Conditional Rendering**: The use of props like `active` and `disabled` to conditionally alter the rendering and interactivity of components.\n- **JSX Flexibility**: Demonstrating the flexibility of JSX by allowing both strings and React elements as prop values, enabling dynamic and complex UI configurations.",
+      "use_cases_description": "This example is particularly useful in scenarios where a user interface requires a menu with items that need to be visually distinct or convey additional information through icons. Real-world use cases include:\n- Navigation menus in web applications where icons help users quickly identify menu items.\n- Contextual menus in desktop-like applications where actions are represented by icons for better user experience.\n- Any application requiring a visually appealing and interactive menu system that can indicate active or disabled states."
+    }
+  ]
+}

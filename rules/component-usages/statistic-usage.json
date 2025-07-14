@@ -1,0 +1,92 @@
+{
+  "component_name": "Statistic",
+  "component_description": "Display statistic number.",
+  "props": {
+    "align": {
+      "name": "align",
+      "type": "\"left\" | \"right\"",
+      "required": false,
+      "description": "Alignment between title and content."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "intent": {
+      "name": "intent",
+      "type": "\"inherit\" | \"text\" | \"white\"",
+      "required": false,
+      "description": "Text color of the content."
+    },
+    "prefix": {
+      "name": "prefix",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "The prefix element of value."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "suffix": {
+      "name": "suffix",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "The suffix element of value."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "title": {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "description": "Title of Statistic."
+    },
+    "value": {
+      "name": "value",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "description": "Value to be displayed."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Text alignment justified",
+      "example_description": "There are 2 `align` options : `left` & `right`.\n`right` will be set by default.\n```jsx live\nfunction JustifiedStatistic() {\n  return (\n    <StatisticStyledContainer>\n      <div style={{ margin: 0, padding: 0, width: '100%' }}>\n        <Statistic value=\"$8000.00\" title=\"Hero Dollar Balance\" align=\"left\" />\n        <Button text=\"Top up\" />\n      </div>\n      <Statistic value=\"$80.00\" title=\"Hero Dollar Balance\" />\n    </StatisticStyledContainer>\n  );\n}\n```",
+      "code": "function JustifiedStatistic() {\n  return (\n    <StatisticStyledContainer>\n      <div style={{ margin: 0, padding: 0, width: '100%' }}>\n        <Statistic value=\"$8000.00\" title=\"Hero Dollar Balance\" align=\"left\" />\n        <Button text=\"Top up\" />\n      </div>\n      <Statistic value=\"$80.00\" title=\"Hero Dollar Balance\" />\n    </StatisticStyledContainer>\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to use the `Statistic` component with different text alignment options. It shows how to align the text of the `Statistic` component to the left, while the default alignment is to the right. This is useful for creating a consistent and visually appealing layout in a user interface where text alignment is a consideration.",
+      "technical_description": "The `JustifiedStatistic` component is a functional React component that renders a styled container (`StatisticStyledContainer`) with two `Statistic` components inside. The first `Statistic` component has its text aligned to the left, as specified by the `align` prop. The second `Statistic` component does not specify an alignment, so it defaults to right alignment. The component also includes a `Button` component with the text 'Top up', placed next to the first `Statistic`. The layout is managed using inline styles on a `div` that ensures full width and no margin or padding, allowing the components to be aligned properly within the container.",
+      "patterns_description": "This example demonstrates the use of inline styles for layout management, which is a common pattern in React for quick styling adjustments. It also shows the use of default prop values, where the `align` prop defaults to 'right' if not specified. This is a best practice for ensuring components have sensible defaults while allowing customization. The component structure promotes reusability and separation of concerns by encapsulating the statistic display logic within the `Statistic` component.",
+      "use_cases_description": "This example is particularly useful in scenarios where financial or statistical data needs to be displayed with specific alignment requirements. It can be used in dashboards, financial applications, or any user interface where data presentation is key. The ability to align text left or right allows for flexibility in design, accommodating different layout needs and improving readability in various contexts."
+    },
+    {
+      "example_name": "With card examples",
+      "example_description": "`text` **intent** will be set as default for **light card background color**.\n`white` **intent** may be used for **dark card background color**.\n`inherit` **intent** may be used for **custom color**.\n```jsx live\nfunction StatisticCard() {\n  return (\n    <StatisticStyledContainer\n      id=\"statistics-web-examples\"\n      style={{ flexWrap: 'wrap' }}\n    >\n      <Card style={{ width: 350 }}>\n        <Card.Content\n          style={{\n            display: 'flex',\n            flexDirection: 'column',\n            justifyContent: 'space-between',\n            gap: theme.space.xlarge,\n          }}\n        >\n          <StatisticCardContentWrapper>\n            <Typography.Text fontSize={16}>Potential Savings</Typography.Text>\n            <Button.Icon\n              icon=\"more-horizontal\"\n              intent=\"disabled-text\"\n              size=\"large\"\n            />\n          </StatisticCardContentWrapper>\n          <StatisticCardContentWrapper>\n            <Box fontSize=\"9xlarge\" color=\"violet-light-60\">\n              <Icon icon=\"piggy-bank-outlined\" />\n            </Box>\n            <Statistic value=\"$2196.00\" title=\"Per year\" />\n          </StatisticCardContentWrapper>\n        </Card.Content>\n      </Card>\n      <Card style={{ width: 350 }}>\n        <Card.Content\n          style={{\n            display: 'flex',\n            flexDirection: 'column',\n            justifyContent: 'space-between',\n            gap: theme.space.xlarge,\n          }}\n        >\n          <StatisticCardContentWrapper>\n            <Typography.Text fontSize={16}>Gross Expenses</Typography.Text>\n            <Button.Icon\n              icon=\"more-horizontal\"\n              intent=\"disabled-text\"\n              size=\"large\"\n            />\n          </StatisticCardContentWrapper>\n          <StatisticCardContentWrapper>\n            <StatisticIconWrapper>\n              <Icon icon=\"instapay\" intent=\"text\" size=\"xlarge\" />\n            </StatisticIconWrapper>\n            <Statistic value=\"$11,000.00\" title=\"AUD\" />\n          </StatisticCardContentWrapper>\n        </Card.Content>\n      </Card>\n      <Card style={{ width: 350 }}>\n        <Card.Content\n          style={{\n            display: 'flex',\n            flexDirection: 'column',\n            justifyContent: 'space-between',\n            gap: theme.space.xlarge,\n          }}\n        >\n          <StatisticCardContentWrapper>\n            <Typography.Text fontSize={16}>Saving Goal</Typography.Text>\n            <Button.Icon icon=\"more-horizontal\" size=\"large\" />\n          </StatisticCardContentWrapper>\n          <StatisticCardContentWrapper>\n            <Progress.Circle\n              value={30}\n              size=\"small\"\n              style={{ flexShrink: 0 }}\n              withInfo={false}\n            />\n            <Statistic value=\"Saved: $30\" title=\"Goal: $100\" />\n          </StatisticCardContentWrapper>\n        </Card.Content>\n      </Card>\n    </StatisticStyledContainer>\n  );\n}\n```",
+      "code": "function StatisticCard() {\n  return (\n    <StatisticStyledContainer\n      id=\"statistics-web-examples\"\n      style={{ flexWrap: 'wrap' }}\n    >\n      <Card style={{ width: 350 }}>\n        <Card.Content\n          style={{\n            display: 'flex',\n            flexDirection: 'column',\n            justifyContent: 'space-between',\n            gap: theme.space.xlarge,\n          }}\n        >\n          <StatisticCardContentWrapper>\n            <Typography.Text fontSize={16}>Potential Savings</Typography.Text>\n            <Button.Icon\n              icon=\"more-horizontal\"\n              intent=\"disabled-text\"\n              size=\"large\"\n            />\n          </StatisticCardContentWrapper>\n          <StatisticCardContentWrapper>\n            <Box fontSize=\"9xlarge\" color=\"violet-light-60\">\n              <Icon icon=\"piggy-bank-outlined\" />\n            </Box>\n            <Statistic value=\"$2196.00\" title=\"Per year\" />\n          </StatisticCardContentWrapper>\n        </Card.Content>\n      </Card>\n      <Card style={{ width: 350 }}>\n        <Card.Content\n          style={{\n            display: 'flex',\n            flexDirection: 'column',\n            justifyContent: 'space-between',\n            gap: theme.space.xlarge,\n          }}\n        >\n          <StatisticCardContentWrapper>\n            <Typography.Text fontSize={16}>Gross Expenses</Typography.Text>\n            <Button.Icon\n              icon=\"more-horizontal\"\n              intent=\"disabled-text\"\n              size=\"large\"\n            />\n          </StatisticCardContentWrapper>\n          <StatisticCardContentWrapper>\n            <StatisticIconWrapper>\n              <Icon icon=\"instapay\" intent=\"text\" size=\"xlarge\" />\n            </StatisticIconWrapper>\n            <Statistic value=\"$11,000.00\" title=\"AUD\" />\n          </StatisticCardContentWrapper>\n        </Card.Content>\n      </Card>\n      <Card style={{ width: 350 }}>\n        <Card.Content\n          style={{\n            display: 'flex',\n            flexDirection: 'column',\n            justifyContent: 'space-between',\n            gap: theme.space.xlarge,\n          }}\n        >\n          <StatisticCardContentWrapper>\n            <Typography.Text fontSize={16}>Saving Goal</Typography.Text>\n            <Button.Icon icon=\"more-horizontal\" size=\"large\" />\n          </StatisticCardContentWrapper>\n          <StatisticCardContentWrapper>\n            <Progress.Circle\n              value={30}\n              size=\"small\"\n              style={{ flexShrink: 0 }}\n              withInfo={false}\n            />\n            <Statistic value=\"Saved: $30\" title=\"Goal: $100\" />\n          </StatisticCardContentWrapper>\n        </Card.Content>\n      </Card>\n    </StatisticStyledContainer>\n  );\n}",
+      "purpose_description": "The purpose of this React component example is to demonstrate how to create a set of statistic cards using a styled container and card components. Each card displays different financial statistics, such as potential savings, gross expenses, and saving goals, using various UI elements like icons, buttons, and progress circles. This example is particularly useful for financial dashboards or applications where visual representation of financial data is required.",
+      "technical_description": "The `StatisticCard` component is a functional React component that returns a styled container (`StatisticStyledContainer`) wrapping three `Card` components. Each card is styled with a fixed width and contains a `Card.Content` section that uses flexbox for layout. Inside each card, there are two main sections: a header with a title and an icon button, and a content area displaying the main statistic with an icon or progress circle. The `Statistic` component is used to display the value and title of each statistic. The component utilizes various UI elements such as `Typography.Text` for text, `Button.Icon` for icon buttons, `Box` for styled containers, `Icon` for icons, and `Progress.Circle` for progress indicators. The styling is achieved using inline styles and theme-based spacing.",
+      "patterns_description": "This example demonstrates several React and UI design patterns:\n- **Component Composition**: The use of multiple smaller components (`Card`, `Statistic`, `Icon`, etc.) to build a complex UI.\n- **Flexbox Layout**: Utilization of flexbox for responsive and flexible layout management within cards.\n- **Theming and Styling**: Inline styles and theme-based spacing (`theme.space.xlarge`) are used for consistent styling.\n- **Iconography**: Use of icons to enhance visual communication and provide context to the statistics.\n- **Progress Indicators**: Use of progress circles to visually represent progress towards a goal.",
+      "use_cases_description": "This component is particularly useful in financial applications or dashboards where users need to quickly grasp key financial metrics. It can be used in scenarios such as:\n- Personal finance management apps to display savings, expenses, and goals.\n- Business dashboards to show financial performance metrics.\n- E-commerce platforms to display sales statistics or customer spending patterns.\n- Any application requiring a visually appealing presentation of numerical data with contextual icons and progress indicators."
+    }
+  ]
+}

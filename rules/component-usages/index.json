@@ -1,0 +1,264 @@
+{
+  "components": [
+    {
+      "name": "Alert",
+      "file": "alert-usage.json",
+      "description": "Alert is a simple & elegant way to let your users know about important things like system outages, announcements,..."
+    },
+    {
+      "name": "Badge",
+      "file": "badge-usage.json",
+      "description": "Badge is used to describe status or value of a text or number.\nIt can be used as standalone status; or a notification."
+    },
+    {
+      "name": "Banner",
+      "file": "banner-usage.json",
+      "description": "Banner can be used as announcements to let users know about important events/things."
+    },
+    {
+      "name": "Basic Table",
+      "file": "basic-table-usage.json",
+      "description": "A table displays a collection of structured data in rows.\nHelp users get an at-a-glance summary of the data to perform actions or navigate to a full-page representation of it.\nOrganise information in an easy to scan way so that users can look for patterns and develop insights from data."
+    },
+    {
+      "name": "Box",
+      "file": "box-usage.json",
+      "description": "Box is an abstract component that allows to:\nCreate layout for its content.\nAccess theme easily via props instead of inline style or css in js methods."
+    },
+    {
+      "name": "Breadcrumb",
+      "file": "breadcrumb-usage.json",
+      "description": "Breadcrumbs identify the path to the current resource in an application. It is useful to:\nInform users of where they are.\nHelp users to navigate back to a higher page level."
+    },
+    {
+      "name": "Button",
+      "file": "button-usage.json",
+      "description": "Buttons trigger actions when clicked."
+    },
+    {
+      "name": "Card",
+      "file": "card-usage.json",
+      "description": "A card is a bounded unit of UI content with a solid background color, can be used to display content which can consist of multiple elements."
+    },
+    {
+      "name": "Carousel",
+      "file": "carousel-usage.json",
+      "description": "The carousel component is automatically scaled with the container that user set.\nCommonly used for slide of pictures."
+    },
+    {
+      "name": "Chart.Bar",
+      "file": "chart-bar-usage.json",
+      "description": "Reusable Bar chart components."
+    },
+    {
+      "name": "Chart.Column",
+      "file": "chart-column-usage.json",
+      "description": "Chart that displayes multiple columns and stacked the bars to help visualize the data.\n```jsx live\nfunction ColumnChart() {\n  const [currentIndex, setCurrentIndex] = React.useState(0);\n  const labels = [\n    'May 2023',\n    'Jun 2023',\n    'Jul 2023',\n    'Aug 2023',\n    'Sep 2023',\n    'Jun 2024',\n    'Jul 2024',\n  ];\n  const data = [\n    { label: '07th', data: [2.2, 1, 2, 2.5, 4, 3, 4] },\n    { label: '14th', data: [1, 3, 1.5, 0.5, 2, 2, 3] },\n    { label: '21st', data: [2, 2, 1.6, 1.5, 1, 1, 2] },\n    { label: '25th', data: [3, 5, 2.3, 3, 3, 3, 1] },\n    { label: '31st', data: [2, 1, 3, 2, 1.5, 0.6, 1] },\n  ];\n  const numberOfColumns = 5;\n\n  return (\n    <Box sx={{ height: 400 }}>\n      <Chart.Column\n        data={data.map((d) => ({\n          ...d,\n          data: d.data.slice(currentIndex, currentIndex + numberOfColumns),\n        }))}\n        xAxisConfig={{\n          title: 'Horizontal Title',\n          labels: labels.slice(currentIndex, currentIndex + numberOfColumns),\n        }}\n        yAxisConfig={{\n          title: 'Vertical Title',\n          maxValue: 13,\n          tick: {\n            interval: 1,\n          },\n        }}\n        legendConfig={{\n          selectable: true,\n          viewMoreText: 'More',\n          maxLegend: 4,\n        }}\n        navigationConfig={{\n          visible: true,\n          onNavigate: (direction) => {\n            if (direction === 'next') {\n              if (currentIndex + numberOfColumns >= labels.length) return;\n              setCurrentIndex(currentIndex + 1);\n            }\n            if (direction === 'prev') {\n              if (currentIndex === 0) return;\n              setCurrentIndex(currentIndex - 1);\n            }\n          },\n        }}\n      />\n    </Box>\n  );\n}\n```"
+    },
+    {
+      "name": "Checkbox",
+      "file": "checkbox-usage.json",
+      "description": "The checkbox is shown as a square box that is ticked (checked) when activated.\nCheckboxes are used to select one or more options of a limited number of choices."
+    },
+    {
+      "name": "Chip",
+      "file": "chip-usage.json",
+      "description": "Chips help people enter information, make selections, filter content, or trigger actions."
+    },
+    {
+      "name": "Collapse",
+      "file": "collapse-usage.json",
+      "description": "Collapse can show or hide content with a built-in slide in/out animation.\nIt can be used to group or hide complex regions to keep the page clean."
+    },
+    {
+      "name": "Comment",
+      "file": "comment-usage.json",
+      "description": "A comment displays user feedback and discussion to website content.\nComments can be used to enable discussions on an entity such as a page, blog post, issue or other."
+    },
+    {
+      "name": "Data Grid Table",
+      "file": "data-grid-table-usage.json",
+      "description": "Use table as a data grid like a spreadsheet with buit-in support for editable cells, copy/paste and more."
+    },
+    {
+      "name": "DatePicker",
+      "file": "datepicker-usage.json",
+      "description": "A DatePicker shows a monthly calendar and allows the user to choose a single date."
+    },
+    {
+      "name": "Divider",
+      "file": "divider-usage.json",
+      "description": "A divider is used to separate contents or UI sections."
+    },
+    {
+      "name": "Dropdown",
+      "file": "dropdown-usage.json",
+      "description": "Dropdown is a popover container to render a few of options that we can select from by clicking on the target."
+    },
+    {
+      "name": "Empty",
+      "file": "empty-usage.json",
+      "description": "A UI placeholder to use when the data is empty or not available. An instruction or friendly message is usually shown here to guide user to the next action."
+    },
+    {
+      "name": "Filters",
+      "file": "filters-usage.json",
+      "description": "Filters is a composite component that filters the items of a list or table."
+    },
+    {
+      "name": "Form",
+      "file": "form-usage.json",
+      "description": "The `Form` component is used to add validations to input components including `Input`, `Input.TextArea` and `DatePicker`."
+    },
+    {
+      "name": "Grid",
+      "file": "grid-usage.json",
+      "description": "Our layout system is based on a 24-column grid."
+    },
+    {
+      "name": "Icon",
+      "file": "icon-usage.json",
+      "description": "Employment Hero Icon Font."
+    },
+    {
+      "name": "InPageNavigation",
+      "file": "inpagenavigation-usage.json",
+      "description": "Menu navigation for in-page usage."
+    },
+    {
+      "name": "Input",
+      "file": "input-usage.json",
+      "description": "The `Input` component is used to get user input in a text field."
+    },
+    {
+      "name": "MediaQuery",
+      "file": "mediaquery-usage.json",
+      "description": "MediaQuery component lets you render element if given media query matches."
+    },
+    {
+      "name": "Menu",
+      "file": "menu-usage.json",
+      "description": "Menu can be used to display a list of interactive items either in a dropdown or a sidebar menu."
+    },
+    {
+      "name": "Modal",
+      "file": "modal-usage.json",
+      "description": "Modal is used for showing contents or requiring interaction from users without directing to a new page."
+    },
+    {
+      "name": "Notification",
+      "file": "notification-usage.json",
+      "description": "Notification is usually used to acknowledge a user action. Eg: Submit a form, Delete a row successfully,..."
+    },
+    {
+      "name": "PageHeader",
+      "file": "pageheader-usage.json",
+      "description": "A header with breadcrumb and subtitle."
+    },
+    {
+      "name": "Pagination",
+      "file": "pagination-usage.json",
+      "description": "A component to show a long list of pages, fragment the data into multiple pages."
+    },
+    {
+      "name": "Portlet",
+      "file": "portlet-usage.json",
+      "description": ""
+    },
+    {
+      "name": "Progress",
+      "file": "progress-usage.json",
+      "description": "Progress is used to display:\nThe current progress of a long operation.\nThe completion in percentage of an operation."
+    },
+    {
+      "name": "Radio",
+      "file": "radio-usage.json",
+      "description": "The radio usually prepresents an option in a list where only one item can be selected at a time.\nHero design supports 2 styles of radio: Radio & Radio.Button. In addition, we support Radio.Group & Radio.ButtonGroup to prepresent each radio style in groups."
+    },
+    {
+      "name": "Rate",
+      "file": "rate-usage.json",
+      "description": "The rate can be used to show evaluation or a quick rating operation on something."
+    },
+    {
+      "name": "Result",
+      "file": "result-usage.json",
+      "description": "It is used to feed back the results of a series of operational tasks. When operations need to inform the user to process the results and the feedback is more complicated."
+    },
+    {
+      "name": "Select",
+      "file": "select-usage.json",
+      "description": "Select component to select options from a list."
+    },
+    {
+      "name": "SelectButton",
+      "file": "selectbutton-usage.json",
+      "description": "The select button is treated as a single radio button. It can be used when there is a limited number of options and it is beneficial to let users have a look at all of them."
+    },
+    {
+      "name": "SideBar",
+      "file": "sidebar-usage.json",
+      "description": "SideBar component that sticks on the right side to help users navigate through out the app."
+    },
+    {
+      "name": "Slider",
+      "file": "slider-usage.json",
+      "description": "Slider is used for inputting a value in a range."
+    },
+    {
+      "name": "Spinner",
+      "file": "spinner-usage.json",
+      "description": "Spinners indicate an operation under loading process."
+    },
+    {
+      "name": "Statistic",
+      "file": "statistic-usage.json",
+      "description": "Display statistic number."
+    },
+    {
+      "name": "Steps",
+      "file": "steps-usage.json",
+      "description": "An indicator to display a sequence of subtasks or steps to complete a workflow."
+    },
+    {
+      "name": "Switch",
+      "file": "switch-usage.json",
+      "description": "A switch is an alternate appearance for a checkbox to toggle a state on/off."
+    },
+    {
+      "name": "Tabs",
+      "file": "tabs-usage.json",
+      "description": "Tabs make it easy to switch between different views."
+    },
+    {
+      "name": "Tag",
+      "file": "tag-usage.json",
+      "description": "Tag is for categorizing or markup to tag by dimension or property."
+    },
+    {
+      "name": "TimePicker",
+      "file": "timepicker-usage.json",
+      "description": "A TimePicker let an user choose a time value from a respective dropdown to select a time value, with support for showing seconds and toggling between 12-hour and 24-hour systems."
+    },
+    {
+      "name": "Timeline",
+      "file": "timeline-usage.json",
+      "description": "Timeline is used to show a series of information which is connected or ordered by time."
+    },
+    {
+      "name": "Tooltip",
+      "file": "tooltip-usage.json",
+      "description": "Used as a small pop up to display some additonal information."
+    },
+    {
+      "name": "Typography.Text",
+      "file": "typography.text-usage.json",
+      "description": "Typography.Text is for rendering text content with flexible styling options. It supports various font sizes, weights, colors, and can render as different HTML elements while maintaining consistent design system styling."
+    },
+    {
+      "name": "Typography.Title",
+      "file": "typography.text-usage.json",
+      "description": "Typography.Title is for rendering headings with different levels of importance, ranging from h1 to h5. It provides semantic HTML structure and consistent styling for titles and headings."
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "component_name": "Notification",
+  "component_description": "Notification is usually used to acknowledge a user action. Eg: Submit a form, Delete a row successfully,...",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "content": {
+      "name": "content",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Notification content."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "icon": {
+      "name": "icon",
+      "type": "null | \"number\" | \"warning\" | \"bold\" | \"cancel\" | \"remove\" | \"menu\" | \"table\" | \"image\" | \"switch\" | \"target\" | \"restart\" | \"list\" | \"loading\" | \"file\" | \"directory\" | \"document\" | \"feed\" | \"location\" | \"move\" | \"activate\" | \"add-emoji\" | \"add-person\" | \"adjustment\" | \"alignment\" | \"archive\" | \"backward-arrow\" | \"bank\" | \"bell\" | \"billing\" | \"bookmark\" | \"box-check\" | \"box\" | \"buildings\" | \"cake\" | \"calendar-clock\" | \"calendar\" | \"candy-box-menu\" | \"carat-down-small\" | \"carat-down\" | \"carat-left\" | \"carat-right\" | \"carat-up-small\" | \"carat-up\" | \"circle-add\" | \"circle-cancel\" | \"circle-check\" | \"circle-down\" | \"circle-info\" | \"circle-left\" | \"circle-ok\" | \"circle-pencil\" | \"circle-question\" | \"circle-remove\" | \"circle-right\" | \"circle-up\" | \"circle-warning\" | \"clock-3\" | \"clock\" | \"cloud-download\" | \"cloud-upload\" | \"cog\" | \"coin\" | \"contacts\" | \"corner-resize\" | \"credit-card\" | \"diamond\" | \"direction-arrows\" | \"dollar-coin-shine\" | \"dot-filled\" | \"double-buildings\" | \"edit-template\" | \"envelope\" | \"expense\" | \"eye-circle\" | \"eye-invisible\" | \"eye\" | \"face-meh\" | \"face-sad\" | \"face-smiley\" | \"feedbacks\" | \"file-certified\" | \"file-clone\" | \"file-copy\" | \"file-csv\" | \"file-dispose\" | \"file-doc\" | \"file-excel\" | \"file-export\" | \"file-lock\" | \"file-pdf\" | \"file-powerpoint\" | \"file-search\" | \"file-secured\" | \"file-sheets\" | \"file-slide\" | \"file-verified\" | \"file-word\" | \"flask\" | \"folder-user\" | \"folder\" | \"format-bold\" | \"format-heading1\" | \"format-heading2\" | \"format-italic\" | \"format-list-bulleted\" | \"format-list-numbered\" | \"format-underlined\" | \"forward-arrow\" | \"funnel-filter\" | \"gauge\" | \"global-dollar\" | \"globe\" | \"graduation-cap\" | \"graph\" | \"happy-sun\" | \"health-bag\" | \"heart\" | \"home\" | \"import\" | \"incident-siren\" | \"instapay\" | \"loading-2\" | \"lock\" | \"looks-one\" | \"looks-two\" | \"mandatory\" | \"media-content\" | \"moneybag\" | \"moon\" | \"multiple-stars\" | \"multiple-users\" | \"node\" | \"open-folder\" | \"paperclip\" | \"payment-summary\" | \"pencil\" | \"phone\" | \"piggy-bank\" | \"pin\" | \"plane\" | \"play-circle\" | \"print\" | \"raising-hands\" | \"rectangle-mandatory\" | \"reply-arrow\" | \"reply\" | \"reschedule\" | \"rostering\" | \"save\" | \"schedule-send\" | \"schedule\" | \"search-person\" | \"send\" | \"speaker\" | \"star-award\" | \"star-badge\" | \"star-medal\" | \"star\" | \"steps-circle\" | \"stopwatch\" | \"suitcase\" | \"survey\" | \"swag\" | \"tag\" | \"teams\" | \"thumb-down\" | \"thumb-up\" | \"timesheet\" | \"touch-id\" | \"trash-bin\" | \"unlock\" | \"user\" | \"video-1\" | \"video-2\" | \"wrench\" | \"academic-hat-outlined\" | \"activate-outlined\" | \"add-person-outlined\" | \"add-section-outlined\" | \"add-time-outlined\" | \"add\" | \"adjustment-outlined\" | \"afternoon-outlined\" | \"alignment-2-outlined\" | \"alignment-outlined\" | \"all-caps\" | \"arrow-down\" | \"arrow-left\" | \"arrow-right\" | \"arrow-up\" | \"at-sign\" | \"bell-outlined\" | \"billing-outlined\" | \"billing-pound-outlined\" | \"body-outlined\" | \"bookmark-outlined\" | \"box-check-outlined\" | \"box-outlined\" | \"briefcase-clock-outlined\" | \"briefcase-search-outlined\" | \"bullet-points\" | \"cake-outlined\" | \"calendar-dates-outlined\" | \"calendar-star-outlined\" | \"camera-outlined\" | \"chat-outlined\" | \"checkmark\" | \"circle-add-outlined\" | \"circle-cancel-outlined\" | \"circle-down-outlined\" | \"circle-info-outlined\" | \"circle-left-outlined\" | \"circle-ok-outlined\" | \"circle-question-outlined\" | \"circle-remove-outlined\" | \"circle-right-outlined\" | \"circle-up-outlined\" | \"circle-warning-outlined\" | \"clipboard-check-outlined\" | \"clipboard-text-outlined\" | \"clock-2-outlined\" | \"clock-outlined\" | \"cog-outlined\" | \"coin-outlined\" | \"coin-pound-outlined\" | \"coin-stack-outlined\" | \"collapse-outlined\" | \"comment-outlined\" | \"contacts-outlined\" | \"content-copy-outlined\" | \"copy-outlined\" | \"credit-card-outlined\" | \"cup-outlined\" | \"cut-outlined\" | \"desktop-computer-outlined\" | \"diagram-outlined\" | \"diamond-outlined\" | \"direction-arrows-outlined\" | \"directory-outlined\" | \"document-outlined\" | \"dollar-coin-shine-outlined\" | \"dollar-sign\" | \"donut-chart-outlined\" | \"double-buildings-outlined\" | \"double-left-arrows\" | \"double-right-arrows\" | \"download-outlined\" | \"edit-template-outlined\" | \"edit-user-outlined\" | \"email-outlined\" | \"enter-arrow\" | \"envelope-outlined\" | \"evening-outlined\" | \"expand-outlined\" | \"expense-outlined\" | \"external-link\" | \"eye-invisible-outlined\" | \"eye-outlined\" | \"face-id\" | \"face-meh-outlined\" | \"face-open-smiley-outlined\" | \"face-sad-outlined\" | \"face-smiley-outlined\" | \"feed-outlined\" | \"feedbacks-outlined\" | \"file-certified-outlined\" | \"file-clone-outlined\" | \"file-copy-outlined\" | \"file-dispose-outlined\" | \"file-download-outlined\" | \"file-export-outlined\" | \"file-lock-outlined\" | \"file-outlined\" | \"file-search-outlined\" | \"file-secured-outlined\" | \"file-text-outlined\" | \"file-verified-outlined\" | \"filter-outlined\" | \"fire-outlined\" | \"flag-outlined\" | \"folder-outlined\" | \"folder-user-outlined\" | \"funnel-filter-outline\" | \"gauge-outlined\" | \"gift-outlined\" | \"graph-outlined\" | \"happy-sun-outlined\" | \"health-bag-outlined\" | \"heart-outlined\" | \"home-outlined\" | \"image-outlined\" | \"import-outlined\" | \"instapay-outlined\" | \"italic\" | \"link-1\" | \"link-2\" | \"list-outlined\" | \"location-outlined\" | \"lock-outlined\" | \"locked-file-outlined\" | \"log-out\" | \"magic-outlined\" | \"media-content-outlined\" | \"menu-close\" | \"menu-expand\" | \"menu-fold-outlined\" | \"menu-unfold-outlined\" | \"mobile-phone-1-outlined\" | \"moneybag-outlined\" | \"moneybag-pound-outlined\" | \"moon-outlined\" | \"more-horizontal\" | \"more-vertical\" | \"morning-outlined\" | \"multiple-folders-outlined\" | \"multiple-users-outlined\" | \"node-outlined\" | \"number-points\" | \"passport-outlined\" | \"payment-summary-outlined\" | \"payslip-outlined\" | \"pencil-outlined\" | \"percentage\" | \"phone-outlined\" | \"piggy-bank-outlined\" | \"pin-outlined\" | \"plane-outlined\" | \"play-circle-outlined\" | \"pound-sign\" | \"print-outlined\" | \"qr-code-outlined\" | \"re-assign\" | \"redeem\" | \"refresh\" | \"reply-outlined\" | \"return-arrow\" | \"ringgit-sign\" | \"rocket-outlined\" | \"rostering-outlined\" | \"save-outlined\" | \"schedule-outlined\" | \"search-outlined\" | \"send-outlined\" | \"share-1\" | \"share-2\" | \"shield-check-outlined\" | \"single-down-arrow\" | \"single-left-arrow\" | \"single-right-arrow\" | \"single-up-arrow\" | \"sparkle-2-outlined\" | \"sparkle-outlined\" | \"speaker-outlined\" | \"speed-outlined\" | \"star-outlined\" | \"stopwatch-outlined\" | \"strikethrough\" | \"suitcase-outlined\" | \"survey-outlined\" | \"switch-outlined\" | \"sync\" | \"tablet-outlined\" | \"target-outlined\" | \"thumb-up-outlined\" | \"timesheet-outlined\" | \"transfer\" | \"trash-bin-outlined\" | \"trash-outlined\" | \"unavailable\" | \"underline\" | \"unlinked\" | \"unlock-outlined\" | \"upload-outlined\" | \"user-add-outlined\" | \"user-circle-outlined\" | \"user-move-outlined\" | \"user-out-outlined\" | \"user-outlined\" | \"user-rectangle-outlined\" | \"user-remove-outlined\" | \"user-warning-outlined\" | \"video-1-outlined\" | \"video-2-outlined\" | \"wallet-outlined\" | \"wrench-outlined\" | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Icon name or a react element as custom icon.\n- undefined: use default icon according to Notification intent.\n- null: no icon at all.\n- IconName: an icon identifier from hero-design icon list.\n- ReactElement: Custom icon by your own."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "intent": {
+      "name": "intent",
+      "type": "NotificationIntent",
+      "required": false,
+      "description": "Visual intent color to apply to notification icon."
+    },
+    "onClose": {
+      "name": "onClose",
+      "type": "() => void",
+      "required": false,
+      "description": "Closing callback. When onClose is available, an  `x`  button will be rendered on the right side of notification. The callback will be called when user clicks on  `x`  button."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "title": {
+      "name": "title",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "description": "Notification title."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Show notification with title & content\n```jsx live\n<Notification\n  title=\"Special Series D Offer\"\n  content=\"No subscription fees to pay until July 2021 and 2 months free.\"\n/>\n```",
+      "code": "<Notification\n  title=\"Special Series D Offer\"\n  content=\"No subscription fees to pay until July 2021 and 2 months free.\"\n/>",
+      "purpose_description": "The purpose of this example is to demonstrate a basic usage of the Notification component, which is designed to display a notification message with a title and content. This component is likely used to inform users about important updates, offers, or alerts within an application.",
+      "technical_description": "The example shows a simple instantiation of the Notification component with two props: 'title' and 'content'. These props are used to pass the notification's title and message content, respectively. The component is expected to render these props in a structured format, typically with the title being more prominent (e.g., bold or larger font) and the content providing additional details. The implementation assumes that the Notification component is pre-defined and handles the rendering of these props appropriately.",
+      "patterns_description": "This example demonstrates a common React pattern of using props to pass data into a component. It highlights the importance of component reusability and separation of concerns, where the Notification component is responsible for rendering the notification UI, while the parent component supplies the specific data to be displayed. This approach allows for easy updates and maintenance, as the notification content can be changed without altering the component's internal logic.",
+      "use_cases_description": "This example is particularly useful in scenarios where an application needs to notify users about updates, promotions, or alerts. It can be used in e-commerce platforms to inform users about special offers, in SaaS applications to alert users about subscription changes, or in any web application where timely information delivery is crucial. The simplicity of the component makes it versatile for various notification needs across different domains."
+    },
+    {
+      "example_name": "Without notification icon",
+      "example_description": "```jsx live\n<Notification\n  title=\"News\"\n  content=\"This month we are excited to announce our latest round of funding, which will be used to create a better world at work. To help us celebrate this monumental occasion, we want to help you build a better world at work too, so we’re offering 2 months free subscription to help get you started!\"\n  icon={null}\n/>\n```",
+      "code": "<Notification\n  title=\"News\"\n  content=\"This month we are excited to announce our latest round of funding, which will be used to create a better world at work. To help us celebrate this monumental occasion, we want to help you build a better world at work too, so we’re offering 2 months free subscription to help get you started!\"\n  icon={null}\n/>",
+      "purpose_description": "The purpose of this example is to demonstrate how to use the Notification component without displaying an icon. This is useful for scenarios where the visual emphasis should be on the text content rather than an accompanying icon, or when an icon is not necessary for the message being conveyed.",
+      "technical_description": "The example shows a Notification component being rendered with three props: title, content, and icon. The title prop is a string that sets the heading of the notification, while the content prop provides the main message body. The icon prop is explicitly set to null, indicating that no icon should be displayed alongside the notification text. This approach allows the component to conditionally render elements based on the presence or absence of an icon, likely using conditional rendering techniques within the component's implementation.",
+      "patterns_description": "This example demonstrates the use of conditional rendering, a common pattern in React, to handle optional UI elements. By setting the icon prop to null, the component can decide not to render an icon, showcasing a flexible design that adapts to different use cases. This pattern is useful for creating components that can be easily customized and reused across different parts of an application without requiring changes to the component's core logic.",
+      "use_cases_description": "This example is particularly useful in scenarios where notifications need to be displayed without additional visual elements like icons, such as in minimalist UI designs or when the message content is self-explanatory. It can be used in applications where notifications are frequent and should remain unobtrusive, or in systems where the iconography might not add significant value to the user's understanding of the message. Additionally, it can be applied in situations where screen space is limited, and the focus should remain on textual information."
+    },
+    {
+      "example_name": "With close button on the right side",
+      "example_description": "```jsx live\n<Notification\n  title=\"Special Series D Offer\"\n  content=\"No subscription fees to pay until July 2021 and 2 months free.\"\n  intent=\"success\"\n  onClose={() => console.log('clicked close')}\n/>\n```",
+      "code": "<Notification\n  title=\"Special Series D Offer\"\n  content=\"No subscription fees to pay until July 2021 and 2 months free.\"\n  intent=\"success\"\n  onClose={() => console.log('clicked close')}\n/>",
+      "purpose_description": "This example demonstrates a Notification component designed to display a message with a title and content, along with a close button. The close button is positioned on the right side, allowing users to dismiss the notification. The component is styled to convey a 'success' intent, which typically indicates a positive or successful message.",
+      "technical_description": "The Notification component is implemented with several props that define its behavior and appearance. The 'title' and 'content' props are used to display the main text of the notification. The 'intent' prop is set to 'success', which likely applies a specific styling to the notification, such as a green color scheme, to indicate a positive message. The 'onClose' prop is a callback function that is executed when the close button is clicked, logging a message to the console. This setup suggests the use of a button element within the component that triggers the 'onClose' function when interacted with.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the behavior of the component (such as closing the notification) is managed via props. The use of an 'onClose' callback function is a common pattern for handling user interactions in a decoupled manner, allowing the parent component to define what happens when the notification is closed. Additionally, the use of an 'intent' prop to apply conditional styling is a pattern that enhances reusability and consistency across different notification types.",
+      "use_cases_description": "This Notification component is particularly useful in applications where user feedback or alerts need to be communicated effectively. It can be used in dashboards, web applications, or any user interface where conveying success messages, warnings, or errors is necessary. The ability to close the notification makes it suitable for temporary messages that do not require permanent display, enhancing user experience by allowing users to dismiss messages once they have been acknowledged."
+    }
+  ]
+}

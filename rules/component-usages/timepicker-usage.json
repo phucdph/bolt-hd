@@ -1,0 +1,149 @@
+{
+  "component_name": "TimePicker",
+  "component_description": "A TimePicker let an user choose a time value from a respective dropdown to select a time value, with support for showing seconds and toggling between 12-hour and 24-hour systems.",
+  "props": {
+    "autoComplete": {
+      "name": "autoComplete",
+      "type": "string",
+      "required": false,
+      "description": "Specify the [automated assistance](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) in filling out form field values by the browser."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "disabled": {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the picker is disabled."
+    },
+    "format": {
+      "name": "format",
+      "type": "string",
+      "required": false,
+      "description": "Time format. Following date-fns's format (https://date-fns.org/v2.16.1/docs/format). Default value will change based on current locale, if no locale is set, use en-AU locale's time format and depends on settings of with12Hours/withSeconds."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of <input> element."
+    },
+    "invalid": {
+      "name": "invalid",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the input is invalid."
+    },
+    "minuteStep": {
+      "name": "minuteStep",
+      "type": "1 | 5 | 10 | 15 | 20 | 30 | 60",
+      "required": false,
+      "description": "Minute interval."
+    },
+    "name": {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Name of <input> element, is used to refer to the form data for submission."
+    },
+    "onBlur": {
+      "name": "onBlur",
+      "type": "(e: FocusEvent) => void",
+      "required": false,
+      "description": "Blur event handler."
+    },
+    "onChange": {
+      "name": "onChange",
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "onChange event handler."
+    },
+    "placeholder": {
+      "name": "placeholder",
+      "type": "string",
+      "required": false,
+      "description": "Placeholder text in the absence of any value."
+    },
+    "prefix": {
+      "name": "prefix",
+      "type": "\"number\" | \"warning\" | \"bold\" | \"cancel\" | \"remove\" | \"menu\" | \"table\" | \"image\" | \"switch\" | \"target\" | \"restart\" | \"list\" | \"loading\" | \"file\" | \"directory\" | \"document\" | \"feed\" | \"location\" | \"move\" | \"activate\" | \"add-emoji\" | \"add-person\" | \"adjustment\" | \"alignment\" | \"archive\" | \"backward-arrow\" | \"bank\" | \"bell\" | \"billing\" | \"bookmark\" | \"box-check\" | \"box\" | \"buildings\" | \"cake\" | \"calendar-clock\" | \"calendar\" | \"candy-box-menu\" | \"carat-down-small\" | \"carat-down\" | \"carat-left\" | \"carat-right\" | \"carat-up-small\" | \"carat-up\" | \"circle-add\" | \"circle-cancel\" | \"circle-check\" | \"circle-down\" | \"circle-info\" | \"circle-left\" | \"circle-ok\" | \"circle-pencil\" | \"circle-question\" | \"circle-remove\" | \"circle-right\" | \"circle-up\" | \"circle-warning\" | \"clock-3\" | \"clock\" | \"cloud-download\" | \"cloud-upload\" | \"cog\" | \"coin\" | \"contacts\" | \"corner-resize\" | \"credit-card\" | \"diamond\" | \"direction-arrows\" | \"dollar-coin-shine\" | \"dot-filled\" | \"double-buildings\" | \"edit-template\" | \"envelope\" | \"expense\" | \"eye-circle\" | \"eye-invisible\" | \"eye\" | \"face-meh\" | \"face-sad\" | \"face-smiley\" | \"feedbacks\" | \"file-certified\" | \"file-clone\" | \"file-copy\" | \"file-csv\" | \"file-dispose\" | \"file-doc\" | \"file-excel\" | \"file-export\" | \"file-lock\" | \"file-pdf\" | \"file-powerpoint\" | \"file-search\" | \"file-secured\" | \"file-sheets\" | \"file-slide\" | \"file-verified\" | \"file-word\" | \"flask\" | \"folder-user\" | \"folder\" | \"format-bold\" | \"format-heading1\" | \"format-heading2\" | \"format-italic\" | \"format-list-bulleted\" | \"format-list-numbered\" | \"format-underlined\" | \"forward-arrow\" | \"funnel-filter\" | \"gauge\" | \"global-dollar\" | \"globe\" | \"graduation-cap\" | \"graph\" | \"happy-sun\" | \"health-bag\" | \"heart\" | \"home\" | \"import\" | \"incident-siren\" | \"instapay\" | \"loading-2\" | \"lock\" | \"looks-one\" | \"looks-two\" | \"mandatory\" | \"media-content\" | \"moneybag\" | \"moon\" | \"multiple-stars\" | \"multiple-users\" | \"node\" | \"open-folder\" | \"paperclip\" | \"payment-summary\" | \"pencil\" | \"phone\" | \"piggy-bank\" | \"pin\" | \"plane\" | \"play-circle\" | \"print\" | \"raising-hands\" | \"rectangle-mandatory\" | \"reply-arrow\" | \"reply\" | \"reschedule\" | \"rostering\" | \"save\" | \"schedule-send\" | \"schedule\" | \"search-person\" | \"send\" | \"speaker\" | \"star-award\" | \"star-badge\" | \"star-medal\" | \"star\" | \"steps-circle\" | \"stopwatch\" | \"suitcase\" | \"survey\" | \"swag\" | \"tag\" | \"teams\" | \"thumb-down\" | \"thumb-up\" | \"timesheet\" | \"touch-id\" | \"trash-bin\" | \"unlock\" | \"user\" | \"video-1\" | \"video-2\" | \"wrench\" | \"academic-hat-outlined\" | \"activate-outlined\" | \"add-person-outlined\" | \"add-section-outlined\" | \"add-time-outlined\" | \"add\" | \"adjustment-outlined\" | \"afternoon-outlined\" | \"alignment-2-outlined\" | \"alignment-outlined\" | \"all-caps\" | \"arrow-down\" | \"arrow-left\" | \"arrow-right\" | \"arrow-up\" | \"at-sign\" | \"bell-outlined\" | \"billing-outlined\" | \"billing-pound-outlined\" | \"body-outlined\" | \"bookmark-outlined\" | \"box-check-outlined\" | \"box-outlined\" | \"briefcase-clock-outlined\" | \"briefcase-search-outlined\" | \"bullet-points\" | \"cake-outlined\" | \"calendar-dates-outlined\" | \"calendar-star-outlined\" | \"camera-outlined\" | \"chat-outlined\" | \"checkmark\" | \"circle-add-outlined\" | \"circle-cancel-outlined\" | \"circle-down-outlined\" | \"circle-info-outlined\" | \"circle-left-outlined\" | \"circle-ok-outlined\" | \"circle-question-outlined\" | \"circle-remove-outlined\" | \"circle-right-outlined\" | \"circle-up-outlined\" | \"circle-warning-outlined\" | \"clipboard-check-outlined\" | \"clipboard-text-outlined\" | \"clock-2-outlined\" | \"clock-outlined\" | \"cog-outlined\" | \"coin-outlined\" | \"coin-pound-outlined\" | \"coin-stack-outlined\" | \"collapse-outlined\" | \"comment-outlined\" | \"contacts-outlined\" | \"content-copy-outlined\" | \"copy-outlined\" | \"credit-card-outlined\" | \"cup-outlined\" | \"cut-outlined\" | \"desktop-computer-outlined\" | \"diagram-outlined\" | \"diamond-outlined\" | \"direction-arrows-outlined\" | \"directory-outlined\" | \"document-outlined\" | \"dollar-coin-shine-outlined\" | \"dollar-sign\" | \"donut-chart-outlined\" | \"double-buildings-outlined\" | \"double-left-arrows\" | \"double-right-arrows\" | \"download-outlined\" | \"edit-template-outlined\" | \"edit-user-outlined\" | \"email-outlined\" | \"enter-arrow\" | \"envelope-outlined\" | \"evening-outlined\" | \"expand-outlined\" | \"expense-outlined\" | \"external-link\" | \"eye-invisible-outlined\" | \"eye-outlined\" | \"face-id\" | \"face-meh-outlined\" | \"face-open-smiley-outlined\" | \"face-sad-outlined\" | \"face-smiley-outlined\" | \"feed-outlined\" | \"feedbacks-outlined\" | \"file-certified-outlined\" | \"file-clone-outlined\" | \"file-copy-outlined\" | \"file-dispose-outlined\" | \"file-download-outlined\" | \"file-export-outlined\" | \"file-lock-outlined\" | \"file-outlined\" | \"file-search-outlined\" | \"file-secured-outlined\" | \"file-text-outlined\" | \"file-verified-outlined\" | \"filter-outlined\" | \"fire-outlined\" | \"flag-outlined\" | \"folder-outlined\" | \"folder-user-outlined\" | \"funnel-filter-outline\" | \"gauge-outlined\" | \"gift-outlined\" | \"graph-outlined\" | \"happy-sun-outlined\" | \"health-bag-outlined\" | \"heart-outlined\" | \"home-outlined\" | \"image-outlined\" | \"import-outlined\" | \"instapay-outlined\" | \"italic\" | \"link-1\" | \"link-2\" | \"list-outlined\" | \"location-outlined\" | \"lock-outlined\" | \"locked-file-outlined\" | \"log-out\" | \"magic-outlined\" | \"media-content-outlined\" | \"menu-close\" | \"menu-expand\" | \"menu-fold-outlined\" | \"menu-unfold-outlined\" | \"mobile-phone-1-outlined\" | \"moneybag-outlined\" | \"moneybag-pound-outlined\" | \"moon-outlined\" | \"more-horizontal\" | \"more-vertical\" | \"morning-outlined\" | \"multiple-folders-outlined\" | \"multiple-users-outlined\" | \"node-outlined\" | \"number-points\" | \"passport-outlined\" | \"payment-summary-outlined\" | \"payslip-outlined\" | \"pencil-outlined\" | \"percentage\" | \"phone-outlined\" | \"piggy-bank-outlined\" | \"pin-outlined\" | \"plane-outlined\" | \"play-circle-outlined\" | \"pound-sign\" | \"print-outlined\" | \"qr-code-outlined\" | \"re-assign\" | \"redeem\" | \"refresh\" | \"reply-outlined\" | \"return-arrow\" | \"ringgit-sign\" | \"rocket-outlined\" | \"rostering-outlined\" | \"save-outlined\" | \"schedule-outlined\" | \"search-outlined\" | \"send-outlined\" | \"share-1\" | \"share-2\" | \"shield-check-outlined\" | \"single-down-arrow\" | \"single-left-arrow\" | \"single-right-arrow\" | \"single-up-arrow\" | \"sparkle-2-outlined\" | \"sparkle-outlined\" | \"speaker-outlined\" | \"speed-outlined\" | \"star-outlined\" | \"stopwatch-outlined\" | \"strikethrough\" | \"suitcase-outlined\" | \"survey-outlined\" | \"switch-outlined\" | \"sync\" | \"tablet-outlined\" | \"target-outlined\" | \"thumb-up-outlined\" | \"timesheet-outlined\" | \"transfer\" | \"trash-bin-outlined\" | \"trash-outlined\" | \"unavailable\" | \"underline\" | \"unlinked\" | \"unlock-outlined\" | \"upload-outlined\" | \"user-add-outlined\" | \"user-circle-outlined\" | \"user-move-outlined\" | \"user-out-outlined\" | \"user-outlined\" | \"user-rectangle-outlined\" | \"user-remove-outlined\" | \"user-warning-outlined\" | \"video-1-outlined\" | \"video-2-outlined\" | \"wallet-outlined\" | \"wrench-outlined\" | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Name of Icon or an Icon element to render on the left side of the input, before the user's cursor."
+    },
+    "size": {
+      "name": "size",
+      "type": "\"small\" | \"medium\" | \"large\"",
+      "required": false,
+      "description": "The size of the input box."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "value": {
+      "name": "value",
+      "type": "string",
+      "required": false,
+      "description": "Current selected time which must be in correct format."
+    },
+    "with12Hours": {
+      "name": "with12Hours",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to use 12-hour system. This only works if  `format`  is not defined."
+    },
+    "withSeconds": {
+      "name": "withSeconds",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to show seconds."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Simple usage of TimePicker.\n```jsx live\nfunction BasicTimePicker() {\n  const [value, setValue] = React.useState();\n  return (\n    <TimePicker\n      value={value}\n      onChange={(newValue) => setValue(newValue)}\n      id=\"time-picker__basic\"\n    />\n  );\n}\n```",
+      "code": "function BasicTimePicker() {\n  const [value, setValue] = React.useState();\n  return (\n    <TimePicker\n      value={value}\n      onChange={(newValue) => setValue(newValue)}\n      id=\"time-picker__basic\"\n    />\n  );\n}",
+      "purpose_description": "The BasicTimePicker component demonstrates a simple implementation of a TimePicker component in React. It is designed to allow users to select a time, with the selected time being managed as a state within the component. This example serves as a foundational usage pattern for integrating time selection functionality into a React application.",
+      "technical_description": "The BasicTimePicker component utilizes React's useState hook to manage the state of the selected time. The component initializes a state variable 'value' with an undefined initial state, indicating no time is selected initially. The TimePicker component is rendered with three props: 'value', 'onChange', and 'id'. The 'value' prop is bound to the state variable, ensuring the TimePicker displays the current selected time. The 'onChange' prop is a callback function that updates the state with the new time whenever a user selects a different time. The 'id' prop provides a unique identifier for the TimePicker component, which can be useful for testing or styling purposes.",
+      "patterns_description": "The example demonstrates the controlled component pattern, where the TimePicker's value is controlled by React state. This pattern is beneficial for synchronizing the component's UI with its state, ensuring consistency and predictability. Additionally, the use of the useState hook is a common practice in functional components for managing local state.",
+      "use_cases_description": "This example is particularly useful in scenarios where a simple time selection interface is needed, such as in forms for scheduling events, setting reminders, or configuring alarms. It can be used in any application that requires users to input or select a specific time, providing a straightforward and user-friendly interface for time selection."
+    },
+    {
+      "example_name": "With AM/PM",
+      "example_description": "TimePicker with AM/PM.\n```jsx live\nfunction TimePickerWithAMPM() {\n  const [value, setValue] = React.useState();\n  return (\n    <TimePicker\n      with12Hours\n      value={value}\n      onChange={(newValue) => setValue(newValue)}\n      id=\"time-picker__with-am-pm\"\n    />\n  );\n}\n```",
+      "code": "function TimePickerWithAMPM() {\n  const [value, setValue] = React.useState();\n  return (\n    <TimePicker\n      with12Hours\n      value={value}\n      onChange={(newValue) => setValue(newValue)}\n      id=\"time-picker__with-am-pm\"\n    />\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to implement a TimePicker component in React that allows users to select a time in a 12-hour format with AM/PM options. This is particularly useful for applications where users need to input or select a time in a format that is familiar and commonly used in regions that prefer the 12-hour clock system.",
+      "technical_description": "This example defines a functional React component named `TimePickerWithAMPM`. It utilizes the `useState` hook to manage the state of the selected time value. The `TimePicker` component is rendered with several props: `with12Hours` to enable the 12-hour format, `value` to bind the current time value from the state, `onChange` to update the state when a new time is selected, and `id` for DOM identification. The `onChange` handler is a function that updates the state with the new time value whenever the user selects a different time.",
+      "patterns_description": "This example demonstrates the use of React's `useState` hook to manage component state, a common pattern in functional components. It also shows how to handle controlled components in React, where the component's state is synchronized with the input's value through props and event handlers. The use of an `onChange` handler to update state based on user input is a best practice for maintaining a single source of truth for form elements.",
+      "use_cases_description": "This TimePicker component example is particularly useful in scenarios where users need to input or select a time in a user-friendly format. It can be used in scheduling applications, booking systems, or any form where time input is required. The 12-hour format with AM/PM is especially relevant for applications targeting users in regions where this time format is standard, such as the United States."
+    },
+    {
+      "example_name": "With custom format",
+      "example_description": "TimePicker with a custom format, e.g. `'hh/mm/ss BBBBB'`.\n```jsx live\nfunction CustomFormatPicker() {\n  const [value, setValue] = React.useState();\n  const customFormat = 'hh/mm/ss BBBBB';\n  return (\n    <TimePicker\n      withSeconds\n      format={customFormat}\n      value={value}\n      onChange={(newValue) => setValue(newValue)}\n      id=\"time-picker__with-custom-format\"\n    />\n  );\n}\n```",
+      "code": "function CustomFormatPicker() {\n  const [value, setValue] = React.useState();\n  const customFormat = 'hh/mm/ss BBBBB';\n  return (\n    <TimePicker\n      withSeconds\n      format={customFormat}\n      value={value}\n      onChange={(newValue) => setValue(newValue)}\n      id=\"time-picker__with-custom-format\"\n    />\n  );\n}",
+      "purpose_description": "This example demonstrates how to use a TimePicker component with a custom time format. The format specified is 'hh/mm/ss BBBBB', which includes hours, minutes, seconds, and a custom placeholder for additional formatting or text. This is useful for applications that require time input in a non-standard format.",
+      "technical_description": "The component utilizes React's useState hook to manage the state of the selected time value. The TimePicker component is configured with several props: 'withSeconds' to include seconds in the time selection, 'format' to specify the custom time format, 'value' to bind the current time value from the state, and 'onChange' to update the state when the time value changes. The 'id' prop is used for DOM identification purposes. The custom format 'hh/mm/ss BBBBB' allows for a unique display of time, potentially including additional text or placeholders.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the component's state is managed via the useState hook and updated through an onChange event handler. It also shows how to customize third-party components by passing specific props, such as a custom format string, to modify their behavior and appearance. The use of 'withSeconds' is a good practice for enhancing user interaction by providing more granular time selection.",
+      "use_cases_description": "This example is particularly useful in scenarios where applications require time input in a specific format that is not covered by default configurations. For instance, scheduling applications, time tracking tools, or any system that needs to display or input time with additional context or custom formatting can benefit from this approach. It allows developers to tailor the time input to meet specific user interface or data requirements."
+    }
+  ]
+}

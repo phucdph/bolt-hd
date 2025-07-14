@@ -1,0 +1,71 @@
+{
+  "component_name": "Divider",
+  "component_description": "A divider is used to separate contents or UI sections.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "marginX": {
+      "name": "marginX",
+      "type": "\"xsmall\" | \"small\" | \"medium\" | \"large\" | \"xlarge\"",
+      "required": false,
+      "description": "Horizontal margin size. When it is not defined, 0px will be applied."
+    },
+    "marginY": {
+      "name": "marginY",
+      "type": "\"xsmall\" | \"small\" | \"medium\" | \"large\" | \"xlarge\"",
+      "required": false,
+      "description": "Vertical margin size. When it is not defined, 0px will be applied."
+    },
+    "pattern": {
+      "name": "pattern",
+      "type": "\"dashed\" | \"solid\"",
+      "required": false,
+      "description": "Divider stroke style."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "variant": {
+      "name": "variant",
+      "type": "\"horizontal\" | \"vertical\"",
+      "required": false,
+      "description": "Vertical or Horizontal divider."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Divider can be used to separate a header and a paragraph.\n```jsx live\n<>\n  <Typography.Title level={2}>Employment Hero</Typography.Title>\n  <Divider marginY=\"medium\" />\n  <Typography.Text>\n    Employment Hero is Australia&apos;s first all-in-one HR software, Payroll\n    and benefits platform for employers & employees.\n  </Typography.Text>\n</>\n```",
+      "code": "<>\n  <Typography.Title level={2}>Employment Hero</Typography.Title>\n  <Divider marginY=\"medium\" />\n  <Typography.Text>\n    Employment Hero is Australia&apos;s first all-in-one HR software, Payroll\n    and benefits platform for employers & employees.\n  </Typography.Text>\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate how a Divider component can be used to visually separate different sections of content within a React application. In this case, it separates a header from a paragraph, enhancing readability and organization of the content.",
+      "technical_description": "This example uses React fragments (<>...</>) to group multiple elements without adding extra nodes to the DOM. The Typography component is used to render styled text elements, with Typography.Title rendering a level 2 header and Typography.Text rendering a paragraph. The Divider component is inserted between these two text elements to create a visual separation. The Divider is configured with a marginY prop, which likely controls the vertical spacing around the divider, set to 'medium' in this example.",
+      "patterns_description": "This example demonstrates the use of React fragments to group elements without adding extra DOM nodes, which is a common pattern for maintaining clean and efficient markup. It also shows the use of component composition, where the Divider is used alongside Typography components to build a structured layout. The use of props to control styling (e.g., marginY) is a best practice for creating flexible and reusable components.",
+      "use_cases_description": "This example is particularly useful in scenarios where content needs to be organized into distinct sections for better readability, such as in dashboards, reports, or any application with structured content. The Divider component can be used to separate headers, paragraphs, or any other content blocks, making it a versatile tool for UI design."
+    }
+  ]
+}

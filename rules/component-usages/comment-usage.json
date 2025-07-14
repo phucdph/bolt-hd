@@ -1,0 +1,119 @@
+{
+  "component_name": "Comment",
+  "component_description": "A comment displays user feedback and discussion to website content.\nComments can be used to enable discussions on an entity such as a page, blog post, issue or other.",
+  "props": {
+    "actions": {
+      "name": "actions",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Custom actions for the comment, eg. Edit, Share, Copy."
+    },
+    "alwaysShowActions": {
+      "name": "alwaysShowActions",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to always show actions or on hover only."
+    },
+    "author": {
+      "name": "author",
+      "type": "string",
+      "required": true,
+      "description": "Author text."
+    },
+    "authorDetails": {
+      "name": "authorDetails",
+      "type": "string",
+      "required": false,
+      "description": "Details about author."
+    },
+    "avatar": {
+      "name": "avatar",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Author avatar."
+    },
+    "children": {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Nested comments should be provided as children of the Comment."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "content": {
+      "name": "content",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "description": "The main content of the comment."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "datetime": {
+      "name": "datetime",
+      "type": "string",
+      "required": false,
+      "description": "A datetime element containing the time to be displayed."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "reactions": {
+      "name": "reactions",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Custom reaction section for the comment."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic Comment",
+      "example_description": "A basic comment with author, avatar and time.\n```jsx live\n<Comment\n  author=\"Han Solo\"\n  authorDetails=\"Test lorem ipsum\"\n  avatar=\"/img/comment-avatar.png\"\n  content=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\"\n  datetime=\"2 minutes ago\"\n/>\n```",
+      "code": "<Comment\n  author=\"Han Solo\"\n  authorDetails=\"Test lorem ipsum\"\n  avatar=\"/img/comment-avatar.png\"\n  content=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\"\n  datetime=\"2 minutes ago\"\n/>",
+      "purpose_description": "This example demonstrates a basic implementation of a Comment component in React. The component is designed to display a comment with essential details such as the author's name, additional author details, an avatar image, the comment content, and the time when the comment was posted. It serves as a foundational building block for more complex comment systems in applications.",
+      "technical_description": "The Comment component is instantiated with several props that define its content and appearance. The component likely renders a structured layout, possibly using HTML elements like <div>, <img>, and <span> to organize the avatar, author information, and comment text. The avatar prop is used to display an image, while the author and authorDetails props provide textual information about the commenter. The content prop contains the main text of the comment, and the datetime prop indicates when the comment was made. The component might use CSS for styling to ensure proper layout and visual appeal.",
+      "patterns_description": "This example demonstrates the use of props to pass data into a component, a fundamental React pattern. It also shows how components can be designed to be reusable by accepting different data through props. The separation of concerns is evident as the component focuses on rendering the comment structure while the data is provided externally. This pattern enhances reusability and maintainability. Additionally, using a URL for the avatar image is a common practice in web development to manage image assets.",
+      "use_cases_description": "This Comment component is particularly useful in applications that require user interaction and feedback, such as social media platforms, blogs, forums, or any application with a commenting feature. It can be used to display user comments in a structured and visually appealing manner, enhancing user engagement and interaction. The component can be extended or customized to include additional features like reply buttons, like counts, or moderation controls, making it versatile for various real-world scenarios."
+    },
+    {
+      "example_name": "Usage with a list",
+      "example_description": "```jsx live\nfunction CommentWithList() {\n  const data = [\n    {\n      id: 1,\n      author: 'Han Solo',\n      avatar: '/img/comment-avatar.png',\n      authorDetails: 'Test lorem ipsum',\n      content:\n        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',\n      datetime: '2 minutes ago',\n    },\n    {\n      id: 2,\n      author: 'Han Solo',\n      avatar: '/img/comment-avatar.png',\n      authorDetails: 'Test lorem ipsum',\n      content:\n        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',\n      datetime: '2 minutes ago',\n    },\n  ];\n  return data.map((comment) => (\n    <Comment\n      key={comment.id}\n      author={comment.author}\n      authorDetails={comment.authorDetails}\n      avatar={comment.avatar}\n      content={comment.content}\n      datetime={comment.datetime}\n    />\n  ));\n}\n```",
+      "code": "function CommentWithList() {\n  const data = [\n    {\n      id: 1,\n      author: 'Han Solo',\n      avatar: '/img/comment-avatar.png',\n      authorDetails: 'Test lorem ipsum',\n      content:\n        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',\n      datetime: '2 minutes ago',\n    },\n    {\n      id: 2,\n      author: 'Han Solo',\n      avatar: '/img/comment-avatar.png',\n      authorDetails: 'Test lorem ipsum',\n      content:\n        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',\n      datetime: '2 minutes ago',\n    },\n  ];\n  return data.map((comment) => (\n    <Comment\n      key={comment.id}\n      author={comment.author}\n      authorDetails={comment.authorDetails}\n      avatar={comment.avatar}\n      content={comment.content}\n      datetime={comment.datetime}\n    />\n  ));\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to render a list of comments using a React component. It shows how to iterate over an array of comment data and render a Comment component for each item in the array, effectively creating a list of comments.",
+      "technical_description": "The example defines a functional component called CommentWithList. Inside this component, an array named 'data' is initialized with objects representing individual comments. Each object contains properties such as id, author, avatar, authorDetails, content, and datetime. The component returns the result of mapping over the 'data' array, where for each comment object, a Comment component is rendered. The key prop is set to the comment's id to ensure each Comment component is uniquely identifiable by React, which helps with efficient DOM updates.",
+      "patterns_description": "This example demonstrates the use of the map function to iterate over an array and render a list of components, a common pattern in React for rendering lists. It also highlights the importance of using the 'key' prop when rendering lists to help React optimize rendering performance. The use of functional components and the separation of data from presentation logic are also notable patterns.",
+      "use_cases_description": "This example would be particularly useful in scenarios where a developer needs to display a list of comments or similar data structures in a React application. It can be adapted for use in social media applications, blogs, or any platform where user-generated content is displayed in a list format. The pattern is flexible and can be extended to handle more complex data structures or additional functionality, such as comment editing or deletion."
+    },
+    {
+      "example_name": "Editor",
+      "example_description": "Comment can be used as an editor, so the user can customize the contents of the component.\n```jsx live\nfunction Editor() {\n  const [value, setValue] = useState('');\n  const [submitting, setSubmitting] = useState(false);\n  const [comments, setComments] = useState([]);\n  const { Editor } = Comment;\n  const CommentList = ({ data }) => (\n    <>\n      {data.map(({ id, author, authorDetails, avatar, content, datetime }) => (\n        <Comment\n          key={id}\n          author={author}\n          authorDetails={authorDetails}\n          avatar={avatar}\n          content={content}\n          datetime={datetime}\n        />\n      ))}\n    </>\n  );\n  const handleSubmit = () => {\n    if (!value) {\n      return;\n    }\n    setSubmitting(true);\n    setTimeout(() => {\n      setComments([\n        {\n          author: 'Han Solo',\n          avatar: '/img/comment-avatar.png',\n          authorDetails: 'Test lorem ipsum',\n          content: <p style={{ padding: 0, margin: 0 }}>{value}</p>,\n          datetime: '2 minutes ago',\n        },\n        ...comments,\n      ]);\n      setSubmitting(false);\n      setValue('');\n    }, 1000);\n  };\n  return (\n    <>\n      {comments && comments.length > 0 && <CommentList data={comments} />}\n      <Editor\n        onChange={(e) => setValue(e.target.value)}\n        onSubmit={handleSubmit}\n        submitting={submitting}\n        value={value}\n        avatar=\"/img/comment-avatar.png\"\n      />\n    </>\n  );\n}\n```",
+      "code": "function Editor() {\n  const [value, setValue] = useState('');\n  const [submitting, setSubmitting] = useState(false);\n  const [comments, setComments] = useState([]);\n  const { Editor } = Comment;\n  const CommentList = ({ data }) => (\n    <>\n      {data.map(({ id, author, authorDetails, avatar, content, datetime }) => (\n        <Comment\n          key={id}\n          author={author}\n          authorDetails={authorDetails}\n          avatar={avatar}\n          content={content}\n          datetime={datetime}\n        />\n      ))}\n    </>\n  );\n  const handleSubmit = () => {\n    if (!value) {\n      return;\n    }\n    setSubmitting(true);\n    setTimeout(() => {\n      setComments([\n        {\n          author: 'Han Solo',\n          avatar: '/img/comment-avatar.png',\n          authorDetails: 'Test lorem ipsum',\n          content: <p style={{ padding: 0, margin: 0 }}>{value}</p>,\n          datetime: '2 minutes ago',\n        },\n        ...comments,\n      ]);\n      setSubmitting(false);\n      setValue('');\n    }, 1000);\n  };\n  return (\n    <>\n      {comments && comments.length > 0 && <CommentList data={comments} />}\n      <Editor\n        onChange={(e) => setValue(e.target.value)}\n        onSubmit={handleSubmit}\n        submitting={submitting}\n        value={value}\n        avatar=\"/img/comment-avatar.png\"\n      />\n    </>\n  );\n}",
+      "purpose_description": "The purpose of this component is to provide a user interface for creating and displaying comments. It allows users to input text, submit it as a comment, and view a list of submitted comments. This component acts as an editor where users can customize the content they wish to submit.",
+      "technical_description": "The component uses React's useState hook to manage three pieces of state: the current input value, a boolean indicating if a submission is in progress, and an array of comments. The component renders a list of comments using a nested CommentList component, which maps over the comments array and renders each comment using the Comment component. The Editor component, presumably a part of the Comment library, is used to capture user input and handle submissions. The handleSubmit function is triggered on form submission, updating the comments state with a new comment object and resetting the input value after a simulated delay using setTimeout.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the input value is managed by React state. It also shows how to handle asynchronous operations in React using setTimeout to simulate a network request. The use of a separate CommentList component for rendering the list of comments follows the best practice of breaking down the UI into smaller, reusable components. Additionally, the use of the spread operator to prepend new comments to the existing list is a common pattern for updating arrays in state.",
+      "use_cases_description": "This component is particularly useful in applications that require user-generated content, such as social media platforms, blogs, or forums. It can be used wherever there is a need for users to submit comments or feedback, providing a straightforward interface for text input and submission. The component's design allows for easy customization and integration into larger applications."
+    }
+  ]
+}

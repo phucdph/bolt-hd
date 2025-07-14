@@ -1,0 +1,62 @@
+{
+  "component_name": "Breadcrumb",
+  "component_description": "Breadcrumbs identify the path to the current resource in an application. It is useful to:\nInform users of where they are.\nHelp users to navigate back to a higher page level.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "items": {
+      "name": "items",
+      "type": "Array<{ href: string; text: string | ReactElement<any, string | JSXElementConstructor<any>>; withRouter?: boolean }>",
+      "required": true,
+      "description": "All breadcrumbs to display. Use withRouter if you wish to use Breadcrumb with react-router."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Breadcrumb components require a list of `BreadcrumbItem` passed through `items` property.\n```jsx live\nfunction BasicBreadcrumb() {\n  const breadcrumbItems = [\n    { href: 'https://employmenthero.com', text: 'Home' },\n    {\n      href: 'https://employmenthero.com/benefits',\n      text: 'Benefits',\n    },\n    {\n      href: 'https://employmenthero.com/benefits/for-employers',\n      text: 'For Employers',\n    },\n  ];\n  return <Breadcrumb items={breadcrumbItems} />;\n}\n```",
+      "code": "function BasicBreadcrumb() {\n  const breadcrumbItems = [\n    { href: 'https://employmenthero.com', text: 'Home' },\n    {\n      href: 'https://employmenthero.com/benefits',\n      text: 'Benefits',\n    },\n    {\n      href: 'https://employmenthero.com/benefits/for-employers',\n      text: 'For Employers',\n    },\n  ];\n  return <Breadcrumb items={breadcrumbItems} />;\n}",
+      "purpose_description": "The purpose of this example is to demonstrate a basic implementation of a Breadcrumb component in React. It shows how to use a list of breadcrumb items to create a navigational aid that allows users to track their location within a website's hierarchy. This example is particularly useful for illustrating how to pass data to a Breadcrumb component via props and render it dynamically.",
+      "technical_description": "The example defines a functional React component named `BasicBreadcrumb`. Inside this component, an array `breadcrumbItems` is created, containing objects with `href` and `text` properties. Each object represents a breadcrumb item with a URL and display text. The `Breadcrumb` component is then rendered, receiving the `breadcrumbItems` array as a prop named `items`. This setup allows the `Breadcrumb` component to iterate over the `items` array and render each breadcrumb item accordingly, typically as a series of links separated by a delimiter (e.g., a slash or arrow).",
+      "patterns_description": "This example demonstrates the use of a functional component in React, which is a common pattern for creating components that do not require state management. It also shows how to pass data to a component via props, a fundamental React concept. The use of an array to manage a list of items is a typical pattern for rendering lists in React, allowing for dynamic rendering based on the data structure.",
+      "use_cases_description": "This example is particularly useful in scenarios where a website or application has a hierarchical structure, and users need to navigate back to previous sections easily. It can be used in web applications with multiple levels of navigation, such as e-commerce sites, documentation sites, or any platform where users need to understand their current location within the site's structure. The breadcrumb component enhances user experience by providing clear navigation paths."
+    },
+    {
+      "example_name": "Single usage",
+      "example_description": "When `items` has only one breadcrumb, it will turn on single mode. This is used as a shortcut coming back to home or parent page.\n```jsx live\nfunction SingleBreadcrumb() {\n  const breadcrumbItems = [\n    { href: 'https://employmenthero.com', text: 'Home' },\n  ];\n  return <Breadcrumb items={breadcrumbItems} />;\n}\n```",
+      "code": "function SingleBreadcrumb() {\n  const breadcrumbItems = [\n    { href: 'https://employmenthero.com', text: 'Home' },\n  ];\n  return <Breadcrumb items={breadcrumbItems} />;\n}",
+      "purpose_description": "This example demonstrates the usage of a Breadcrumb component in a scenario where there is only a single breadcrumb item. The purpose is to provide a simple navigation link that acts as a shortcut to a home or parent page, which is useful for simplifying navigation in applications with a hierarchical structure.",
+      "technical_description": "The `SingleBreadcrumb` component defines a constant `breadcrumbItems` which is an array containing a single object. This object represents a breadcrumb item with two properties: `href` and `text`. The `href` property is a URL that the breadcrumb will link to, and the `text` property is the display text for the breadcrumb. The component returns a `Breadcrumb` component, passing the `breadcrumbItems` array as a prop named `items`. This setup implies that the `Breadcrumb` component is designed to handle an array of breadcrumb items and render them appropriately, even when there is only one item in the array.",
+      "patterns_description": "This example demonstrates a common pattern in React where components are designed to handle varying amounts of data gracefully. By allowing the `Breadcrumb` component to operate in a 'single mode' when only one item is present, it simplifies the logic needed to handle different navigation scenarios. This pattern of adapting component behavior based on the data provided is a best practice in React development, promoting flexibility and reusability.",
+      "use_cases_description": "This single breadcrumb usage is particularly useful in applications where users frequently need to navigate back to a main or parent page. Examples include dashboards, settings pages, or any application with a nested structure where returning to a higher-level page is a common action. It simplifies the user experience by providing a clear and direct navigation option without cluttering the interface with multiple breadcrumb links."
+    }
+  ]
+}

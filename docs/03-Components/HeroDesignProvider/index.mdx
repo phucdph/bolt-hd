@@ -1,0 +1,84 @@
+---
+id: heroDesignProvider
+title: HeroDesignProvider
+---
+
+# HeroDesignProvider
+
+HeroDesignProvider provides a uniform configuration support for components.
+
+## Usage
+
+This component provides a configuration to all React components underneath itself via the context API. In the render tree all components will have access to the provided config.
+
+```jsx
+import { HeroDesignProvider } from '@ehrocks/hero-design-react';
+import enAU from '@ehrocks/hero-design-react/locale/en_AU';
+
+const Main = () => (
+  <HeroDesignProvider locale={enAU}>
+    <App />
+  </HeroDesignProvider>
+);
+
+export default Main;
+```
+
+## Example
+
+Select different language on the checkbox below.
+
+```jsx live
+function App() {
+  const [lang, setLang] = useState('en-AU');
+  const [value, setValue] = useState(new Date(2021, 1, 3));
+  const locale = useMemo(() => {
+    switch (lang) {
+      case 'en-AU':
+        return enAU;
+      case 'vi-VN':
+        return viVN;
+      case 'en-CA':
+        return enCA;
+      default:
+        return enAU;
+    }
+  }, [lang]);
+  const dateFormat = locale.dateTimeFormats.fullDate;
+  const monthFormat = locale.dateTimeFormats.monthYear;
+  return (
+    <HeroDesignProvider locale={locale}>
+      <Select
+        placeholder="Select locale"
+        options={[
+          { value: 'en-AU', text: 'English (Australia)' },
+          { value: 'en-CA', text: 'English (Canada)' },
+          { value: 'vi-VN', text: 'Tiếng Việt' },
+        ]}
+        value={lang}
+        onChange={setLang}
+        sx={{ mb: 'medium' }}
+      />
+      <DatePicker
+        value={formatDate(dateFormat, value)}
+        onChange={(newVal) =>
+          setValue(parseDate(new Date(), dateFormat, newVal))
+        }
+        format={dateFormat}
+        sx={{ mb: 'medium' }}
+      />
+      <DatePicker.Month
+        value={formatDate(monthFormat, value)}
+        onChange={(newVal) =>
+          setValue(parseDate(new Date(), monthFormat, newVal))
+        }
+        format={monthFormat}
+      />
+    </HeroDesignProvider>
+  );
+}
+```
+
+## Props
+
+<Props of="HeroDesignProvider" from="web" />

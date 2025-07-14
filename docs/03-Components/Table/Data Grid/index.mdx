@@ -1,0 +1,1714 @@
+---
+id: data-grid-table
+title: Data Grid
+---
+
+# Data Grid Table
+
+Use table as a data grid like a spreadsheet with buit-in support for editable cells, copy/paste and more.
+
+## Examples
+
+### Basic Data Grid
+
+Use `grid` variant to render Table with data-grid styling.
+
+<Note title="Resizable columns" intent="warning">
+  Column widths can be adjusted by dragging the borders between columns header.{' '}
+  <br />
+  However, if the <Highlight>width</Highlight> prop is set on a column, resizing
+  will be disabled. To maintain resizable behavior, use <Highlight>
+    minWidth
+  </Highlight> or <Highlight>maxWidth</Highlight> instead.
+</Note>
+
+```jsx live
+function BasicDataGridTabs() {
+  function BasicDataGrid({ size }) {
+    const actions = [
+      {
+        icon: 'checkmark',
+        text: 'Accept',
+        onClick: () => alert('Accept leave'),
+      },
+      {
+        icon: 'cancel',
+        text: 'Decline',
+        onClick: () => alert('Decline leave'),
+        divider: 'bottom',
+      },
+      {
+        icon: 'eye-outlined',
+        text: 'View',
+        onClick: () => alert('View leave'),
+      },
+      {
+        icon: 'pencil-outlined',
+        text: 'Edit',
+        onClick: () => alert('Edit leave'),
+      },
+      {
+        icon: 'box-outlined',
+        text: 'Archive',
+        onClick: () => alert('Archive leave'),
+      },
+      {
+        icon: 'trash-bin-outlined',
+        text: 'Delete',
+        intent: 'danger',
+        divider: 'top',
+        onClick: () => alert('Delete leave'),
+      },
+    ].filter(Boolean);
+    const columns = React.useMemo(
+      () => [
+        {
+          Header: 'Name',
+          accessor: 'name',
+          Cell: ({ value }) => (
+            <Button.Link href="#" text={value} target="_blank" />
+          ),
+          width: '20%',
+        },
+        { Header: 'Age', accessor: 'age' },
+        {
+          Header: 'Marital Status',
+          accessor: 'maritalStatus',
+          disableSortBy: true,
+          Cell: ({ value }) => (
+            <Tag text={value} intent="success" variant="filled" />
+          ),
+          minWidth: 200,
+        },
+        {
+          Header: 'Gender Status',
+          accessor: 'genderStatus',
+          disableSortBy: true,
+          Cell: ({ value }) => (
+            <Tag text={value} intent="success" variant="filled" />
+          ),
+        },
+        {
+          Header: 'Direct Personnel',
+          accessor: 'directPersonnel',
+          disableSortBy: true,
+        },
+        {
+          Header: 'Actions',
+          accessor: '',
+          disableSortBy: true,
+          align: 'right',
+          Cell: () => {
+            return <Table.RowAction actions={actions} />;
+          },
+        },
+      ],
+      []
+    );
+    const [selectedRows, setSelectedRows] = React.useState({ 0: true });
+    const data = [
+      {
+        name: 'Vy Nguyen',
+        age: 50,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Single',
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+      },
+      {
+        name: 'Hau Dao',
+        age: 51,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Single',
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+      },
+      {
+        name: 'Hanh Le',
+        age: 80,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Complicated',
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+      },
+      {
+        name: 'Tuan Thieu',
+        age: 99,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'In relationship',
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+      },
+      {
+        name: 'Vinh Tony',
+        age: 21,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Single',
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+      },
+    ];
+    return (
+      <Table
+        data={data}
+        columns={columns}
+        selectable
+        selectedRows={selectedRows}
+        onSelectedRowsChange={setSelectedRows}
+        size={size}
+        variant="grid"
+      />
+    );
+  }
+
+  const tabs = [
+    { id: 1, title: 'Default Size Table', panel: <BasicDataGrid /> },
+    {
+      id: 2,
+      title: 'Compact Size Table',
+      panel: <BasicDataGrid size="compact" />,
+    },
+  ];
+  const [selectedTabId, setSelectedTabId] = React.useState(1);
+  return (
+    <Tabs
+      id="basic-data-grid-tabs"
+      tabs={tabs}
+      selectedTabId={selectedTabId}
+      onChange={setSelectedTabId}
+    />
+  );
+}
+```
+
+### Editable Data grid
+
+Data-grid table supports editable cells with Input and Select components.
+
+<Note title="Editable grid performance" intent="warning">
+  To avoid unnecessary re-renders, please memoize all the props that are passed
+  to editable cell components, especially props whose values change frequently,
+  such as callbacks and objects. You can use{' '}
+  <Highlight>React.useCallback()</Highlight> for functions and{' '}
+  <Highlight>React.useMemo()</Highlight> for objects.
+</Note>
+
+```jsx live
+function EditableDataGridTabs() {
+  function EditableDataGrid({ size }) {
+    const actions = [
+      {
+        icon: 'checkmark',
+        text: 'Accept',
+        onClick: () => alert('Accept leave'),
+      },
+      {
+        icon: 'cancel',
+        text: 'Decline',
+        onClick: () => alert('Decline leave'),
+        divider: 'bottom',
+      },
+      {
+        icon: 'eye-outlined',
+        text: 'View',
+        onClick: () => alert('View leave'),
+      },
+      {
+        icon: 'pencil-outlined',
+        text: 'Edit',
+        onClick: () => alert('Edit leave'),
+      },
+      {
+        icon: 'box-outlined',
+        text: 'Archive',
+        onClick: () => alert('Archive leave'),
+      },
+      {
+        icon: 'trash-bin-outlined',
+        text: 'Delete',
+        intent: 'danger',
+        divider: 'top',
+        onClick: () => alert('Delete leave'),
+      },
+    ].filter(Boolean);
+
+    const contextMenuConfig = {
+      items: [
+        {
+          id: 'copy',
+          text: 'Copy',
+          icon: 'file-copy-outlined',
+          onClick: ({ row, column }) => {
+            const text = row.original[column.id];
+            navigator.clipboard.writeText(text);
+          },
+        },
+        {
+          id: 'paste',
+          text: 'Paste',
+          icon: 'save-outlined',
+          onClick: ({ row, column }) => {
+            navigator.clipboard.readText().then((text) => {
+              if (column.id === 'age') {
+                onAgeChange(row.original.id, text);
+              } else if (column.id === 'maritalStatus') {
+                onMaritalStatusChange(row.original.id, text);
+              }
+            });
+          },
+        },
+      ],
+    };
+
+    const [ages, setAges] = React.useState({
+      0: 50,
+      1: 51,
+      2: 80,
+      3: 99,
+      4: 21,
+      5: 254,
+    });
+    const [maritalStatuses, setMaritalStatuses] = React.useState({
+      0: 'Single',
+      1: 'Single',
+      2: 'Complicated',
+      3: 'In relationship',
+      4: 'Single',
+      5: 'Single',
+    });
+    const [skills, setSkills] = React.useState({
+      0: ['React'],
+      1: ['TypeScript', 'Node.js'],
+      2: [],
+      3: ['Design'],
+      4: ['React', 'Design'],
+      5: [],
+    });
+    const [dobs, setDobs] = React.useState({
+      0: '01/01/1990',
+      1: '15/05/1985',
+      2: '20/08/1975',
+      3: '10/12/2000',
+      4: '05/07/1995',
+      5: '30/09/1980',
+    });
+
+    const onAgeChange = React.useCallback((id, value) => {
+      setAges((prev) => ({ ...prev, [id]: value }));
+    }, []);
+
+    const onMaritalStatusChange = React.useCallback((id, value) => {
+      setMaritalStatuses((prev) => ({ ...prev, [id]: value }));
+    }, []);
+
+    const onDobChange = React.useCallback((id, value) => {
+      setDobs((prev) => ({ ...prev, [id]: value }));
+    }, []);
+
+    const onSkillsChange = React.useCallback((id, value) => {
+      setSkills((prev) => ({ ...prev, [id]: value }));
+    }, []);
+
+    const columns = React.useMemo(
+      () => [
+        {
+          Header: 'Name',
+          accessor: 'name',
+          Cell: ({ value }) => (
+            <Button.Link href="#" text={value} target="_blank" />
+          ),
+          minWidth: 200,
+        },
+        {
+          Header: 'Age',
+          accessor: 'age',
+          align: 'right',
+          Cell: ({ value, row }) => (
+            <Table.InputCell
+              value={value}
+              disabled={row.original.id === 3}
+              readonly={row.original.id === 4}
+              onChange={React.useCallback(
+                (e) => {
+                  onAgeChange(row.original.id, e.target.value);
+                },
+                [row.original.id, onAgeChange]
+              )}
+              validationStatus={React.useMemo(
+                () =>
+                  row.original.id === 5
+                    ? { state: 'error', message: 'Invalid age' }
+                    : {},
+                [row.original.id]
+              )}
+            />
+          ),
+          minWidth: 200,
+        },
+        {
+          Header: 'Pay rate',
+          accessor: 'payRate',
+          Cell: ({ value, row }) => (
+            <Table.InputCell value={value} variant="computed" />
+          ),
+          minWidth: 200,
+        },
+        {
+          Header: 'Marital Status',
+          accessor: 'maritalStatus',
+          disableSortBy: true,
+          Cell: ({ value, row }) => {
+            const [query, setQuery] = React.useState('');
+            return (
+              <Table.SelectCell
+                query={query}
+                onQueryChange={setQuery}
+                onFocus={() => setQuery(value)}
+                value={value}
+                disabled={row.original.id === 3}
+                onChange={React.useCallback(
+                  (value) => onMaritalStatusChange(row.original.id, value),
+                  [row.original.id, onMaritalStatusChange]
+                )}
+                options={React.useMemo(
+                  () => [
+                    { value: 'Single', text: 'Single' },
+                    { value: 'Complicated', text: 'Complicated' },
+                    { value: 'In relationship', text: 'In relationship' },
+                  ],
+                  []
+                )}
+                validationStatus={React.useMemo(
+                  () =>
+                    row.original.id === 2
+                      ? { state: 'error', message: 'Invalid status' }
+                      : {},
+                  [row.original.id]
+                )}
+              />
+            );
+          },
+          minWidth: 200,
+        },
+        {
+          Header: 'Date of Birth',
+          accessor: 'dob',
+          disableSortBy: true,
+          Cell: ({ value, row }) => (
+            <Table.DatePickerCell
+              value={value}
+              disabled={row.original.id === 3}
+              readonly={row.original.id === 4}
+              onChange={React.useCallback(
+                (val) => onDobChange(row.original.id, val),
+                [row.original.id]
+              )}
+              validationStatus={React.useMemo(
+                () =>
+                  row.original.id === 1
+                    ? { state: 'error', message: 'Invalid date' }
+                    : {},
+                [row.original.id, onDobChange]
+              )}
+              format="dd/MM/yyyy"
+              placeholder="Select date"
+            />
+          ),
+          minWidth: 220,
+        },
+        {
+          Header: 'Skills',
+          accessor: 'skills',
+          disableSortBy: true,
+          Cell: ({ value = [], row }) => (
+            <Table.MultiSelectCell
+              value={value}
+              variant="tag-cloud"
+              options={React.useMemo(
+                () => [
+                  { value: 'React', text: 'React' },
+                  { value: 'TypeScript', text: 'TypeScript' },
+                  { value: 'Node.js', text: 'Node.js' },
+                  { value: 'Design', text: 'Design' },
+                ],
+                []
+              )}
+              onChange={React.useCallback(
+                (newValue) => onSkillsChange(row.original.id, newValue),
+                [row.original.id, onSkillsChange]
+              )}
+              validationStatus={React.useMemo(() => {
+                if (row.original.id === 2)
+                  return {
+                    state: 'error',
+                    message: 'Invalid skills',
+                  };
+                if (value.length === 0)
+                  return {
+                    state: 'warning',
+                    message: 'Select at least one skill',
+                  };
+                return undefined;
+              }, [row.original.id, value.length])}
+              placeholder="Select skills"
+            />
+          ),
+          minWidth: 350,
+        },
+        {
+          Header: 'Gender Status',
+          accessor: 'genderStatus',
+          disableSortBy: true,
+          Cell: ({ value }) => (
+            <Tag text={value} intent="success" variant="filled" />
+          ),
+        },
+        {
+          Header: 'Direct Personnel',
+          accessor: 'directPersonnel',
+          disableSortBy: true,
+        },
+
+        {
+          Header: 'Actions',
+          accessor: '',
+          disableSortBy: true,
+          align: 'right',
+          Cell: () => {
+            return <Table.RowAction actions={actions} />;
+          },
+        },
+      ],
+      []
+    );
+    const [selectedRows, setSelectedRows] = React.useState({ 0: true });
+    const data = [
+      {
+        id: 0,
+        name: 'Vy Nguyen',
+        age: ages[0],
+        payRate: '$100',
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[0],
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+        dob: dobs[0],
+        skills: skills[0],
+      },
+      {
+        id: 1,
+        name: 'Hau Dao',
+        age: ages[1],
+        payRate: '$400',
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[1],
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+        dob: dobs[1],
+        skills: skills[1],
+      },
+      {
+        id: 2,
+        name: 'Hanh Le',
+        age: ages[2],
+        payRate: '$200',
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[2],
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+        dob: dobs[2],
+        skills: skills[2],
+      },
+      {
+        id: 3,
+        name: 'Tuan Thieu',
+        age: ages[3],
+        payRate: '$300',
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[3],
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+        dob: dobs[3],
+        skills: skills[3],
+      },
+      {
+        id: 4,
+        name: 'Vinh Tony',
+        age: ages[4],
+        payRate: '$500',
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[4],
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+        dob: dobs[4],
+        skills: skills[4],
+      },
+      {
+        id: 5,
+        name: 'Vinh Ho',
+        age: ages[5],
+        payRate: '$600',
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[5],
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+        dob: dobs[5],
+        skills: skills[5],
+      },
+    ];
+    return (
+      <Table
+        data={data}
+        columns={columns}
+        selectable
+        selectedRows={selectedRows}
+        onSelectedRowsChange={setSelectedRows}
+        variant="grid"
+        contextMenuConfig={contextMenuConfig}
+        size={size}
+      />
+    );
+  }
+
+  const tabs = [
+    { id: 1, title: 'Default Size Table', panel: <EditableDataGrid /> },
+    {
+      id: 2,
+      title: 'Compact Size Table',
+      panel: <EditableDataGrid size="compact" />,
+    },
+  ];
+  const [selectedTabId, setSelectedTabId] = React.useState(1);
+  return (
+    <Tabs
+      id="editable-data-grid-tabs"
+      tabs={tabs}
+      selectedTabId={selectedTabId}
+      onChange={setSelectedTabId}
+    />
+  );
+}
+```
+
+### Highlight The Editable Cell
+
+Press and move the mouse to select a range of cells.
+
+```jsx live
+function HighlightEditableDataGridTabs() {
+  function HighlightEditableDataGrid({ size }) {
+    const [data, setData] = React.useState([
+      {
+        id: 0,
+        name: 'Vy Nguyen',
+        age: 50,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Single',
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+      },
+      {
+        id: 1,
+        name: 'Hau Dao',
+        age: 20,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Complicated',
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+      },
+      {
+        id: 2,
+        name: 'Hanh Le',
+        age: 30,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'In relationship',
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+      },
+      {
+        id: 3,
+        name: 'Tuan Thieu',
+        age: 24,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Single',
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+      },
+      {
+        id: 4,
+        name: 'Vinh Tony',
+        age: 50,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Complicated',
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+      },
+      {
+        id: 5,
+        name: 'Vinh Ho',
+        age: 24,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'In relationship',
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+      },
+    ]);
+
+    const columns = React.useMemo(
+      () => [
+        {
+          Header: 'Name',
+          accessor: 'name',
+          Cell: ({ value, row }) => (
+            <Table.InputCell
+              value={value}
+              onChange={(e) => {
+                setData((prev) =>
+                  prev.map((item, index) =>
+                    index === row.index
+                      ? { ...item, name: e.target.value }
+                      : item
+                  )
+                );
+              }}
+            />
+          ),
+          minWidth: 200,
+        },
+        {
+          Header: 'Age',
+          accessor: 'age',
+          Cell: ({ value, row }) => (
+            <Table.InputCell
+              value={value}
+              onChange={(e) => {
+                setData((prev) =>
+                  prev.map((item, index) =>
+                    index === row.index
+                      ? { ...item, age: e.target.value }
+                      : item
+                  )
+                );
+              }}
+            />
+          ),
+          minWidth: 100,
+        },
+        {
+          Header: 'Marital Status',
+          accessor: 'maritalStatus',
+          disableSortBy: true,
+          Cell: ({ value, row }) => {
+            const [query, setQuery] = React.useState('');
+
+            return (
+              <Table.SelectCell
+                value={value}
+                onChange={(value) => {
+                  setData((prev) =>
+                    prev.map((item, index) =>
+                      index === row.index
+                        ? { ...item, maritalStatus: value }
+                        : item
+                    )
+                  );
+                }}
+                options={[
+                  { value: 'Single', text: 'Single' },
+                  { value: 'Complicated', text: 'Complicated' },
+                  { value: 'In relationship', text: 'In relationship' },
+                ]}
+                query={query}
+                onQueryChange={setQuery}
+              />
+            );
+          },
+          minWidth: 200,
+        },
+        {
+          Header: 'Gender Status',
+          accessor: 'genderStatus',
+          disableSortBy: true,
+          Cell: ({ value, row }) => (
+            <Table.SelectCell
+              value={value}
+              onChange={(value) => {
+                setData((prev) =>
+                  prev.map((item, index) =>
+                    index === row.index
+                      ? { ...item, genderStatus: value }
+                      : item
+                  )
+                );
+              }}
+              options={[
+                { value: 'Male', text: 'Male' },
+                { value: 'Female', text: 'Female' },
+              ]}
+            />
+          ),
+        },
+        {
+          Header: 'Direct Personnel',
+          accessor: 'directPersonnel',
+          disableSortBy: true,
+          Cell: ({ value, row }) => (
+            <Table.InputCell
+              value={value}
+              onChange={(e) => {
+                setData((prev) =>
+                  prev.map((item, index) =>
+                    index === row.index
+                      ? { ...item, directPersonnel: e.target.value }
+                      : item
+                  )
+                );
+              }}
+            />
+          ),
+        },
+      ],
+      []
+    );
+
+    const PASTE_DATA_VALIDATION_RULES = React.useMemo(
+      () => ({
+        name: (value) =>
+          typeof value === 'string' && value.trim().split(/\s+/).length === 2,
+        age: (value) => Number.isInteger(Number(value)) && Number(value) > 18,
+        maritalStatus: (value) =>
+          ['Single', 'Complicated', 'In relationship'].includes(value),
+        genderStatus: (value) => ['Male', 'Female'].includes(value),
+        directPersonnel: (value) => ['Direct', 'Indirect'].includes(value),
+      }),
+      []
+    );
+
+    const applyValidationRules = React.useCallback(
+      (accessor, value) => {
+        if (accessor in PASTE_DATA_VALIDATION_RULES) {
+          return PASTE_DATA_VALIDATION_RULES[accessor](value) ? value : '';
+        }
+        return value;
+      },
+      [PASTE_DATA_VALIDATION_RULES]
+    );
+
+    const extractDataByAccessors = React.useCallback(
+      (item, accessors) =>
+        accessors.reduce(
+          (acc, accessor) =>
+            accessor ? { ...acc, [accessor]: item[accessor] } : acc,
+          {}
+        ),
+      []
+    );
+
+    const isCopiedSingleCell = React.useCallback((pastedRowValues) => {
+      return (
+        pastedRowValues?.length === 1 && pastedRowValues?.[0]?.length === 1
+      );
+    }, []);
+
+    // Returns a function that fills all selected cells with a single value
+    const updateDataWithPastedSingleCell = React.useCallback(
+      ({ value, accessors, selectedCells }) =>
+        (data) =>
+          data.map((row, rowIdx) => {
+            // Find all selected cells in this row
+            const cellsInRow = selectedCells.filter(([r]) => r === rowIdx);
+            if (cellsInRow.length === 0) return row;
+            const updatedRow = { ...row };
+            cellsInRow.forEach(([_, colIdx]) => {
+              const accessor = accessors[colIdx];
+              if (accessor) {
+                updatedRow[accessor] = applyValidationRules(accessor, value);
+              }
+            });
+            return updatedRow;
+          }),
+      [applyValidationRules]
+    );
+
+    // Returns a new row object with pasted values applied to the correct columns
+    const updateDataWithPastedValues = React.useCallback(
+      ({ rowData, pastedRowValues, startCol, accessors }) => {
+        const updatedRow = { ...rowData };
+        accessors.forEach((accessor, colIdx) => {
+          const pastedIdx = colIdx - startCol;
+          if (
+            colIdx >= startCol &&
+            pastedIdx < pastedRowValues.length &&
+            pastedIdx >= 0 &&
+            accessor
+          ) {
+            updatedRow[accessor] = applyValidationRules(
+              accessor,
+              pastedRowValues[pastedIdx]
+            );
+          }
+        });
+        return updatedRow;
+      },
+      [applyValidationRules]
+    );
+
+    const getAccessors = React.useCallback(
+      (cols) => cols.map((col) => col.accessor || col.id),
+      []
+    );
+
+    // Handles paste events for both single-cell and multi-cell pastes
+    const onPasteHandler = React.useCallback(
+      ({
+        parsedData,
+        startHighlightedPosition,
+        endHighlightedPosition,
+        selectedCells,
+      }) => {
+        const accessors = getAccessors(columns);
+        const startRow = startHighlightedPosition.rowIndex;
+        const endRow = endHighlightedPosition.rowIndex;
+        const startCol = startHighlightedPosition.colIndex;
+        const endCol = endHighlightedPosition.colIndex;
+        if (isCopiedSingleCell(parsedData)) {
+          const value = parsedData[0][0];
+          const updateFn = updateDataWithPastedSingleCell({
+            value,
+            accessors,
+            selectedCells,
+          });
+          setData(updateFn);
+          return;
+        }
+
+        // Multi-cell paste
+        const updateFn = (prev) =>
+          prev.map((row, rowIdx) => {
+            const pastedRowIdx = rowIdx - startRow;
+            const pastedRowValues = parsedData[pastedRowIdx];
+            if (!pastedRowValues) return row;
+
+            return updateDataWithPastedValues({
+              rowData: row,
+              pastedRowValues,
+              startCol,
+              accessors,
+            });
+          });
+        setData(updateFn);
+      },
+      [
+        columns,
+        isCopiedSingleCell,
+        updateDataWithPastedSingleCell,
+        updateDataWithPastedValues,
+      ]
+    );
+
+    const onClearHandler = React.useCallback(
+      ({ selectedCells }) => {
+        const accessors = getAccessors(columns);
+        const updateFn = (prev) =>
+          prev.map((row, rowIdx) => {
+            // Find all selected cells in this row
+            const cellsInRow = selectedCells.filter(([r]) => r === rowIdx);
+            if (cellsInRow.length === 0) return row;
+            const updatedRow = { ...row };
+            cellsInRow.forEach(([_, colIdx]) => {
+              const accessor = accessors[colIdx];
+              if (accessor) {
+                updatedRow[accessor] = '';
+              }
+            });
+            return updatedRow;
+          });
+        setData(updateFn);
+      },
+      [columns, getAccessors, setData]
+    );
+
+    const convertSpreadSheetStructureToData = (data) => {
+      return data.split('\n').map((row) => row.split('\t'));
+    };
+
+    const convertDataToSpreadSheetStructure = (data, boundaries) => {
+      const { bottom, left, right, top } = boundaries;
+
+      const startRow = top;
+      const endRow = bottom;
+      const startCol = left;
+      const endCol = right;
+
+      const accessors = getAccessors(
+        data[0] ? Object.keys(data[0]).map((key) => ({ id: key })) : []
+      );
+      return data
+        .slice(startRow, endRow + 1)
+        .map((row) =>
+          accessors
+            .slice(startCol, endCol + 1)
+            .map((accessor) => (accessor ? row[accessor] : ''))
+            .join('\t')
+        )
+        .join('\n');
+    };
+
+    const contextMenuConfig = {
+      items: [
+        {
+          id: 'copy',
+          text: 'Copy',
+          icon: 'file-copy-outlined',
+          onClick: ({ row, column, meta }) => {
+            const accessors = columns.map((col) => col.accessor);
+            const extractedData = data.map((item) =>
+              extractDataByAccessors(item, accessors)
+            );
+            const boundaries = {
+              top: meta.startHighlightedPosition.rowIndex,
+              bottom: meta.endHighlightedPosition.rowIndex,
+              left: meta.startHighlightedPosition.colIndex,
+              right: meta.endHighlightedPosition.colIndex,
+            };
+            const tsv = convertDataToSpreadSheetStructure(
+              extractedData,
+              boundaries
+            );
+            navigator.clipboard.writeText(tsv);
+          },
+        },
+        {
+          id: 'paste',
+          text: 'Paste',
+          icon: 'save-outlined',
+          onClick: ({ row, column, meta }) => {
+            const {
+              startHighlightedPosition,
+              endHighlightedPosition,
+              selectedCells,
+            } = meta;
+            navigator.clipboard.readText().then((text) => {
+              const parsedData = convertSpreadSheetStructureToData(text);
+              onPasteHandler({
+                parsedData,
+                startHighlightedPosition,
+                endHighlightedPosition,
+                selectedCells,
+              });
+            });
+          },
+        },
+      ],
+    };
+
+    return (
+      <Table
+        data={data}
+        columns={columns}
+        variant="grid"
+        selectable
+        size={size}
+        contextMenuConfig={contextMenuConfig}
+        editableConfig={{
+          onPaste: onPasteHandler,
+          onClear: onClearHandler,
+        }}
+      />
+    );
+  }
+  const tabs = [
+    {
+      id: 1,
+      title: 'Default Size Table',
+      panel: <HighlightEditableDataGrid />,
+    },
+    {
+      id: 2,
+      title: 'Compact Size Table',
+      panel: <HighlightEditableDataGrid size="compact" />,
+    },
+  ];
+  const [selectedTabId, setSelectedTabId] = React.useState(1);
+  return (
+    <Tabs
+      id="highlight-editable-data-grid-tabs"
+      tabs={tabs}
+      selectedTabId={selectedTabId}
+      onChange={setSelectedTabId}
+    />
+  );
+}
+```
+
+### Table with footer
+
+You can control how footer cells are displayed in the table. By default, all footer cells are shown (empty if not defined). You can also hide footer cells for columns where `Footer` is not defined using `footerConfig={{ hideFooterCellIfUndefined: true }}`.
+
+#### Show all footer cells
+
+```jsx live
+function TableWithAllFooterCellsTabs() {
+  function TableWithAllFooterCells({ size }) {
+    const data = [
+      { name: 'Alice', age: 30, status: 'Active' },
+      { name: 'Bob', age: 25, status: 'Inactive' },
+    ];
+    const columns = React.useMemo(
+      () => [
+        { Header: 'Name', accessor: 'name' },
+        { Header: 'Age', accessor: 'age', Footer: 'Total' },
+        {
+          Header: 'Status',
+          accessor: 'status',
+          Footer: (info) => info.data.length,
+        },
+      ],
+      []
+    );
+    return <Table data={data} columns={columns} variant="grid" size={size} />;
+  }
+  const tabs = [
+    { id: 1, title: 'Default Size Table', panel: <TableWithAllFooterCells /> },
+    {
+      id: 2,
+      title: 'Compact Size Table',
+      panel: <TableWithAllFooterCells size="compact" />,
+    },
+  ];
+  const [selectedTabId, setSelectedTabId] = React.useState(1);
+  return (
+    <Tabs
+      id="footer-all-cells-tabs"
+      tabs={tabs}
+      selectedTabId={selectedTabId}
+      onChange={setSelectedTabId}
+    />
+  );
+}
+```
+
+#### Hide undefined footer cells
+
+```jsx live
+function TableWithHideIfUndefinedFooterCellsTabs() {
+  function TableWithHideIfUndefinedFooterCells({ size }) {
+    const data = [
+      { name: 'Alice', age: 30, status: 'Active' },
+      { name: 'Bob', age: 25, status: 'Inactive' },
+    ];
+    const columns = [
+      { Header: 'Name', accessor: 'name' },
+      { Header: 'Age', accessor: 'age', Footer: 'Total(s)' },
+      {
+        Header: 'Status',
+        accessor: 'status',
+        Footer: (info) => info.data.length,
+      },
+    ];
+    return (
+      <Box bgColor="defaultGreyBackground">
+        <Table
+          data={data}
+          columns={columns}
+          variant="grid"
+          footerConfig={{ hideFooterCellIfUndefined: true }}
+          size={size}
+          styleConfig={{
+            backgroundIntent: 'transparent',
+          }}
+        />
+      </Box>
+    );
+  }
+  const tabs = [
+    {
+      id: 1,
+      title: 'Default Size Table',
+      panel: <TableWithHideIfUndefinedFooterCells />,
+    },
+    {
+      id: 2,
+      title: 'Compact Size Table',
+      panel: <TableWithHideIfUndefinedFooterCells size="compact" />,
+    },
+  ];
+  const [selectedTabId, setSelectedTabId] = React.useState(1);
+  return (
+    <Tabs
+      id="hide-if-undefined-footer-cells-tabs"
+      tabs={tabs}
+      selectedTabId={selectedTabId}
+      onChange={setSelectedTabId}
+    />
+  );
+}
+```
+
+### Horizontal Sticky Data Grid
+
+Data-grid table supports horizontal sticky columns.
+
+```jsx live
+function HorizontalStickyDataGridTabs() {
+  function HorizontalStickyDataGrid({ size }) {
+    const actions = [
+      {
+        icon: 'checkmark',
+        text: 'Accept',
+        onClick: () => alert('Accept leave'),
+      },
+      {
+        icon: 'cancel',
+        text: 'Decline',
+        onClick: () => alert('Decline leave'),
+        divider: 'bottom',
+      },
+      {
+        icon: 'eye-outlined',
+        text: 'View',
+        onClick: () => alert('View leave'),
+      },
+      {
+        icon: 'pencil-outlined',
+        text: 'Edit',
+        onClick: () => alert('Edit leave'),
+      },
+      {
+        icon: 'box-outlined',
+        text: 'Archive',
+        onClick: () => alert('Archive leave'),
+      },
+      {
+        icon: 'trash-bin-outlined',
+        text: 'Delete',
+        intent: 'danger',
+        divider: 'top',
+        onClick: () => alert('Delete leave'),
+      },
+    ].filter(Boolean);
+
+    const contextMenuConfig = {
+      items: [
+        {
+          id: 'copy',
+          text: 'Copy',
+          icon: 'file-copy-outlined',
+          onClick: ({ row, column }) => {
+            const text = row.original[column.id];
+            navigator.clipboard.writeText(text);
+          },
+        },
+        {
+          id: 'paste',
+          text: 'Paste',
+          icon: 'save-outlined',
+          onClick: ({ row, column }) => {
+            navigator.clipboard.readText().then((text) => {
+              if (column.id === 'age') {
+                onAgeChange(row.original.id, text);
+              } else if (column.id === 'maritalStatus') {
+                onMaritalStatusChange(row.original.id, text);
+              }
+            });
+          },
+        },
+      ],
+    };
+
+    const [ages, setAges] = React.useState({
+      0: 50,
+      1: 51,
+      2: 80,
+      3: 99,
+      4: 21,
+      5: 254,
+    });
+    const [maritalStatuses, setMaritalStatuses] = React.useState({
+      0: 'Single',
+      1: 'Single',
+      2: 'Complicated',
+      3: 'In relationship',
+      4: 'Single',
+      5: 'Single',
+    });
+    const [skills, setSkills] = React.useState({
+      0: ['React'],
+      1: ['TypeScript', 'Node.js'],
+      2: [],
+      3: ['Design'],
+      4: ['React', 'Design'],
+      5: [],
+    });
+    const [dobs, setDobs] = React.useState({
+      0: '01/01/1990',
+      1: '15/05/1985',
+      2: '20/08/1975',
+      3: '10/12/2000',
+      4: '05/07/1995',
+      5: '30/09/1980',
+    });
+
+    const onAgeChange = React.useCallback((id, value) => {
+      setAges((prev) => ({ ...prev, [id]: value }));
+    }, []);
+
+    const onMaritalStatusChange = React.useCallback((id, value) => {
+      setMaritalStatuses((prev) => ({ ...prev, [id]: value }));
+    }, []);
+
+    const onDobChange = React.useCallback((id, value) => {
+      setDobs((prev) => ({ ...prev, [id]: value }));
+    }, []);
+
+    const onSkillsChange = React.useCallback((id, value) => {
+      setSkills((prev) => ({ ...prev, [id]: value }));
+    }, []);
+
+    const columns = React.useMemo(
+      () => [
+        {
+          Header: 'Name',
+          accessor: 'name',
+          Cell: ({ value }) => (
+            <Button.Link href="#" text={value} target="_blank" />
+          ),
+          minWidth: 200,
+        },
+        {
+          Header: 'Age',
+          accessor: 'age',
+          Cell: ({ value, row }) => (
+            <Table.InputCell
+              value={value}
+              disabled={row.original.id === 3}
+              readonly={row.original.id === 4}
+              onChange={React.useCallback(
+                (e) => {
+                  onAgeChange(row.original.id, e.target.value);
+                },
+                [row.original.id, onAgeChange]
+              )}
+              validationStatus={React.useMemo(
+                () =>
+                  row.original.id === 5
+                    ? { state: 'error', message: 'Invalid age' }
+                    : {},
+                [row.original.id]
+              )}
+            />
+          ),
+          minWidth: 200,
+        },
+        {
+          Header: 'Marital Status',
+          accessor: 'maritalStatus',
+          disableSortBy: true,
+          Cell: ({ value, row }) => (
+            <Table.SelectCell
+              value={value}
+              disabled={row.original.id === 3}
+              onChange={React.useCallback(
+                (value) => onMaritalStatusChange(row.original.id, value),
+                [row.original.id, onMaritalStatusChange]
+              )}
+              options={React.useMemo(
+                () => [
+                  { value: 'Single', text: 'Single' },
+                  { value: 'Complicated', text: 'Complicated' },
+                  { value: 'In relationship', text: 'In relationship' },
+                ],
+                []
+              )}
+              validationStatus={React.useMemo(
+                () =>
+                  row.original.id === 2
+                    ? { state: 'error', message: 'Invalid status' }
+                    : {},
+                [row.original.id]
+              )}
+            />
+          ),
+          minWidth: 200,
+        },
+        {
+          Header: 'Date of Birth',
+          accessor: 'dob',
+          disableSortBy: true,
+          Cell: ({ value, row }) => (
+            <Table.DatePickerCell
+              value={value}
+              disabled={row.original.id === 3}
+              readonly={row.original.id === 4}
+              onChange={React.useCallback(
+                (val) => onDobChange(row.original.id, val),
+                [row.original.id]
+              )}
+              validationStatus={React.useMemo(
+                () =>
+                  row.original.id === 1
+                    ? { state: 'error', message: 'Invalid date' }
+                    : {},
+                [row.original.id, onDobChange]
+              )}
+              format="dd/MM/yyyy"
+              placeholder="Select date"
+            />
+          ),
+          minWidth: 220,
+        },
+        {
+          Header: 'Skills',
+          accessor: 'skills',
+          disableSortBy: true,
+          Cell: ({ value = [], row }) => (
+            <Table.MultiSelectCell
+              value={value}
+              options={React.useMemo(
+                () => [
+                  { value: 'React', text: 'React' },
+                  { value: 'TypeScript', text: 'TypeScript' },
+                  { value: 'Node.js', text: 'Node.js' },
+                  { value: 'Design', text: 'Design' },
+                ],
+                []
+              )}
+              onChange={React.useCallback(
+                (newValue) => onSkillsChange(row.original.id, newValue),
+                [row.original.id, onSkillsChange]
+              )}
+              validationStatus={React.useMemo(() => {
+                if (row.original.id === 2)
+                  return {
+                    state: 'error',
+                    message: 'Invalid skills',
+                  };
+                if (value.length === 0)
+                  return {
+                    state: 'warning',
+                    message: 'Select at least one skill',
+                  };
+                return undefined;
+              }, [row.original.id, value.length])}
+              placeholder="Select skills"
+            />
+          ),
+          minWidth: 350,
+        },
+        {
+          Header: 'Gender Status',
+          accessor: 'genderStatus',
+          disableSortBy: true,
+          Cell: ({ value }) => (
+            <Tag text={value} intent="success" variant="filled" />
+          ),
+        },
+        {
+          Header: 'Direct Personnel',
+          accessor: 'directPersonnel',
+          disableSortBy: true,
+        },
+
+        {
+          Header: 'Actions',
+          accessor: '',
+          disableSortBy: true,
+          align: 'right',
+          Cell: () => {
+            return <Table.RowAction actions={actions} />;
+          },
+        },
+      ],
+      []
+    );
+    const [selectedRows, setSelectedRows] = React.useState({ 0: true });
+    const data = [
+      {
+        id: 0,
+        name: 'Vy Nguyen',
+        age: ages[0],
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[0],
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+        dob: dobs[0],
+        skills: skills[0],
+      },
+      {
+        id: 1,
+        name: 'Hau Dao',
+        age: ages[1],
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[1],
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+        dob: dobs[1],
+        skills: skills[1],
+      },
+      {
+        id: 2,
+        name: 'Hanh Le',
+        age: ages[2],
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[2],
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+        dob: dobs[2],
+        skills: skills[2],
+      },
+      {
+        id: 3,
+        name: 'Tuan Thieu',
+        age: ages[3],
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[3],
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+        dob: dobs[3],
+        skills: skills[3],
+      },
+      {
+        id: 4,
+        name: 'Vinh Tony',
+        age: ages[4],
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[4],
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+        dob: dobs[4],
+        skills: skills[4],
+      },
+      {
+        id: 5,
+        name: 'Vinh Ho',
+        age: ages[5],
+        profile: 'https://employmenthero.com/',
+        maritalStatus: maritalStatuses[5],
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+        dob: dobs[5],
+        skills: skills[5],
+      },
+    ];
+    return (
+      <Table
+        data={data}
+        columns={columns}
+        selectable
+        selectedRows={selectedRows}
+        onSelectedRowsChange={setSelectedRows}
+        variant="grid"
+        contextMenuConfig={contextMenuConfig}
+        horizontallySticky
+        stickyConfig={{ nColumns: 2 }}
+        size={size}
+      />
+    );
+  }
+  const tabs = [
+    { id: 1, title: 'Default Size Table', panel: <HorizontalStickyDataGrid /> },
+    {
+      id: 2,
+      title: 'Compact Size Table',
+      panel: <HorizontalStickyDataGrid size="compact" />,
+    },
+  ];
+  const [selectedTabId, setSelectedTabId] = React.useState(1);
+  return (
+    <Tabs
+      id="horizontal-sticky-data-grid-tabs"
+      tabs={tabs}
+      selectedTabId={selectedTabId}
+      onChange={setSelectedTabId}
+    />
+  );
+}
+```
+
+### Multi-level Header Data Grid
+
+Use nested headers to create a multi-level data grid.
+
+```jsx live
+function MultiLevelHeaderDataGridTabs() {
+  function MultiLevelHeaderDataGrid({ size }) {
+    const actions = [
+      {
+        icon: 'checkmark',
+        text: 'Accept',
+        onClick: () => alert('Accept leave'),
+      },
+      {
+        icon: 'cancel',
+        text: 'Decline',
+        onClick: () => alert('Decline leave'),
+        divider: 'bottom',
+      },
+      {
+        icon: 'eye-outlined',
+        text: 'View',
+        onClick: () => alert('View leave'),
+      },
+      {
+        icon: 'pencil-outlined',
+        text: 'Edit',
+        onClick: () => alert('Edit leave'),
+      },
+      {
+        icon: 'box-outlined',
+        text: 'Archive',
+        onClick: () => alert('Archive leave'),
+      },
+      {
+        icon: 'trash-bin-outlined',
+        text: 'Delete',
+        intent: 'danger',
+        divider: 'top',
+        onClick: () => alert('Delete leave'),
+      },
+    ].filter(Boolean);
+    const columns = React.useMemo(
+      () => [
+        {
+          Header: 'Information',
+          accessor: 'name',
+          Cell: ({ value }) => (
+            <Button.Link href="#" text={value} target="_blank" />
+          ),
+          columns: [
+            {
+              Header: 'Name',
+              accessor: 'name',
+              Cell: ({ value }) => (
+                <Button.Link href="#" text={value} target="_blank" />
+              ),
+            },
+            { Header: 'Age', accessor: 'age' },
+          ],
+        },
+        {
+          Header: 'Marital Status',
+          accessor: 'maritalStatus',
+          disableSortBy: true,
+          Cell: ({ value }) => (
+            <Tag text={value} intent="success" variant="filled" />
+          ),
+        },
+        {
+          Header: 'Gender Status',
+          accessor: 'genderStatus',
+          disableSortBy: true,
+          Cell: ({ value }) => (
+            <Tag text={value} intent="success" variant="filled" />
+          ),
+        },
+        {
+          Header: 'Direct Personnel',
+          accessor: 'directPersonnel',
+          disableSortBy: true,
+        },
+        {
+          Header: 'Actions',
+          accessor: '',
+          disableSortBy: true,
+          align: 'right',
+          Cell: () => {
+            return <Table.RowAction actions={actions} />;
+          },
+        },
+      ],
+      []
+    );
+    const data = [
+      {
+        name: 'Vy Nguyen',
+        age: 50,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Single',
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+      },
+      {
+        name: 'Hau Dao',
+        age: 51,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Single',
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+      },
+      {
+        name: 'Hanh Le',
+        age: 80,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Complicated',
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+      },
+      {
+        name: 'Tuan Thieu',
+        age: 99,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'In relationship',
+        genderStatus: 'Male',
+        directPersonnel: 'Indirect',
+      },
+      {
+        name: 'Vinh Tony',
+        age: 21,
+        profile: 'https://employmenthero.com/',
+        maritalStatus: 'Single',
+        genderStatus: 'Male',
+        directPersonnel: 'Direct',
+      },
+    ];
+    return (
+      <Table
+        data={data}
+        columns={columns}
+        variant="grid"
+        selectable
+        horizontallySticky
+        stickyConfig={{ nColumns: 2 }}
+        size={size}
+      />
+    );
+  }
+  const tabs = [
+    { id: 1, title: 'Default Size Table', panel: <MultiLevelHeaderDataGrid /> },
+    {
+      id: 2,
+      title: 'Compact Size Table',
+      panel: <MultiLevelHeaderDataGrid size="compact" />,
+    },
+  ];
+  const [selectedTabId, setSelectedTabId] = React.useState(1);
+  return (
+    <Tabs
+      id="multi-level-header-data-grid-tabs"
+      tabs={tabs}
+      selectedTabId={selectedTabId}
+      onChange={setSelectedTabId}
+    />
+  );
+}
+```
+
+## Props
+
+Please refer to the [Basic Table](/web/components/Table/Basic/#props) component for the full list of props.
+
+### Table.InputCell
+
+<Props of="InputCell" from="web" />
+
+### Table.SelectCell
+
+<Props of="SelectCell" from="web" />
+
+### Table.MultiSelectCell
+
+<Props of="MultiSelectCell" from="web" />
+
+### Table.DatePickerCell
+
+<Props of="DatePickerCell" from="web" />

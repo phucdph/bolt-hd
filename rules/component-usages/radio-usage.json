@@ -1,0 +1,119 @@
+{
+  "component_name": "Radio",
+  "component_description": "The radio usually prepresents an option in a list where only one item can be selected at a time.\nHero design supports 2 styles of radio: Radio & Radio.Button. In addition, we support Radio.Group & Radio.ButtonGroup to prepresent each radio style in groups.",
+  "props": {
+    "checked": {
+      "name": "checked",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the radio is checked."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "disabled": {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the radio is disabled."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of <input> element."
+    },
+    "name": {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Name of <input> element, is used to refer to the form data for submission."
+    },
+    "onChange": {
+      "name": "onChange",
+      "type": "(e: ChangeEvent<HTMLInputElement>) => void",
+      "required": false,
+      "description": "Change event handler. Use  `event.target.checked`  to see whether the radio will be changed to checked."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "text": {
+      "name": "text",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Radio text."
+    },
+    "value": {
+      "name": "value",
+      "type": "string | number",
+      "required": true,
+      "description": "Radio input value."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Basic usage of a radio.\n```jsx live\n<>\n  <Radio name=\"basic_usage\" value=\"hr_document\" text=\"HR Document\" />\n  <Radio name=\"basic_usage\" value=\"hr_guide\" text=\"HR Guide\" />\n</>\n```",
+      "code": "<>\n  <Radio name=\"basic_usage\" value=\"hr_document\" text=\"HR Document\" />\n  <Radio name=\"basic_usage\" value=\"hr_guide\" text=\"HR Guide\" />\n</>",
+      "purpose_description": "This example demonstrates the basic usage of a Radio component in a React application. It shows how to render multiple radio buttons that belong to the same group, allowing users to select one option from a set of predefined choices.",
+      "technical_description": "The example uses two Radio components wrapped in a React Fragment (<>...</>). Each Radio component is provided with a 'name' prop to group them together, ensuring that only one radio button can be selected at a time. The 'value' prop is used to identify the selected option programmatically, while the 'text' prop specifies the label displayed next to each radio button. The use of React Fragments allows for grouping multiple elements without adding extra nodes to the DOM.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the state of the radio buttons can be managed through props. It also shows the importance of using the 'name' prop to group radio buttons, a common pattern in form handling. The use of React Fragments is a best practice for grouping elements without unnecessary DOM nodes.",
+      "use_cases_description": "This basic example is particularly useful in forms where users need to select one option from a list, such as choosing a document type or category. It can be used in settings pages, surveys, or any application where single-choice selection is required. The pattern is applicable in scenarios where the state of the selected option needs to be tracked or submitted as part of a form."
+    },
+    {
+      "example_name": "Controlled checked status",
+      "example_description": "```jsx live\nfunction RadioStatus() {\n  const [checked, setChecked] = useState(false);\n  return (\n    <Radio\n      value=\"hr_guide\"\n      text=\"HR Guide\"\n      checked={checked}\n      onChange={(e) => setChecked(e.target.checked)}\n    />\n  );\n}\n```",
+      "code": "function RadioStatus() {\n  const [checked, setChecked] = useState(false);\n  return (\n    <Radio\n      value=\"hr_guide\"\n      text=\"HR Guide\"\n      checked={checked}\n      onChange={(e) => setChecked(e.target.checked)}\n    />\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to implement a controlled component in React using a radio button. The component manages the checked state of the radio button internally using React's state management, allowing the checked status to be controlled programmatically.",
+      "technical_description": "This example defines a functional component `RadioStatus` that utilizes the `useState` hook to manage the state of a radio button. The `useState` hook initializes the `checked` state to `false`. The `Radio` component is rendered with several props: `value`, `text`, `checked`, and `onChange`. The `checked` prop is bound to the component's state, ensuring that the radio button's checked status reflects the current state. The `onChange` event handler updates the state by calling `setChecked` with the new checked value from the event target, thereby re-rendering the component with the updated state.",
+      "patterns_description": "This example demonstrates the controlled component pattern in React, where the component's state is managed by React rather than the DOM. This pattern is beneficial for synchronizing the UI with the component's state, allowing for more predictable and testable components. The use of the `useState` hook is a common practice in functional components to manage local state.",
+      "use_cases_description": "This example is particularly useful in scenarios where the checked status of a radio button needs to be controlled by the application logic, such as in forms where the selection might depend on other inputs or conditions. It is also useful in situations where the state needs to be reset or manipulated programmatically, such as in dynamic forms or interactive UIs where user input needs to be validated or processed before submission."
+    },
+    {
+      "example_name": "Radio.Group Layout",
+      "example_description": "Group can be rendered with either a vertical or horizontal layout.\n```jsx live\nfunction RadioGroupLayout() {\n  const [value, setValue] = useState('hr_document');\n  return (\n    <Radio.Group\n      value={value}\n      name=\"radio_group_layout\"\n      layout=\"horizontal\"\n      onChange={setValue}\n      options={[\n        { text: 'HR Document', value: 'hr_document' },\n        { text: 'HR Guide', value: 'hr_guide' },\n        {\n          text: 'Indenpendent Contractor',\n          value: 'independent_contractor',\n          disabled: true,\n        },\n      ]}\n    />\n  );\n}\n```",
+      "code": "function RadioGroupLayout() {\n  const [value, setValue] = useState('hr_document');\n  return (\n    <Radio.Group\n      value={value}\n      name=\"radio_group_layout\"\n      layout=\"horizontal\"\n      onChange={setValue}\n      options={[\n        { text: 'HR Document', value: 'hr_document' },\n        { text: 'HR Guide', value: 'hr_guide' },\n        {\n          text: 'Indenpendent Contractor',\n          value: 'independent_contractor',\n          disabled: true,\n        },\n      ]}\n    />\n  );\n}",
+      "purpose_description": "This example demonstrates how to use the Radio.Group component to create a group of radio buttons that can be displayed in either a horizontal or vertical layout. The component allows users to select one option from a list, with the ability to disable certain options.",
+      "technical_description": "The RadioGroupLayout component utilizes React's useState hook to manage the state of the selected radio button. The initial state is set to 'hr_document'. The Radio.Group component is rendered with several props: 'value', 'name', 'layout', 'onChange', and 'options'. The 'value' prop is bound to the component's state, ensuring that the selected radio button reflects the current state. The 'onChange' prop is a callback function that updates the state whenever a different radio button is selected. The 'options' prop is an array of objects, each representing a radio button with 'text', 'value', and an optional 'disabled' property. The 'layout' prop determines the orientation of the radio buttons, set to 'horizontal' in this example.",
+      "patterns_description": "The example demonstrates the use of controlled components in React, where the component's state is used to manage the form elements' values. It also shows how to use the useState hook for state management and how to handle events with callback functions. The use of the 'disabled' property in the options array is a good practice for conditionally disabling form elements.",
+      "use_cases_description": "This example is particularly useful in scenarios where a user needs to select one option from a list, such as choosing a document type or category. The ability to disable certain options can be used to guide user choices or restrict access to certain options based on user roles or permissions. The horizontal layout is suitable for forms with limited vertical space, while the vertical layout can be used when horizontal space is constrained."
+    },
+    {
+      "example_name": "Radio.Button sizes",
+      "example_description": "Radio.Button can be rendered with 3 different sizes: `small`, `medium` and `large`.\n```jsx live\nfunction RadioButtonSize() {\n  const [value, setValue] = useState('small');\n  return (\n    <>\n      <Radio.Button\n        size=\"small\"\n        name=\"radio_button_sizes\"\n        value=\"small\"\n        text=\"Small\"\n        style={{ marginRight: theme.space.small }}\n        checked={value === 'small'}\n        onChange={(e) => {\n          if (e.target.checked) {\n            setValue('small');\n          }\n        }}\n      />\n      <Radio.Button\n        size=\"medium\"\n        name=\"radio_button_sizes\"\n        value=\"medium\"\n        text=\"Medium\"\n        style={{ marginRight: theme.space.small }}\n        checked={value === 'medium'}\n        onChange={(e) => {\n          if (e.target.checked) {\n            setValue('medium');\n          }\n        }}\n      />\n      <Radio.Button\n        size=\"large\"\n        name=\"radio_button_sizes\"\n        value=\"large\"\n        text=\"Large\"\n        checked={value === 'large'}\n        onChange={(e) => {\n          if (e.target.checked) {\n            setValue('large');\n          }\n        }}\n      />\n    </>\n  );\n}\n```",
+      "code": "function RadioButtonSize() {\n  const [value, setValue] = useState('small');\n  return (\n    <>\n      <Radio.Button\n        size=\"small\"\n        name=\"radio_button_sizes\"\n        value=\"small\"\n        text=\"Small\"\n        style={{ marginRight: theme.space.small }}\n        checked={value === 'small'}\n        onChange={(e) => {\n          if (e.target.checked) {\n            setValue('small');\n          }\n        }}\n      />\n      <Radio.Button\n        size=\"medium\"\n        name=\"radio_button_sizes\"\n        value=\"medium\"\n        text=\"Medium\"\n        style={{ marginRight: theme.space.small }}\n        checked={value === 'medium'}\n        onChange={(e) => {\n          if (e.target.checked) {\n            setValue('medium');\n          }\n        }}\n      />\n      <Radio.Button\n        size=\"large\"\n        name=\"radio_button_sizes\"\n        value=\"large\"\n        text=\"Large\"\n        checked={value === 'large'}\n        onChange={(e) => {\n          if (e.target.checked) {\n            setValue('large');\n          }\n        }}\n      />\n    </>\n  );\n}",
+      "purpose_description": "This example demonstrates how to use the Radio.Button component to render radio buttons of different sizes: small, medium, and large. It shows how to manage the state of the selected radio button using React's useState hook, allowing users to select between different size options.",
+      "technical_description": "The RadioButtonSize component uses the useState hook to manage the state of the selected radio button. It initializes the state with 'small', indicating that the small radio button is selected by default. The component returns a fragment containing three Radio.Button components, each representing a different size option. Each Radio.Button has a size prop that determines its size, a name prop to group them together, a value prop to identify the button, and a text prop to display the button's label. The checked prop is used to determine if the button is selected, comparing the current state with the button's value. The onChange event handler updates the state when a button is selected, ensuring only one button is selected at a time.",
+      "patterns_description": "This example demonstrates the controlled component pattern, where the component's state is managed by React. It uses the useState hook to maintain the state of the selected radio button, ensuring that the UI reflects the current state. The use of the name prop groups the radio buttons, allowing only one to be selected at a time, which is a common pattern for radio button groups. The onChange handler is used to update the state, demonstrating how to handle events in React.",
+      "use_cases_description": "This example is useful in scenarios where a user needs to select one option from a set of predefined sizes, such as selecting a size for a product in an e-commerce application. It can also be used in forms where size selection is required, such as choosing a font size or setting a display size preference in a settings panel."
+    },
+    {
+      "example_name": "Radio.ButtonGroup",
+      "example_description": "Radio.Button can also be grouped by using Radio.ButtonGroup.\n```jsx live\nfunction RadioButtonGroup() {\n  const [value, setValue] = useState('policy_document');\n  return (\n    <Radio.ButtonGroup\n      value={value}\n      name=\"radio_button_group\"\n      onChange={setValue}\n      options={[\n        { text: 'HR Document', value: 'hr_document' },\n        { text: 'HR Guide', value: 'hr_guide' },\n        {\n          text: 'Indenpendent Contractor',\n          value: 'independent_contractor',\n          disabled: true,\n        },\n        {\n          text: 'Policy Document',\n          value: 'policy_document',\n        },\n      ]}\n    />\n  );\n}\n```",
+      "code": "function RadioButtonGroup() {\n  const [value, setValue] = useState('policy_document');\n  return (\n    <Radio.ButtonGroup\n      value={value}\n      name=\"radio_button_group\"\n      onChange={setValue}\n      options={[\n        { text: 'HR Document', value: 'hr_document' },\n        { text: 'HR Guide', value: 'hr_guide' },\n        {\n          text: 'Indenpendent Contractor',\n          value: 'independent_contractor',\n          disabled: true,\n        },\n        {\n          text: 'Policy Document',\n          value: 'policy_document',\n        },\n      ]}\n    />\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to use the Radio.ButtonGroup component to create a group of radio buttons in a React application. This component allows users to select one option from a predefined list, and it manages the selection state internally. The example shows how to initialize the component with a default selected value and how to handle changes in selection.",
+      "technical_description": "The example defines a functional component named RadioButtonGroup that utilizes React's useState hook to manage the state of the selected radio button. The state variable 'value' is initialized with 'policy_document', which corresponds to one of the options in the Radio.ButtonGroup. The component returns a Radio.ButtonGroup element, which is configured with several props: 'value', 'name', 'onChange', and 'options'. The 'value' prop is bound to the state variable, ensuring that the selected radio button reflects the current state. The 'onChange' prop is set to the setValue function, allowing the component to update the state when a different radio button is selected. The 'options' prop is an array of objects, each representing a radio button with properties such as 'text', 'value', and 'disabled'. This setup allows for dynamic rendering of radio buttons based on the options provided.",
+      "patterns_description": "This example demonstrates several React patterns and best practices:\n- **State Management with Hooks**: The useState hook is used to manage the state of the selected radio button, showcasing a common pattern for handling component state in functional components.\n- **Controlled Components**: The Radio.ButtonGroup is a controlled component, as its value is controlled by React state. This pattern is essential for synchronizing the UI with the component's state.\n- **Declarative Rendering**: The options for the radio buttons are defined declaratively in an array, allowing for easy modification and scalability.\n- **Accessibility Considerations**: By using the 'name' prop, the component ensures that the radio buttons are grouped correctly for screen readers and form submissions.",
+      "use_cases_description": "This example is particularly useful in scenarios where a user needs to select one option from a list of predefined choices, such as in forms or settings pages. It is applicable in various domains, including HR applications, where users might need to choose between different types of documents or policies. The ability to disable certain options also makes it suitable for cases where some choices are conditionally unavailable based on user permissions or other criteria."
+    }
+  ]
+}

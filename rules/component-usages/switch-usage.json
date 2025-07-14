@@ -1,0 +1,107 @@
+{
+  "component_name": "Switch",
+  "component_description": "A switch is an alternate appearance for a checkbox to toggle a state on/off.",
+  "props": {
+    "checked": {
+      "name": "checked",
+      "type": "boolean",
+      "required": false,
+      "description": "Control whether the switch is checked"
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "disabled": {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the switch is disabled"
+    },
+    "icon": {
+      "name": "icon",
+      "type": "\"number\" | \"warning\" | \"bold\" | \"cancel\" | \"remove\" | \"menu\" | \"table\" | \"image\" | \"switch\" | \"target\" | \"restart\" | \"list\" | \"loading\" | \"file\" | \"directory\" | \"document\" | \"feed\" | \"location\" | \"move\" | \"activate\" | \"add-emoji\" | \"add-person\" | \"adjustment\" | \"alignment\" | \"archive\" | \"backward-arrow\" | \"bank\" | \"bell\" | \"billing\" | \"bookmark\" | \"box-check\" | \"box\" | \"buildings\" | \"cake\" | \"calendar-clock\" | \"calendar\" | \"candy-box-menu\" | \"carat-down-small\" | \"carat-down\" | \"carat-left\" | \"carat-right\" | \"carat-up-small\" | \"carat-up\" | \"circle-add\" | \"circle-cancel\" | \"circle-check\" | \"circle-down\" | \"circle-info\" | \"circle-left\" | \"circle-ok\" | \"circle-pencil\" | \"circle-question\" | \"circle-remove\" | \"circle-right\" | \"circle-up\" | \"circle-warning\" | \"clock-3\" | \"clock\" | \"cloud-download\" | \"cloud-upload\" | \"cog\" | \"coin\" | \"contacts\" | \"corner-resize\" | \"credit-card\" | \"diamond\" | \"direction-arrows\" | \"dollar-coin-shine\" | \"dot-filled\" | \"double-buildings\" | \"edit-template\" | \"envelope\" | \"expense\" | \"eye-circle\" | \"eye-invisible\" | \"eye\" | \"face-meh\" | \"face-sad\" | \"face-smiley\" | \"feedbacks\" | \"file-certified\" | \"file-clone\" | \"file-copy\" | \"file-csv\" | \"file-dispose\" | \"file-doc\" | \"file-excel\" | \"file-export\" | \"file-lock\" | \"file-pdf\" | \"file-powerpoint\" | \"file-search\" | \"file-secured\" | \"file-sheets\" | \"file-slide\" | \"file-verified\" | \"file-word\" | \"flask\" | \"folder-user\" | \"folder\" | \"format-bold\" | \"format-heading1\" | \"format-heading2\" | \"format-italic\" | \"format-list-bulleted\" | \"format-list-numbered\" | \"format-underlined\" | \"forward-arrow\" | \"funnel-filter\" | \"gauge\" | \"global-dollar\" | \"globe\" | \"graduation-cap\" | \"graph\" | \"happy-sun\" | \"health-bag\" | \"heart\" | \"home\" | \"import\" | \"incident-siren\" | \"instapay\" | \"loading-2\" | \"lock\" | \"looks-one\" | \"looks-two\" | \"mandatory\" | \"media-content\" | \"moneybag\" | \"moon\" | \"multiple-stars\" | \"multiple-users\" | \"node\" | \"open-folder\" | \"paperclip\" | \"payment-summary\" | \"pencil\" | \"phone\" | \"piggy-bank\" | \"pin\" | \"plane\" | \"play-circle\" | \"print\" | \"raising-hands\" | \"rectangle-mandatory\" | \"reply-arrow\" | \"reply\" | \"reschedule\" | \"rostering\" | \"save\" | \"schedule-send\" | \"schedule\" | \"search-person\" | \"send\" | \"speaker\" | \"star-award\" | \"star-badge\" | \"star-medal\" | \"star\" | \"steps-circle\" | \"stopwatch\" | \"suitcase\" | \"survey\" | \"swag\" | \"tag\" | \"teams\" | \"thumb-down\" | \"thumb-up\" | \"timesheet\" | \"touch-id\" | \"trash-bin\" | \"unlock\" | \"user\" | \"video-1\" | \"video-2\" | \"wrench\" | \"academic-hat-outlined\" | \"activate-outlined\" | \"add-person-outlined\" | \"add-section-outlined\" | \"add-time-outlined\" | \"add\" | \"adjustment-outlined\" | \"afternoon-outlined\" | \"alignment-2-outlined\" | \"alignment-outlined\" | \"all-caps\" | \"arrow-down\" | \"arrow-left\" | \"arrow-right\" | \"arrow-up\" | \"at-sign\" | \"bell-outlined\" | \"billing-outlined\" | \"billing-pound-outlined\" | \"body-outlined\" | \"bookmark-outlined\" | \"box-check-outlined\" | \"box-outlined\" | \"briefcase-clock-outlined\" | \"briefcase-search-outlined\" | \"bullet-points\" | \"cake-outlined\" | \"calendar-dates-outlined\" | \"calendar-star-outlined\" | \"camera-outlined\" | \"chat-outlined\" | \"checkmark\" | \"circle-add-outlined\" | \"circle-cancel-outlined\" | \"circle-down-outlined\" | \"circle-info-outlined\" | \"circle-left-outlined\" | \"circle-ok-outlined\" | \"circle-question-outlined\" | \"circle-remove-outlined\" | \"circle-right-outlined\" | \"circle-up-outlined\" | \"circle-warning-outlined\" | \"clipboard-check-outlined\" | \"clipboard-text-outlined\" | \"clock-2-outlined\" | \"clock-outlined\" | \"cog-outlined\" | \"coin-outlined\" | \"coin-pound-outlined\" | \"coin-stack-outlined\" | \"collapse-outlined\" | \"comment-outlined\" | \"contacts-outlined\" | \"content-copy-outlined\" | \"copy-outlined\" | \"credit-card-outlined\" | \"cup-outlined\" | \"cut-outlined\" | \"desktop-computer-outlined\" | \"diagram-outlined\" | \"diamond-outlined\" | \"direction-arrows-outlined\" | \"directory-outlined\" | \"document-outlined\" | \"dollar-coin-shine-outlined\" | \"dollar-sign\" | \"donut-chart-outlined\" | \"double-buildings-outlined\" | \"double-left-arrows\" | \"double-right-arrows\" | \"download-outlined\" | \"edit-template-outlined\" | \"edit-user-outlined\" | \"email-outlined\" | \"enter-arrow\" | \"envelope-outlined\" | \"evening-outlined\" | \"expand-outlined\" | \"expense-outlined\" | \"external-link\" | \"eye-invisible-outlined\" | \"eye-outlined\" | \"face-id\" | \"face-meh-outlined\" | \"face-open-smiley-outlined\" | \"face-sad-outlined\" | \"face-smiley-outlined\" | \"feed-outlined\" | \"feedbacks-outlined\" | \"file-certified-outlined\" | \"file-clone-outlined\" | \"file-copy-outlined\" | \"file-dispose-outlined\" | \"file-download-outlined\" | \"file-export-outlined\" | \"file-lock-outlined\" | \"file-outlined\" | \"file-search-outlined\" | \"file-secured-outlined\" | \"file-text-outlined\" | \"file-verified-outlined\" | \"filter-outlined\" | \"fire-outlined\" | \"flag-outlined\" | \"folder-outlined\" | \"folder-user-outlined\" | \"funnel-filter-outline\" | \"gauge-outlined\" | \"gift-outlined\" | \"graph-outlined\" | \"happy-sun-outlined\" | \"health-bag-outlined\" | \"heart-outlined\" | \"home-outlined\" | \"image-outlined\" | \"import-outlined\" | \"instapay-outlined\" | \"italic\" | \"link-1\" | \"link-2\" | \"list-outlined\" | \"location-outlined\" | \"lock-outlined\" | \"locked-file-outlined\" | \"log-out\" | \"magic-outlined\" | \"media-content-outlined\" | \"menu-close\" | \"menu-expand\" | \"menu-fold-outlined\" | \"menu-unfold-outlined\" | \"mobile-phone-1-outlined\" | \"moneybag-outlined\" | \"moneybag-pound-outlined\" | \"moon-outlined\" | \"more-horizontal\" | \"more-vertical\" | \"morning-outlined\" | \"multiple-folders-outlined\" | \"multiple-users-outlined\" | \"node-outlined\" | \"number-points\" | \"passport-outlined\" | \"payment-summary-outlined\" | \"payslip-outlined\" | \"pencil-outlined\" | \"percentage\" | \"phone-outlined\" | \"piggy-bank-outlined\" | \"pin-outlined\" | \"plane-outlined\" | \"play-circle-outlined\" | \"pound-sign\" | \"print-outlined\" | \"qr-code-outlined\" | \"re-assign\" | \"redeem\" | \"refresh\" | \"reply-outlined\" | \"return-arrow\" | \"ringgit-sign\" | \"rocket-outlined\" | \"rostering-outlined\" | \"save-outlined\" | \"schedule-outlined\" | \"search-outlined\" | \"send-outlined\" | \"share-1\" | \"share-2\" | \"shield-check-outlined\" | \"single-down-arrow\" | \"single-left-arrow\" | \"single-right-arrow\" | \"single-up-arrow\" | \"sparkle-2-outlined\" | \"sparkle-outlined\" | \"speaker-outlined\" | \"speed-outlined\" | \"star-outlined\" | \"stopwatch-outlined\" | \"strikethrough\" | \"suitcase-outlined\" | \"survey-outlined\" | \"switch-outlined\" | \"sync\" | \"tablet-outlined\" | \"target-outlined\" | \"thumb-up-outlined\" | \"timesheet-outlined\" | \"transfer\" | \"trash-bin-outlined\" | \"trash-outlined\" | \"unavailable\" | \"underline\" | \"unlinked\" | \"unlock-outlined\" | \"upload-outlined\" | \"user-add-outlined\" | \"user-circle-outlined\" | \"user-move-outlined\" | \"user-out-outlined\" | \"user-outlined\" | \"user-rectangle-outlined\" | \"user-remove-outlined\" | \"user-warning-outlined\" | \"video-1-outlined\" | \"video-2-outlined\" | \"wallet-outlined\" | \"wrench-outlined\"",
+      "required": false,
+      "description": "Specify the icon will be shown inside the checked switch"
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of <input> element."
+    },
+    "loading": {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the switch is loading"
+    },
+    "name": {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Name of <input> element, is used to refer to the form data for submission."
+    },
+    "onChange": {
+      "name": "onChange",
+      "type": "(e: ChangeEvent<HTMLInputElement>) => void",
+      "required": false,
+      "description": "Change event handler. Use  `event.target.checked`  to see whether the switch will be changed to checked."
+    },
+    "size": {
+      "name": "size",
+      "type": "\"small\" | \"medium\"",
+      "required": false,
+      "description": "Size of the switch"
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Render a basic switch.\n```jsx live\n<>\n  <Typography.Text tagName=\"label\">\n    Import contract from PDF file?\n    <Switch />\n  </Typography.Text>\n</>\n```",
+      "code": "<>\n  <Typography.Text tagName=\"label\">\n    Import contract from PDF file?\n    <Switch />\n  </Typography.Text>\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate how to render a basic switch component within a label, providing a simple user interface element that can be toggled on or off. This is a common UI pattern used for binary options, such as enabling or disabling a feature.",
+      "technical_description": "This example uses a React fragment to group the elements without adding extra nodes to the DOM. The Typography.Text component is used to render a label, which includes a Switch component. The Switch component is a UI element that can be toggled between two states, typically representing 'on' and 'off'. The Typography.Text component is given a 'tagName' prop with the value 'label', which semantically associates the text with the Switch component, enhancing accessibility by linking the label and the switch.",
+      "patterns_description": "This example demonstrates the use of React fragments to group elements without adding unnecessary nodes to the DOM, which is a best practice for keeping the DOM clean. It also shows the use of semantic HTML elements by rendering the Typography.Text as a 'label', which is important for accessibility. The example also highlights the simplicity and reusability of components like Switch, which can be easily integrated into forms and settings panels.",
+      "use_cases_description": "This example is particularly useful in scenarios where a simple toggle switch is needed, such as in settings panels, forms, or any UI where a binary choice is presented to the user. It can be used in applications that require user preferences to be set, such as enabling or disabling notifications, switching between light and dark modes, or toggling features on and off in a configuration panel."
+    },
+    {
+      "example_name": "Controlled on/off status",
+      "example_description": "Switch state can be controlled via `checked` & `onChange` props.\n```jsx live\nfunction ControlledStatus() {\n  const [state, setState] = React.useState(false);\n  return (\n    <Typography.Text tagName=\"label\">\n      Import contract from PDF file?\n      <Switch checked={state} onChange={(e) => setState(e.target.checked)} />\n    </Typography.Text>\n  );\n}\n```",
+      "code": "function ControlledStatus() {\n  const [state, setState] = React.useState(false);\n  return (\n    <Typography.Text tagName=\"label\">\n      Import contract from PDF file?\n      <Switch checked={state} onChange={(e) => setState(e.target.checked)} />\n    </Typography.Text>\n  );\n}",
+      "purpose_description": "This example demonstrates how to implement a controlled component using a Switch component in React. The Switch's state is managed externally via React's state management, allowing the component to be controlled by the parent component or other logic.",
+      "technical_description": "The component uses React's useState hook to manage the state of the Switch. The state variable 'state' is initialized to 'false', indicating that the Switch is initially off. The Switch component is rendered with two key props: 'checked' and 'onChange'. The 'checked' prop is set to the current state, ensuring that the Switch's visual representation matches the state. The 'onChange' prop is a function that updates the state based on the Switch's new value, which is accessed through the event object 'e.target.checked'. This setup ensures that the Switch component is controlled, meaning its state is determined by the React state rather than its internal state.",
+      "patterns_description": "This example demonstrates the controlled component pattern, a common React pattern where the component's state is managed by React state rather than the component's internal state. This pattern is beneficial for synchronizing the component's state with other parts of the application or for implementing complex state logic. The use of the useState hook for state management is a best practice in functional components, providing a simple and effective way to manage component state.",
+      "use_cases_description": "This controlled Switch component is particularly useful in scenarios where the Switch's state needs to be synchronized with other components or application state. For example, it could be used in a settings page where toggling the Switch enables or disables a feature, and the state needs to be saved or sent to a server. It is also useful in forms where the Switch's state might affect the form's validation or submission logic."
+    },
+    {
+      "example_name": "With disabled state",
+      "example_description": "Switch can be disabled by setting `disabled` as `true`.\n```jsx live\n<>\n  <Switch disabled checked />\n</>\n```",
+      "code": "<>\n  <Switch disabled checked />\n</>",
+      "purpose_description": "This example demonstrates how to use the Switch component in a disabled state. The primary purpose is to show how the Switch can be rendered as non-interactive by setting the 'disabled' prop to true, which is useful in scenarios where the user should not be able to change the switch state.",
+      "technical_description": "The example consists of a simple JSX fragment containing a Switch component. The Switch component is rendered with two props: 'disabled' and 'checked'. The 'disabled' prop is set to true, which makes the switch non-interactive, meaning the user cannot toggle its state. The 'checked' prop is also set to true, indicating that the switch is in the 'on' position. This setup is useful for displaying a switch that is on but cannot be interacted with due to certain conditions in the application logic.",
+      "patterns_description": "This example demonstrates a common pattern in React where components are controlled via props to manage their state and behavior. Using the 'disabled' prop is a best practice for making components non-interactive when necessary, ensuring that the UI reflects the application's current state and logic. This pattern is particularly useful in form controls and interactive elements where user input needs to be restricted under certain conditions.",
+      "use_cases_description": "This example is particularly useful in real-world scenarios where a switch needs to be displayed as part of a form or settings panel but should not be interactable due to certain conditions, such as insufficient permissions, unmet prerequisites, or during a loading state. It ensures that the user interface accurately represents the application's state and prevents user actions that should not be allowed at that time."
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "component_name": "Dropdown",
+  "component_description": "Dropdown is a popover container to render a few of options that we can select from by clicking on the target.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "content": {
+      "name": "content",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content of the dropdown, usually a menu."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "display": {
+      "name": "display",
+      "type": "\"block\" | \"inline-block\"",
+      "required": false,
+      "description": "Whether the dropdown takes up the entire line."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "keepContentMounted": {
+      "name": "keepContentMounted",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to keep dropdown content mounted when dropdown is closed."
+    },
+    "onClose": {
+      "name": "onClose",
+      "type": "() => void",
+      "required": true,
+      "description": "Closing callback."
+    },
+    "onOpen": {
+      "name": "onOpen",
+      "type": "() => void",
+      "required": false,
+      "description": "Opening callback."
+    },
+    "open": {
+      "name": "open",
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the dropdown is open."
+    },
+    "placement": {
+      "name": "placement",
+      "type": "\"bottom-left\" | \"bottom-right\"",
+      "required": false,
+      "description": "Placement of dropdown content to the target."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "target": {
+      "name": "target",
+      "type": "ReactElement",
+      "required": true,
+      "description": "Target element that dropdown menu is relative to."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Rendering inputs in a dropdown",
+      "example_description": "Dropdown content can be any react element. If your content is overflowed, you may control the styling to make it work as your expectation. In below example, a part of DatePicker popup will invisible if we don't specify `visible` for the overflow style.\n```jsx live\nfunction BasicDropdown() {\n  const [open, setOpen] = React.useState(false);\n  const closeDropdown = () => setOpen(false);\n  const dropdownContent = (\n    <div style={{ padding: theme.space.medium, margin: 0 }}>\n      <Typography.Text fontWeight=\"semi-bold\" tagName=\"label\">\n        Email:\n        <Input />\n      </Typography.Text>\n      <Typography.Text fontWeight=\"semi-bold\" tagName=\"label\">\n        Start date:\n        <DatePicker />\n      </Typography.Text>\n    </div>\n  );\n  return (\n    <Dropdown\n      open={open}\n      content={dropdownContent}\n      target={\n        <Button\n          text=\"Input personal detail\"\n          rightIcon=\"arrow-down\"\n          onClick={() => setOpen(!open)}\n        />\n      }\n      onClose={closeDropdown}\n      style={{ overflow: 'visible' }}\n    />\n  );\n}\n```",
+      "code": "function BasicDropdown() {\n  const [open, setOpen] = React.useState(false);\n  const closeDropdown = () => setOpen(false);\n  const dropdownContent = (\n    <div style={{ padding: theme.space.medium, margin: 0 }}>\n      <Typography.Text fontWeight=\"semi-bold\" tagName=\"label\">\n        Email:\n        <Input />\n      </Typography.Text>\n      <Typography.Text fontWeight=\"semi-bold\" tagName=\"label\">\n        Start date:\n        <DatePicker />\n      </Typography.Text>\n    </div>\n  );\n  return (\n    <Dropdown\n      open={open}\n      content={dropdownContent}\n      target={\n        <Button\n          text=\"Input personal detail\"\n          rightIcon=\"arrow-down\"\n          onClick={() => setOpen(!open)}\n        />\n      }\n      onClose={closeDropdown}\n      style={{ overflow: 'visible' }}\n    />\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to render a dropdown component that contains form inputs, specifically an email input and a date picker. The example highlights the importance of managing overflow styles to ensure that all content within the dropdown is visible, particularly when using components like DatePicker that may extend beyond the dropdown's default boundaries.",
+      "technical_description": "This example defines a React functional component named `BasicDropdown` that uses the `useState` hook to manage the open/closed state of the dropdown. The `open` state is toggled by clicking a button, which serves as the dropdown's target. The dropdown content includes two form elements: an `Input` for email and a `DatePicker` for selecting a start date. The dropdown is rendered using a `Dropdown` component, which takes several props including `open`, `content`, `target`, `onClose`, and `style`. The `style` prop is particularly important here, as it sets `overflow: 'visible'` to ensure that all dropdown content is fully visible, even if it overflows the dropdown's default boundaries.",
+      "patterns_description": "This example demonstrates several React patterns and best practices, including:\n- Using the `useState` hook to manage component state, which is a common pattern in functional components.\n- Handling user interactions with event handlers, such as toggling the dropdown open/closed state with a button click.\n- Composing components by passing JSX elements as props, allowing for flexible and reusable UI components.\n- Managing CSS styles directly within the component using the `style` prop, which is useful for dynamic styling based on component state or props.",
+      "use_cases_description": "This example is particularly useful in scenarios where a form needs to be embedded within a dropdown menu, such as in a user interface for entering personal details or scheduling events. It is applicable in web applications that require compact and interactive forms, allowing users to input data without navigating away from the current page. The approach of managing overflow styles is also relevant in any situation where dropdown content might exceed the default boundaries, ensuring a seamless user experience."
+    }
+  ]
+}

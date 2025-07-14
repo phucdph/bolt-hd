@@ -1,0 +1,116 @@
+{
+  "component_name": "Modal",
+  "component_description": "Modal is used for showing contents or requiring interaction from users without directing to a new page.",
+  "props": {
+    "body": {
+      "name": "body",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Modal body."
+    },
+    "canOutsideClickClose": {
+      "name": "canOutsideClickClose",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether clicking outside the modal overlap to invoke onClose"
+    },
+    "children": {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Modal content. This will be placed after title, body & footer."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "footer": {
+      "name": "footer",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Modal footer."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "onClose": {
+      "name": "onClose",
+      "type": "() => void",
+      "required": false,
+      "description": "Closing callback. When onClose is available, an  `x`  button will be rendered on the right side of modal title. The callback will be called when user clicks on  `x`  button or outside of the modal (if canOutsideClickClose is set to true)."
+    },
+    "open": {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "description": "Open state of modal."
+    },
+    "size": {
+      "name": "size",
+      "type": "\"small\" | \"medium\" | \"large\" | \"xlarge\" | \"xxlarge\"",
+      "required": false,
+      "description": "Modal size.\nFor xxlarge size: Before selecting this size, please consult with the design team."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "title": {
+      "name": "title",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Modal title."
+    },
+    "variant": {
+      "name": "variant",
+      "type": "\"primary\" | \"basic\"",
+      "required": false,
+      "description": "Modal type."
+    },
+    "withPortal": {
+      "name": "withPortal",
+      "type": "boolean",
+      "required": false,
+      "description": "If  `true` , the component will be rendered using portal. Otherwise, it will be rendered directly to the current tree"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "A modal has 3 sections including `Title`, `Body` and `Footer`.\n```jsx live\nfunction BasicModal() {\n  const [openBasic, setOpenBasic] = React.useState(false);\n  const [openPrimary, setOpenPrimary] = React.useState(false);\n  return (\n    <>\n      <Button\n        text=\"Open basic modal\"\n        onClick={() => setOpenBasic((value) => !value)}\n        style={{ marginRight: theme.space.small }}\n      />\n      <Button\n        text=\"Open primary modal\"\n        onClick={() => setOpenPrimary((value) => !value)}\n      />\n      {openBasic && (\n        <Modal\n          title=\"Basic modal\"\n          open\n          variant=\"basic\"\n          onClose={() => setOpenBasic(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenBasic(false)}\n              />\n              <Button text=\"Submit\" onClick={() => setOpenBasic(false)} />\n            </>\n          }\n        />\n      )}\n      {openPrimary && (\n        <Modal\n          title=\"Primary modal\"\n          open\n          variant=\"primary\"\n          onClose={() => setOpenPrimary(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenPrimary(false)}\n              />\n              <Button text=\"Submit\" onClick={() => setOpenPrimary(false)} />\n            </>\n          }\n        />\n      )}\n    </>\n  );\n}\n```",
+      "code": "function BasicModal() {\n  const [openBasic, setOpenBasic] = React.useState(false);\n  const [openPrimary, setOpenPrimary] = React.useState(false);\n  return (\n    <>\n      <Button\n        text=\"Open basic modal\"\n        onClick={() => setOpenBasic((value) => !value)}\n        style={{ marginRight: theme.space.small }}\n      />\n      <Button\n        text=\"Open primary modal\"\n        onClick={() => setOpenPrimary((value) => !value)}\n      />\n      {openBasic && (\n        <Modal\n          title=\"Basic modal\"\n          open\n          variant=\"basic\"\n          onClose={() => setOpenBasic(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenBasic(false)}\n              />\n              <Button text=\"Submit\" onClick={() => setOpenBasic(false)} />\n            </>\n          }\n        />\n      )}\n      {openPrimary && (\n        <Modal\n          title=\"Primary modal\"\n          open\n          variant=\"primary\"\n          onClose={() => setOpenPrimary(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenPrimary(false)}\n              />\n              <Button text=\"Submit\" onClick={() => setOpenPrimary(false)} />\n            </>\n          }\n        />\n      )}\n    </>\n  );\n}",
+      "purpose_description": "This example demonstrates a basic implementation of a modal component in React, showcasing how to toggle modals with different styles (basic and primary) using state management. It provides a simple user interface with buttons to open and close modals, each containing a title, body, and footer section.",
+      "technical_description": "The component uses React's useState hook to manage the open/close state of two modals: 'openBasic' and 'openPrimary'. Each modal is conditionally rendered based on its respective state variable. The 'Button' components trigger state changes to toggle the visibility of the modals. The 'Modal' component is rendered with props such as 'title', 'open', 'variant', 'onClose', 'body', and 'footer'. The 'onClose' prop is a callback function that sets the modal's state to false, effectively closing the modal. The 'footer' prop contains buttons that also close the modal when clicked.",
+      "patterns_description": "This example demonstrates the use of conditional rendering in React to display components based on state. It also uses the useState hook for state management, a common pattern in functional components. The separation of concerns is evident as the modal's logic is encapsulated within the component, and the use of callback functions for event handling is a best practice for managing component interactions.",
+      "use_cases_description": "This example is particularly useful in scenarios where a simple modal dialog is needed to display information or gather user input. It can be applied in web applications requiring confirmation dialogs, form submissions, or any situation where a temporary overlay is needed to focus user attention. The ability to toggle between different modal styles (basic and primary) adds flexibility for varying UI requirements."
+    },
+    {
+      "example_name": "PopUp Modal",
+      "example_description": "Use this modal to provide feedbacks to users. There are 5 variants: `info`, `success`, `warning`, `danger` and `confirm`.\n```jsx live\nfunction PopupModal() {\n  const [openInfo, setOpenInfo] = React.useState(false);\n  const [openSuccess, setOpenSuccess] = React.useState(false);\n  const [openWarning, setOpenWarning] = React.useState(false);\n  const [openDanger, setOpenDanger] = React.useState(false);\n  const [openConfirm, setOpenConfirm] = React.useState(false);\n  return (\n    <>\n      <Button\n        text=\"Info Modal\"\n        onClick={() => setOpenInfo((value) => !value)}\n        style={{ marginRight: theme.space.small }}\n      />\n      <Button\n        text=\"Success Modal\"\n        onClick={() => setOpenSuccess((value) => !value)}\n        style={{ marginRight: theme.space.small }}\n      />\n      <Button\n        text=\"Warning Modal\"\n        onClick={() => setOpenWarning((value) => !value)}\n        style={{ marginRight: theme.space.small }}\n      />\n      <Button\n        text=\"Danger Modal\"\n        onClick={() => setOpenDanger((value) => !value)}\n        style={{ marginRight: theme.space.small }}\n      />\n      <Button\n        text=\"Confirm Modal\"\n        onClick={() => setOpenConfirm((value) => !value)}\n      />\n      {openInfo && (\n        <Modal.PopUp\n          title=\"Info pop up dialogue\"\n          open\n          variant=\"info\"\n          onClose={() => setOpenInfo(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenInfo(false)}\n              />\n              <Button text=\"Submit\" onClick={() => setOpenInfo(false)} />\n            </>\n          }\n        />\n      )}\n      {openSuccess && (\n        <Modal.PopUp\n          title=\"You have successfully done this!\"\n          open\n          variant=\"success\"\n          onClose={() => setOpenSuccess(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenSuccess(false)}\n              />\n              <Button text=\"Submit\" onClick={() => setOpenSuccess(false)} />\n            </>\n          }\n        />\n      )}\n      {openWarning && (\n        <Modal.PopUp\n          title=\"Are you sure you want to do this?\"\n          open\n          variant=\"warning\"\n          onClose={() => setOpenWarning(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenWarning(false)}\n              />\n              <Button text=\"Submit\" onClick={() => setOpenWarning(false)} />\n            </>\n          }\n        />\n      )}\n      {openDanger && (\n        <Modal.PopUp\n          title=\"Do you want to delete these items?\"\n          open\n          variant=\"danger\"\n          onClose={() => setOpenDanger(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                intent=\"danger\"\n                onClick={() => setOpenDanger(false)}\n              />\n              <Button\n                text=\"Delete\"\n                intent=\"danger\"\n                onClick={() => setOpenDanger(false)}\n              />\n            </>\n          }\n        />\n      )}\n      {openConfirm && (\n        <Modal.PopUp\n          title=\"Please confirm that you want to do this action.\"\n          open={openConfirm}\n          variant=\"confirm\"\n          onClose={() => setOpenConfirm(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenConfirm(false)}\n              />\n              <Button text=\"Confirm\" onClick={() => setOpenConfirm(false)} />\n            </>\n          }\n        />\n      )}\n    </>\n  );\n}\n```",
+      "code": "function PopupModal() {\n  const [openInfo, setOpenInfo] = React.useState(false);\n  const [openSuccess, setOpenSuccess] = React.useState(false);\n  const [openWarning, setOpenWarning] = React.useState(false);\n  const [openDanger, setOpenDanger] = React.useState(false);\n  const [openConfirm, setOpenConfirm] = React.useState(false);\n  return (\n    <>\n      <Button\n        text=\"Info Modal\"\n        onClick={() => setOpenInfo((value) => !value)}\n        style={{ marginRight: theme.space.small }}\n      />\n      <Button\n        text=\"Success Modal\"\n        onClick={() => setOpenSuccess((value) => !value)}\n        style={{ marginRight: theme.space.small }}\n      />\n      <Button\n        text=\"Warning Modal\"\n        onClick={() => setOpenWarning((value) => !value)}\n        style={{ marginRight: theme.space.small }}\n      />\n      <Button\n        text=\"Danger Modal\"\n        onClick={() => setOpenDanger((value) => !value)}\n        style={{ marginRight: theme.space.small }}\n      />\n      <Button\n        text=\"Confirm Modal\"\n        onClick={() => setOpenConfirm((value) => !value)}\n      />\n      {openInfo && (\n        <Modal.PopUp\n          title=\"Info pop up dialogue\"\n          open\n          variant=\"info\"\n          onClose={() => setOpenInfo(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenInfo(false)}\n              />\n              <Button text=\"Submit\" onClick={() => setOpenInfo(false)} />\n            </>\n          }\n        />\n      )}\n      {openSuccess && (\n        <Modal.PopUp\n          title=\"You have successfully done this!\"\n          open\n          variant=\"success\"\n          onClose={() => setOpenSuccess(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenSuccess(false)}\n              />\n              <Button text=\"Submit\" onClick={() => setOpenSuccess(false)} />\n            </>\n          }\n        />\n      )}\n      {openWarning && (\n        <Modal.PopUp\n          title=\"Are you sure you want to do this?\"\n          open\n          variant=\"warning\"\n          onClose={() => setOpenWarning(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenWarning(false)}\n              />\n              <Button text=\"Submit\" onClick={() => setOpenWarning(false)} />\n            </>\n          }\n        />\n      )}\n      {openDanger && (\n        <Modal.PopUp\n          title=\"Do you want to delete these items?\"\n          open\n          variant=\"danger\"\n          onClose={() => setOpenDanger(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                intent=\"danger\"\n                onClick={() => setOpenDanger(false)}\n              />\n              <Button\n                text=\"Delete\"\n                intent=\"danger\"\n                onClick={() => setOpenDanger(false)}\n              />\n            </>\n          }\n        />\n      )}\n      {openConfirm && (\n        <Modal.PopUp\n          title=\"Please confirm that you want to do this action.\"\n          open={openConfirm}\n          variant=\"confirm\"\n          onClose={() => setOpenConfirm(false)}\n          body=\"Lorem Ipsum is simply dummy text of the printing and typesetting industry.\"\n          footer={\n            <>\n              <Button\n                text=\"Cancel\"\n                variant=\"text\"\n                onClick={() => setOpenConfirm(false)}\n              />\n              <Button text=\"Confirm\" onClick={() => setOpenConfirm(false)} />\n            </>\n          }\n        />\n      )}\n    </>\n  );\n}",
+      "purpose_description": "This React component example demonstrates a Popup Modal system that provides feedback to users through different modal variants. The component allows users to trigger and view modals with different purposes: informational, success, warning, danger, and confirmation. Each modal variant is designed to convey a specific type of message or action to the user.",
+      "technical_description": "The PopupModal component utilizes React's useState hook to manage the open/close state of each modal variant. There are five separate state variables, each corresponding to a different modal variant (info, success, warning, danger, confirm). The component renders a series of buttons, each associated with a modal variant. When a button is clicked, its corresponding state variable is toggled, which conditionally renders the respective Modal.PopUp component. Each Modal.PopUp component is configured with props such as title, open, variant, onClose, body, and footer, which define the modal's content and behavior. The onClose prop is used to close the modal by setting the respective state variable to false.",
+      "patterns_description": "The component demonstrates several React patterns and best practices, including:\n- Conditional rendering using logical AND (&&) to display modals only when their corresponding state is true.\n- Use of the useState hook to manage local component state for modal visibility.\n- Event handling through onClick functions to toggle modal states.\n- Separation of concerns by encapsulating modal logic within the PopupModal component, making it reusable and maintainable.",
+      "use_cases_description": "This PopupModal component is particularly useful in applications where user feedback is crucial, such as form submissions, confirmations, alerts, or notifications. It can be used in e-commerce platforms for confirming purchases, in admin dashboards for warning about critical actions, or in any application that requires user interaction to confirm or acknowledge actions. The different modal variants allow for clear communication of the type of feedback or action required from the user."
+    }
+  ]
+}

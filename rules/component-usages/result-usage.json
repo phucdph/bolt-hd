@@ -1,0 +1,95 @@
+{
+  "component_name": "Result",
+  "component_description": "It is used to feed back the results of a series of operational tasks. When operations need to inform the user to process the results and the feedback is more complicated.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "extra": {
+      "name": "extra",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Operating area, e.g. action buttons."
+    },
+    "icon": {
+      "name": "icon",
+      "type": "ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Custom Icon to represent result type."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "status": {
+      "name": "status",
+      "type": "\"success\" | \"warning\" | \"error\" | \"info\" | \"404\" | \"403\" | \"500\" | \"503\"",
+      "required": false,
+      "description": "Status to determine result style. This only gets effect if icon is not defined."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "subTitle": {
+      "name": "subTitle",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Subtitle text to show more details."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "title": {
+      "name": "title",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "description": "Main text to show result description."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Show a simple failure.\n```jsx live\n<Result\n  title=\"Oops!!\"\n  subTitle=\"This job has no hiring process, please add one in job settings page.\"\n  status=\"error\"\n  extra={<Button variant=\"filled\" intent=\"primary\" text=\"Add a process\" />}\n/>\n```",
+      "code": "<Result\n  title=\"Oops!!\"\n  subTitle=\"This job has no hiring process, please add one in job settings page.\"\n  status=\"error\"\n  extra={<Button variant=\"filled\" intent=\"primary\" text=\"Add a process\" />}\n/>",
+      "purpose_description": "The purpose of this example is to demonstrate how to use the Result component to display a simple error message. It is designed to inform users about a specific issue and provide them with an actionable button to resolve it. This example is particularly useful for showing error states in a user interface where a process or action is missing or incomplete.",
+      "technical_description": "The example uses the Result component to render a message indicating an error state. The component is configured with a title, subTitle, and status to convey the nature of the error. The 'extra' prop is used to pass a Button component, which provides a call-to-action for the user. The Button is configured with specific props such as 'variant', 'intent', and 'text' to define its appearance and functionality. The 'status' prop set to 'error' likely affects the styling or iconography of the Result component to visually indicate an error.",
+      "patterns_description": "This example demonstrates the use of composition in React by embedding a Button component within the Result component via the 'extra' prop. It follows the pattern of using props to customize component behavior and appearance, allowing for reusable and flexible UI components. The use of descriptive props like 'title', 'subTitle', and 'status' aligns with best practices for creating self-documenting code that is easy to understand and maintain.",
+      "use_cases_description": "This example is particularly useful in applications where user actions are required to complete a process, such as job application systems or workflow management tools. It can be used to inform users about missing configurations or steps and guide them towards resolving the issue with a clear call-to-action. This pattern is applicable in any scenario where error handling and user guidance are necessary, such as form submissions, configuration settings, or onboarding processes."
+    },
+    {
+      "example_name": "Unauthorised",
+      "example_description": "The page you visited is not permitted.\n```jsx live\n<Result\n  title=\"403\"\n  subTitle=\"You shall not pass, as you are unauthorised. Sorry about that.\"\n  status=\"403\"\n  extra={<Button variant=\"filled\" intent=\"primary\" text=\"Go to Dashboard\" />}\n/>\n```",
+      "code": "<Result\n  title=\"403\"\n  subTitle=\"You shall not pass, as you are unauthorised. Sorry about that.\"\n  status=\"403\"\n  extra={<Button variant=\"filled\" intent=\"primary\" text=\"Go to Dashboard\" />}\n/>",
+      "purpose_description": "The purpose of this example is to display a user interface component that informs the user they are not authorized to access a particular page or resource. It uses a 'Result' component to convey a 403 Forbidden status, typically used in web applications to indicate that the server understands the request but refuses to authorize it. The component also provides a call-to-action button to redirect the user to a different page, such as a dashboard.",
+      "technical_description": "The example utilizes a 'Result' component, which is likely a pre-defined component designed to display status messages or results of certain operations. The component is configured with several props: 'title', 'subTitle', 'status', and 'extra'. The 'title' and 'status' both indicate the HTTP status code '403', which is commonly used to denote forbidden access. The 'subTitle' provides a user-friendly message explaining the situation. The 'extra' prop includes a 'Button' component, which is configured to appear as a primary, filled button with the text 'Go to Dashboard'. This button likely includes functionality to navigate the user to a different page, although the navigation logic is not shown in this snippet.",
+      "patterns_description": "This example demonstrates the use of a reusable component pattern, where a generic 'Result' component is configured with specific props to display a particular message. It also shows the use of composition by including a 'Button' component within the 'extra' prop, allowing for flexible customization of the UI. The use of status codes and user-friendly messages aligns with best practices for error handling and user experience in web applications.",
+      "use_cases_description": "This component example is particularly useful in web applications where user access control is necessary. It can be used on pages where users attempt to access resources they do not have permission to view. The inclusion of a redirect button makes it practical for guiding users back to a safe or default page, such as a dashboard, enhancing the user experience by providing a clear next step after encountering an error."
+    },
+    {
+      "example_name": "Server unavailable",
+      "example_description": "Server is temporary unavailable or a feature is under maintenance.\n```jsx live\n<Result\n  title=\"[Your feature] is under maintenance\"\n  subTitle=\"We are currently working on making this feature better for you! This will be available for you again in approximately an hour.\"\n  status=\"503\"\n  extra={<Button variant=\"filled\" intent=\"primary\" text=\"Refresh\" />}\n/>\n```",
+      "code": "<Result\n  title=\"[Your feature] is under maintenance\"\n  subTitle=\"We are currently working on making this feature better for you! This will be available for you again in approximately an hour.\"\n  status=\"503\"\n  extra={<Button variant=\"filled\" intent=\"primary\" text=\"Refresh\" />}\n/>",
+      "purpose_description": "The purpose of this React component example is to display a user-friendly message indicating that a server or feature is temporarily unavailable. This is typically used in scenarios where a feature is undergoing maintenance or the server is down, providing users with a clear status update and an option to refresh the page.",
+      "technical_description": "The example utilizes a 'Result' component, which is likely a pre-defined component designed to display status messages or results to the user. It accepts several props to customize the message displayed. The 'title' prop is used to specify the main message, indicating that a feature is under maintenance. The 'subTitle' prop provides additional context, explaining the situation and giving an estimated time for resolution. The 'status' prop is set to '503', which is a standard HTTP status code for 'Service Unavailable', indicating that the server is temporarily unable to handle the request. The 'extra' prop includes a 'Button' component, which is configured with a 'variant' of 'filled', an 'intent' of 'primary', and a 'text' of 'Refresh', suggesting that it is a primary action button for refreshing the page.",
+      "patterns_description": "This example demonstrates the use of a status component pattern, which is a common UI pattern for displaying system or application statuses to users. It leverages props to customize the message and actions, promoting reusability and flexibility. The use of HTTP status codes as part of the UI component is a best practice for aligning UI messages with backend status responses. Additionally, the inclusion of a 'Button' component as an 'extra' prop showcases the extensibility of the component, allowing for interactive elements to be easily integrated.",
+      "use_cases_description": "This component is particularly useful in web applications where features may be temporarily unavailable due to maintenance or server issues. It provides a clear and informative message to users, reducing confusion and improving user experience during downtime. Real-world scenarios include SaaS applications, online services, or any web-based platform where features might be periodically updated or servers might experience temporary outages. The refresh button encourages users to retry accessing the feature, potentially after the maintenance window has passed."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "component_name": "Icon",
+  "component_description": "Employment Hero Icon Font.",
+  "props": {
+    "aria-hidden": {
+      "name": "aria-hidden",
+      "type": "boolean | \"true\" | \"false\"",
+      "required": false,
+      "description": "Aria hidden attribute for accessibility."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "icon": {
+      "name": "icon",
+      "type": "\"number\" | \"warning\" | \"bold\" | \"cancel\" | \"remove\" | \"menu\" | \"table\" | \"image\" | \"switch\" | \"target\" | \"restart\" | \"list\" | \"loading\" | \"file\" | \"directory\" | \"document\" | \"feed\" | \"location\" | \"move\" | \"activate\" | \"add-emoji\" | \"add-person\" | \"adjustment\" | \"alignment\" | \"archive\" | \"backward-arrow\" | \"bank\" | \"bell\" | \"billing\" | \"bookmark\" | \"box-check\" | \"box\" | \"buildings\" | \"cake\" | \"calendar-clock\" | \"calendar\" | \"candy-box-menu\" | \"carat-down-small\" | \"carat-down\" | \"carat-left\" | \"carat-right\" | \"carat-up-small\" | \"carat-up\" | \"circle-add\" | \"circle-cancel\" | \"circle-check\" | \"circle-down\" | \"circle-info\" | \"circle-left\" | \"circle-ok\" | \"circle-pencil\" | \"circle-question\" | \"circle-remove\" | \"circle-right\" | \"circle-up\" | \"circle-warning\" | \"clock-3\" | \"clock\" | \"cloud-download\" | \"cloud-upload\" | \"cog\" | \"coin\" | \"contacts\" | \"corner-resize\" | \"credit-card\" | \"diamond\" | \"direction-arrows\" | \"dollar-coin-shine\" | \"dot-filled\" | \"double-buildings\" | \"edit-template\" | \"envelope\" | \"expense\" | \"eye-circle\" | \"eye-invisible\" | \"eye\" | \"face-meh\" | \"face-sad\" | \"face-smiley\" | \"feedbacks\" | \"file-certified\" | \"file-clone\" | \"file-copy\" | \"file-csv\" | \"file-dispose\" | \"file-doc\" | \"file-excel\" | \"file-export\" | \"file-lock\" | \"file-pdf\" | \"file-powerpoint\" | \"file-search\" | \"file-secured\" | \"file-sheets\" | \"file-slide\" | \"file-verified\" | \"file-word\" | \"flask\" | \"folder-user\" | \"folder\" | \"format-bold\" | \"format-heading1\" | \"format-heading2\" | \"format-italic\" | \"format-list-bulleted\" | \"format-list-numbered\" | \"format-underlined\" | \"forward-arrow\" | \"funnel-filter\" | \"gauge\" | \"global-dollar\" | \"globe\" | \"graduation-cap\" | \"graph\" | \"happy-sun\" | \"health-bag\" | \"heart\" | \"home\" | \"import\" | \"incident-siren\" | \"instapay\" | \"loading-2\" | \"lock\" | \"looks-one\" | \"looks-two\" | \"mandatory\" | \"media-content\" | \"moneybag\" | \"moon\" | \"multiple-stars\" | \"multiple-users\" | \"node\" | \"open-folder\" | \"paperclip\" | \"payment-summary\" | \"pencil\" | \"phone\" | \"piggy-bank\" | \"pin\" | \"plane\" | \"play-circle\" | \"print\" | \"raising-hands\" | \"rectangle-mandatory\" | \"reply-arrow\" | \"reply\" | \"reschedule\" | \"rostering\" | \"save\" | \"schedule-send\" | \"schedule\" | \"search-person\" | \"send\" | \"speaker\" | \"star-award\" | \"star-badge\" | \"star-medal\" | \"star\" | \"steps-circle\" | \"stopwatch\" | \"suitcase\" | \"survey\" | \"swag\" | \"tag\" | \"teams\" | \"thumb-down\" | \"thumb-up\" | \"timesheet\" | \"touch-id\" | \"trash-bin\" | \"unlock\" | \"user\" | \"video-1\" | \"video-2\" | \"wrench\" | \"academic-hat-outlined\" | \"activate-outlined\" | \"add-person-outlined\" | \"add-section-outlined\" | \"add-time-outlined\" | \"add\" | \"adjustment-outlined\" | \"afternoon-outlined\" | \"alignment-2-outlined\" | \"alignment-outlined\" | \"all-caps\" | \"arrow-down\" | \"arrow-left\" | \"arrow-right\" | \"arrow-up\" | \"at-sign\" | \"bell-outlined\" | \"billing-outlined\" | \"billing-pound-outlined\" | \"body-outlined\" | \"bookmark-outlined\" | \"box-check-outlined\" | \"box-outlined\" | \"briefcase-clock-outlined\" | \"briefcase-search-outlined\" | \"bullet-points\" | \"cake-outlined\" | \"calendar-dates-outlined\" | \"calendar-star-outlined\" | \"camera-outlined\" | \"chat-outlined\" | \"checkmark\" | \"circle-add-outlined\" | \"circle-cancel-outlined\" | \"circle-down-outlined\" | \"circle-info-outlined\" | \"circle-left-outlined\" | \"circle-ok-outlined\" | \"circle-question-outlined\" | \"circle-remove-outlined\" | \"circle-right-outlined\" | \"circle-up-outlined\" | \"circle-warning-outlined\" | \"clipboard-check-outlined\" | \"clipboard-text-outlined\" | \"clock-2-outlined\" | \"clock-outlined\" | \"cog-outlined\" | \"coin-outlined\" | \"coin-pound-outlined\" | \"coin-stack-outlined\" | \"collapse-outlined\" | \"comment-outlined\" | \"contacts-outlined\" | \"content-copy-outlined\" | \"copy-outlined\" | \"credit-card-outlined\" | \"cup-outlined\" | \"cut-outlined\" | \"desktop-computer-outlined\" | \"diagram-outlined\" | \"diamond-outlined\" | \"direction-arrows-outlined\" | \"directory-outlined\" | \"document-outlined\" | \"dollar-coin-shine-outlined\" | \"dollar-sign\" | \"donut-chart-outlined\" | \"double-buildings-outlined\" | \"double-left-arrows\" | \"double-right-arrows\" | \"download-outlined\" | \"edit-template-outlined\" | \"edit-user-outlined\" | \"email-outlined\" | \"enter-arrow\" | \"envelope-outlined\" | \"evening-outlined\" | \"expand-outlined\" | \"expense-outlined\" | \"external-link\" | \"eye-invisible-outlined\" | \"eye-outlined\" | \"face-id\" | \"face-meh-outlined\" | \"face-open-smiley-outlined\" | \"face-sad-outlined\" | \"face-smiley-outlined\" | \"feed-outlined\" | \"feedbacks-outlined\" | \"file-certified-outlined\" | \"file-clone-outlined\" | \"file-copy-outlined\" | \"file-dispose-outlined\" | \"file-download-outlined\" | \"file-export-outlined\" | \"file-lock-outlined\" | \"file-outlined\" | \"file-search-outlined\" | \"file-secured-outlined\" | \"file-text-outlined\" | \"file-verified-outlined\" | \"filter-outlined\" | \"fire-outlined\" | \"flag-outlined\" | \"folder-outlined\" | \"folder-user-outlined\" | \"funnel-filter-outline\" | \"gauge-outlined\" | \"gift-outlined\" | \"graph-outlined\" | \"happy-sun-outlined\" | \"health-bag-outlined\" | \"heart-outlined\" | \"home-outlined\" | \"image-outlined\" | \"import-outlined\" | \"instapay-outlined\" | \"italic\" | \"link-1\" | \"link-2\" | \"list-outlined\" | \"location-outlined\" | \"lock-outlined\" | \"locked-file-outlined\" | \"log-out\" | \"magic-outlined\" | \"media-content-outlined\" | \"menu-close\" | \"menu-expand\" | \"menu-fold-outlined\" | \"menu-unfold-outlined\" | \"mobile-phone-1-outlined\" | \"moneybag-outlined\" | \"moneybag-pound-outlined\" | \"moon-outlined\" | \"more-horizontal\" | \"more-vertical\" | \"morning-outlined\" | \"multiple-folders-outlined\" | \"multiple-users-outlined\" | \"node-outlined\" | \"number-points\" | \"passport-outlined\" | \"payment-summary-outlined\" | \"payslip-outlined\" | \"pencil-outlined\" | \"percentage\" | \"phone-outlined\" | \"piggy-bank-outlined\" | \"pin-outlined\" | \"plane-outlined\" | \"play-circle-outlined\" | \"pound-sign\" | \"print-outlined\" | \"qr-code-outlined\" | \"re-assign\" | \"redeem\" | \"refresh\" | \"reply-outlined\" | \"return-arrow\" | \"ringgit-sign\" | \"rocket-outlined\" | \"rostering-outlined\" | \"save-outlined\" | \"schedule-outlined\" | \"search-outlined\" | \"send-outlined\" | \"share-1\" | \"share-2\" | \"shield-check-outlined\" | \"single-down-arrow\" | \"single-left-arrow\" | \"single-right-arrow\" | \"single-up-arrow\" | \"sparkle-2-outlined\" | \"sparkle-outlined\" | \"speaker-outlined\" | \"speed-outlined\" | \"star-outlined\" | \"stopwatch-outlined\" | \"strikethrough\" | \"suitcase-outlined\" | \"survey-outlined\" | \"switch-outlined\" | \"sync\" | \"tablet-outlined\" | \"target-outlined\" | \"thumb-up-outlined\" | \"timesheet-outlined\" | \"transfer\" | \"trash-bin-outlined\" | \"trash-outlined\" | \"unavailable\" | \"underline\" | \"unlinked\" | \"unlock-outlined\" | \"upload-outlined\" | \"user-add-outlined\" | \"user-circle-outlined\" | \"user-move-outlined\" | \"user-out-outlined\" | \"user-outlined\" | \"user-rectangle-outlined\" | \"user-remove-outlined\" | \"user-warning-outlined\" | \"video-1-outlined\" | \"video-2-outlined\" | \"wallet-outlined\" | \"wrench-outlined\" | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "description": "Icon name or a custom icon as a react element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "intent": {
+      "name": "intent",
+      "type": "\"inherit\" | \"text\" | \"primary\" | \"danger\" | \"success\" | \"warning\" | \"error\" | \"info\" | \"subdued-text\" | \"disabled-text\"",
+      "required": false,
+      "description": "Visual intent color to apply to icon, it will inherit from its parents' color by default."
+    },
+    "size": {
+      "name": "size",
+      "type": "\"xsmall\" | \"small\" | \"medium\" | \"large\" | \"xlarge\" | \"inherit\"",
+      "required": false,
+      "description": "Icon size, it will inherit from its parents' font-size by default. If you use custom icon, inherit will be changed to medium size."
+    },
+    "spin": {
+      "name": "spin",
+      "type": "boolean",
+      "required": false,
+      "description": "Rotate icon with animation."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Use `icon` property to select the icon from the list above. Specify the `spin` property to show spinning animation.\n```jsx live\n<div style={{ display: 'flex', gap: theme.space.medium }}>\n  <Icon icon=\"user\" />\n  <Icon icon=\"heart\" />\n  <Icon icon=\"sync\" spin />\n</div>\n```",
+      "code": "<div style={{ display: 'flex', gap: theme.space.medium }}>\n  <Icon icon=\"user\" />\n  <Icon icon=\"heart\" />\n  <Icon icon=\"sync\" spin />\n</div>",
+      "purpose_description": "The purpose of this example is to demonstrate how to use the `Icon` component to render different icons with optional animations. It shows how to select an icon using the `icon` property and how to apply a spinning animation using the `spin` property.",
+      "technical_description": "The example uses a `div` container styled with CSS flexbox to arrange `Icon` components in a horizontal row with a specified gap between them. The `Icon` component is used three times, each time with different properties. The `icon` property is used to specify which icon to display, and the `spin` property is used to enable a spinning animation for the icon. The `theme.space.medium` is used to set the gap between icons, indicating that the styling is likely part of a larger theme configuration.",
+      "patterns_description": "This example demonstrates the use of component composition and props to customize behavior and appearance. It uses a common pattern of passing props to control the component's output, which is a fundamental React pattern. The use of a theme for consistent styling is also a best practice in React applications, promoting maintainability and consistency.",
+      "use_cases_description": "This example is useful in scenarios where icons are needed to represent actions or statuses in a user interface. The spinning animation can be particularly useful for indicating loading or synchronization processes. This pattern is applicable in dashboards, navigation bars, or any UI component that requires visual indicators."
+    },
+    {
+      "example_name": "Sizes",
+      "example_description": "Icon will inherit font-size from its parents, but its size can be set via `size` property with `xsmall`, `small`, `medium`, `large` or `xlarge`.\n```jsx live\n<div style={{ display: 'flex', gap: theme.space.medium }}>\n  <Icon icon=\"location-outlined\" size=\"xsmall\" />\n  <Icon icon=\"camera-outlined\" size=\"small\" />\n  <Icon icon=\"face-id\" size=\"medium\" />\n  <Icon icon=\"number\" size=\"large\" />\n  <Icon icon=\"qr-code-outlined\" size=\"xlarge\" />\n</div>\n```",
+      "code": "<div style={{ display: 'flex', gap: theme.space.medium }}>\n  <Icon icon=\"location-outlined\" size=\"xsmall\" />\n  <Icon icon=\"camera-outlined\" size=\"small\" />\n  <Icon icon=\"face-id\" size=\"medium\" />\n  <Icon icon=\"number\" size=\"large\" />\n  <Icon icon=\"qr-code-outlined\" size=\"xlarge\" />\n</div>",
+      "purpose_description": "The purpose of this example is to demonstrate how the Icon component can be used with different sizes. It shows how the size of an icon can be explicitly set using the `size` prop, overriding the default behavior of inheriting font-size from its parent element. This is useful for ensuring consistent icon sizing across different parts of a UI.",
+      "technical_description": "The example uses a flex container to display multiple Icon components in a row with a consistent gap between them, as defined by `theme.space.medium`. Each Icon component is rendered with a specific `size` prop, which determines the icon's size. The `size` prop accepts predefined string values ('xsmall', 'small', 'medium', 'large', 'xlarge'), which likely map to specific CSS classes or styles that adjust the font-size or dimensions of the icon. This allows for easy and consistent sizing of icons across the application.",
+      "patterns_description": "This example demonstrates the use of a flexbox layout to arrange components horizontally with consistent spacing, which is a common pattern in responsive design. It also illustrates the use of prop-driven styling, where component appearance is controlled through props rather than inline styles or CSS classes directly. This approach enhances reusability and maintainability of components.",
+      "use_cases_description": "This example is particularly useful in scenarios where a consistent and responsive icon sizing is required across a user interface. It can be applied in navigation bars, toolbars, or any component that requires icons of varying sizes. The ability to control icon size through props makes it adaptable to different design requirements and screen sizes."
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "component_name": "Spinner",
+  "component_description": "Spinners indicate an operation under loading process.",
+  "props": {
+    "children": {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Content expected to be loaded."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "loading": {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "description": "Loading state of content wrapped by spinner. This is required when children is present."
+    },
+    "size": {
+      "name": "size",
+      "type": "\"small\" | \"medium\" | \"large\"",
+      "required": false,
+      "description": "Size of spinner"
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "text": {
+      "name": "text",
+      "type": "string",
+      "required": false,
+      "description": "Additional text"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Use spinner with or without text.\n```jsx live\n<>\n  <Spinner />\n  <Spinner text=\"We're fetching your data...\" />\n</>\n```",
+      "code": "<>\n  <Spinner />\n  <Spinner text=\"We're fetching your data...\" />\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate the basic usage of a Spinner component in a React application. It shows how to use the Spinner component both with and without accompanying text, providing a visual indication of loading or processing states in the UI.",
+      "technical_description": "This example uses a React Fragment (<>...</>) to group multiple Spinner components without adding extra nodes to the DOM. The Spinner component is used twice: once without any props, which likely renders a default spinner animation, and once with a 'text' prop, which adds a descriptive message next to the spinner. This setup suggests that the Spinner component is designed to handle optional text, enhancing user feedback during loading states.",
+      "patterns_description": "This example demonstrates the use of React Fragments to group components without introducing additional DOM elements, which is a common pattern for maintaining clean and efficient markup. It also shows a pattern of conditional rendering based on props, where the presence of a 'text' prop alters the output of the Spinner component. This is a typical React pattern for creating flexible and reusable components.",
+      "use_cases_description": "This Spinner component example is particularly useful in scenarios where an application needs to indicate loading states, such as fetching data from an API or processing user input. It can be used in dashboards, forms, or any interactive UI where operations might take time to complete. The ability to add descriptive text makes it suitable for enhancing user experience by providing context about the ongoing process."
+    },
+    {
+      "example_name": "Sizes",
+      "example_description": "There are three sizes of a Spinner: `small`, `medium` (default) and `large`.\n```jsx live\n<>\n  <Spinner size=\"small\" text=\"Loading...\" />\n  <br />\n  <Spinner size=\"medium\" text=\"Loading...\" />\n  <br />\n  <Spinner size=\"large\" text=\"Loading...\" />\n</>\n```",
+      "code": "<>\n  <Spinner size=\"small\" text=\"Loading...\" />\n  <br />\n  <Spinner size=\"medium\" text=\"Loading...\" />\n  <br />\n  <Spinner size=\"large\" text=\"Loading...\" />\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate the usage of a Spinner component with different size options. It shows how the Spinner can be rendered in three distinct sizes: small, medium, and large, allowing developers to choose the appropriate size for their application's loading indicators.",
+      "technical_description": "This example uses a React fragment to render multiple Spinner components in sequence. Each Spinner component is passed a 'size' prop, which determines the visual size of the spinner. The 'text' prop is used to display a loading message next to each spinner. The example includes line breaks (<br />) between each Spinner to ensure they are displayed on separate lines. The Spinner component likely uses the 'size' prop to apply different CSS styles or classes that adjust its dimensions accordingly.",
+      "patterns_description": "This example demonstrates the use of prop-driven customization, a common pattern in React components, allowing for flexible and reusable UI elements. The use of default prop values (medium size) is a best practice that ensures components have sensible defaults while still allowing for customization. Additionally, the use of React fragments (<>) is a pattern for grouping multiple elements without adding extra nodes to the DOM.",
+      "use_cases_description": "This Spinner component example is particularly useful in scenarios where an application needs to indicate loading states to users. It can be used in various parts of an application, such as during data fetching, form submissions, or any asynchronous operations. The ability to choose different sizes makes it adaptable to different UI contexts, such as fitting into small buttons or larger sections of a page."
+    }
+  ]
+}

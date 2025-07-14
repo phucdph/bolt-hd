@@ -1,0 +1,80 @@
+{
+  "component_name": "Badge",
+  "component_description": "Badge is used to describe status or value of a text or number.\nIt can be used as standalone status; or a notification.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "content": {
+      "name": "content",
+      "type": "string | number",
+      "required": true,
+      "description": "Content to be displayed, can be number or string."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "intent": {
+      "name": "intent",
+      "type": "\"primary\" | \"danger\" | \"success\" | \"warning\" | \"error\" | \"archived\" | \"basic\"",
+      "required": false,
+      "description": "Visual intent color to apply to badge."
+    },
+    "size": {
+      "name": "size",
+      "type": "\"small\" | \"medium\"",
+      "required": false,
+      "description": "Badge size."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "variant": {
+      "name": "variant",
+      "type": "\"filled\"",
+      "required": false,
+      "description": "Badge variant."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Count",
+      "example_description": "It can be **Number** or **Icon**.",
+      "code": "",
+      "purpose_description": "The Badge component is designed to display a small count or status descriptor, often used to highlight notifications or messages. In this example, the Badge can display either a numerical count or an icon, providing a flexible way to convey information at a glance.",
+      "technical_description": "The Badge component likely utilizes conditional rendering to switch between displaying a number or an icon based on the props passed to it. This involves checking the type of data provided (number or icon) and rendering the appropriate JSX accordingly. The component may use state or props to manage the value displayed, and it could be styled using CSS or a CSS-in-JS solution to ensure it fits well within different UI contexts.",
+      "patterns_description": "This example likely demonstrates the use of conditional rendering, a common React pattern, to handle different types of content (number vs. icon). It may also showcase the use of prop types for validation, ensuring that the component receives the correct type of data. The component might use default props to provide default values for certain props, enhancing its robustness.",
+      "use_cases_description": "This Badge component would be particularly useful in applications where notifications or status indicators are needed, such as messaging apps, email clients, or social media platforms. It can be used to show unread message counts, notification alerts, or status icons, providing users with quick, at-a-glance information about the state of the application."
+    },
+    {
+      "example_name": "Status",
+      "example_description": "```jsx live\n<Box sx={{ display: 'flex', gap: 'medium', flexWrap: 'wrap' }}>\n  <Badge.Status>\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status intent=\"basic\">\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status intent=\"error\">\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status intent=\"primary\">\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status intent=\"success\">\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status intent=\"warning\">\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status>\n    <Button.Link\n      href=\"https://employmenthero.com\"\n      target=\"_blank\"\n      rel=\"noreferer noopener\"\n      text=\"Link to Employment Hero\"\n    />\n  </Badge.Status>\n</Box>\n```",
+      "code": "<Box sx={{ display: 'flex', gap: 'medium', flexWrap: 'wrap' }}>\n  <Badge.Status>\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status intent=\"basic\">\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status intent=\"error\">\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status intent=\"primary\">\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status intent=\"success\">\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status intent=\"warning\">\n    <Icon icon=\"bell\" intent=\"text\" size=\"medium\" />\n  </Badge.Status>\n  <Badge.Status>\n    <Button.Link\n      href=\"https://employmenthero.com\"\n      target=\"_blank\"\n      rel=\"noreferer noopener\"\n      text=\"Link to Employment Hero\"\n    />\n  </Badge.Status>\n</Box>",
+      "purpose_description": "The purpose of this example is to demonstrate the use of the Badge.Status component to visually represent different statuses or states using badges. Each badge can have a different intent, which affects its appearance, allowing for a quick visual cue to the user about the nature of the status being represented.",
+      "technical_description": "The example uses a Box component with flexbox styling to arrange multiple Badge.Status components in a flexible, wrapping layout. Each Badge.Status component can take an 'intent' prop, which determines its styling, such as color. The Badge.Status components are used to wrap either an Icon component or a Button.Link component, showcasing the flexibility of the Badge.Status to encapsulate different types of content. The Icon component is configured with specific props to display a bell icon, while the Button.Link component is configured to act as a hyperlink with specific attributes for security and accessibility.",
+      "patterns_description": "This example demonstrates the use of composition in React, where components are composed together to create more complex UI elements. The use of the 'intent' prop pattern allows for consistent styling across different components based on a shared theme or design system. The example also shows best practices for using flexbox for responsive layouts and the use of security attributes like 'rel=\"noreferer noopener\"' for external links to prevent security vulnerabilities.",
+      "use_cases_description": "This example is particularly useful in applications where different statuses need to be displayed to the user, such as notifications, alerts, or task statuses. The Badge.Status component can be used in dashboards, notification centers, or any part of an application where visual differentiation of states is required. The ability to wrap different content types, like icons or links, makes it versatile for various UI needs."
+    }
+  ]
+}

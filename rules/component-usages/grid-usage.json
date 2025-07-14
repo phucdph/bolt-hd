@@ -1,0 +1,77 @@
+{
+  "component_name": "Grid",
+  "component_description": "Our layout system is based on a 24-column grid.",
+  "props": {
+    "children": {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Grid's children node."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "gutter": {
+      "name": "gutter",
+      "type": "Gutter",
+      "required": false,
+      "description": "Space between rows, value can be none or a space value (xxsmall | small | medium | large | xlarge | xxlarge | xxxlarge | xxxxlarge), none corresponds to no space."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Render `Grid.Col` inside `Grid.Row`, `Grid.Row` inside `Grid`. By default, the `Col` will take the space of all 24 columns.\n```jsx live\n<Grid>\n  <Grid.Row>\n    <Grid.Col>\n      <Box bgColor=\"primary\" p=\"medium\">\n        <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n          Default Col\n        </Typography.Text>\n      </Box>\n    </Grid.Col>\n  </Grid.Row>\n</Grid>\n```",
+      "code": "<Grid>\n  <Grid.Row>\n    <Grid.Col>\n      <Box bgColor=\"primary\" p=\"medium\">\n        <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n          Default Col\n        </Typography.Text>\n      </Box>\n    </Grid.Col>\n  </Grid.Row>\n</Grid>",
+      "purpose_description": "The purpose of this example is to demonstrate the basic usage of a grid layout system in React. It shows how to structure a simple grid with rows and columns using the `Grid`, `Grid.Row`, and `Grid.Col` components. This example highlights the default behavior of the grid system where a column (`Grid.Col`) spans the entire width of the grid, which is divided into 24 columns by default.",
+      "technical_description": "This example uses a grid system to organize content in a structured layout. The `Grid` component acts as a container for the grid layout. Inside it, `Grid.Row` is used to define a row within the grid. Each `Grid.Row` can contain one or more `Grid.Col` components, which represent the columns within that row. By default, each `Grid.Col` spans all 24 columns of the grid, effectively taking up the entire row. The `Box` component is used to style the content inside the column, with properties like `bgColor` and `p` for background color and padding, respectively. The `Typography.Text` component is used to display text with specific styling, such as text color and alignment.",
+      "patterns_description": "This example demonstrates the use of a grid layout system, which is a common pattern in web development for creating responsive and organized layouts. It uses composition to nest components (`Grid.Col` inside `Grid.Row`, and `Grid.Row` inside `Grid`), which is a best practice in React for building reusable and modular components. The use of default props (e.g., `Grid.Col` spanning all 24 columns by default) simplifies the component usage and provides sensible defaults.",
+      "use_cases_description": "This grid layout example is particularly useful in scenarios where a structured and responsive layout is needed, such as dashboards, forms, or any application that requires content to be organized in rows and columns. It can be used in both simple and complex layouts, providing a flexible foundation for building responsive designs that adapt to different screen sizes."
+    },
+    {
+      "example_name": "Offset",
+      "example_description": "Using `offset` prop to shift the `Col` to the right. The number of columns get shifted will be decided by the prop value.\nLike `span`, `offset` is also an array of 5 numbers, using the same numbers if you want the same behaviour between devices. For responsive usage, see [Resposiveness](#responsiveness) section below.\n```jsx live\n<Grid gutter=\"medium\">\n  <Grid.Row>\n    <Grid.Col span={[16, 16, 16, 16, 16]} offset={[4, 4, 4, 4, 4]}>\n      <Box bgColor=\"primary\" p=\"medium\">\n        <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n          col-16 offset-4\n        </Typography.Text>\n      </Box>\n    </Grid.Col>\n  </Grid.Row>\n  <Grid.Row>\n    <Grid.Col span={[8, 8, 8, 8, 8]}>\n      <Box bgColor=\"primary\" p=\"medium\">\n        <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n          col-8\n        </Typography.Text>\n      </Box>\n    </Grid.Col>\n    <Grid.Col span={[8, 8, 8, 8, 8]} offset={[8, 8, 8, 8, 8]}>\n      <Box bgColor=\"primary\" p=\"medium\">\n        <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n          col-8 offset-8\n        </Typography.Text>\n      </Box>\n    </Grid.Col>\n  </Grid.Row>\n</Grid>\n```",
+      "code": "<Grid gutter=\"medium\">\n  <Grid.Row>\n    <Grid.Col span={[16, 16, 16, 16, 16]} offset={[4, 4, 4, 4, 4]}>\n      <Box bgColor=\"primary\" p=\"medium\">\n        <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n          col-16 offset-4\n        </Typography.Text>\n      </Box>\n    </Grid.Col>\n  </Grid.Row>\n  <Grid.Row>\n    <Grid.Col span={[8, 8, 8, 8, 8]}>\n      <Box bgColor=\"primary\" p=\"medium\">\n        <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n          col-8\n        </Typography.Text>\n      </Box>\n    </Grid.Col>\n    <Grid.Col span={[8, 8, 8, 8, 8]} offset={[8, 8, 8, 8, 8]}>\n      <Box bgColor=\"primary\" p=\"medium\">\n        <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n          col-8 offset-8\n        </Typography.Text>\n      </Box>\n    </Grid.Col>\n  </Grid.Row>\n</Grid>",
+      "purpose_description": "The purpose of this example is to demonstrate how to use the `offset` prop in a grid system to shift columns to the right. This is useful for creating space between columns or aligning columns in a specific layout without adding additional empty columns. The `offset` prop allows for responsive design by specifying different offsets for different screen sizes.",
+      "technical_description": "This example uses a grid system where the `Grid` component acts as a container for rows and columns. The `Grid.Row` component defines a row within the grid, and `Grid.Col` defines a column within that row. The `span` prop on `Grid.Col` specifies how many columns the content should span, while the `offset` prop specifies how many columns to shift the content to the right. Both `span` and `offset` accept an array of numbers, allowing for responsive design by specifying different values for different screen sizes. The `Box` component is used to style the content within each column, and `Typography.Text` is used to display text with specific styling.",
+      "patterns_description": "This example demonstrates the use of a responsive grid system, which is a common pattern in web design for creating flexible and adaptive layouts. The use of arrays for `span` and `offset` props is a best practice for handling responsiveness, allowing the layout to adjust based on the screen size. The separation of layout (Grid, Row, Col) and content (Box, Typography) is a React-specific technique that promotes component reusability and separation of concerns.",
+      "use_cases_description": "This example is particularly useful in scenarios where a responsive layout is required, such as in web applications that need to adapt to different screen sizes and devices. It can be used in dashboards, forms, and any other UI components where precise control over layout and spacing is needed. The ability to offset columns is useful for creating visually appealing designs and aligning content without additional markup."
+    },
+    {
+      "example_name": "Responsiveness",
+      "example_description": "For making different layouts base on device sizes, using different values inside `span`, `offset` arrays, the order is `xs -> sm -> md -> lg -> xl`. Scale the brower viewport to see different result with below example.\n```jsx live\n<>\n  <Grid>\n    <Grid.Row gutter={['small', 'small']}>\n      <Grid.Col span={[24, 24, 24, 12, 10]} offset={[0, 0, 0, 0, 3]}>\n        <Box bgColor=\"primary\" p=\"medium\">\n          <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n            Col 1\n          </Typography.Text>\n        </Box>\n      </Grid.Col>\n      <Grid.Col span={[20, 16, 12, 6, 4]} offset={[2, 4, 0, 0, 0]}>\n        <Box bgColor=\"primary-background\" p=\"medium\">\n          <Typography.Text style={{ textAlign: 'center' }}>\n            Col 2\n          </Typography.Text>\n        </Box>\n      </Grid.Col>\n      <Grid.Col span={[20, 16, 12, 6, 4]} offset={[2, 4, 0, 0, 0]}>\n        <Box bgColor=\"primary\" p=\"medium\">\n          <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n            Col 3\n          </Typography.Text>\n        </Box>\n      </Grid.Col>\n    </Grid.Row>\n  </Grid>\n</>\n```",
+      "code": "<>\n  <Grid>\n    <Grid.Row gutter={['small', 'small']}>\n      <Grid.Col span={[24, 24, 24, 12, 10]} offset={[0, 0, 0, 0, 3]}>\n        <Box bgColor=\"primary\" p=\"medium\">\n          <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n            Col 1\n          </Typography.Text>\n        </Box>\n      </Grid.Col>\n      <Grid.Col span={[20, 16, 12, 6, 4]} offset={[2, 4, 0, 0, 0]}>\n        <Box bgColor=\"primary-background\" p=\"medium\">\n          <Typography.Text style={{ textAlign: 'center' }}>\n            Col 2\n          </Typography.Text>\n        </Box>\n      </Grid.Col>\n      <Grid.Col span={[20, 16, 12, 6, 4]} offset={[2, 4, 0, 0, 0]}>\n        <Box bgColor=\"primary\" p=\"medium\">\n          <Typography.Text intent=\"white\" style={{ textAlign: 'center' }}>\n            Col 3\n          </Typography.Text>\n        </Box>\n      </Grid.Col>\n    </Grid.Row>\n  </Grid>\n</>",
+      "purpose_description": "This example demonstrates how to create a responsive grid layout using the Grid component in React. It shows how to adjust the layout of columns based on different device sizes by specifying different values for the 'span' and 'offset' properties. The layout changes responsively as the browser viewport is resized, catering to various screen sizes from extra small (xs) to extra large (xl).",
+      "technical_description": "The example uses a Grid component with a single Grid.Row containing three Grid.Col components. Each Grid.Col has 'span' and 'offset' properties defined as arrays, where each index corresponds to a specific screen size: xs, sm, md, lg, and xl. The 'span' property determines how many columns the component should span, while the 'offset' property specifies how many columns to leave empty before the component starts. The Grid.Row has a 'gutter' property to add spacing between columns. The Box component is used to style each column, and Typography.Text is used to display centered text within each Box. The layout dynamically adjusts as the viewport size changes, demonstrating responsive design principles.",
+      "patterns_description": "This example demonstrates the use of responsive design patterns in React by leveraging array-based props for breakpoints. It follows best practices for creating flexible and adaptable layouts that respond to different screen sizes. The use of a grid system with defined spans and offsets is a common pattern in responsive web design, allowing developers to create complex layouts that adjust seamlessly across devices. The separation of concerns is maintained by using Box and Typography components for styling and text, promoting reusability and modularity.",
+      "use_cases_description": "This example is particularly useful in scenarios where a web application needs to support multiple device sizes with a consistent and adaptable layout. It can be applied to dashboards, content management systems, or any application that requires a grid-based layout. The ability to specify different layouts for various breakpoints makes it ideal for responsive design, ensuring that the application provides an optimal user experience on desktops, tablets, and mobile devices."
+    }
+  ]
+}

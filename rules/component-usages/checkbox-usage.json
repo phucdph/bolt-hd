@@ -1,0 +1,125 @@
+{
+  "component_name": "Checkbox",
+  "component_description": "The checkbox is shown as a square box that is ticked (checked) when activated.\nCheckboxes are used to select one or more options of a limited number of choices.",
+  "props": {
+    "checked": {
+      "name": "checked",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the checkbox is checked."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "disabled": {
+      "name": "disabled",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the checkbox is disabled."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of <input> element."
+    },
+    "indeterminate": {
+      "name": "indeterminate",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the checkbox is in indeterminate checked state."
+    },
+    "name": {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Name of <input> element, is used to refer to the form data for submission."
+    },
+    "onChange": {
+      "name": "onChange",
+      "type": "(e: ChangeEvent<HTMLInputElement>) => void",
+      "required": false,
+      "description": "Set the handler to handle  `change`  event."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "text": {
+      "name": "text",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Checkbox text."
+    },
+    "value": {
+      "name": "value",
+      "type": "string | number",
+      "required": true,
+      "description": "Checkbox input value."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Checkbox",
+      "example_description": "Basic usage of Checkbox.\n```jsx live\n<Checkbox value=\"hr_software\" text=\"HR Software\" />\n```",
+      "code": "<Checkbox value=\"hr_software\" text=\"HR Software\" />",
+      "purpose_description": "This example demonstrates the basic usage of a Checkbox component in a React application. It shows how to render a single checkbox with a specified value and label text, which is a common requirement in forms and user interfaces where users need to select options.",
+      "technical_description": "The example renders a Checkbox component with two props: 'value' and 'text'. The 'value' prop is typically used to identify the checkbox's value when the form is submitted, while the 'text' prop provides the label displayed next to the checkbox. The component is likely a controlled or uncontrolled component that manages its checked state internally or through external state management. The implementation details of the Checkbox component are abstracted away in this example, focusing on its usage rather than its internal workings.",
+      "patterns_description": "This example demonstrates a common pattern in React where components are used with props to configure their behavior and appearance. It highlights the separation of concerns by abstracting the Checkbox's internal logic and focusing on its interface. This pattern promotes reusability and maintainability, as the Checkbox component can be reused with different values and labels across the application.",
+      "use_cases_description": "This Checkbox component example is particularly useful in scenarios where a user interface requires selection inputs, such as forms, settings pages, or preference panels. It can be used in any application that needs to capture user preferences or selections, such as survey forms, registration forms, or configuration settings in a software application."
+    },
+    {
+      "example_name": "Checkbox with custom text",
+      "example_description": "We can customise the displaying text of Checkbox by any ReactNode.\n```jsx live\n<Checkbox\n  value=\"digital_payroll\"\n  text={\n    <Button.Link\n      href=\"https://employmenthero.com/product/heropay/compliance-confidence\"\n      text=\"Digital payroll\"\n    />\n  }\n/>\n```",
+      "code": "<Checkbox\n  value=\"digital_payroll\"\n  text={\n    <Button.Link\n      href=\"https://employmenthero.com/product/heropay/compliance-confidence\"\n      text=\"Digital payroll\"\n    />\n  }\n/>",
+      "purpose_description": "This example demonstrates how to customize the display text of a Checkbox component by using a ReactNode. Instead of using plain text, a Button.Link component is used to provide a clickable link as the label for the checkbox.",
+      "technical_description": "The Checkbox component is rendered with a 'value' prop set to 'digital_payroll' and a 'text' prop that accepts a ReactNode. In this case, the ReactNode is a Button.Link component, which is a custom component likely designed to render a hyperlink styled as a button. The Button.Link component receives 'href' and 'text' props, which define the URL and the display text of the link, respectively. This setup allows the checkbox label to be interactive, providing additional functionality beyond static text.",
+      "patterns_description": "This example demonstrates the use of composition in React, where components are composed together to build more complex UIs. By passing a ReactNode to the 'text' prop, the example leverages React's flexibility in handling children and props to enhance the functionality of a component. This pattern is particularly useful for creating reusable and customizable components. Additionally, using a link as a label for a checkbox is a creative way to provide additional context or actions related to the checkbox's purpose.",
+      "use_cases_description": "This example is particularly useful in scenarios where a checkbox is associated with additional information or actions that the user might want to explore. For instance, in a settings page where users can enable or disable features, linking to documentation or related resources directly from the checkbox label can enhance user experience. It is also beneficial in forms where certain options might require further explanation or validation, allowing users to easily access relevant information or actions directly from the form element."
+    },
+    {
+      "example_name": "Checkbox.Group Layout",
+      "example_description": "Group can be rendered with either a vertical or horizontal layout.\n```jsx live\nfunction CheckboxGroupLayout() {\n  const [value, setValue] = React.useState(['hr_software']);\n  const onChange = (newValue) => setValue(newValue);\n  const options = [\n    { value: 'hr_software', text: 'HR Software' },\n    { value: 'digital_payroll', text: 'Digital Payroll' },\n    { value: 'employee_engagement', text: 'Employee Engagement' },\n    { value: 'employee_benefits', text: 'Employee Benefits' },\n    { value: 'global_teams', text: 'Global Teams' },\n  ];\n  return (\n    <Checkbox.Group\n      name=\"employment_hero_features\"\n      value={value}\n      options={options}\n      onChange={onChange}\n      layout=\"horizontal\"\n    />\n  );\n}\n```",
+      "code": "function CheckboxGroupLayout() {\n  const [value, setValue] = React.useState(['hr_software']);\n  const onChange = (newValue) => setValue(newValue);\n  const options = [\n    { value: 'hr_software', text: 'HR Software' },\n    { value: 'digital_payroll', text: 'Digital Payroll' },\n    { value: 'employee_engagement', text: 'Employee Engagement' },\n    { value: 'employee_benefits', text: 'Employee Benefits' },\n    { value: 'global_teams', text: 'Global Teams' },\n  ];\n  return (\n    <Checkbox.Group\n      name=\"employment_hero_features\"\n      value={value}\n      options={options}\n      onChange={onChange}\n      layout=\"horizontal\"\n    />\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to use a Checkbox.Group component to render a group of checkboxes with a specified layout, either horizontal or vertical. This allows users to select multiple options from a list, with the layout enhancing the user interface by organizing the checkboxes in a visually appealing manner.",
+      "technical_description": "The component uses React's useState hook to manage the state of the selected checkboxes. The state is initialized with an array containing a single value, 'hr_software'. The onChange function updates the state whenever the user selects or deselects a checkbox. The options array defines the available checkboxes, each with a 'value' and 'text' property. The Checkbox.Group component is rendered with props including 'name', 'value', 'options', 'onChange', and 'layout'. The 'layout' prop determines whether the checkboxes are displayed horizontally or vertically.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the component's state is managed via React's useState hook. The onChange handler is a common pattern for updating state in response to user interactions. Additionally, the use of a layout prop to control the visual arrangement of components is a best practice for creating flexible and reusable UI components.",
+      "use_cases_description": "This example is particularly useful in scenarios where a form requires users to select multiple options from a list, such as configuring features in a software application or selecting preferences. The ability to switch between horizontal and vertical layouts makes it adaptable to different UI designs and space constraints."
+    },
+    {
+      "example_name": "Checkbox.Button",
+      "example_description": "Checkbox can be rendered as a button with Checkbox.Button.\n```jsx live\n<>\n  <Checkbox.Button\n    name=\"checkbox_button\"\n    value=\"hr_document\"\n    text=\"HR Document\"\n    sx={{ mr: 'small' }}\n  />\n  <Checkbox.Button\n    name=\"checkbox_button\"\n    value=\"hr_guide\"\n    text=\"HR Guide\"\n    sx={{ mr: 'small' }}\n  />\n  <Checkbox.Button\n    name=\"checkbox_button\"\n    value=\"independent_contractor\"\n    text=\"Independent Contractor\"\n    disabled\n    sx={{ mr: 'small' }}\n  />\n  <Checkbox.Button\n    name=\"checkbox_button\"\n    value=\"policy_document\"\n    text=\"Policy Document\"\n    disabled\n    checked\n  />\n</>\n```",
+      "code": "<>\n  <Checkbox.Button\n    name=\"checkbox_button\"\n    value=\"hr_document\"\n    text=\"HR Document\"\n    sx={{ mr: 'small' }}\n  />\n  <Checkbox.Button\n    name=\"checkbox_button\"\n    value=\"hr_guide\"\n    text=\"HR Guide\"\n    sx={{ mr: 'small' }}\n  />\n  <Checkbox.Button\n    name=\"checkbox_button\"\n    value=\"independent_contractor\"\n    text=\"Independent Contractor\"\n    disabled\n    sx={{ mr: 'small' }}\n  />\n  <Checkbox.Button\n    name=\"checkbox_button\"\n    value=\"policy_document\"\n    text=\"Policy Document\"\n    disabled\n    checked\n  />\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate how to render checkboxes as button elements using the Checkbox.Button component. This approach provides a more interactive and visually distinct way to present checkbox options, which can be particularly useful in user interfaces where space is limited or where a more engaging user experience is desired.",
+      "technical_description": "The example uses the Checkbox.Button component to create a series of checkbox buttons. Each Checkbox.Button is configured with a set of props that define its behavior and appearance. The 'name' prop groups the buttons together, allowing them to be treated as a set of related options. The 'value' prop specifies the value associated with each button, which is useful for form submissions. The 'text' prop provides the label displayed on the button. The 'sx' prop is used to apply custom styling, in this case adding a small right margin to each button. The 'disabled' prop is used to disable certain buttons, preventing user interaction. The 'checked' prop is used to set the initial checked state of a button, indicating that it is selected by default.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the state of each checkbox button can be managed through props. It also shows the use of the 'sx' prop for inline styling, which is a common pattern in modern React applications to apply styles directly within the component. Additionally, the use of the 'disabled' and 'checked' props highlights best practices for managing user interaction and default states in form elements.",
+      "use_cases_description": "This example is particularly useful in scenarios where a form requires multiple options to be presented in a compact and visually appealing manner. It can be used in settings like surveys, preference selections, or any application where users need to make multiple selections. The button-style checkboxes are also beneficial in mobile interfaces, where touch-friendly elements are important."
+    },
+    {
+      "example_name": "Checkbox.ButtonGroup",
+      "example_description": "Checkbox.Button can also be grouped by using Checkbox.ButtonGroup.\n```jsx live\nfunction CheckboxButtonGroup() {\n  const [value, setValue] = React.useState(['full_time']);\n  return (\n    <Checkbox.ButtonGroup\n      value={value}\n      name=\"name\"\n      options={[\n        {\n          text: 'Full-time',\n          value: 'full_time',\n        },\n        {\n          text: 'Part-time',\n          value: 'part_time',\n        },\n        {\n          text: 'Casual',\n          value: 'casual',\n        },\n      ]}\n      onChange={(val) => setValue(val)}\n    />\n  );\n}\n```",
+      "code": "function CheckboxButtonGroup() {\n  const [value, setValue] = React.useState(['full_time']);\n  return (\n    <Checkbox.ButtonGroup\n      value={value}\n      name=\"name\"\n      options={[\n        {\n          text: 'Full-time',\n          value: 'full_time',\n        },\n        {\n          text: 'Part-time',\n          value: 'part_time',\n        },\n        {\n          text: 'Casual',\n          value: 'casual',\n        },\n      ]}\n      onChange={(val) => setValue(val)}\n    />\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to use the Checkbox.ButtonGroup component to create a group of checkbox buttons that allow users to select multiple options. This is particularly useful for scenarios where users need to select multiple items from a list of options, such as selecting job types in a job application form.",
+      "technical_description": "The CheckboxButtonGroup component utilizes React's useState hook to manage the state of selected checkbox values. Initially, the state is set to an array containing 'full_time', indicating that the 'Full-time' option is selected by default. The Checkbox.ButtonGroup component is rendered with several props: 'value', 'name', 'options', and 'onChange'. The 'value' prop is bound to the component's state, ensuring that the selected options are tracked. The 'options' prop is an array of objects, each representing a checkbox button with 'text' and 'value' properties. The 'onChange' prop is a callback function that updates the state whenever the selection changes, allowing the component to re-render with the new state.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the component's state is used to manage the form data. The useState hook is employed to handle the state of the selected checkboxes, and the onChange handler is used to update this state. This pattern ensures that the component's UI is always in sync with its state, a best practice in React development. Additionally, the use of an array to manage multiple selections is a common pattern when dealing with checkbox groups.",
+      "use_cases_description": "This example is particularly useful in scenarios where a form requires users to select multiple options from a predefined list. Real-world use cases include job application forms where applicants can specify their preferred employment types, surveys where respondents can select multiple interests, or settings pages where users can enable multiple features or preferences. The Checkbox.ButtonGroup component simplifies the creation of such interfaces by managing the state of multiple checkboxes efficiently."
+    }
+  ]
+}

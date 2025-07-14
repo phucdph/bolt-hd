@@ -1,0 +1,77 @@
+{
+  "component_name": "Typography.Title",
+  "component_description": "Typography.Title is for rendering headings with different levels of importance, ranging from h1 to h5. It provides semantic HTML structure and consistent styling for titles and headings.",
+  "props": {
+    "children": {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Title content."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "dangerouslySetInnerHTML": {
+      "name": "dangerouslySetInnerHTML",
+      "type": "{ __html: string | TrustedHTML }",
+      "required": false,
+      "description": "Dangerously set innerHTML."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "fontWeight": {
+      "name": "fontWeight",
+      "type": "\"bold\" | \"light\" | \"regular\" | \"semi-bold\"",
+      "required": false,
+      "description": "Title's font-weight."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "intent": {
+      "name": "intent",
+      "type": "\"primary\" | \"white\" | \"main\" | \"subdued\"",
+      "required": false,
+      "description": "Visual intent color to apply to text."
+    },
+    "level": {
+      "name": "level",
+      "type": "2 | 1 | 3 | 4 | 5",
+      "required": false,
+      "description": "The level of Title including 1, 2, 3, 4 or 5 which are equivalent to h1, h2, h3, h4 and h5."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Typography.Title with different levels and intents",
+      "example_description": "There are 5 levels of a Title:\n- **1** (for h1)\n- **2** (for h2)\n- **3** (for h3)\n- **4** (for h4)\n- **5** (for h5)\n\nIt is set to `1` by default.\n\n```jsx live\n<>\n  <Typography.Title level={1}>Employment Hero.</Typography.Title>\n  <Typography.Title level={3} intent=\"subdued\">\n    Bring all your HR into one, easy-to-use place.\n  </Typography.Title>\n  <br />\n  <Typography.Title level={3}>HR Software.</Typography.Title>\n  <Typography.Title level={5} intent=\"subdued\">\n    Speedy onboarding and compliant contracts.\n  </Typography.Title>\n  <Typography.Title level={5} intent=\"primary\">\n    Simplify HR tasks with real-time updates.\n  </Typography.Title>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Title level={5} intent=\"white\">\n      Easily manage employee records and performance reviews.\n    </Typography.Title>\n  </Box>\n  <br />\n  <Typography.Title level={3}>Digital Payroll.</Typography.Title>\n  <Typography.Title level={5} intent=\"subdued\">\n    Automatic award interpretation and dynamic rostering.\n  </Typography.Title>\n  <Typography.Title level={5} intent=\"primary\">\n    Ensure accurate payments effortlessly.\n  </Typography.Title>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Title level={5} intent=\"white\">\n      Stay compliant with the latest payroll regulations.\n    </Typography.Title>\n  </Box>\n  <br />\n  <Typography.Title level={3}>Employee Engagement.</Typography.Title>\n  <Typography.Title level={5} intent=\"subdued\">\n    Communicate and engage with your team.\n  </Typography.Title>\n  <Typography.Title level={5} intent=\"primary\">\n    Boost workplace culture with regular feedback.\n  </Typography.Title>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Title level={5} intent=\"white\">\n      Encourage collaboration through interactive platforms.\n    </Typography.Title>\n  </Box>\n  <br />\n  <Typography.Title level={3}>Employee Benefits.</Typography.Title>\n  <Typography.Title level={5} intent=\"subdued\">\n    Discounts, wellness programs & much more.\n  </Typography.Title>\n  <Typography.Title level={5} intent=\"primary\">\n    Increase satisfaction with various perks.\n  </Typography.Title>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Title level={5} intent=\"white\">\n      Support your team's well-being with tailored benefits.\n    </Typography.Title>\n  </Box>\n  <br />\n  <Typography.Title level={3}>Global Teams.</Typography.Title>\n  <Typography.Title level={5} intent=\"subdued\">\n    Engage the best talent, anywhere in the world.\n  </Typography.Title>\n  <Typography.Title level={5} intent=\"primary\">\n    Manage international staff seamlessly.\n  </Typography.Title>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Title level={5} intent=\"white\">\n      Facilitate smooth cross-border operations and compliance.\n    </Typography.Title>\n  </Box>\n</>\n```",
+      "code": "<>\n  <Typography.Title level={1}>Employment Hero.</Typography.Title>\n  <Typography.Title level={3} intent=\"subdued\">\n    Bring all your HR into one, easy-to-use place.\n  </Typography.Title>\n  <br />\n  <Typography.Title level={3}>HR Software.</Typography.Title>\n  <Typography.Title level={5} intent=\"subdued\">\n    Speedy onboarding and compliant contracts.\n  </Typography.Title>\n  <Typography.Title level={5} intent=\"primary\">\n    Simplify HR tasks with real-time updates.\n  </Typography.Title>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Title level={5} intent=\"white\">\n      Easily manage employee records and performance reviews.\n    </Typography.Title>\n  </Box>\n  <br />\n  <Typography.Title level={3}>Digital Payroll.</Typography.Title>\n  <Typography.Title level={5} intent=\"subdued\">\n    Automatic award interpretation and dynamic rostering.\n  </Typography.Title>\n  <Typography.Title level={5} intent=\"primary\">\n    Ensure accurate payments effortlessly.\n  </Typography.Title>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Title level={5} intent=\"white\">\n      Stay compliant with the latest payroll regulations.\n    </Typography.Title>\n  </Box>\n  <br />\n  <Typography.Title level={3}>Employee Engagement.</Typography.Title>\n  <Typography.Title level={5} intent=\"subdued\">\n    Communicate and engage with your team.\n  </Typography.Title>\n  <Typography.Title level={5} intent=\"primary\">\n    Boost workplace culture with regular feedback.\n  </Typography.Title>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Title level={5} intent=\"white\">\n      Encourage collaboration through interactive platforms.\n    </Typography.Title>\n  </Box>\n  <br />\n  <Typography.Title level={3}>Employee Benefits.</Typography.Title>\n  <Typography.Title level={5} intent=\"subdued\">\n    Discounts, wellness programs & much more.\n  </Typography.Title>\n  <Typography.Title level={5} intent=\"primary\">\n    Increase satisfaction with various perks.\n  </Typography.Title>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Title level={5} intent=\"white\">\n      Support your team's well-being with tailored benefits.\n    </Typography.Title>\n  </Box>\n  <br />\n  <Typography.Title level={3}>Global Teams.</Typography.Title>\n  <Typography.Title level={5} intent=\"subdued\">\n    Engage the best talent, anywhere in the world.\n  </Typography.Title>\n  <Typography.Title level={5} intent=\"primary\">\n    Manage international staff seamlessly.\n  </Typography.Title>\n  <Box sx={{ backgroundColor: 'neutralDarkBackground' }}>\n    <Typography.Title level={5} intent=\"white\">\n      Facilitate smooth cross-border operations and compliance.\n    </Typography.Title>\n  </Box>\n</>",
+      "purpose_description": "The Typography.Title component is designed to render headings with different levels of importance, ranging from h1 to h5. This example demonstrates how to use the component to create a structured and visually distinct hierarchy of titles, which is essential for organizing content in a clear and accessible manner while maintaining consistent styling across different sections of an application.",
+      "technical_description": "The example uses the Typography.Title component to render headings with varying levels of importance. The 'level' prop determines the semantic HTML tag (h1 through h5) that is used, which affects both the visual styling and the document structure for accessibility. The 'intent' prop is used to apply different styles to the text, such as 'subdued', 'primary', or 'white', allowing for visual differentiation based on context or importance. The example also uses the Box component to apply background styles, demonstrating how to combine typography with layout components for enhanced presentation.",
+      "patterns_description": "This example demonstrates the use of component composition, where Typography.Title is used alongside Box to create a cohesive layout. It shows the use of props for styling and semantic HTML, which is a best practice for accessibility and SEO. The use of the 'intent' prop for styling is a pattern that allows for consistent theming and styling across the application. Additionally, the use of React fragments (<>...</>) helps in grouping multiple elements without adding extra nodes to the DOM.",
+      "use_cases_description": "This example is particularly useful in scenarios where a clear and structured presentation of content is required, such as in documentation, marketing pages, dashboards, or landing pages. It can be used in any application that requires a consistent and accessible way to display headings and subheadings, ensuring that users can easily navigate and understand the content hierarchy. The ability to style titles differently based on intent also makes it suitable for applications that need to highlight or differentiate certain sections of text based on context or importance."
+    }
+  ]
+} 

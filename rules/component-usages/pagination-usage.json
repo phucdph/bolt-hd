@@ -1,0 +1,71 @@
+{
+  "component_name": "Pagination",
+  "component_description": "A component to show a long list of pages, fragment the data into multiple pages.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "current": {
+      "name": "current",
+      "type": "number",
+      "required": true,
+      "description": "Current selected page. This is 1-based indexing."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "onChange": {
+      "name": "onChange",
+      "type": "(selectedPage: number) => void",
+      "required": true,
+      "description": "Change event handler receiving new selected page."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "total": {
+      "name": "total",
+      "type": "number",
+      "required": true,
+      "description": "Total number of pages."
+    },
+    "variant": {
+      "name": "variant",
+      "type": "\"compact\" | \"basic\"",
+      "required": false,
+      "description": "Type of pagination."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Render the pagination by providing `current`, `total` and `onChange` props.\n```jsx live\n<Pagination current={1} total={15} onChange={() => alert('Page changed')} />\n```",
+      "code": "<Pagination current={1} total={15} onChange={() => alert('Page changed')} />",
+      "purpose_description": "This example demonstrates a basic implementation of a Pagination component in React. The purpose is to show how to render pagination controls by specifying the current page, the total number of pages, and a callback function to handle page changes.",
+      "technical_description": "The Pagination component is rendered with three props: `current`, `total`, and `onChange`. The `current` prop indicates the currently active page, `total` specifies the total number of pages available, and `onChange` is a callback function that gets executed when the page is changed. In this example, the `onChange` function triggers an alert to notify the user that the page has changed. The component likely manages internal state to handle page navigation and invokes the `onChange` callback with the new page number when a user interacts with the pagination controls.",
+      "patterns_description": "This example demonstrates a common pattern in React where components are controlled via props. The Pagination component is controlled by the `current` and `total` props, which dictate its behavior and appearance. The use of a callback function (`onChange`) to handle events is a best practice in React, allowing for separation of concerns and making the component more reusable and testable.",
+      "use_cases_description": "This Pagination component is useful in scenarios where data is displayed in a paginated format, such as lists, tables, or galleries. It is particularly beneficial in applications where large datasets need to be broken down into manageable chunks for better user experience. Examples include e-commerce product listings, blog post archives, or any application with a need for efficient navigation through multiple pages of content."
+    }
+  ]
+}

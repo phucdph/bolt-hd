@@ -1,0 +1,214 @@
+{
+  "id": "data-grid-table",
+  "name": "Table",
+  "category": "UI Components",
+  "tags": [
+    "UI",
+    "Component",
+    "Table",
+    "Data Grid",
+    "InputCell"
+  ],
+  "description": "Use table as a data grid like a spreadsheet with buit-in support for editable cells, copy/paste and more.",
+  "props": {
+    "bulkCheckSettings": {
+      "name": "bulkCheckSettings",
+      "description": "The objects to custom the bulk check items, bulkCheckSettings is an object of:\n- disableCheckRule: the function to help us set disabled for checkbox of specific row.\n- bulkHeaderRenderer: the function to help us custom the select all checkbox.\n- bulkItemRerender: the function to help us custom the item checkbox for each row.",
+      "required": false,
+      "type": "BulkCheckSettingsProps<D>"
+    },
+    "columns": {
+      "name": "columns",
+      "description": "Array of table columns. Some notes when you provide this prop:\n* Must be memoized.\n* Column must be an object of:\n    * Cell?: a React component to render the cell at column. Checkout this example https://design.employmenthero.com/web/Components/Table/#cell-customisation for further information.\n    * Filter?:\n@deprecated - a React component to render the column filter.\n* Header?: a string or React component to render the column header.\n* accessor?: a string as the path of the data element's property.\n* align?: one of 'left' | 'right' to handle the text alignment.\n* disableSortBy?: a boolean to enable/disable column sorting (default is false)\n* displayAtBreakpoint?: one of 'sm' | 'md' | 'lg' | 'xl' to handle the column rendering depending on media query breakpoints.\n* width?: a string to specify an explicit width of the column.",
+      "required": true,
+      "type": "Column<D>[]"
+    },
+    "data": {
+      "name": "data",
+      "description": "Array of D (D is the generic type of data element you pass in).",
+      "required": true,
+      "type": "D[]"
+    },
+    "expandedRows": {
+      "name": "expandedRows",
+      "description": "Controlled expanded rows state, expandedRows is an object of:\n- key: row index.\n- value: boolean. True means the row at index is expanded.",
+      "required": false,
+      "type": "Record<IdType<D>, boolean>"
+    },
+    "expansion": {
+      "name": "expansion",
+      "description": "Whether the table has expanded rows. When expansion is available, its data shape must be an object of:\n- expandedRowRenderer: a render function '(rowData: D) => ReactElement' to render the expanded row.\n- rowExpandable: a predicate function '(rowData: D) => boolean' to decide a row is expandable or not.",
+      "required": false,
+      "type": "{ expandedRowRenderer: (rowData: D) => ReactElement<any, string | JSXElementConstructor<any>>; rowExpandable: (rowData: D) => boolean; }"
+    },
+    "filters": {
+      "name": "filters",
+      "description": "Controlled filters value, Filters is an array of:\n- id: column id, this matches with accessor configuration.\n- value: filter value",
+      "required": false,
+      "type": "Filters<D>"
+    },
+    "groupingConfig": {
+      "name": "groupingConfig",
+      "description": "Configuration for grouping rows in the table. When groupingConfig is provided, the data will be grouped by the groupBy function.\n- groupBy: a function to group the data.\n- collapsedByDefaultGroups: an array of group keys that will be collapsed by default.",
+      "required": false,
+      "type": "{ groupBy: (rows: Row<D>[]) => Record<string, Row<D>[]>; collapsedByDefaultGroups?: string[]; }"
+    },
+    "horizontallySticky": {
+      "name": "horizontallySticky",
+      "description": "Whether the table's first column(s) sticks to the left when scroll horizontally on small screen size devices.",
+      "required": false,
+      "type": "boolean"
+    },
+    "itemsPerPage": {
+      "name": "itemsPerPage",
+      "description": "Controlled items per page, itemsPerPages is an object of:\n- options: array of Select (https://design.employmenthero.com/web/Components/Select/#select-1) options.\n- value: selected items per page value.",
+      "required": false,
+      "type": "{ options: { text: string; value: string | number; }[]; value?: string | number; }"
+    },
+    "loading": {
+      "name": "loading",
+      "description": "Loading state of Table, which will render a spinner in the center of table.",
+      "required": false,
+      "type": "boolean"
+    },
+    "manualSortBy": {
+      "name": "manualSortBy",
+      "description": "Enables sorting detection functionality, but does not automatically perform row sorting.\nTurn this on if you wish to implement your own sorting outside of the table",
+      "required": false,
+      "type": "boolean"
+    },
+    "noData": {
+      "name": "noData",
+      "description": "Content to render when there is no data in the table.",
+      "required": false,
+      "type": "ReactNode"
+    },
+    "onExpandedRowsChange": {
+      "name": "onExpandedRowsChange",
+      "description": "Callback invoked when any row is expanded or collapsed. expandedRows is an object of:\n- key: row index.\n- value: boolean. True means the row at index is expanded.",
+      "required": false,
+      "type": "(expandedRows: Record<IdType<D>, boolean>) => void"
+    },
+    "onFiltersChange": {
+      "name": "onFiltersChange",
+      "description": "Callback invoked when filters are changed. Filters is an array of:\n- id: column id, this matches with accessor configuration.\n- value: filter value",
+      "required": false,
+      "type": "(filters: Filters<D>) => void"
+    },
+    "onItemsPerPageChange": {
+      "name": "onItemsPerPageChange",
+      "description": "Callback invoked when items per page selection is changed.",
+      "required": false,
+      "type": "(itemsPerPage: string | number) => void"
+    },
+    "onPaginationChange": {
+      "name": "onPaginationChange",
+      "description": "Callback invoked when a page in pagination is changed.",
+      "required": false,
+      "type": "(page: number) => void"
+    },
+    "onSelectedRowsChange": {
+      "name": "onSelectedRowsChange",
+      "description": "Callback invoked when any row is selected or deselected. selectedRows is an object of:\n- key: row index.\n- value: boolean. True means the row at index is selected.",
+      "required": false,
+      "type": "(selectedRows: Record<IdType<D>, boolean>) => void"
+    },
+    "onSortByChange": {
+      "name": "onSortByChange",
+      "description": "Callback invoked when sorting is changed. sortBy is an array of:\n- id: column id, this matches with accessor configuration.\n- desc: boolean, true means sorting descendingly.",
+      "required": false,
+      "type": "(sortBy: SortingRule<D>[]) => void"
+    },
+    "pagination": {
+      "name": "pagination",
+      "description": "Whether the table has pagination. When pagination is ON, its data shape must be an object of:\n- current: a number which is 1-based indexing to indicate the current selected page.\n- total: a number indicates the total of pages.",
+      "required": false,
+      "type": "{ current: number; total: number; }"
+    },
+    "rows": {
+      "name": "rows",
+      "description": "An object for rows configuration, it must be memoized.",
+      "required": false,
+      "type": "{ generateClassName?: (row: Row<D>) => string; rowIdExtractor?: (row: D, index: number) => string; }"
+    },
+    "selectable": {
+      "name": "selectable",
+      "description": "Whether the table is allowed using checkbox to select table rows.",
+      "required": false,
+      "type": "boolean"
+    },
+    "selectedRows": {
+      "name": "selectedRows",
+      "description": "Controlled selected rows state, selectedRows is an object of:\n- key: key is the row id extracted from `rowIdExtractor`. Default value is row index.\n- value: boolean. True means the row at index is selected.",
+      "required": false,
+      "type": "Record<IdType<D>, boolean>"
+    },
+    "sortBy": {
+      "name": "sortBy",
+      "description": "Controlled sortBy state, sortBy is an array of:\n- id: column id, this matches with accessor configuration.\n- desc: boolean, true means sorting descendingly.",
+      "required": false,
+      "type": "SortingRule<D>[]"
+    },
+    "sticky": {
+      "name": "sticky",
+      "description": "Whether the table's header sticks to the top.",
+      "required": false,
+      "type": "boolean"
+    },
+    "stickyConfig": {
+      "name": "stickyConfig",
+      "description": "Set the number of columns or rows that are sticky\n- nColumns: number of columns that are sticky. This only works when horizontallySticky is `true`.",
+      "required": false,
+      "type": "{ nColumns?: number; }"
+    },
+    "variant": {
+      "name": "variant",
+      "description": "Table style.",
+      "required": false,
+      "type": "\"basic\" | \"grid\""
+    },
+    "className": {
+      "name": "className",
+      "description": "A space-delimited list of class names to pass along to the element.",
+      "required": false,
+      "type": "string"
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "description": "Testing id of the element.",
+      "required": false,
+      "type": "string"
+    },
+    "id": {
+      "name": "id",
+      "description": "Id of the element.",
+      "required": false,
+      "type": "string"
+    },
+    "style": {
+      "name": "style",
+      "description": "Additional inline style to be applied for the most outer element of the component.",
+      "required": false,
+      "type": "CSSProperties"
+    },
+    "sx": {
+      "name": "sx",
+      "description": "[Theme-aware style property](/guidelines/sxProp)",
+      "required": false,
+      "type": "Partial<Record<SxKeys, SxValues>>"
+    }
+  },
+  "examples": [
+    {
+      "title": "Basic Data Grid",
+      "description": "Use `grid` variant to render Table with data-grid styling.",
+      "code": "function BasicDataGrid() { const actions = [ { icon: 'checkmark', text: 'Accept', onClick: () => alert('Accept leave'), }, { icon: 'cancel', text: 'Decline', onClick: () => alert('Decline leave'), divider: 'bottom', }, { icon: 'eye-outlined', text: 'View', onClick: () => alert('View leave'), }, { icon: 'pencil-outlined', text: 'Edit', onClick: () => alert('Edit leave'), }, { icon: 'box-outlined', text: 'Archive', onClick: () => alert('Archive leave'), }, { icon: 'trash-bin-outlined', text: 'Delete', intent: 'danger', divider: 'top', onClick: () => alert('Delete leave'), }, ].filter(Boolean); const columns = React.useMemo( () => [ { Header: 'Name', accessor: 'name', Cell: ({ value }) => ( <Button.Link href=\"#\" text={value} target=\"_blank\" /> ), minWidth: 200, }, { Header: 'Age', accessor: 'age' }, { Header: 'Marital Status', accessor: 'maritalStatus', disableSortBy: true, Cell: ({ value }) => ( <Tag text={value} intent=\"success\" variant=\"filled\" /> ), minWidth: 200, }, { Header: 'Gender Status', accessor: 'genderStatus', disableSortBy: true, Cell: ({ value }) => ( <Tag text={value} intent=\"success\" variant=\"filled\" /> ), }, { Header: 'Direct Personnel', accessor: 'directPersonnel', disableSortBy: true, }, { Header: 'Actions', accessor: '', disableSortBy: true, Cell: () => { return <Table.RowAction actions={actions} />; }, }, ], [] ); const [selectedRows, setSelectedRows] = React.useState({ 0: true }); const data = [ { name: 'Vy Nguyen', age: 50, profile: 'https://employmenthero.com/', maritalStatus: 'Single', genderStatus: 'Male', directPersonnel: 'Indirect', }, { name: 'Hau Dao', age: 51, profile: 'https://employmenthero.com/', maritalStatus: 'Single', genderStatus: 'Male', directPersonnel: 'Indirect', }, { name: 'Hanh Le', age: 80, profile: 'https://employmenthero.com/', maritalStatus: 'Complicated', genderStatus: 'Male', directPersonnel: 'Direct', }, { name: 'Tuan Thieu', age: 99, profile: 'https://employmenthero.com/', maritalStatus: 'In relationship', genderStatus: 'Male', directPersonnel: 'Indirect', }, { name: 'Vinh Tony', age: 21, profile: 'https://employmenthero.com/', maritalStatus: 'Single', genderStatus: 'Male', directPersonnel: 'Direct', }, ]; return ( <Table data={data} columns={columns} selectable selectedRows={selectedRows} onSelectedRowsChange={setSelectedRows} variant=\"grid\" /> ); }"
+    },
+    {
+      "title": "Editable Data grid",
+      "description": "Data-grid table supports editable cells with Input and Select components.",
+      "code": "function EditableDataGrid() { const actions = [ { icon: 'checkmark', text: 'Accept', onClick: () => alert('Accept leave'), }, { icon: 'cancel', text: 'Decline', onClick: () => alert('Decline leave'), divider: 'bottom', }, { icon: 'eye-outlined', text: 'View', onClick: () => alert('View leave'), }, { icon: 'pencil-outlined', text: 'Edit', onClick: () => alert('Edit leave'), }, { icon: 'box-outlined', text: 'Archive', onClick: () => alert('Archive leave'), }, { icon: 'trash-bin-outlined', text: 'Delete', intent: 'danger', divider: 'top', onClick: () => alert('Delete leave'), }, ].filter(Boolean); const [ages, setAges] = React.useState({ 0: 50, 1: 51, 2: 80, 3: 99, 4: 21, 5: 254, }); const [maritalStatuses, setMaritalStatuses] = React.useState({ 0: 'Single', 1: 'Single', 2: 'Complicated', 3: 'In relationship', 4: 'Single', 5: 'Single', }); const onAgeChange = (id, value) => { setAges((prev) => ({ ...ages, [id]: value })); }; const onMaritalStatusChange = (id, value) => { setMaritalStatuses((prev) => ({ ...prev, [id]: value })); }; const columns = React.useMemo( () => [ { Header: 'Name', accessor: 'name', Cell: ({ value }) => ( <Button.Link href=\"#\" text={value} target=\"_blank\" /> ), minWidth: 200, }, { Header: 'Age', accessor: 'age', Cell: ({ value, row }) => ( <Table.InputCell value={value} disabled={row.original.id === 3} readonly={row.original.id === 4} onChange={(e) => { onAgeChange(row.original.id, e.target.value); }} validationStatus={ row.original.id === 5 ? { state: 'error', message: 'Invalid age' } : {} } /> ), minWidth: 200, }, { Header: 'Marital Status', accessor: 'maritalStatus', disableSortBy: true, Cell: ({ value, row }) => ( <Table.SelectCell value={value} disabled={row.original.id === 3} onChange={(value) => onMaritalStatusChange(row.original.id, value)} options={[ { value: 'Single', text: 'Single' }, { value: 'Complicated', text: 'Complicated' }, { value: 'In relationship', text: 'In relationship' }, ]} validationStatus={ row.original.id === 2 ? { state: 'error', message: 'Invalid status' } : {} } /> ), minWidth: 200, }, { Header: 'Gender Status', accessor: 'genderStatus', disableSortBy: true, Cell: ({ value }) => ( <Tag text={value} intent=\"success\" variant=\"filled\" /> ), }, { Header: 'Direct Personnel', accessor: 'directPersonnel', disableSortBy: true, }, { Header: 'Actions', accessor: '', disableSortBy: true, Cell: () => { return <Table.RowAction actions={actions} />; }, }, ], [] ); const [selectedRows, setSelectedRows] = React.useState({ 0: true }); const data = [ { id: 0, name: 'Vy Nguyen', age: ages[0], profile: 'https://employmenthero.com/', maritalStatus: maritalStatuses[0], genderStatus: 'Male', directPersonnel: 'Indirect', }, { id: 1, name: 'Hau Dao', age: ages[1], profile: 'https://employmenthero.com/', maritalStatus: maritalStatuses[1], genderStatus: 'Male', directPersonnel: 'Indirect', }, { id: 2, name: 'Hanh Le', age: ages[2], profile: 'https://employmenthero.com/', maritalStatus: maritalStatuses[2], genderStatus: 'Male', directPersonnel: 'Direct', }, { id: 3, name: 'Tuan Thieu', age: ages[3], profile: 'https://employmenthero.com/', maritalStatus: maritalStatuses[3], genderStatus: 'Male', directPersonnel: 'Indirect', }, { id: 4, name: 'Vinh Tony', age: ages[4], profile: 'https://employmenthero.com/', maritalStatus: maritalStatuses[4], genderStatus: 'Male', directPersonnel: 'Direct', }, { id: 5, name: 'Vinh Ho', age: ages[5], profile: 'https://employmenthero.com/', maritalStatus: maritalStatuses[5], genderStatus: 'Male', directPersonnel: 'Direct', }, ]; return ( <Table data={data} columns={columns} selectable selectedRows={selectedRows} onSelectedRowsChange={setSelectedRows} variant=\"grid\" /> ); }"
+    }
+  ],
+  "embedding": []
+}

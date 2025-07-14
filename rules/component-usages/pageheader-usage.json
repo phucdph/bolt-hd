@@ -1,0 +1,59 @@
+{
+  "component_name": "PageHeader",
+  "component_description": "A header with breadcrumb and subtitle.",
+  "props": {
+    "breadcrumbItems": {
+      "name": "breadcrumbItems",
+      "type": "Array<{ href: string; text: string; withRouter?: boolean }>",
+      "required": false,
+      "description": "Breadcrumbs to display."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "title": {
+      "name": "title",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Title text."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "`Title` is passed through `title` property.\n```jsx live\n<PageHeader title=\"Page Header\" />\n```",
+      "code": "<PageHeader title=\"Page Header\" />",
+      "purpose_description": "The purpose of this example is to demonstrate a basic usage of the PageHeader component, where a simple title is displayed. This example is intended to show how to pass a title string to the PageHeader component using the title prop, which is a common requirement for displaying headers in web applications.",
+      "technical_description": "In this example, the PageHeader component is instantiated with a single prop, title, which is set to the string 'Page Header'. The component is expected to render a header element that displays the provided title. The implementation likely involves the PageHeader component accepting props and using the title prop to render a text element, such as an h1 or h2, within the component's JSX structure.",
+      "patterns_description": "This example demonstrates a common React pattern of passing props to a component to customize its output. By using a prop to set the title, the component remains flexible and reusable, allowing different titles to be displayed without altering the component's internal logic. This pattern is a fundamental aspect of React's component-based architecture, promoting reusability and separation of concerns.",
+      "use_cases_description": "This example is particularly useful in scenarios where a developer needs to display a simple, customizable header on a page. It can be used in various web applications, such as dashboards, content management systems, or any application that requires a consistent header component. The simplicity of the example makes it a good starting point for developers to understand how to pass data to components via props."
+    }
+  ]
+}

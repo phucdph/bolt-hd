@@ -1,0 +1,89 @@
+{
+  "component_name": "Portlet",
+  "component_description": "",
+  "props": {
+    "actions": {
+      "name": "actions",
+      "type": "Array<intersection>",
+      "required": false,
+      "description": "Additional action buttons to render in the porlet header."
+    },
+    "children": {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Portlet content."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "keepChildrenMounted": {
+      "name": "keepChildrenMounted",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether or not to keep the content stay mounted when collapsed."
+    },
+    "loading": {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "description": "Loading state."
+    },
+    "open": {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "description": "Open state of the portlet."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "title": {
+      "name": "title",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "description": "Portlet title."
+    },
+    "titleExtra": {
+      "name": "titleExtra",
+      "type": "string | number | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Used to show a number or a badge next to the portlet title."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "```jsx live\nfunction PortletDemo() {\n  const Item = ({ complete, text }) => (\n    <div style={{ display: 'flex', alignItems: 'center' }}>\n      {complete ? (\n        <Icon icon=\"circle-check\" intent=\"success\" />\n      ) : (\n        <Icon icon=\"cancel\" intent=\"error\" />\n      )}\n      <Typography.Text sx={{ ml: 'small' }} tagName=\"span\">\n        {text}\n      </Typography.Text>\n    </div>\n  );\n\n  const [rewardOpen, setRewardOpen] = React.useState(false);\n  const [onboardingOpen, setOnboardingOpen] = React.useState(true);\n  const [companyFeedOpen, setCompanyFeedOpen] = React.useState(true);\n\n  const [loading, setLoading] = React.useState(false);\n\n  return (\n    <Box p=\"large\" bgColor=\"neutralBackground\">\n      <Grid gutter=\"medium\">\n        <Grid.Row>\n          <Grid.Col span={[24, 24, 24, 24, 24]}>\n            <Portlet\n              title=\"Rewards and Recognitions\"\n              open={rewardOpen}\n              loading={loading}\n              actions={[\n                {\n                  icon: 'speaker',\n                  menus: [\n                    {\n                      value: 'rewards',\n                      item: {\n                        text: 'Rewards',\n                        icon: 'diamond',\n                        onClick: () => {\n                          alert('Clicked rewards');\n                        },\n                      },\n                    },\n                    {\n                      value: 'recognitions',\n                      item: {\n                        text: 'Recognitions',\n                        icon: 'star-medal',\n                        onClick: () => {\n                          alert('Clicked recognitions');\n                        },\n                      },\n                    },\n                  ],\n                },\n                {\n                  icon: 'sync',\n                  onClick: () => {\n                    setLoading(true);\n                    setTimeout(() => setLoading(false), 1000);\n                  },\n                },\n                {\n                  icon: rewardOpen ? 'single-up-arrow' : 'single-down-arrow',\n                  onClick: () => setRewardOpen((value) => !value),\n                },\n              ]}\n            >\n              <Item text=\"Personal Details\" complete />\n              <Item text=\"Tax Details\" complete />\n              <Item text=\"Superfund Details\" complete />\n              <Item text=\"Work Eligibility\" />\n            </Portlet>\n          </Grid.Col>\n        </Grid.Row>\n        <Grid.Row gutter={['medium', 'medium']}>\n          <Grid.Col span={[24, 24, 24, 24, 24]}>\n            <Portlet\n              title={\n                <Box sx={{ display: 'flex', alignItems: 'center' }}>\n                  <Icon icon=\"sparkle-outlined\" sx={{ mr: 'small' }} />\n                  <Typography.Text fontSize={18} fontWeight=\"semi-bold\">\n                    Company Feed\n                  </Typography.Text>\n                </Box>\n              }\n              titleExtra={<Badge content=\"New\" />}\n              open={companyFeedOpen}\n              actions={[\n                {\n                  icon: companyFeedOpen\n                    ? 'single-up-arrow'\n                    : 'single-down-arrow',\n                  onClick: () => setCompanyFeedOpen((value) => !value),\n                },\n              ]}\n            >\n              <Comment\n                author=\"Han Solo\"\n                authorDetails=\"Test lorem ipsum\"\n                avatar=\"/img/comment-avatar.png\"\n                content=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\"\n                datetime=\"2 minutes ago\"\n              />\n            </Portlet>\n          </Grid.Col>\n        </Grid.Row>\n        <Grid.Row gutter={['medium', 'medium']}>\n          <Grid.Col span={[24, 24, 12, 12, 12]}>\n            <Portlet\n              title=\"Onboarding Status\"\n              titleExtra=\"New\"\n              open={onboardingOpen}\n              actions={[\n                {\n                  icon: onboardingOpen\n                    ? 'single-up-arrow'\n                    : 'single-down-arrow',\n                  onClick: () => setOnboardingOpen((value) => !value),\n                },\n              ]}\n            >\n              <Box pt=\"large\" pb=\"large\">\n                <Typography.Title level={5}>\n                  Continue where you left off...\n                </Typography.Title>\n                <Progress value={10} />\n                <Typography.Text intent=\"subdued\">\n                  My certifications\n                </Typography.Text>\n                <Button\n                  text=\"Certification\"\n                  rightIcon=\"single-right-arrow\"\n                  sx={{ margin: 'auto', display: 'block', mt: 'large' }}\n                />\n              </Box>\n            </Portlet>\n          </Grid.Col>\n          <Grid.Col span={[24, 24, 12, 12, 12]}>\n            <Portlet title=\"Tasks\" titleExtra={4}>\n              <Item text=\"Personal Details\" complete />\n              <Item text=\"Tax Details\" complete />\n              <Item text=\"Superfund Details\" complete />\n              <Item text=\"Work Eligibility\" />\n            </Portlet>\n          </Grid.Col>\n        </Grid.Row>\n      </Grid>\n    </Box>\n  );\n}\n```",
+      "code": "function PortletDemo() {\n  const Item = ({ complete, text }) => (\n    <div style={{ display: 'flex', alignItems: 'center' }}>\n      {complete ? (\n        <Icon icon=\"circle-check\" intent=\"success\" />\n      ) : (\n        <Icon icon=\"cancel\" intent=\"error\" />\n      )}\n      <Typography.Text sx={{ ml: 'small' }} tagName=\"span\">\n        {text}\n      </Typography.Text>\n    </div>\n  );\n\n  const [rewardOpen, setRewardOpen] = React.useState(false);\n  const [onboardingOpen, setOnboardingOpen] = React.useState(true);\n  const [companyFeedOpen, setCompanyFeedOpen] = React.useState(true);\n\n  const [loading, setLoading] = React.useState(false);\n\n  return (\n    <Box p=\"large\" bgColor=\"neutralBackground\">\n      <Grid gutter=\"medium\">\n        <Grid.Row>\n          <Grid.Col span={[24, 24, 24, 24, 24]}>\n            <Portlet\n              title=\"Rewards and Recognitions\"\n              open={rewardOpen}\n              loading={loading}\n              actions={[\n                {\n                  icon: 'speaker',\n                  menus: [\n                    {\n                      value: 'rewards',\n                      item: {\n                        text: 'Rewards',\n                        icon: 'diamond',\n                        onClick: () => {\n                          alert('Clicked rewards');\n                        },\n                      },\n                    },\n                    {\n                      value: 'recognitions',\n                      item: {\n                        text: 'Recognitions',\n                        icon: 'star-medal',\n                        onClick: () => {\n                          alert('Clicked recognitions');\n                        },\n                      },\n                    },\n                  ],\n                },\n                {\n                  icon: 'sync',\n                  onClick: () => {\n                    setLoading(true);\n                    setTimeout(() => setLoading(false), 1000);\n                  },\n                },\n                {\n                  icon: rewardOpen ? 'single-up-arrow' : 'single-down-arrow',\n                  onClick: () => setRewardOpen((value) => !value),\n                },\n              ]}\n            >\n              <Item text=\"Personal Details\" complete />\n              <Item text=\"Tax Details\" complete />\n              <Item text=\"Superfund Details\" complete />\n              <Item text=\"Work Eligibility\" />\n            </Portlet>\n          </Grid.Col>\n        </Grid.Row>\n        <Grid.Row gutter={['medium', 'medium']}>\n          <Grid.Col span={[24, 24, 24, 24, 24]}>\n            <Portlet\n              title={\n                <Box sx={{ display: 'flex', alignItems: 'center' }}>\n                  <Icon icon=\"sparkle-outlined\" sx={{ mr: 'small' }} />\n                  <Typography.Text fontSize={18} fontWeight=\"semi-bold\">\n                    Company Feed\n                  </Typography.Text>\n                </Box>\n              }\n              titleExtra={<Badge content=\"New\" />}\n              open={companyFeedOpen}\n              actions={[\n                {\n                  icon: companyFeedOpen\n                    ? 'single-up-arrow'\n                    : 'single-down-arrow',\n                  onClick: () => setCompanyFeedOpen((value) => !value),\n                },\n              ]}\n            >\n              <Comment\n                author=\"Han Solo\"\n                authorDetails=\"Test lorem ipsum\"\n                avatar=\"/img/comment-avatar.png\"\n                content=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\"\n                datetime=\"2 minutes ago\"\n              />\n            </Portlet>\n          </Grid.Col>\n        </Grid.Row>\n        <Grid.Row gutter={['medium', 'medium']}>\n          <Grid.Col span={[24, 24, 12, 12, 12]}>\n            <Portlet\n              title=\"Onboarding Status\"\n              titleExtra=\"New\"\n              open={onboardingOpen}\n              actions={[\n                {\n                  icon: onboardingOpen\n                    ? 'single-up-arrow'\n                    : 'single-down-arrow',\n                  onClick: () => setOnboardingOpen((value) => !value),\n                },\n              ]}\n            >\n              <Box pt=\"large\" pb=\"large\">\n                <Typography.Title level={5}>\n                  Continue where you left off...\n                </Typography.Title>\n                <Progress value={10} />\n                <Typography.Text intent=\"subdued\">\n                  My certifications\n                </Typography.Text>\n                <Button\n                  text=\"Certification\"\n                  rightIcon=\"single-right-arrow\"\n                  sx={{ margin: 'auto', display: 'block', mt: 'large' }}\n                />\n              </Box>\n            </Portlet>\n          </Grid.Col>\n          <Grid.Col span={[24, 24, 12, 12, 12]}>\n            <Portlet title=\"Tasks\" titleExtra={4}>\n              <Item text=\"Personal Details\" complete />\n              <Item text=\"Tax Details\" complete />\n              <Item text=\"Superfund Details\" complete />\n              <Item text=\"Work Eligibility\" />\n            </Portlet>\n          </Grid.Col>\n        </Grid.Row>\n      </Grid>\n    </Box>\n  );\n}",
+      "purpose_description": "The PortletDemo component demonstrates the use of a Portlet component to organize and display different sections of a user interface. Each section, or portlet, can be expanded or collapsed, and contains various interactive elements such as icons, buttons, and lists. This example showcases how to manage state for UI elements and handle user interactions within a structured layout.",
+      "technical_description": "The PortletDemo component is a functional React component that uses hooks to manage state and render UI elements. It defines an Item sub-component for displaying checklist items with an icon indicating completion status. The main component maintains state for the open/closed status of each portlet and a loading state using the useState hook. The component returns a structured layout using a Box and Grid system to organize multiple Portlet components. Each Portlet is configured with a title, open state, loading state, and actions, which include icons and click handlers. The actions allow users to toggle the portlet's visibility and trigger other interactions, such as displaying alerts or simulating loading.",
+      "patterns_description": "This example demonstrates several React patterns and best practices, including the use of functional components and hooks for state management. The use of the useState hook to manage UI state is a common pattern in modern React applications. The component also illustrates the use of composition by defining a reusable Item sub-component. Additionally, the example shows how to use inline styles and the sx prop for styling, as well as how to structure a responsive layout using a Grid system.",
+      "use_cases_description": "This example is particularly useful in scenarios where a dashboard or user interface needs to display multiple collapsible sections with interactive elements. It can be applied in applications such as admin panels, user profiles, or any system that requires organized presentation of information and user interactions. The ability to toggle sections and display loading states makes it suitable for dynamic content that may require asynchronous data fetching or updates."
+    }
+  ]
+}

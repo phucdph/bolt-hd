@@ -1,0 +1,125 @@
+{
+  "component_name": "Tooltip",
+  "component_description": "Used as a small pop up to display some additonal information.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "content": {
+      "name": "content",
+      "type": "ReactNode",
+      "required": true,
+      "description": "Content of tooltip."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "delay": {
+      "name": "delay",
+      "type": "number",
+      "required": false,
+      "description": "The number of milliseconds to wait before showing the tooltip."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "interactive": {
+      "name": "interactive",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the tooltip content can be interactive, allowing you to hover over and click inside it."
+    },
+    "interactiveTimeout": {
+      "name": "interactiveTimeout",
+      "type": "number",
+      "required": false,
+      "description": "Milliseconds for interaction timeout, this only takes effect when  `interactive`  is enabled."
+    },
+    "open": {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "description": "Open state of tooltip. Use this if you wish to control the tooltip state. Also, the hover interaction and interative tooltip will be disabled when this prop is set."
+    },
+    "placement": {
+      "name": "placement",
+      "type": "Placement",
+      "required": false,
+      "description": "Position of tooltip."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "target": {
+      "name": "target",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "description": "The target where tooltip is relatively placed to."
+    },
+    "variant": {
+      "name": "variant",
+      "type": "\"light\" | \"dark\"",
+      "required": false,
+      "description": "Theme status styles."
+    },
+    "visible": {
+      "name": "visible",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether or not to show Tooltip when hovering the target."
+    },
+    "withPortal": {
+      "name": "withPortal",
+      "type": "boolean",
+      "required": false,
+      "description": "If  `true` , the tooltip element will be rendered using Portal. Otherwise, it will be rendered directly to the current tree"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "```jsx live\n<>\n  <div style={{ padding: theme.space.large, margin: 0 }}>\n    <Tooltip\n      target={<Button text=\"Hover to show tooltip\" variant=\"basic\" />}\n      content=\"This is a tooltip\"\n    />\n  </div>\n</>\n```",
+      "code": "<>\n  <div style={{ padding: theme.space.large, margin: 0 }}>\n    <Tooltip\n      target={<Button text=\"Hover to show tooltip\" variant=\"basic\" />}\n      content=\"This is a tooltip\"\n    />\n  </div>\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate a basic implementation of a Tooltip component in a React application. The Tooltip is used to provide additional information or context when a user hovers over a target element, in this case, a button. This example showcases how to integrate a Tooltip with a Button component to enhance user interaction by displaying supplementary content.",
+      "technical_description": "The example uses a React Fragment to wrap the Tooltip component, ensuring that no additional DOM nodes are introduced. Inside the Fragment, a div is styled with padding and margin using values from a theme object, which suggests a design system is in place. The Tooltip component is configured with two main props: 'target' and 'content'. The 'target' prop is assigned a Button component, which acts as the interactive element that triggers the Tooltip. The 'content' prop contains the text to be displayed within the Tooltip when the user hovers over the Button. This setup implies that the Tooltip component is designed to handle hover events and display the content accordingly.",
+      "patterns_description": "This example demonstrates the use of composition in React by passing a Button component as a prop to the Tooltip. This pattern allows for flexible and reusable UI components. The use of a theme object for styling indicates adherence to a design system, promoting consistency across the application. Additionally, the use of React Fragments to avoid unnecessary DOM nodes is a best practice for maintaining a clean and efficient DOM structure.",
+      "use_cases_description": "This Tooltip example is particularly useful in scenarios where additional information needs to be provided without cluttering the UI. It can be used in forms to explain input fields, in dashboards to describe icons or metrics, or in any interactive element where users might need guidance or clarification. The simplicity of this implementation makes it ideal for applications that require quick and easy integration of tooltips for enhanced user experience."
+    },
+    {
+      "example_name": "Interactivity",
+      "example_description": "Tooltips can be interactive, allowing you to hover over and click inside them.\n```jsx live\n<>\n  <Tooltip\n    target={<Button text=\"Interative\" variant=\"basic\" />}\n    content=\"You can select the text inside this text.\"\n    interactive\n  />\n</>\n```",
+      "code": "<>\n  <Tooltip\n    target={<Button text=\"Interative\" variant=\"basic\" />}\n    content=\"You can select the text inside this text.\"\n    interactive\n  />\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate how to create an interactive tooltip using a React component. The tooltip allows users to interact with its content, such as selecting text or clicking on links, without the tooltip disappearing. This is particularly useful for tooltips that contain actionable content or require user interaction.",
+      "technical_description": "This example uses a Tooltip component that wraps around a Button component. The Tooltip component is configured with a 'target' prop, which specifies the element that triggers the tooltip (in this case, a Button). The 'content' prop defines the text or elements displayed within the tooltip. The 'interactive' prop is a boolean that, when set to true, allows the tooltip to remain open when the user interacts with its content. This is typically achieved by preventing the default behavior of hiding the tooltip when the mouse leaves the target element, allowing for user interaction within the tooltip area.",
+      "patterns_description": "This example demonstrates the use of controlled interactivity within a tooltip, a common pattern in UI design where tooltips need to provide more than just static information. The use of the 'interactive' prop is a best practice for tooltips that contain interactive elements, ensuring that the tooltip remains open during user interaction. Additionally, the separation of concerns is maintained by keeping the tooltip logic within the Tooltip component, allowing for reusable and maintainable code.",
+      "use_cases_description": "This interactive tooltip example is particularly useful in scenarios where tooltips contain actionable content, such as links, buttons, or text that users may need to copy. It is ideal for applications that require detailed explanations or additional information that users can interact with, such as form helpers, instructional overlays, or feature tours in web applications."
+    },
+    {
+      "example_name": "Delay",
+      "example_description": "You can delay the tooltip show by passing `delay` prop.\n```jsx live\n<>\n  <Tooltip\n    target={\n      <Button\n        text=\"Hover this button to show the tooltip\"\n        variant=\"basic\"\n        data-test-id=\"delay-button\"\n      />\n    }\n    placement=\"right\"\n    content=\"Tooltip content\"\n    delay={300}\n    interactive\n  />\n</>\n```",
+      "code": "<>\n  <Tooltip\n    target={\n      <Button\n        text=\"Hover this button to show the tooltip\"\n        variant=\"basic\"\n        data-test-id=\"delay-button\"\n      />\n    }\n    placement=\"right\"\n    content=\"Tooltip content\"\n    delay={300}\n    interactive\n  />\n</>",
+      "purpose_description": "This example demonstrates how to use a Tooltip component with a delay feature, which allows the tooltip to appear after a specified delay when the user hovers over the target element. This can be useful for improving user experience by preventing tooltips from appearing too quickly, which can be distracting or overwhelming.",
+      "technical_description": "The example uses a Tooltip component that takes several props to configure its behavior. The `target` prop specifies the element that will trigger the tooltip, in this case, a Button component. The `placement` prop determines where the tooltip will appear relative to the target, set to 'right' in this example. The `content` prop provides the text to be displayed inside the tooltip. The `delay` prop is set to 300 milliseconds, meaning the tooltip will appear 300ms after the user hovers over the target. The `interactive` prop allows the tooltip to remain visible while the user interacts with it, preventing it from disappearing immediately when the mouse leaves the target area.",
+      "patterns_description": "This example demonstrates the use of controlled delay in tooltips, which is a common pattern to enhance user experience by preventing immediate tooltip display. It also shows the use of the `interactive` prop, which is a best practice for tooltips that contain interactive content, ensuring they remain visible during user interaction. The use of props to configure component behavior is a standard React pattern, promoting reusability and flexibility.",
+      "use_cases_description": "This example is particularly useful in scenarios where tooltips are used to provide additional information or guidance without overwhelming the user. The delay feature is beneficial in applications where tooltips might otherwise appear too quickly, such as in complex forms or dashboards with many interactive elements. It is also useful in cases where tooltips contain interactive elements, as the `interactive` prop ensures they remain accessible during user interaction."
+    }
+  ]
+}

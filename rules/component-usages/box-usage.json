@@ -1,0 +1,317 @@
+{
+  "component_name": "Box",
+  "component_description": "Box is an abstract component that allows to:\nCreate layout for its content.\nAccess theme easily via props instead of inline style or css in js methods.",
+  "props": {
+    "alignItems": {
+      "name": "alignItems",
+      "type": "\"baseline\" | \"center\" | \"stretch\" | \"flex-end\" | \"flex-start\"",
+      "required": false,
+      "description": "Controls how flex items are laid out along the cross axis"
+    },
+    "bgColor": {
+      "name": "bgColor",
+      "type": "\"text\" | \"primary\" | \"danger\" | \"success\" | \"warning\" | \"error\" | \"black\" | \"blue\" | \"blue-dark-15\" | \"blue-dark-30\" | \"blue-dark-45\" | \"blue-dark-60\" | \"blue-dark-75\" | \"blue-dark-90\" | \"blue-light-15\" | \"blue-light-30\" | \"blue-light-45\" | \"blue-light-60\" | \"blue-light-75\" | \"blue-light-90\" | \"dodger-blue\" | \"dodger-blue-dark-15\" | \"dodger-blue-dark-30\" | \"dodger-blue-dark-60\" | \"dodger-blue-light-30\" | \"dodger-blue-light-45\" | \"dodger-blue-light-60\" | \"dodger-blue-light-75\" | \"dodger-blue-light-90\" | \"green\" | \"green-dark-15\" | \"green-dark-30\" | \"green-dark-60\" | \"green-dark-75\" | \"green-light-30\" | \"green-light-45\" | \"green-light-75\" | \"green-light-90\" | \"grey\" | \"grey-dark-15\" | \"grey-dark-30\" | \"grey-dark-45\" | \"grey-dark-60\" | \"grey-dark-75\" | \"grey-light-30\" | \"grey-light-45\" | \"grey-light-60\" | \"grey-light-75\" | \"grey-light-85\" | \"grey-light-90\" | \"grey-light-95\" | \"grotesque-green\" | \"grotesque-green-dark-30\" | \"grotesque-green-dark-45\" | \"grotesque-green-dark-60\" | \"grotesque-green-light-30\" | \"grotesque-green-light-45\" | \"grotesque-green-light-60\" | \"grotesque-green-light-75\" | \"grotesque-green-light-90\" | \"orange\" | \"orange-dark-15\" | \"orange-dark-30\" | \"orange-dark-60\" | \"orange-dark-75\" | \"orange-light-30\" | \"orange-light-45\" | \"orange-light-75\" | \"orange-light-90\" | \"pink\" | \"pink-dark-15\" | \"pink-dark-30\" | \"pink-dark-45\" | \"pink-dark-60\" | \"pink-dark-75\" | \"pink-light-30\" | \"pink-light-45\" | \"pink-light-75\" | \"pink-light-90\" | \"purple\" | \"purple-dark-15\" | \"purple-dark-30\" | \"purple-dark-60\" | \"purple-light-30\" | \"purple-light-45\" | \"purple-light-75\" | \"purple-light-90\" | \"red\" | \"red-dark-15\" | \"red-dark-30\" | \"red-dark-45\" | \"red-dark-60\" | \"red-dark-75\" | \"red-dark-90\" | \"red-light-15\" | \"red-light-30\" | \"red-light-45\" | \"red-light-60\" | \"red-light-75\" | \"red-light-90\" | \"smalt\" | \"smalt-dark-30\" | \"smalt-dark-60\" | \"smalt-dark-75\" | \"smalt-light-30\" | \"smalt-light-45\" | \"smalt-light-75\" | \"smalt-light-90\" | \"violet\" | \"violet-dark-15\" | \"violet-dark-30\" | \"violet-dark-45\" | \"violet-dark-60\" | \"violet-dark-75\" | \"violet-dark-90\" | \"violet-light-15\" | \"violet-light-30\" | \"violet-light-45\" | \"violet-light-60\" | \"violet-light-75\" | \"violet-light-90\" | \"white\" | \"yellow\" | \"yellow-dark-15\" | \"yellow-dark-30\" | \"yellow-dark-60\" | \"yellow-dark-75\" | \"yellow-light-30\" | \"yellow-light-45\" | \"yellow-light-60\" | \"yellow-light-75\" | \"yellow-light-90\" | \"light-primary\" | \"hover-primary\" | \"active-primary\" | \"primary-background\" | \"primary-light-background\" | \"primary-neutral-background\" | \"primary-dark-background\" | \"info\" | \"info-border\" | \"info-dark-background\" | \"info-background\" | \"hover-info\" | \"active-info\" | \"danger-dark\" | \"hover-danger\" | \"active-danger\" | \"danger-dark-background\" | \"danger-background\" | \"warning-dark\" | \"hover-warning\" | \"active-warning\" | \"warning-dark-background\" | \"warning-background\" | \"success-dark\" | \"hover-success\" | \"active-success\" | \"success-dark-background\" | \"success-background\" | \"error-dark\" | \"hover-error\" | \"active-error\" | \"error-dark-background\" | \"error-background\" | \"link\" | \"hover-link\" | \"active-link\" | \"body-text\" | \"subdued-text\" | \"disabled-text\" | \"light-text\" | \"default-background\" | \"default-light-background\" | \"default-dark-background\" | \"default-grey-background\" | \"default-dark-grey-background\" | \"neutral-background\" | \"neutral-light-background\" | \"neutral-dark-background\" | \"default-border\" | \"primary-header-background\" | \"primary-ring-background\" | \"info-header-background\"",
+      "required": false,
+      "description": "Background color."
+    },
+    "borderColor": {
+      "name": "borderColor",
+      "type": "\"text\" | \"primary\" | \"danger\" | \"success\" | \"warning\" | \"error\" | \"black\" | \"blue\" | \"blue-dark-15\" | \"blue-dark-30\" | \"blue-dark-45\" | \"blue-dark-60\" | \"blue-dark-75\" | \"blue-dark-90\" | \"blue-light-15\" | \"blue-light-30\" | \"blue-light-45\" | \"blue-light-60\" | \"blue-light-75\" | \"blue-light-90\" | \"dodger-blue\" | \"dodger-blue-dark-15\" | \"dodger-blue-dark-30\" | \"dodger-blue-dark-60\" | \"dodger-blue-light-30\" | \"dodger-blue-light-45\" | \"dodger-blue-light-60\" | \"dodger-blue-light-75\" | \"dodger-blue-light-90\" | \"green\" | \"green-dark-15\" | \"green-dark-30\" | \"green-dark-60\" | \"green-dark-75\" | \"green-light-30\" | \"green-light-45\" | \"green-light-75\" | \"green-light-90\" | \"grey\" | \"grey-dark-15\" | \"grey-dark-30\" | \"grey-dark-45\" | \"grey-dark-60\" | \"grey-dark-75\" | \"grey-light-30\" | \"grey-light-45\" | \"grey-light-60\" | \"grey-light-75\" | \"grey-light-85\" | \"grey-light-90\" | \"grey-light-95\" | \"grotesque-green\" | \"grotesque-green-dark-30\" | \"grotesque-green-dark-45\" | \"grotesque-green-dark-60\" | \"grotesque-green-light-30\" | \"grotesque-green-light-45\" | \"grotesque-green-light-60\" | \"grotesque-green-light-75\" | \"grotesque-green-light-90\" | \"orange\" | \"orange-dark-15\" | \"orange-dark-30\" | \"orange-dark-60\" | \"orange-dark-75\" | \"orange-light-30\" | \"orange-light-45\" | \"orange-light-75\" | \"orange-light-90\" | \"pink\" | \"pink-dark-15\" | \"pink-dark-30\" | \"pink-dark-45\" | \"pink-dark-60\" | \"pink-dark-75\" | \"pink-light-30\" | \"pink-light-45\" | \"pink-light-75\" | \"pink-light-90\" | \"purple\" | \"purple-dark-15\" | \"purple-dark-30\" | \"purple-dark-60\" | \"purple-light-30\" | \"purple-light-45\" | \"purple-light-75\" | \"purple-light-90\" | \"red\" | \"red-dark-15\" | \"red-dark-30\" | \"red-dark-45\" | \"red-dark-60\" | \"red-dark-75\" | \"red-dark-90\" | \"red-light-15\" | \"red-light-30\" | \"red-light-45\" | \"red-light-60\" | \"red-light-75\" | \"red-light-90\" | \"smalt\" | \"smalt-dark-30\" | \"smalt-dark-60\" | \"smalt-dark-75\" | \"smalt-light-30\" | \"smalt-light-45\" | \"smalt-light-75\" | \"smalt-light-90\" | \"violet\" | \"violet-dark-15\" | \"violet-dark-30\" | \"violet-dark-45\" | \"violet-dark-60\" | \"violet-dark-75\" | \"violet-dark-90\" | \"violet-light-15\" | \"violet-light-30\" | \"violet-light-45\" | \"violet-light-60\" | \"violet-light-75\" | \"violet-light-90\" | \"white\" | \"yellow\" | \"yellow-dark-15\" | \"yellow-dark-30\" | \"yellow-dark-60\" | \"yellow-dark-75\" | \"yellow-light-30\" | \"yellow-light-45\" | \"yellow-light-60\" | \"yellow-light-75\" | \"yellow-light-90\" | \"light-primary\" | \"hover-primary\" | \"active-primary\" | \"primary-background\" | \"primary-light-background\" | \"primary-neutral-background\" | \"primary-dark-background\" | \"info\" | \"info-border\" | \"info-dark-background\" | \"info-background\" | \"hover-info\" | \"active-info\" | \"danger-dark\" | \"hover-danger\" | \"active-danger\" | \"danger-dark-background\" | \"danger-background\" | \"warning-dark\" | \"hover-warning\" | \"active-warning\" | \"warning-dark-background\" | \"warning-background\" | \"success-dark\" | \"hover-success\" | \"active-success\" | \"success-dark-background\" | \"success-background\" | \"error-dark\" | \"hover-error\" | \"active-error\" | \"error-dark-background\" | \"error-background\" | \"link\" | \"hover-link\" | \"active-link\" | \"body-text\" | \"subdued-text\" | \"disabled-text\" | \"light-text\" | \"default-background\" | \"default-light-background\" | \"default-dark-background\" | \"default-grey-background\" | \"default-dark-grey-background\" | \"neutral-background\" | \"neutral-light-background\" | \"neutral-dark-background\" | \"default-border\" | \"primary-header-background\" | \"primary-ring-background\" | \"info-header-background\"",
+      "required": false,
+      "description": "Border color."
+    },
+    "borderRadius": {
+      "name": "borderRadius",
+      "type": "\"medium\" | \"large\" | \"base\"",
+      "required": false,
+      "description": "Border radius."
+    },
+    "borderStyle": {
+      "name": "borderStyle",
+      "type": "\"dotted\" | \"dashed\" | \"solid\"",
+      "required": false,
+      "description": "Border style."
+    },
+    "borderWidth": {
+      "name": "borderWidth",
+      "type": "\"base\"",
+      "required": false,
+      "description": "Border width."
+    },
+    "bottom": {
+      "name": "bottom",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Controls the bottom position of a positioned element"
+    },
+    "boxShadow": {
+      "name": "boxShadow",
+      "type": "\"primary\" | \"danger\" | \"warning\" | \"default\" | \"divider\"",
+      "required": false,
+      "description": "Box shadow."
+    },
+    "children": {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Box's children node."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "color": {
+      "name": "color",
+      "type": "\"text\" | \"primary\" | \"danger\" | \"success\" | \"warning\" | \"error\" | \"black\" | \"blue\" | \"blue-dark-15\" | \"blue-dark-30\" | \"blue-dark-45\" | \"blue-dark-60\" | \"blue-dark-75\" | \"blue-dark-90\" | \"blue-light-15\" | \"blue-light-30\" | \"blue-light-45\" | \"blue-light-60\" | \"blue-light-75\" | \"blue-light-90\" | \"dodger-blue\" | \"dodger-blue-dark-15\" | \"dodger-blue-dark-30\" | \"dodger-blue-dark-60\" | \"dodger-blue-light-30\" | \"dodger-blue-light-45\" | \"dodger-blue-light-60\" | \"dodger-blue-light-75\" | \"dodger-blue-light-90\" | \"green\" | \"green-dark-15\" | \"green-dark-30\" | \"green-dark-60\" | \"green-dark-75\" | \"green-light-30\" | \"green-light-45\" | \"green-light-75\" | \"green-light-90\" | \"grey\" | \"grey-dark-15\" | \"grey-dark-30\" | \"grey-dark-45\" | \"grey-dark-60\" | \"grey-dark-75\" | \"grey-light-30\" | \"grey-light-45\" | \"grey-light-60\" | \"grey-light-75\" | \"grey-light-85\" | \"grey-light-90\" | \"grey-light-95\" | \"grotesque-green\" | \"grotesque-green-dark-30\" | \"grotesque-green-dark-45\" | \"grotesque-green-dark-60\" | \"grotesque-green-light-30\" | \"grotesque-green-light-45\" | \"grotesque-green-light-60\" | \"grotesque-green-light-75\" | \"grotesque-green-light-90\" | \"orange\" | \"orange-dark-15\" | \"orange-dark-30\" | \"orange-dark-60\" | \"orange-dark-75\" | \"orange-light-30\" | \"orange-light-45\" | \"orange-light-75\" | \"orange-light-90\" | \"pink\" | \"pink-dark-15\" | \"pink-dark-30\" | \"pink-dark-45\" | \"pink-dark-60\" | \"pink-dark-75\" | \"pink-light-30\" | \"pink-light-45\" | \"pink-light-75\" | \"pink-light-90\" | \"purple\" | \"purple-dark-15\" | \"purple-dark-30\" | \"purple-dark-60\" | \"purple-light-30\" | \"purple-light-45\" | \"purple-light-75\" | \"purple-light-90\" | \"red\" | \"red-dark-15\" | \"red-dark-30\" | \"red-dark-45\" | \"red-dark-60\" | \"red-dark-75\" | \"red-dark-90\" | \"red-light-15\" | \"red-light-30\" | \"red-light-45\" | \"red-light-60\" | \"red-light-75\" | \"red-light-90\" | \"smalt\" | \"smalt-dark-30\" | \"smalt-dark-60\" | \"smalt-dark-75\" | \"smalt-light-30\" | \"smalt-light-45\" | \"smalt-light-75\" | \"smalt-light-90\" | \"violet\" | \"violet-dark-15\" | \"violet-dark-30\" | \"violet-dark-45\" | \"violet-dark-60\" | \"violet-dark-75\" | \"violet-dark-90\" | \"violet-light-15\" | \"violet-light-30\" | \"violet-light-45\" | \"violet-light-60\" | \"violet-light-75\" | \"violet-light-90\" | \"white\" | \"yellow\" | \"yellow-dark-15\" | \"yellow-dark-30\" | \"yellow-dark-60\" | \"yellow-dark-75\" | \"yellow-light-30\" | \"yellow-light-45\" | \"yellow-light-60\" | \"yellow-light-75\" | \"yellow-light-90\" | \"light-primary\" | \"hover-primary\" | \"active-primary\" | \"primary-background\" | \"primary-light-background\" | \"primary-neutral-background\" | \"primary-dark-background\" | \"info\" | \"info-border\" | \"info-dark-background\" | \"info-background\" | \"hover-info\" | \"active-info\" | \"danger-dark\" | \"hover-danger\" | \"active-danger\" | \"danger-dark-background\" | \"danger-background\" | \"warning-dark\" | \"hover-warning\" | \"active-warning\" | \"warning-dark-background\" | \"warning-background\" | \"success-dark\" | \"hover-success\" | \"active-success\" | \"success-dark-background\" | \"success-background\" | \"error-dark\" | \"hover-error\" | \"active-error\" | \"error-dark-background\" | \"error-background\" | \"link\" | \"hover-link\" | \"active-link\" | \"body-text\" | \"subdued-text\" | \"disabled-text\" | \"light-text\" | \"default-background\" | \"default-light-background\" | \"default-dark-background\" | \"default-grey-background\" | \"default-dark-grey-background\" | \"neutral-background\" | \"neutral-light-background\" | \"neutral-dark-background\" | \"default-border\" | \"primary-header-background\" | \"primary-ring-background\" | \"info-header-background\"",
+      "required": false,
+      "description": "Text color."
+    },
+    "columnGap": {
+      "name": "columnGap",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Column-gap."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "display": {
+      "name": "display",
+      "type": "\"flex\" | \"grid\" | \"none\" | \"inline\" | \"block\" | \"inline-block\" | \"inline-flex\" | \"inline-grid\"",
+      "required": false,
+      "description": "Controls the display type of the element"
+    },
+    "flex": {
+      "name": "flex",
+      "type": "string | number",
+      "required": false,
+      "description": "Shorthand for flexGrow, flexShrink, and flexBasis"
+    },
+    "flexBasis": {
+      "name": "flexBasis",
+      "type": "string | number",
+      "required": false,
+      "description": "Controls the initial size of a flex item"
+    },
+    "flexDirection": {
+      "name": "flexDirection",
+      "type": "\"row\" | \"column\" | \"column-reverse\" | \"row-reverse\"",
+      "required": false,
+      "description": "Controls the flex direction"
+    },
+    "flexGrow": {
+      "name": "flexGrow",
+      "type": "number",
+      "required": false,
+      "description": "Controls the flex grow factor of a flex item"
+    },
+    "flexShrink": {
+      "name": "flexShrink",
+      "type": "number",
+      "required": false,
+      "description": "Controls the flex shrink factor of a flex item"
+    },
+    "flexWrap": {
+      "name": "flexWrap",
+      "type": "\"wrap\" | \"nowrap\" | \"wrap-reverse\"",
+      "required": false,
+      "description": "Controls how multiple lines of flex items are laid out"
+    },
+    "fontSize": {
+      "name": "fontSize",
+      "type": "keyof FontSizes",
+      "required": false,
+      "description": "Font size."
+    },
+    "fontWeight": {
+      "name": "fontWeight",
+      "type": "\"bold\" | \"light\" | \"regular\" | \"semi-bold\"",
+      "required": false,
+      "description": "Font weight."
+    },
+    "gap": {
+      "name": "gap",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Gap."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "justifyContent": {
+      "name": "justifyContent",
+      "type": "\"center\" | \"space-around\" | \"space-between\" | \"space-evenly\" | \"flex-end\" | \"flex-start\"",
+      "required": false,
+      "description": "Controls how flex items are laid out along the main axis"
+    },
+    "left": {
+      "name": "left",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Controls the left position of a positioned element"
+    },
+    "lineHeight": {
+      "name": "lineHeight",
+      "type": "keyof FontSizes",
+      "required": false,
+      "description": "Line height."
+    },
+    "m": {
+      "name": "m",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Margin."
+    },
+    "mb": {
+      "name": "mb",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Margin-bottom."
+    },
+    "ml": {
+      "name": "ml",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Margin-left."
+    },
+    "mr": {
+      "name": "mr",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Margin-right."
+    },
+    "mt": {
+      "name": "mt",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Margin-top."
+    },
+    "onClick": {
+      "name": "onClick",
+      "type": "MouseEventHandler<HTMLElement>",
+      "required": false,
+      "description": "Set the handler to handle  `click`  event."
+    },
+    "order": {
+      "name": "order",
+      "type": "number",
+      "required": false,
+      "description": "Controls the order of flex items"
+    },
+    "p": {
+      "name": "p",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Padding."
+    },
+    "pb": {
+      "name": "pb",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Padding-bottom."
+    },
+    "pl": {
+      "name": "pl",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Padding-left."
+    },
+    "position": {
+      "name": "position",
+      "type": "\"inherit\" | \"unset\" | \"fixed\" | \"initial\" | \"revert\" | \"absolute\" | \"relative\" | \"static\" | \"sticky\" | \"revert-layer\"",
+      "required": false,
+      "description": "Controls the positioning method used for an element"
+    },
+    "pr": {
+      "name": "pr",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Padding-right."
+    },
+    "pt": {
+      "name": "pt",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Padding-top."
+    },
+    "right": {
+      "name": "right",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Controls the right position of a positioned element"
+    },
+    "rowGap": {
+      "name": "rowGap",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Row-gap."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "tagName": {
+      "name": "tagName",
+      "type": "keyof IntrinsicElements",
+      "required": false,
+      "description": "You can use the tagName prop to change the element render, just like styled-components."
+    },
+    "top": {
+      "name": "top",
+      "type": "keyof Space",
+      "required": false,
+      "description": "Controls the top position of a positioned element"
+    },
+    "zIndex": {
+      "name": "zIndex",
+      "type": "number",
+      "required": false,
+      "description": "Controls the stack order of an element"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Box can be use as a layout wrapper with margin and padding.\n```jsx live\n<Box m=\"medium\" p=\"medium\">\n  <Typography.Text>This is box content</Typography.Text>\n</Box>\n```",
+      "code": "<Box m=\"medium\" p=\"medium\">\n  <Typography.Text>This is box content</Typography.Text>\n</Box>",
+      "purpose_description": "The purpose of this example is to demonstrate how to use the Box component as a layout wrapper that applies margin and padding to its children. This is a basic example showing how to encapsulate content within a styled container, which is a common requirement in UI design for spacing and alignment.",
+      "technical_description": "The example uses a Box component that accepts margin (m) and padding (p) as props. These props are likely shorthand for CSS margin and padding properties, allowing the developer to easily apply spacing around and inside the Box. The Box component wraps a Typography.Text component, which is used to display text content. The use of props like 'm' and 'p' suggests that the Box component is designed to abstract away direct CSS styling, providing a more declarative approach to layout design in React.",
+      "patterns_description": "This example demonstrates the use of component-based design patterns in React, where layout and styling concerns are encapsulated within reusable components. The use of shorthand props for styling (like 'm' and 'p') is a common pattern in component libraries, promoting ease of use and consistency. Additionally, the example shows the use of composition, where the Box component is used as a wrapper around other components, allowing for flexible and modular UI design.",
+      "use_cases_description": "This example is particularly useful in scenarios where consistent spacing and layout are required across different parts of an application. It can be used in dashboards, forms, or any UI section where content needs to be organized with specific spacing. The Box component's ability to abstract styling details makes it ideal for teams looking to maintain a consistent design system while allowing developers to focus on component logic rather than CSS intricacies."
+    },
+    {
+      "example_name": "With borders",
+      "example_description": "Box offers shortcuts for border via `borderWidth`, `borderStyle`, `borderRadius` and `borderColor`.\n```jsx live\n<Box\n  p=\"medium\"\n  borderWidth=\"base\"\n  borderStyle=\"solid\"\n  borderColor=\"grey-light-60\"\n  borderRadius=\"base\"\n  fontSize=\"medium\"\n>\n  <Typography.Text>This is box content</Typography.Text>\n</Box>\n```",
+      "code": "<Box\n  p=\"medium\"\n  borderWidth=\"base\"\n  borderStyle=\"solid\"\n  borderColor=\"grey-light-60\"\n  borderRadius=\"base\"\n  fontSize=\"medium\"\n>\n  <Typography.Text>This is box content</Typography.Text>\n</Box>",
+      "purpose_description": "The purpose of this example is to demonstrate how to use the Box component to create a container with customizable border properties. It highlights the ability to easily apply styles such as border width, style, color, and radius using shorthand props, making it convenient to style components consistently across an application.",
+      "technical_description": "The example uses a Box component, which is a versatile container component that allows for styling through props. The Box component is configured with several props that control its appearance, particularly its borders. The props include `borderWidth`, `borderStyle`, `borderColor`, and `borderRadius`, which are used to define the border's thickness, style, color, and rounded corners, respectively. Additionally, padding (`p`) and font size (`fontSize`) are set to adjust the spacing inside the box and the size of the text. The Box component wraps a Typography.Text component, which displays the text content inside the styled box.",
+      "patterns_description": "This example demonstrates the use of design tokens or theme-based styling, where values like 'medium', 'base', and 'grey-light-60' are likely part of a centralized theme configuration. This approach promotes consistency and reusability across the application. The use of shorthand props for styling is a common pattern in React component libraries, allowing for concise and readable component configurations. Additionally, the separation of content (Typography.Text) from styling (Box) follows the principle of separation of concerns, making the component easier to maintain and extend.",
+      "use_cases_description": "This example is particularly useful in scenarios where a developer needs to create a styled container with specific border properties quickly. It is ideal for applications that require consistent styling across different components, such as dashboards, forms, or card layouts. The Box component's flexibility makes it suitable for any situation where a styled container is needed, and the use of theme-based values ensures that the styling aligns with the overall design system of the application."
+    },
+    {
+      "example_name": "Render Box as HTML Tag",
+      "example_description": "You can render Box Components as HTML Tag like `span`, `button`,...Default tag is `div`\n```jsx live\n<Box p=\"medium\" tagName=\"code\">\n  This should be displayed as code\n</Box>\n```",
+      "code": "<Box p=\"medium\" tagName=\"code\">\n  This should be displayed as code\n</Box>",
+      "purpose_description": "The purpose of this example is to demonstrate how the Box component can be rendered as different HTML tags by specifying a 'tagName' prop. This allows for flexible rendering of the Box component, enabling it to adapt to various semantic HTML needs while maintaining consistent styling and behavior.",
+      "technical_description": "In this example, the Box component is rendered with a 'tagName' prop set to 'code'. This prop determines the HTML tag that the Box component will render as, overriding the default 'div' tag. The component also receives a 'p' prop with the value 'medium', which likely applies padding to the Box. The content within the Box is a string that should be displayed using the specified HTML tag, in this case, 'code'. The implementation likely involves using React's 'createElement' or a similar mechanism to dynamically render the component as the specified HTML tag.",
+      "patterns_description": "This example demonstrates the use of a flexible component design pattern where a component can render as different HTML elements based on a prop. This pattern is useful for creating reusable components that need to adapt to various contexts without changing their core logic or styling. It also shows a best practice of maintaining semantic HTML by allowing components to render as appropriate tags, enhancing accessibility and SEO.",
+      "use_cases_description": "This example is particularly useful in scenarios where a component needs to be reused across different parts of an application with varying HTML requirements. For instance, a Box component might need to render as a 'button' in one context and as a 'span' in another, depending on the semantic needs of the application. This flexibility is beneficial in design systems and component libraries where consistency in styling is desired, but HTML semantics need to be preserved."
+    }
+  ]
+}

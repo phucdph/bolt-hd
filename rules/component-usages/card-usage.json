@@ -1,0 +1,113 @@
+{
+  "component_name": "Card",
+  "component_description": "A card is a bounded unit of UI content with a solid background color, can be used to display content which can consist of multiple elements.",
+  "props": {
+    "border": {
+      "name": "border",
+      "type": "boolean",
+      "required": false,
+      "description": "Display border."
+    },
+    "children": {
+      "name": "children",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Custom content."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "content": {
+      "name": "content",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Short hand for Card content."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "extra": {
+      "name": "extra",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Short hand for Card content with format as extra content."
+    },
+    "header": {
+      "name": "header",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Short hand for Card header."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "imageSrc": {
+      "name": "imageSrc",
+      "type": "string",
+      "required": false,
+      "description": "Card image."
+    },
+    "size": {
+      "name": "size",
+      "type": "\"small\" | \"medium\"",
+      "required": false,
+      "description": "Card size. This will affect the padding of card's header and content."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "variant": {
+      "name": "variant",
+      "type": "\"primary\" | \"grey\" | \"info\" | \"basic\"",
+      "required": false,
+      "description": "Card variant."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Basic usage of Card containing header and content.\n```jsx live\n<CardWrapper>\n  <Card\n    variant=\"grey\"\n    header=\"Company info\"\n    content=\"Employment Hero is the easiest way for small to medium businesses to manage HR, payroll, engagement and employee benefits in Australia. We empower SMEs by providing automated solutions for employee management and engagement, payroll and employee benefits. Over 5,000 Australian businesses use Employment Hero and together we collectively manage over 200,000+ employees.\"\n  />\n</CardWrapper>\n```",
+      "code": "<CardWrapper>\n  <Card\n    variant=\"grey\"\n    header=\"Company info\"\n    content=\"Employment Hero is the easiest way for small to medium businesses to manage HR, payroll, engagement and employee benefits in Australia. We empower SMEs by providing automated solutions for employee management and engagement, payroll and employee benefits. Over 5,000 Australian businesses use Employment Hero and together we collectively manage over 200,000+ employees.\"\n  />\n</CardWrapper>",
+      "purpose_description": "This example demonstrates the basic usage of a Card component within a CardWrapper. The Card component is used to display a simple card with a header and content, which is a common UI pattern for presenting information in a concise and visually appealing manner.",
+      "technical_description": "The example consists of a Card component wrapped inside a CardWrapper. The Card component is likely a custom React component that accepts props such as 'variant', 'header', and 'content'. The 'variant' prop is used to apply a specific style or theme to the card, in this case, 'grey'. The 'header' and 'content' props are used to populate the card with a title and descriptive text, respectively. The CardWrapper component likely provides additional styling or layout management, ensuring the Card is displayed correctly within the UI.",
+      "patterns_description": "This example demonstrates the use of component composition, a common pattern in React where components are nested within each other to build complex UIs. The CardWrapper likely acts as a higher-order component or a layout component that manages the styling and positioning of the Card. Additionally, the use of props to pass data and configuration options to the Card component is a best practice in React, promoting reusability and separation of concerns.",
+      "use_cases_description": "This Card component example is particularly useful in scenarios where information needs to be presented in a structured and visually appealing manner. It can be used in dashboards, user profiles, product listings, or any application where concise information needs to be displayed. The ability to customize the card's appearance and content makes it versatile for various use cases, such as displaying company information, user details, or product descriptions."
+    },
+    {
+      "example_name": "Sizes",
+      "example_description": "Card has two different sizes with different padding to the header and content: `medium` and `small` (set via `size` property).\n```jsx live\n<>\n  <CardWrapper>\n    <Card\n      variant=\"grey\"\n      header=\"Default card\"\n      content=\"Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consequat. sed do eiusmod\"\n    />\n  </CardWrapper>\n  <CardWrapper>\n    <Card\n      variant=\"grey\"\n      header=\"Small card\"\n      content=\"Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consequat. sed do eiusmod\"\n      size=\"small\"\n    />\n  </CardWrapper>\n</>\n```",
+      "code": "<>\n  <CardWrapper>\n    <Card\n      variant=\"grey\"\n      header=\"Default card\"\n      content=\"Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consequat. sed do eiusmod\"\n    />\n  </CardWrapper>\n  <CardWrapper>\n    <Card\n      variant=\"grey\"\n      header=\"Small card\"\n      content=\"Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consequat. sed do eiusmod\"\n      size=\"small\"\n    />\n  </CardWrapper>\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate how the Card component can be rendered in different sizes, specifically 'medium' and 'small', by utilizing the 'size' prop. This allows for flexible UI design where the same component can adapt to different layout requirements.",
+      "technical_description": "This example uses a React fragment to render two Card components within CardWrapper components. The Card component accepts several props, including 'variant', 'header', 'content', and 'size'. The 'size' prop is used to adjust the padding of the card's header and content. The first Card does not specify a 'size', so it defaults to 'medium'. The second Card explicitly sets the 'size' prop to 'small', resulting in reduced padding. The 'variant' prop is set to 'grey' for both cards, which likely affects the card's styling, such as background color.",
+      "patterns_description": "This example demonstrates the use of prop-based styling, where the appearance of a component is controlled through props. It also shows the use of default prop values, as seen with the 'size' prop defaulting to 'medium' when not specified. The use of React fragments allows for grouping multiple components without adding extra nodes to the DOM, which is a common pattern in React to maintain a clean component structure.",
+      "use_cases_description": "This example is particularly useful in scenarios where a UI needs to adapt to different screen sizes or design requirements. For instance, a dashboard might use 'medium' cards for main content areas and 'small' cards for sidebars or less prominent information. This flexibility allows developers to maintain a consistent design language while accommodating various layout needs."
+    },
+    {
+      "example_name": "Card image",
+      "example_description": "A card can have an image by passing into `imageSrc`.\n```jsx live\n<CardWrapper>\n  <Card\n    header=\"Primary card with image\"\n    content=\"Lorem ipsum dolor sit amet,  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consequat. sed do eiusmod\"\n    variant=\"primary\"\n    imageSrc=\"/img/BenThompson-L_DaveTong-R.jpg\"\n  />\n</CardWrapper>\n```",
+      "code": "<CardWrapper>\n  <Card\n    header=\"Primary card with image\"\n    content=\"Lorem ipsum dolor sit amet,  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consequat. sed do eiusmod\"\n    variant=\"primary\"\n    imageSrc=\"/img/BenThompson-L_DaveTong-R.jpg\"\n  />\n</CardWrapper>",
+      "purpose_description": "This example demonstrates how to use the Card component to display a card with an image. The image is included by passing a URL to the 'imageSrc' prop, allowing the card to visually represent content alongside textual information. This is useful for creating visually appealing UI elements that combine text and imagery.",
+      "technical_description": "The Card component is wrapped inside a CardWrapper, which likely provides styling or layout context. The Card component itself accepts several props: 'header', 'content', 'variant', and 'imageSrc'. The 'header' prop sets the title of the card, while 'content' provides the main text body. The 'variant' prop likely controls the styling theme of the card, and 'imageSrc' is used to specify the path to the image that will be displayed at the top or side of the card. The image is rendered within the card component, enhancing the visual presentation.",
+      "patterns_description": "This example demonstrates the use of props to customize a component's appearance and content dynamically. It follows the React pattern of component composition, where a Card component is used within a CardWrapper, suggesting separation of concerns and potential reusability. The use of a 'variant' prop is a common pattern for applying different styles based on a theme or context.",
+      "use_cases_description": "This Card component example is particularly useful in scenarios where visual representation is important, such as in product listings, user profiles, or any content that benefits from a combination of text and imagery. It can be used in dashboards, e-commerce sites, or any application that requires a modular and visually appealing way to display information with accompanying images."
+    }
+  ]
+}

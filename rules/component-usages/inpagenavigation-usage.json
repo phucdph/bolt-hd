@@ -1,0 +1,86 @@
+{
+  "component_name": "InPageNavigation",
+  "component_description": "Menu navigation for in-page usage.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "heading": {
+      "name": "heading",
+      "type": "string",
+      "required": false,
+      "description": "Heading."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "items": {
+      "name": "items",
+      "type": "reflection",
+      "required": true,
+      "description": "List of items."
+    },
+    "onClickItem": {
+      "name": "onClickItem",
+      "type": "(item: InPageNavItem) => void",
+      "required": true,
+      "description": "Event handler when clicking on an item."
+    },
+    "selectedItemId": {
+      "name": "selectedItemId",
+      "type": "string",
+      "required": false,
+      "description": "Selected item ID."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "variant": {
+      "name": "variant",
+      "type": "\"horizontal\" | \"vertical\"",
+      "required": false,
+      "description": "Layout of the component."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Vertical",
+      "example_description": "Menu with Vertical listing (default variant).\n```jsx live\nfunction VerticalExample() {\n  const [selectedItemId, setSelectedItemId] = React.useState();\n  const onClickItem = (item) => setSelectedItemId(item.id);\n  const items = {\n    '': [\n      {\n        id: 'overview',\n        text: 'Overview',\n      },\n      {\n        id: 'personal_details',\n        text: 'Personal details',\n        disabled: true,\n        disabledReason: 'Upgrade your plan to use this',\n      },\n      {\n        id: 'employment_details',\n        text: 'Employment details',\n      },\n    ],\n    Documents: [\n      {\n        id: 'hr_documents',\n        text: 'HR documents',\n      },\n      {\n        id: 'uploaded_documents',\n        text: 'Uploaded documents',\n      },\n      {\n        id: 'certifications',\n        text: 'Certifications',\n      },\n    ],\n  };\n\n  return (\n    <Grid>\n      <Grid.Row gutter={['small', 'small']}>\n        <Grid.Col span={[12, 6, 6, 6, 6]}>\n          <InPageNavigation\n            items={items}\n            onClickItem={onClickItem}\n            selectedItemId={selectedItemId}\n          />\n        </Grid.Col>\n        <Grid.Col span={[12, 18, 18, 18, 18]}>\n          <Card content=\"Page content.\" style={{ height: '100%' }} />\n        </Grid.Col>\n      </Grid.Row>\n    </Grid>\n  );\n}\n```",
+      "code": "function VerticalExample() {\n  const [selectedItemId, setSelectedItemId] = React.useState();\n  const onClickItem = (item) => setSelectedItemId(item.id);\n  const items = {\n    '': [\n      {\n        id: 'overview',\n        text: 'Overview',\n      },\n      {\n        id: 'personal_details',\n        text: 'Personal details',\n        disabled: true,\n        disabledReason: 'Upgrade your plan to use this',\n      },\n      {\n        id: 'employment_details',\n        text: 'Employment details',\n      },\n    ],\n    Documents: [\n      {\n        id: 'hr_documents',\n        text: 'HR documents',\n      },\n      {\n        id: 'uploaded_documents',\n        text: 'Uploaded documents',\n      },\n      {\n        id: 'certifications',\n        text: 'Certifications',\n      },\n    ],\n  };\n\n  return (\n    <Grid>\n      <Grid.Row gutter={['small', 'small']}>\n        <Grid.Col span={[12, 6, 6, 6, 6]}>\n          <InPageNavigation\n            items={items}\n            onClickItem={onClickItem}\n            selectedItemId={selectedItemId}\n          />\n        </Grid.Col>\n        <Grid.Col span={[12, 18, 18, 18, 18]}>\n          <Card content=\"Page content.\" style={{ height: '100%' }} />\n        </Grid.Col>\n      </Grid.Row>\n    </Grid>\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate a vertical in-page navigation component that allows users to navigate through different sections of a page. It is designed to be a part of a user interface where users can click on menu items to view different content sections, with some items potentially being disabled based on user permissions or plan restrictions.",
+      "technical_description": "The component uses React's useState hook to manage the state of the selected menu item. The 'items' object defines the menu structure, with each item having an 'id', 'text', and optionally 'disabled' and 'disabledReason' properties. The InPageNavigation component is rendered within a Grid layout, which is divided into two columns: one for the navigation menu and another for the content area. The onClickItem function updates the selectedItemId state when a menu item is clicked, allowing the InPageNavigation component to highlight the selected item.",
+      "patterns_description": "This example demonstrates the use of React hooks for state management, specifically useState for tracking the selected menu item. It also uses a callback pattern for handling item click events, which is a common React pattern for managing interactions. The use of a Grid layout for responsive design is another notable pattern, allowing the component to adapt to different screen sizes.",
+      "use_cases_description": "This vertical navigation component is particularly useful in applications where users need to navigate through different sections of a page, such as dashboards, settings pages, or profile management interfaces. It is also suitable for scenarios where certain features or sections are restricted based on user permissions, as it supports disabling menu items with explanations."
+    },
+    {
+      "example_name": "With icons",
+      "example_description": "Items can have prefix/suffix icons.\n```jsx live\nfunction WitIconsExample() {\n  const [selectedItemId, setSelectedItemId] = React.useState();\n  const onClickItem = (item) => setSelectedItemId(item.id);\n  const items = {\n    '': [\n      {\n        id: 'overview',\n        text: 'Overview',\n        prefix: {\n          icon: 'document-outlined',\n        },\n        suffix: {\n          icon: 'circle-warning-outlined',\n          intent: 'warning',\n        },\n      },\n      {\n        id: 'personal_details',\n        text: 'Personal details',\n        disabled: true,\n        disabledReason: 'Upgrade your plan to use this',\n        prefix: {\n          icon: 'user-outlined',\n        },\n      },\n      {\n        id: 'employment_details',\n        text: 'Employment details',\n        prefix: {\n          icon: 'directory-outlined',\n        },\n        suffix: {\n          icon: 'circle-ok-outlined',\n          intent: 'success',\n        },\n      },\n    ],\n    Documents: [\n      {\n        id: 'hr_documents',\n        text: 'HR documents',\n      },\n      {\n        id: 'uploaded_documents',\n        text: 'Uploaded documents',\n      },\n      {\n        id: 'certifications',\n        text: 'Certifications',\n      },\n    ],\n  };\n\n  return (\n    <Grid>\n      <Grid.Row gutter={['small', 'small']}>\n        <Grid.Col span={[12, 6, 6, 6, 6]}>\n          <InPageNavigation\n            items={items}\n            onClickItem={onClickItem}\n            selectedItemId={selectedItemId}\n          />\n        </Grid.Col>\n        <Grid.Col span={[12, 18, 18, 18, 18]}>\n          <Card content=\"Page content.\" style={{ height: '100%' }} />\n        </Grid.Col>\n      </Grid.Row>\n    </Grid>\n  );\n}\n```",
+      "code": "function WitIconsExample() {\n  const [selectedItemId, setSelectedItemId] = React.useState();\n  const onClickItem = (item) => setSelectedItemId(item.id);\n  const items = {\n    '': [\n      {\n        id: 'overview',\n        text: 'Overview',\n        prefix: {\n          icon: 'document-outlined',\n        },\n        suffix: {\n          icon: 'circle-warning-outlined',\n          intent: 'warning',\n        },\n      },\n      {\n        id: 'personal_details',\n        text: 'Personal details',\n        disabled: true,\n        disabledReason: 'Upgrade your plan to use this',\n        prefix: {\n          icon: 'user-outlined',\n        },\n      },\n      {\n        id: 'employment_details',\n        text: 'Employment details',\n        prefix: {\n          icon: 'directory-outlined',\n        },\n        suffix: {\n          icon: 'circle-ok-outlined',\n          intent: 'success',\n        },\n      },\n    ],\n    Documents: [\n      {\n        id: 'hr_documents',\n        text: 'HR documents',\n      },\n      {\n        id: 'uploaded_documents',\n        text: 'Uploaded documents',\n      },\n      {\n        id: 'certifications',\n        text: 'Certifications',\n      },\n    ],\n  };\n\n  return (\n    <Grid>\n      <Grid.Row gutter={['small', 'small']}>\n        <Grid.Col span={[12, 6, 6, 6, 6]}>\n          <InPageNavigation\n            items={items}\n            onClickItem={onClickItem}\n            selectedItemId={selectedItemId}\n          />\n        </Grid.Col>\n        <Grid.Col span={[12, 18, 18, 18, 18]}>\n          <Card content=\"Page content.\" style={{ height: '100%' }} />\n        </Grid.Col>\n      </Grid.Row>\n    </Grid>\n  );\n}",
+      "purpose_description": "The purpose of this example is to demonstrate how to implement an in-page navigation component that includes items with optional prefix and suffix icons. This allows for a more visually informative navigation experience by providing additional context or status indicators alongside the navigation items.",
+      "technical_description": "The component uses React's useState hook to manage the state of the currently selected navigation item. The items are defined in a nested object structure, where each item can have a prefix and/or suffix icon. The InPageNavigation component is rendered within a Grid layout, which is divided into two columns. The first column contains the navigation component, and the second column contains a Card component representing the main content area. The onClickItem function updates the selectedItemId state when a navigation item is clicked, allowing the component to highlight the selected item.",
+      "patterns_description": "This example demonstrates the use of controlled components in React, where the state of the selected item is managed by the parent component using the useState hook. It also shows how to use icons as visual indicators to enhance the user interface, a common pattern in modern web applications. The use of a Grid layout for responsive design is another best practice demonstrated here, allowing the navigation and content to adapt to different screen sizes.",
+      "use_cases_description": "This example is particularly useful in applications where users need to navigate between different sections of a page or document, such as dashboards, settings pages, or content management systems. The use of icons can help users quickly identify the purpose or status of each section, improving usability and accessibility."
+    }
+  ]
+}

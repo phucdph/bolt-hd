@@ -1,0 +1,92 @@
+{
+  "component_name": "Tag",
+  "component_description": "Tag is for categorizing or markup to tag by dimension or property.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "intent": {
+      "name": "intent",
+      "type": "\"primary\" | \"danger\" | \"success\" | \"warning\" | \"error\" | \"archived\" | \"info\"",
+      "required": false,
+      "description": "Visual intent color to apply to tag. It is required for  `filled`  and  `outlined`  variants."
+    },
+    "onRemove": {
+      "name": "onRemove",
+      "type": "(tag: { text: string | ReactElement<any, string | JSXElementConstructor<any>>; value?: string | number }) => void",
+      "required": false,
+      "description": "Click handler for remove button, receiving tag's text and value."
+    },
+    "size": {
+      "name": "size",
+      "type": "\"small\" | \"medium\" | \"large\"",
+      "required": false,
+      "description": "Tag size."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "text": {
+      "name": "text",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "description": "Tag label."
+    },
+    "value": {
+      "name": "value",
+      "type": "string | number",
+      "required": false,
+      "description": "Tag's unique value. Use this when you wish to use removable tag to accidentally remove tag with same text."
+    },
+    "variant": {
+      "name": "variant",
+      "type": "\"filled\" | \"basic\" | \"outlined\"",
+      "required": false,
+      "description": "Tag type."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Tag Variants",
+      "example_description": "There are `basic`, `filled` and `outlined` tag. Though `basic` tag does not require color, it need to be passed through `intent` when `filled` or `outlined` variant is used.\n```jsx live\n<>\n  <Box mb=\"small\">\n    <Tag text=\"BASIC\" />\n  </Box>\n  <Box mb=\"small\" sx={{ display: 'flex', gap: 'small', flexWrap: 'wrap' }}>\n    <Tag text=\"PRIMARY\" variant=\"filled\" intent=\"primary\" />\n    <Tag text=\"WARNING\" variant=\"filled\" intent=\"warning\" />\n    <Tag text=\"DANGER\" variant=\"filled\" intent=\"danger\" />\n    <Tag text=\"ERROR\" variant=\"filled\" intent=\"error\" />\n    <Tag text=\"SUCCESS\" variant=\"filled\" intent=\"success\" />\n    <Tag text=\"ARCHIVED\" variant=\"filled\" intent=\"archived\" />\n  </Box>\n  <Box sx={{ display: 'flex', gap: 'small', flexWrap: 'wrap' }}>\n    <Tag text=\"PRIMARY\" variant=\"outlined\" intent=\"primary\" />\n    <Tag text=\"WARNING\" variant=\"outlined\" intent=\"warning\" />\n    <Tag text=\"DANGER\" variant=\"outlined\" intent=\"danger\" />\n    <Tag text=\"ERROR\" variant=\"outlined\" intent=\"error\" />\n    <Tag text=\"SUCCESS\" variant=\"outlined\" intent=\"success\" />\n    <Tag text=\"ARCHIVED\" variant=\"outlined\" intent=\"archived\" />\n  </Box>\n</>\n```",
+      "code": "<>\n  <Box mb=\"small\">\n    <Tag text=\"BASIC\" />\n  </Box>\n  <Box mb=\"small\" sx={{ display: 'flex', gap: 'small', flexWrap: 'wrap' }}>\n    <Tag text=\"PRIMARY\" variant=\"filled\" intent=\"primary\" />\n    <Tag text=\"WARNING\" variant=\"filled\" intent=\"warning\" />\n    <Tag text=\"DANGER\" variant=\"filled\" intent=\"danger\" />\n    <Tag text=\"ERROR\" variant=\"filled\" intent=\"error\" />\n    <Tag text=\"SUCCESS\" variant=\"filled\" intent=\"success\" />\n    <Tag text=\"ARCHIVED\" variant=\"filled\" intent=\"archived\" />\n  </Box>\n  <Box sx={{ display: 'flex', gap: 'small', flexWrap: 'wrap' }}>\n    <Tag text=\"PRIMARY\" variant=\"outlined\" intent=\"primary\" />\n    <Tag text=\"WARNING\" variant=\"outlined\" intent=\"warning\" />\n    <Tag text=\"DANGER\" variant=\"outlined\" intent=\"danger\" />\n    <Tag text=\"ERROR\" variant=\"outlined\" intent=\"error\" />\n    <Tag text=\"SUCCESS\" variant=\"outlined\" intent=\"success\" />\n    <Tag text=\"ARCHIVED\" variant=\"outlined\" intent=\"archived\" />\n  </Box>\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate the different visual styles or variants of a `Tag` component. It shows how tags can be styled differently based on their `variant` and `intent` properties, providing a way to visually distinguish between different types of tags, such as `basic`, `filled`, and `outlined`.",
+      "technical_description": "The example uses a React fragment to render multiple `Tag` components within `Box` components, which are likely styled containers. The `Tag` component can accept different props such as `text`, `variant`, and `intent`. The `variant` prop determines the style of the tag, with options like `basic`, `filled`, and `outlined`. The `intent` prop specifies the color theme of the tag when the `variant` is either `filled` or `outlined`. The `Box` components use the `sx` prop to apply styles, such as flexbox properties for layout and spacing between tags.",
+      "patterns_description": "This example demonstrates the use of component composition and prop-driven styling, which are common patterns in React development. The use of `variant` and `intent` props to control the appearance of components is a best practice for creating reusable and flexible UI components. Additionally, the use of the `sx` prop for styling suggests the use of a CSS-in-JS library, which is a modern approach to styling in React applications.",
+      "use_cases_description": "This example is particularly useful in scenarios where a UI needs to display tags with different visual styles to convey different meanings or statuses. For instance, in a project management application, tags could be used to indicate the status of tasks (e.g., `success` for completed tasks, `warning` for tasks nearing their deadline). It is also applicable in any application that requires categorization or labeling of items with visual differentiation."
+    },
+    {
+      "example_name": "Removable Tag",
+      "example_description": "A Tag can be removed by using onRemove hanlder. A remove button will be render next to the tag.\n```jsx live\n<Tag value=\"removable-tag\" text=\"REMOVE\" onRemove={(tag) => console.log(tag)} />\n```",
+      "code": "<Tag value=\"removable-tag\" text=\"REMOVE\" onRemove={(tag) => console.log(tag)} />",
+      "purpose_description": "The purpose of this example is to demonstrate how to create a removable tag component in React. This component allows users to remove a tag by clicking a remove button, which triggers an event handler to perform an action, such as logging the tag's value.",
+      "technical_description": "This example uses a React component called 'Tag' that accepts several props, including 'value', 'text', and 'onRemove'. The 'value' prop represents the identifier or content of the tag, while the 'text' prop specifies the label for the remove button. The 'onRemove' prop is a function that gets called when the remove button is clicked, receiving the tag's value as an argument. In this example, the 'onRemove' handler logs the tag's value to the console. The component likely renders a button or clickable element next to the tag, which, when clicked, triggers the 'onRemove' function.",
+      "patterns_description": "This example demonstrates the use of event handlers in React components, specifically using a callback function to handle user interactions. It also illustrates the pattern of passing data (in this case, the tag's value) to event handlers, enabling dynamic and context-aware responses to user actions. The component likely uses state management to handle the visibility or existence of the tag, although this is not explicitly shown in the example.",
+      "use_cases_description": "This removable tag component is particularly useful in scenarios where users need to manage a list of tags or labels, such as in a tagging system for blog posts, product categories, or user-generated content. It allows for interactive and user-friendly management of tags, enabling users to easily add or remove tags as needed. This pattern is common in applications that require dynamic content management or filtering based on user input."
+    }
+  ]
+}

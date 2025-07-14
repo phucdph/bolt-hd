@@ -1,0 +1,95 @@
+{
+  "component_name": "Banner",
+  "component_description": "Banner can be used as announcements to let users know about important events/things.",
+  "props": {
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "content": {
+      "name": "content",
+      "type": "string | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": true,
+      "description": "Banner content."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "icon": {
+      "name": "icon",
+      "type": "null | \"number\" | \"warning\" | \"bold\" | \"cancel\" | \"remove\" | \"menu\" | \"table\" | \"image\" | \"switch\" | \"target\" | \"restart\" | \"list\" | \"loading\" | \"file\" | \"directory\" | \"document\" | \"feed\" | \"location\" | \"move\" | \"activate\" | \"add-emoji\" | \"add-person\" | \"adjustment\" | \"alignment\" | \"archive\" | \"backward-arrow\" | \"bank\" | \"bell\" | \"billing\" | \"bookmark\" | \"box-check\" | \"box\" | \"buildings\" | \"cake\" | \"calendar-clock\" | \"calendar\" | \"candy-box-menu\" | \"carat-down-small\" | \"carat-down\" | \"carat-left\" | \"carat-right\" | \"carat-up-small\" | \"carat-up\" | \"circle-add\" | \"circle-cancel\" | \"circle-check\" | \"circle-down\" | \"circle-info\" | \"circle-left\" | \"circle-ok\" | \"circle-pencil\" | \"circle-question\" | \"circle-remove\" | \"circle-right\" | \"circle-up\" | \"circle-warning\" | \"clock-3\" | \"clock\" | \"cloud-download\" | \"cloud-upload\" | \"cog\" | \"coin\" | \"contacts\" | \"corner-resize\" | \"credit-card\" | \"diamond\" | \"direction-arrows\" | \"dollar-coin-shine\" | \"dot-filled\" | \"double-buildings\" | \"edit-template\" | \"envelope\" | \"expense\" | \"eye-circle\" | \"eye-invisible\" | \"eye\" | \"face-meh\" | \"face-sad\" | \"face-smiley\" | \"feedbacks\" | \"file-certified\" | \"file-clone\" | \"file-copy\" | \"file-csv\" | \"file-dispose\" | \"file-doc\" | \"file-excel\" | \"file-export\" | \"file-lock\" | \"file-pdf\" | \"file-powerpoint\" | \"file-search\" | \"file-secured\" | \"file-sheets\" | \"file-slide\" | \"file-verified\" | \"file-word\" | \"flask\" | \"folder-user\" | \"folder\" | \"format-bold\" | \"format-heading1\" | \"format-heading2\" | \"format-italic\" | \"format-list-bulleted\" | \"format-list-numbered\" | \"format-underlined\" | \"forward-arrow\" | \"funnel-filter\" | \"gauge\" | \"global-dollar\" | \"globe\" | \"graduation-cap\" | \"graph\" | \"happy-sun\" | \"health-bag\" | \"heart\" | \"home\" | \"import\" | \"incident-siren\" | \"instapay\" | \"loading-2\" | \"lock\" | \"looks-one\" | \"looks-two\" | \"mandatory\" | \"media-content\" | \"moneybag\" | \"moon\" | \"multiple-stars\" | \"multiple-users\" | \"node\" | \"open-folder\" | \"paperclip\" | \"payment-summary\" | \"pencil\" | \"phone\" | \"piggy-bank\" | \"pin\" | \"plane\" | \"play-circle\" | \"print\" | \"raising-hands\" | \"rectangle-mandatory\" | \"reply-arrow\" | \"reply\" | \"reschedule\" | \"rostering\" | \"save\" | \"schedule-send\" | \"schedule\" | \"search-person\" | \"send\" | \"speaker\" | \"star-award\" | \"star-badge\" | \"star-medal\" | \"star\" | \"steps-circle\" | \"stopwatch\" | \"suitcase\" | \"survey\" | \"swag\" | \"tag\" | \"teams\" | \"thumb-down\" | \"thumb-up\" | \"timesheet\" | \"touch-id\" | \"trash-bin\" | \"unlock\" | \"user\" | \"video-1\" | \"video-2\" | \"wrench\" | \"academic-hat-outlined\" | \"activate-outlined\" | \"add-person-outlined\" | \"add-section-outlined\" | \"add-time-outlined\" | \"add\" | \"adjustment-outlined\" | \"afternoon-outlined\" | \"alignment-2-outlined\" | \"alignment-outlined\" | \"all-caps\" | \"arrow-down\" | \"arrow-left\" | \"arrow-right\" | \"arrow-up\" | \"at-sign\" | \"bell-outlined\" | \"billing-outlined\" | \"billing-pound-outlined\" | \"body-outlined\" | \"bookmark-outlined\" | \"box-check-outlined\" | \"box-outlined\" | \"briefcase-clock-outlined\" | \"briefcase-search-outlined\" | \"bullet-points\" | \"cake-outlined\" | \"calendar-dates-outlined\" | \"calendar-star-outlined\" | \"camera-outlined\" | \"chat-outlined\" | \"checkmark\" | \"circle-add-outlined\" | \"circle-cancel-outlined\" | \"circle-down-outlined\" | \"circle-info-outlined\" | \"circle-left-outlined\" | \"circle-ok-outlined\" | \"circle-question-outlined\" | \"circle-remove-outlined\" | \"circle-right-outlined\" | \"circle-up-outlined\" | \"circle-warning-outlined\" | \"clipboard-check-outlined\" | \"clipboard-text-outlined\" | \"clock-2-outlined\" | \"clock-outlined\" | \"cog-outlined\" | \"coin-outlined\" | \"coin-pound-outlined\" | \"coin-stack-outlined\" | \"collapse-outlined\" | \"comment-outlined\" | \"contacts-outlined\" | \"content-copy-outlined\" | \"copy-outlined\" | \"credit-card-outlined\" | \"cup-outlined\" | \"cut-outlined\" | \"desktop-computer-outlined\" | \"diagram-outlined\" | \"diamond-outlined\" | \"direction-arrows-outlined\" | \"directory-outlined\" | \"document-outlined\" | \"dollar-coin-shine-outlined\" | \"dollar-sign\" | \"donut-chart-outlined\" | \"double-buildings-outlined\" | \"double-left-arrows\" | \"double-right-arrows\" | \"download-outlined\" | \"edit-template-outlined\" | \"edit-user-outlined\" | \"email-outlined\" | \"enter-arrow\" | \"envelope-outlined\" | \"evening-outlined\" | \"expand-outlined\" | \"expense-outlined\" | \"external-link\" | \"eye-invisible-outlined\" | \"eye-outlined\" | \"face-id\" | \"face-meh-outlined\" | \"face-open-smiley-outlined\" | \"face-sad-outlined\" | \"face-smiley-outlined\" | \"feed-outlined\" | \"feedbacks-outlined\" | \"file-certified-outlined\" | \"file-clone-outlined\" | \"file-copy-outlined\" | \"file-dispose-outlined\" | \"file-download-outlined\" | \"file-export-outlined\" | \"file-lock-outlined\" | \"file-outlined\" | \"file-search-outlined\" | \"file-secured-outlined\" | \"file-text-outlined\" | \"file-verified-outlined\" | \"filter-outlined\" | \"fire-outlined\" | \"flag-outlined\" | \"folder-outlined\" | \"folder-user-outlined\" | \"funnel-filter-outline\" | \"gauge-outlined\" | \"gift-outlined\" | \"graph-outlined\" | \"happy-sun-outlined\" | \"health-bag-outlined\" | \"heart-outlined\" | \"home-outlined\" | \"image-outlined\" | \"import-outlined\" | \"instapay-outlined\" | \"italic\" | \"link-1\" | \"link-2\" | \"list-outlined\" | \"location-outlined\" | \"lock-outlined\" | \"locked-file-outlined\" | \"log-out\" | \"magic-outlined\" | \"media-content-outlined\" | \"menu-close\" | \"menu-expand\" | \"menu-fold-outlined\" | \"menu-unfold-outlined\" | \"mobile-phone-1-outlined\" | \"moneybag-outlined\" | \"moneybag-pound-outlined\" | \"moon-outlined\" | \"more-horizontal\" | \"more-vertical\" | \"morning-outlined\" | \"multiple-folders-outlined\" | \"multiple-users-outlined\" | \"node-outlined\" | \"number-points\" | \"passport-outlined\" | \"payment-summary-outlined\" | \"payslip-outlined\" | \"pencil-outlined\" | \"percentage\" | \"phone-outlined\" | \"piggy-bank-outlined\" | \"pin-outlined\" | \"plane-outlined\" | \"play-circle-outlined\" | \"pound-sign\" | \"print-outlined\" | \"qr-code-outlined\" | \"re-assign\" | \"redeem\" | \"refresh\" | \"reply-outlined\" | \"return-arrow\" | \"ringgit-sign\" | \"rocket-outlined\" | \"rostering-outlined\" | \"save-outlined\" | \"schedule-outlined\" | \"search-outlined\" | \"send-outlined\" | \"share-1\" | \"share-2\" | \"shield-check-outlined\" | \"single-down-arrow\" | \"single-left-arrow\" | \"single-right-arrow\" | \"single-up-arrow\" | \"sparkle-2-outlined\" | \"sparkle-outlined\" | \"speaker-outlined\" | \"speed-outlined\" | \"star-outlined\" | \"stopwatch-outlined\" | \"strikethrough\" | \"suitcase-outlined\" | \"survey-outlined\" | \"switch-outlined\" | \"sync\" | \"tablet-outlined\" | \"target-outlined\" | \"thumb-up-outlined\" | \"timesheet-outlined\" | \"transfer\" | \"trash-bin-outlined\" | \"trash-outlined\" | \"unavailable\" | \"underline\" | \"unlinked\" | \"unlock-outlined\" | \"upload-outlined\" | \"user-add-outlined\" | \"user-circle-outlined\" | \"user-move-outlined\" | \"user-out-outlined\" | \"user-outlined\" | \"user-rectangle-outlined\" | \"user-remove-outlined\" | \"user-warning-outlined\" | \"video-1-outlined\" | \"video-2-outlined\" | \"wallet-outlined\" | \"wrench-outlined\" | ReactElement<any, string | JSXElementConstructor<any>>",
+      "required": false,
+      "description": "Icon name or a react element as custom icon.\n- undefined: use default icon according to Banner intent.\n- null: no icon at all.\n- string: an icon string from hero-design icon list.\n- ReactElement: Custom icon by your own."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "intent": {
+      "name": "intent",
+      "type": "\"danger\" | \"success\" | \"warning\" | \"error\" | \"info\"",
+      "required": false,
+      "description": "Visual intent color to apply to banner."
+    },
+    "onClose": {
+      "name": "onClose",
+      "type": "() => void",
+      "required": false,
+      "description": "Closing callback. When onClose is available, an  `x`  button will be rendered on the right side of Banner. The callback will be called when user clicks on  `x`  button."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "title": {
+      "name": "title",
+      "type": "string",
+      "required": false,
+      "description": "Banner title."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "Show banner with title and content.\n```jsx live\n<Banner title=\"Banner examples\" content=\"Employment Hero new beta program\" />\n```",
+      "code": "<Banner title=\"Banner examples\" content=\"Employment Hero new beta program\" />",
+      "purpose_description": "The purpose of this example is to demonstrate a basic usage of the Banner component, which is designed to display a simple banner with a title and content. This example shows how to render the Banner component with specific text for both the title and the content, providing a straightforward illustration of its functionality.",
+      "technical_description": "The example showcases a React component named Banner, which is invoked with two props: title and content. The component is expected to render a UI element that displays these props in a structured format, typically with the title being more prominent (e.g., larger font size or bold) and the content providing additional information. The component is likely a functional component that takes props as its argument and returns JSX to render the banner. The JSX would include elements such as <div> or <section> to structure the banner, and <h1> or <h2> for the title, with a <p> or similar element for the content.",
+      "patterns_description": "This example demonstrates a common React pattern of using props to pass data into a component, allowing for reusable and flexible components. The Banner component is likely designed to be stateless and purely presentational, focusing solely on rendering the provided data without managing any internal state. This aligns with best practices for creating simple, reusable UI components in React. Additionally, the use of descriptive prop names like 'title' and 'content' enhances code readability and maintainability.",
+      "use_cases_description": "This Banner component example is particularly useful in scenarios where a simple, informational banner needs to be displayed on a webpage. It could be used in various real-world applications, such as displaying announcements, promotional messages, or updates on a website. The component's simplicity and flexibility make it suitable for integration into larger applications where consistent styling and behavior for banners are required across different parts of the application."
+    },
+    {
+      "example_name": "Intents and Icons",
+      "example_description": "Different intents come with different icons.\n```jsx live\n<>\n  <Banner\n    title=\"Informational Notes\"\n    content=\"Additional description and advice about what the user can do.\"\n  />\n  <br />\n  <Banner\n    intent=\"success\"\n    title=\"Success Tips\"\n    content=\"Detailed description and advice about what the user can do.\"\n  />\n  <br />\n  <Banner\n    intent=\"warning\"\n    title=\"Warning\"\n    content=\"Warning description goes here to warn the user of a potentially important use case.\"\n  />\n  <br />\n  <Banner\n    intent=\"error\"\n    title=\"Error\"\n    content=\"Error description goes here to inform the user that an error has been made.\"\n  />\n  <br />\n  <Banner\n    intent=\"danger\"\n    title=\"Danger\"\n    content=\"Error description goes here to inform the user that an error has made.\"\n  />\n</>\n```",
+      "code": "<>\n  <Banner\n    title=\"Informational Notes\"\n    content=\"Additional description and advice about what the user can do.\"\n  />\n  <br />\n  <Banner\n    intent=\"success\"\n    title=\"Success Tips\"\n    content=\"Detailed description and advice about what the user can do.\"\n  />\n  <br />\n  <Banner\n    intent=\"warning\"\n    title=\"Warning\"\n    content=\"Warning description goes here to warn the user of a potentially important use case.\"\n  />\n  <br />\n  <Banner\n    intent=\"error\"\n    title=\"Error\"\n    content=\"Error description goes here to inform the user that an error has been made.\"\n  />\n  <br />\n  <Banner\n    intent=\"danger\"\n    title=\"Danger\"\n    content=\"Error description goes here to inform the user that an error has made.\"\n  />\n</>",
+      "purpose_description": "The purpose of this example is to demonstrate how the Banner component can be used to convey different types of messages to the user, each with a specific intent. The example shows how different intents such as informational, success, warning, error, and danger can be visually distinguished using icons and styling, providing users with contextual feedback.",
+      "technical_description": "This example uses a series of Banner components rendered within a React Fragment. Each Banner component is passed different props to represent various message intents. The component likely uses conditional rendering or styling based on the 'intent' prop to display different icons and styles. The use of the <br /> tag between Banners ensures that each Banner is displayed on a new line, maintaining a clear separation between different messages.",
+      "patterns_description": "This example demonstrates the use of conditional rendering based on props, a common pattern in React to dynamically alter component appearance and behavior. It also illustrates the use of React Fragments to group multiple components without adding extra nodes to the DOM. The separation of concerns is evident as the Banner component encapsulates the logic for displaying different intents, promoting reusability and maintainability.",
+      "use_cases_description": "This example is particularly useful in applications where user feedback is crucial, such as form submissions, notifications, or system alerts. It can be used in dashboards, admin panels, or any user interface that requires clear communication of different message types. The ability to convey different intents with visual cues helps improve user experience by making the interface more intuitive and informative."
+    },
+    {
+      "example_name": "Close button",
+      "example_description": "Pass a `onClose` callback to render a close button.\n```jsx live\n<Banner\n  intent=\"success\"\n  title=\"Banner examples\"\n  content=\"Employment Hero new beta program\"\n  onClose={() => console.log('Click on close')}\n/>\n```",
+      "code": "<Banner\n  intent=\"success\"\n  title=\"Banner examples\"\n  content=\"Employment Hero new beta program\"\n  onClose={() => console.log('Click on close')}\n/>",
+      "purpose_description": "The purpose of this example is to demonstrate how to use the `Banner` component with an interactive close button. By passing an `onClose` callback function, the component can handle user interactions, such as closing the banner or performing other actions when the close button is clicked.",
+      "technical_description": "The `Banner` component is configured with several props, including `intent`, `title`, `content`, and `onClose`. The `intent` prop likely determines the visual style or theme of the banner, such as success, warning, or error. The `title` and `content` props provide the text displayed on the banner. The `onClose` prop is a callback function that is executed when the close button is clicked. In this example, the callback logs a message to the console, but in a real-world scenario, it could be used to update the component's state or trigger other actions.",
+      "patterns_description": "This example demonstrates the use of callback functions as props, a common pattern in React for handling events and interactions. By passing a function to the `onClose` prop, the component can notify its parent of user interactions, allowing for flexible and reusable components. This pattern promotes separation of concerns, as the `Banner` component does not need to know what actions to take when closed; it simply triggers the callback.",
+      "use_cases_description": "This example is particularly useful in scenarios where a notification or alert needs to be displayed to the user with the option to dismiss it. Real-world use cases include displaying success messages after form submissions, alerting users to new features or updates, or providing warnings that the user can acknowledge and dismiss. The ability to pass a custom `onClose` handler allows developers to integrate the banner into various application workflows, such as updating application state or logging user interactions."
+    }
+  ]
+}

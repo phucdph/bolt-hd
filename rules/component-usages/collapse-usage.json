@@ -1,0 +1,64 @@
+{
+  "component_name": "Collapse",
+  "component_description": "Collapse can show or hide content with a built-in slide in/out animation.\nIt can be used to group or hide complex regions to keep the page clean.",
+  "props": {
+    "children": {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "keepChildrenMounted": {
+      "name": "keepChildrenMounted",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the child components will remain mounted when the Collapse is closed."
+    },
+    "open": {
+      "name": "open",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the component is open or closed."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Basic",
+      "example_description": "```jsx live\nfunction BasicCollapse() {\n  const [open, setOpen] = React.useState(false);\n  const [lines, setLines] = React.useState(1);\n  return (\n    <>\n      <Button\n        onClick={() => setOpen((value) => !value)}\n        text=\"Paperless Onboarding\"\n        style={{ marginBottom: theme.space.small }}\n      />\n      <Collapse open={open}>\n        <div\n          style={{\n            border: `${theme.borderWidths.base}px solid ${theme.colors.defaultBorder}`,\n            borderRadius: theme.radii.base,\n            padding: theme.space.small,\n            margin: 0,\n          }}\n        >\n          {Array.from(Array(lines).keys()).map((key) => (\n            <Typography.Text key={key}>\n              Give your employees a digital onboarding experience that’s\n              seamless, and save yourself time in the process.\n            </Typography.Text>\n          ))}\n          <Button.Link\n            href=\"https://employmenthero.com/request-a-demo\"\n            text=\"Try the demo\"\n          />\n          <br />\n          <Button\n            variant=\"text\"\n            text=\"Add more text\"\n            style={{ padding: 0 }}\n            onClick={() => setLines((l) => l + 1)}\n          />\n          <Button\n            variant=\"text\"\n            text=\"Remove text\"\n            onClick={() => setLines((l) => (l > 0 ? l - 1 : 0))}\n          />\n        </div>\n      </Collapse>\n    </>\n  );\n}\n```",
+      "code": "function BasicCollapse() {\n  const [open, setOpen] = React.useState(false);\n  const [lines, setLines] = React.useState(1);\n  return (\n    <>\n      <Button\n        onClick={() => setOpen((value) => !value)}\n        text=\"Paperless Onboarding\"\n        style={{ marginBottom: theme.space.small }}\n      />\n      <Collapse open={open}>\n        <div\n          style={{\n            border: `${theme.borderWidths.base}px solid ${theme.colors.defaultBorder}`,\n            borderRadius: theme.radii.base,\n            padding: theme.space.small,\n            margin: 0,\n          }}\n        >\n          {Array.from(Array(lines).keys()).map((key) => (\n            <Typography.Text key={key}>\n              Give your employees a digital onboarding experience that’s\n              seamless, and save yourself time in the process.\n            </Typography.Text>\n          ))}\n          <Button.Link\n            href=\"https://employmenthero.com/request-a-demo\"\n            text=\"Try the demo\"\n          />\n          <br />\n          <Button\n            variant=\"text\"\n            text=\"Add more text\"\n            style={{ padding: 0 }}\n            onClick={() => setLines((l) => l + 1)}\n          />\n          <Button\n            variant=\"text\"\n            text=\"Remove text\"\n            onClick={() => setLines((l) => (l > 0 ? l - 1 : 0))}\n          />\n        </div>\n      </Collapse>\n    </>\n  );\n}",
+      "purpose_description": "The BasicCollapse component demonstrates a simple implementation of a collapsible section in a React application. It allows users to toggle the visibility of content and dynamically adjust the amount of text displayed within the collapsible section. This example is useful for showcasing how to manage state for UI components that need to expand or collapse based on user interaction.",
+      "technical_description": "The component utilizes React's useState hook to manage two pieces of state: 'open' and 'lines'. The 'open' state determines whether the Collapse component is expanded or collapsed, while the 'lines' state controls the number of text lines displayed. A Button component is used to toggle the 'open' state, effectively showing or hiding the content inside the Collapse component. The content includes a series of Typography.Text components, whose number is determined by the 'lines' state. Additional buttons allow users to increase or decrease the number of text lines by updating the 'lines' state. The Collapse component is styled using inline styles that reference a 'theme' object for consistent design.",
+      "patterns_description": "This example demonstrates several React patterns and best practices, including the use of the useState hook for managing component state and the use of functional updates within setState calls to ensure the latest state is used. It also shows how to conditionally render content based on state and how to handle user interactions to update the UI dynamically. The use of a theme object for styling promotes consistency and reusability across the application.",
+      "use_cases_description": "This component is particularly useful in scenarios where content needs to be conditionally displayed, such as FAQs, expandable product descriptions, or any section where space is limited and content should be revealed on demand. It can be adapted for use in dashboards, onboarding processes, or any application requiring collapsible sections to enhance user experience and interface organization."
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+---
+id: avatar
+title: Avatar
+---
+
+# Avatar
+
+The Avatar component is used to display user profile images or initials in a circular container. It's commonly used in user interfaces to represent users, team members, or profile pictures.
+
+## Examples
+
+### Basic
+
+```jsx live
+<Box sx={{ display: 'flex', alignItems: 'center', gap: 'small' }}>
+  <Avatar fullName="John Doe" />
+  <Avatar fullName="John Doe" imgSrc="/img/comment-avatar.png" />
+</Box>
+```
+
+### Sizes
+
+The Avatar component comes in five different sizes: `xsmall`, `small`, `medium`, `large`, and `xlarge`.
+
+```jsx live
+<Box sx={{ display: 'flex', flexDirection: 'column', gap: 'small' }}>
+  <Box sx={{ display: 'flex', alignItems: 'center', gap: 'small' }}>
+    <Avatar fullName="John Doe" size="xsmall"  />
+    <Avatar fullName="John Doe" size="small" />
+    <Avatar fullName="John Doe" size="medium" />
+    <Avatar fullName="John Doe" size="large" />
+    <Avatar fullName="John Doe" size="xlarge" />
+  </Box>
+  <Box sx={{ display: 'flex', alignItems: 'center', gap: 'small' }}>
+    <Avatar
+      fullName="John Doe"
+      imgSrc="/img/comment-avatar.png"
+      size="xsmall"
+      />
+    <Avatar
+      fullName="John Doe"
+      imgSrc="/img/comment-avatar.png"
+      size="small"
+    />
+    <Avatar
+      fullName="John Doe"
+      imgSrc="/img/comment-avatar.png"
+      size="medium"
+    />
+    <Avatar
+      fullName="John Doe"
+      imgSrc="/img/comment-avatar.png"
+      size="large"
+    />
+    <Avatar
+      fullName="John Doe"
+      imgSrc="/img/comment-avatar.png"
+      size="xlarge"
+    />
+  </Box>
+</>
+```
+
+### Avatar.Stack
+
+The Avatar.Stack component is used to display a stack of avatars.
+
+```jsx live
+<>
+  <Avatar.Stack
+    avatars={[
+      { fullName: 'John Doe', imgSrc: '/img/comment-avatar.png' },
+      { fullName: 'Jane Doe' },
+      { fullName: 'John Smith', imgSrc: '/img/comment-avatar.png' },
+    ]}
+    sx={{ mb: 'large' }}
+  />
+  <Avatar.Stack
+    avatars={[
+      { fullName: 'John Doe', imgSrc: '/img/comment-avatar.png' },
+      { fullName: 'Jane Doe' },
+      { fullName: 'John Smith', imgSrc: '/img/comment-avatar.png' },
+      { fullName: 'Jane Smith' },
+      { fullName: 'James Wilson', imgSrc: '/img/comment-avatar.png' },
+    ]}
+    size="large"
+  />
+</>
+```
+
+## Props
+
+### Avatar Props
+
+<Props of="Avatar" from="web" />
+
+### Avatar.Stack Props
+
+<Props of="Stack" from="web" />

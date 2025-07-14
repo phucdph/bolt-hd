@@ -1,0 +1,131 @@
+{
+  "component_name": "Carousel",
+  "component_description": "The carousel component is automatically scaled with the container that user set.\nCommonly used for slide of pictures.",
+  "props": {
+    "autoPlay": {
+      "name": "autoPlay",
+      "type": "boolean",
+      "required": false,
+      "description": "Whether to scroll automatically."
+    },
+    "className": {
+      "name": "className",
+      "type": "string",
+      "required": false,
+      "description": "A space-delimited list of class names to pass along to the element."
+    },
+    "collection": {
+      "name": "collection",
+      "type": "Array<{ content: ReactNode; id: number }>",
+      "required": true,
+      "description": "List of items to be shown to the story board. Each item must have an unquie id."
+    },
+    "data-test-id": {
+      "name": "data-test-id",
+      "type": "string",
+      "required": false,
+      "description": "Testing id of the element."
+    },
+    "dotPlacement": {
+      "name": "dotPlacement",
+      "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
+      "required": false,
+      "description": "Position of dots button. Default is 'bottom', 'left' and 'right' does not work for multiple slides."
+    },
+    "id": {
+      "name": "id",
+      "type": "string",
+      "required": false,
+      "description": "Id of the element."
+    },
+    "infiniteLoop": {
+      "name": "infiniteLoop",
+      "type": "boolean",
+      "required": false,
+      "description": "Infinite loop of carousel."
+    },
+    "interval": {
+      "name": "interval",
+      "type": "number",
+      "required": false,
+      "description": "Set interval of each slide."
+    },
+    "loading": {
+      "name": "loading",
+      "type": "boolean",
+      "required": false,
+      "description": "Set loading state of carousel."
+    },
+    "onItemIndexChange": {
+      "name": "onItemIndexChange",
+      "type": "Dispatch<SetStateAction<number>>",
+      "required": false,
+      "description": "onItemIndexChange event handler receiving index of selected Item."
+    },
+    "scrollStep": {
+      "name": "scrollStep",
+      "type": "number",
+      "required": false,
+      "description": "Number of slides to be scrolled when clicking next or previous button."
+    },
+    "selectedItemIndex": {
+      "name": "selectedItemIndex",
+      "type": "number",
+      "required": false,
+      "description": "Current selected item index."
+    },
+    "shownSlides": {
+      "name": "shownSlides",
+      "type": "number",
+      "required": false,
+      "description": "Number of slides to be shown."
+    },
+    "style": {
+      "name": "style",
+      "type": "CSSProperties",
+      "required": false,
+      "description": "Additional inline style to be applied for the most outer element of the component."
+    },
+    "sx": {
+      "name": "sx",
+      "type": "Partial<Record<SxKeys, SxValues>>",
+      "required": false,
+      "description": "[Theme-aware style property](/guidelines/sxProp)"
+    },
+    "variant": {
+      "name": "variant",
+      "type": "\"light\" | \"dark\"",
+      "required": false,
+      "description": "Color of slide background to have corresponding dots color."
+    }
+  },
+  "examples": [
+    {
+      "example_name": "Example format of Carousel collection",
+      "example_description": "```js\nconst collection = [\n  { id: 1, content: <img src=\"url_1\" alt=\"imgage 1\" /> },\n  { id: 2, content: <img src=\"url_2\" alt=\"imgage 2\" /> },\n  { id: 3, content: <img src=\"url_3\" alt=\"imgage 3\" /> },\n];\n```",
+      "code": "const collection = [\n  { id: 1, content: <img src=\"url_1\" alt=\"imgage 1\" /> },\n  { id: 2, content: <img src=\"url_2\" alt=\"imgage 2\" /> },\n  { id: 3, content: <img src=\"url_3\" alt=\"imgage 3\" /> },\n];",
+      "purpose_description": "The purpose of this example is to demonstrate a simple data structure for a carousel component in React. The collection array is designed to hold a series of items, each with a unique identifier and content, which in this case is an image element. This structure can be used to render a carousel where users can navigate through different images.",
+      "technical_description": "The example defines a constant array named 'collection' that contains objects. Each object represents an item in the carousel and includes two properties: 'id' and 'content'. The 'id' is a unique identifier for each item, which is crucial for React's reconciliation process when rendering lists. The 'content' is a JSX element, specifically an <img> tag, which will be displayed in the carousel. This setup allows for easy iteration over the collection to render each image in a carousel component.",
+      "patterns_description": "This example demonstrates the use of a common React pattern for managing collections of items to be rendered as a list or carousel. It uses an array of objects, each with a unique 'id', which is a best practice for ensuring stable identity across re-renders. The use of JSX within the 'content' property highlights React's ability to handle complex data structures and render them efficiently. Additionally, the separation of data (the collection array) from the presentation logic (the carousel component) is a good practice for maintaining clean and manageable code.",
+      "use_cases_description": "This example is particularly useful in scenarios where a developer needs to implement a carousel feature in a React application. It provides a straightforward way to manage and render a series of images or other content types. Real-world use cases include image galleries, product showcases, or any application where users need to browse through a collection of items. The structure is flexible and can be extended to include additional properties or different types of content beyond images."
+    },
+    {
+      "example_name": "Autoplay Carousel",
+      "example_description": "Can set interval in milliseconds, default interval is `2000`.\nOn mouse hover, the animation will pause.\n```jsx live\nfunction AutoplayCarousel() {\n  const { Title } = Typography;\n  const [currentItemIndexDark, setCurrentItemIndexDark] = React.useState(0);\n  const [currentItemIndexLight, setCurrentItemIndexLight] = React.useState(0);\n  const darkBgCollection = [\n    {\n      id: 1,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">1</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 2,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">2</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 3,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">3</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n  ];\n  const lightBgCollection = [\n    {\n      id: 1,\n      content: (\n        <LightCarouselWrapper>\n          <Title>1</Title>\n        </LightCarouselWrapper>\n      ),\n    },\n    {\n      id: 2,\n      content: (\n        <LightCarouselWrapper>\n          <Title>2</Title>\n        </LightCarouselWrapper>\n      ),\n    },\n    {\n      id: 3,\n      content: (\n        <LightCarouselWrapper>\n          <Title>3</Title>\n        </LightCarouselWrapper>\n      ),\n    },\n  ];\n  return (\n    <Grid.Row gutter={['medium', 'none']}>\n      <Grid.Col style={{ height: 300 }} span={[12, 12, 12, 12, 12]}>\n        <Carousel\n          collection={darkBgCollection}\n          autoPlay\n          selectedItemIndex={currentItemIndexDark}\n          onItemIndexChange={setCurrentItemIndexDark}\n        />\n      </Grid.Col>\n      <Grid.Col style={{ height: 300 }} span={[12, 12, 12, 12, 12]}>\n        <Carousel\n          collection={lightBgCollection}\n          autoPlay\n          variant=\"dark\"\n          interval={4000}\n          selectedItemIndex={currentItemIndexLight}\n          onItemIndexChange={setCurrentItemIndexLight}\n        />\n      </Grid.Col>\n    </Grid.Row>\n  );\n}\n```",
+      "code": "function AutoplayCarousel() {\n  const { Title } = Typography;\n  const [currentItemIndexDark, setCurrentItemIndexDark] = React.useState(0);\n  const [currentItemIndexLight, setCurrentItemIndexLight] = React.useState(0);\n  const darkBgCollection = [\n    {\n      id: 1,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">1</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 2,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">2</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 3,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">3</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n  ];\n  const lightBgCollection = [\n    {\n      id: 1,\n      content: (\n        <LightCarouselWrapper>\n          <Title>1</Title>\n        </LightCarouselWrapper>\n      ),\n    },\n    {\n      id: 2,\n      content: (\n        <LightCarouselWrapper>\n          <Title>2</Title>\n        </LightCarouselWrapper>\n      ),\n    },\n    {\n      id: 3,\n      content: (\n        <LightCarouselWrapper>\n          <Title>3</Title>\n        </LightCarouselWrapper>\n      ),\n    },\n  ];\n  return (\n    <Grid.Row gutter={['medium', 'none']}>\n      <Grid.Col style={{ height: 300 }} span={[12, 12, 12, 12, 12]}>\n        <Carousel\n          collection={darkBgCollection}\n          autoPlay\n          selectedItemIndex={currentItemIndexDark}\n          onItemIndexChange={setCurrentItemIndexDark}\n        />\n      </Grid.Col>\n      <Grid.Col style={{ height: 300 }} span={[12, 12, 12, 12, 12]}>\n        <Carousel\n          collection={lightBgCollection}\n          autoPlay\n          variant=\"dark\"\n          interval={4000}\n          selectedItemIndex={currentItemIndexLight}\n          onItemIndexChange={setCurrentItemIndexLight}\n        />\n      </Grid.Col>\n    </Grid.Row>\n  );\n}",
+      "purpose_description": "The Autoplay Carousel component is designed to display a series of items that automatically transition from one to the next at a specified interval. It supports pausing the autoplay when the user hovers over the carousel, enhancing user interaction and control. This example demonstrates how to implement a carousel with both light and dark themes, each having its own set of items and autoplay settings.",
+      "technical_description": "The component utilizes React's useState hook to manage the current index of the items being displayed in each carousel. Two separate state variables, currentItemIndexDark and currentItemIndexLight, are used to track the current item index for the dark and light themed carousels, respectively. The darkBgCollection and lightBgCollection arrays define the content for each carousel, wrapped in custom components (DarkCarouselWrapper and LightCarouselWrapper) to apply specific styling. The Carousel component is used twice within a Grid layout, each instance receiving its respective collection of items, autoplay settings, and handlers for index changes. The interval for the light-themed carousel is explicitly set to 4000 milliseconds, while the dark-themed carousel uses the default interval.",
+      "patterns_description": "This example demonstrates the use of React's useState hook for managing component state, specifically for tracking the current index of carousel items. It also shows how to use callback functions to update state in response to events (in this case, item index changes). The use of custom wrapper components (DarkCarouselWrapper and LightCarouselWrapper) illustrates a pattern for applying consistent styling to grouped elements. Additionally, the Grid system is used to layout the carousels responsively.",
+      "use_cases_description": "This autoplay carousel implementation is particularly useful in scenarios where visual content needs to be showcased in a dynamic and engaging manner, such as on landing pages, product showcases, or image galleries. The ability to pause on hover makes it suitable for interactive applications where users may want to focus on specific content without being rushed. The dual-theme support allows for seamless integration into websites with varying design aesthetics."
+    },
+    {
+      "example_name": "Show multiple slides",
+      "example_description": "Multiple slides can be shown at the same time via `shownSlides` setting.\n```jsx live\nfunction MultipleSlidesCarousel() {\n  const { Title } = Typography;\n  const darkBgCollection = [\n    {\n      id: 1,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">1</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 2,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">2</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 3,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">3</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 4,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">4</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 5,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">5</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 6,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">6</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 7,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">7</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 8,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">8</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n  ];\n  return (\n    <Box style={{ height: 300 }}>\n      <Carousel\n        collection={darkBgCollection}\n        shownSlides={3}\n        scrollStep={3}\n        variant=\"dark\"\n      />\n    </Box>\n  );\n}\n```",
+      "code": "function MultipleSlidesCarousel() {\n  const { Title } = Typography;\n  const darkBgCollection = [\n    {\n      id: 1,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">1</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 2,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">2</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 3,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">3</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 4,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">4</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 5,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">5</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 6,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">6</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 7,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">7</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n    {\n      id: 8,\n      content: (\n        <DarkCarouselWrapper>\n          <Title intent=\"subdued\">8</Title>\n        </DarkCarouselWrapper>\n      ),\n    },\n  ];\n  return (\n    <Box style={{ height: 300 }}>\n      <Carousel\n        collection={darkBgCollection}\n        shownSlides={3}\n        scrollStep={3}\n        variant=\"dark\"\n      />\n    </Box>\n  );\n}",
+      "purpose_description": "This React component example demonstrates how to implement a carousel that displays multiple slides simultaneously. The primary use case is to allow users to view several items at once, enhancing the user experience by providing a broader view of the available content without requiring excessive scrolling.",
+      "technical_description": "The `MultipleSlidesCarousel` component utilizes a `Carousel` component to render a series of slides. The slides are defined in the `darkBgCollection` array, where each slide is an object containing an `id` and `content`. The `content` is wrapped in a `DarkCarouselWrapper` component, which likely provides styling or layout specific to the carousel's dark theme. The `Title` component from `Typography` is used to display the slide number with a subdued intent, indicating a specific styling choice. The `Carousel` component is configured with several props: `collection`, `shownSlides`, `scrollStep`, and `variant`. `collection` is the array of slides, `shownSlides` specifies the number of slides visible at once, `scrollStep` determines how many slides to scroll at a time, and `variant` sets the visual style of the carousel to 'dark'. The entire carousel is wrapped in a `Box` component with a fixed height of 300 pixels, ensuring consistent layout dimensions.",
+      "patterns_description": "This example demonstrates the use of composition by wrapping slide content in a `DarkCarouselWrapper`, promoting reusability and separation of concerns. The use of a `collection` prop to pass slide data is a common pattern for dynamic content rendering in React. Additionally, the component leverages props to configure behavior and appearance, adhering to React's declarative nature. The use of a `Box` component for layout management is a best practice for maintaining consistent styling and layout.",
+      "use_cases_description": "This carousel implementation is particularly useful in scenarios where users need to browse through a collection of items, such as product images, testimonials, or featured articles. It is ideal for e-commerce websites, portfolios, or any application where showcasing multiple items simultaneously enhances user engagement and interaction. The ability to show multiple slides at once is beneficial for users on larger screens, providing a more immersive experience."
+    }
+  ]
+}
